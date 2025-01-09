@@ -6,7 +6,7 @@
 
 	let { data, children } = $props();
 	let { session, supabase } = $derived(data);
-	console.log(data);
+
 	onMount(() => {
 		const { data } = supabase.auth.onAuthStateChange((_, newSession) => {
 			if (newSession?.expires_at !== session?.expires_at) {

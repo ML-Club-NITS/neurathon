@@ -1,39 +1,44 @@
 <script lang="ts">
-	import { invalidate } from '$app/navigation';
-	import type { EventHandler } from 'svelte/elements';
-
 	let { data } = $props();
-	let { notes, supabase, user } = $derived(data);
-
-	const handleSubmit: EventHandler<SubmitEvent, HTMLFormElement> = async (e) => {
-		e.preventDefault();
-		if (!e.target) return;
-
-		const form = e.target as HTMLFormElement;
-
-		const note = (new FormData(form).get('note') ?? '') as string;
-		if (!note) return;
-
-		const { error } = await supabase.from('notes').insert({ note });
-		if (error) console.error(error);
-
-		invalidate('supabase:db:notes');
-		form.reset();
-	};
+	let { TeamID, team, user } = $derived(data);
 </script>
 
 <h1>Private page for User: {user?.email}</h1>
 <h1>Name: {user?.user_metadata?.name}</h1>
 <h1>Phone No.: {user?.user_metadata?.phone}</h1>
-<h2>Notes</h2>
-<ul>
-	{#each notes as note}
-		<li>{note.note}</li>
-	{/each}
-</ul>
-<form onsubmit={handleSubmit}>
-	<label>
-		Add a note
-		<input name="note" type="text" />
-	</label>
-</form>
+
+{#if TeamID}
+	<div class="container border-2 border-black p-2">
+		<span class="bg-gray-400">Team ID: {TeamID}</span>
+		<h1>Team: {team?.TeamName}</h1>
+		<p>Team Name: {team?.TeamName}</p>
+		<p>
+			Leader: {team.Members.find((m: { sub: string; name: string }) => m.sub === team?.CreatedBy)
+				?.name}
+		</p>
+		<p>Members:</p>
+		{#each team?.Members as member}
+			<p>{member.name} {member.phone}</p>
+		{/each}
+		<form method="POST">
+			{#if team?.CreatedBy === user?.id}
+				<button formaction="?/delete" class="rounded-lg bg-red-600 px-2 py-1">Delete</button>
+			{:else}
+				<button formaction="?/leave" class="rounded-lg bg-red-600 px-2 py-1">Leave</button>
+			{/if}
+		</form>
+	</div>
+{:else}
+	<div class="container border-2 border-black bg-gray-400">
+		<form method="POST" class="m-2 flex gap-4 bg-gray-200">
+			<label for="teamname">Team Name</label>
+			<input type="text" id="teamname" name="teamname" />
+			<button formaction="?/register">Create Team</button>
+		</form>
+		<form method="POST" class="m-2 flex gap-4 bg-gray-200">
+			<label for="teamid">Team Id</label>
+			<input type="text" id="teamid" name="teamid" />
+			<button formaction="?/join">Join Team</button>
+		</form>
+	</div>
+{/if}

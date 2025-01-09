@@ -1,7 +1,7 @@
-<div class="h-screen bg-gray-200 py-20 p-4 md:p-20 lg:p-32">
-    <div class="max-w-sm bg-white rounded-lg overflow-hidden shadow-lg mx-auto p-6">
+<div class="h-screen bg-gray-200 p-4 py-20 md:p-20 lg:p-32">
+	<div class="mx-auto max-w-sm overflow-hidden rounded-lg bg-white p-6 shadow-lg">
 		<form method="POST" action="?/login">
-			<div class="flex mb-4 gap-4">
+			<div class="mb-4 flex gap-4">
 				<label class="mb-2 block font-bold text-gray-700" for="username"> Name </label>
 				<input
 					class="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
@@ -9,7 +9,7 @@
 					type="text"
 				/>
 			</div>
-			<div class="flex mb-4 gap-4">
+			<div class="mb-4 flex gap-4">
 				<label class="mb-2 block font-bold text-gray-700" for="username"> Email </label>
 				<input
 					class="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
@@ -17,7 +17,7 @@
 					type="email"
 				/>
 			</div>
-			<div class="flex mb-6 gap-4">
+			<div class="mb-6 flex gap-4">
 				<label class="mb-2 block font-bold text-gray-700" for="password"> Phone No. </label>
 				<input
 					class="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
@@ -25,7 +25,7 @@
 					type="tel"
 				/>
 			</div>
-			<div class="flex mb-6 gap-4">
+			<div class="mb-6 flex gap-4">
 				<label class="mb-2 block font-bold text-gray-700" for="password"> Password </label>
 				<input
 					class="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
