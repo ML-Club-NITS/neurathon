@@ -4,10 +4,18 @@
 	export let title;
 	export let description;
 	export let image;
+
+	let showDetails = false;
+
+	function showDescription() {
+		showDetails = !showDetails;
+	}
+
+
 </script>
 
 <div class="crad-container">
-	<div class="card">
+	<div class="card" >
 		<div class="card-header">
 			<div class="img-container">
 				<img src={image} alt={title} draggable="false" />
@@ -19,10 +27,24 @@
 		<div class="track_details">
 			<p class="track-description">{description}</p>
 		</div>
-		<div class="card_button">
+		<div class="card-button">
 			<ButtonBackgroundShine />
+			<button class="hover-text" on:click={() => showDescription()} on:keydown={(e) => e.key === 'Enter' && showDescription()} aria-label="Show description">Tap!</button>
 		</div>
 	</div>
+	<div class="description-card">
+		<div class="details-container" style="transform: {showDetails ? 'translateX(0)' : 'translateX(-100%)'}">
+			<p class="details-title">{title}</p>
+			<p class="details-description">{description}</p>
+		</div>
+	</div>
+
+	{#if showDetails}
+		<div class="track-details-container">
+			<p class="details-title">{title}</p>
+			<p class="details-description">{description}</p>
+		</div>
+	{/if}
 </div>
 
 <style>
@@ -68,6 +90,32 @@
 		font-size: 30px;
 	}
 
+	.card-button {
+		display: flex;
+		justify-content: center;
+		margin-top: 20px;
+		padding: 20px;
+		position: relative;
+	}
+
+	.hover-text {
+		position: absolute;
+		top: 50%;
+		right: 50px;
+		transform: translateY(-50%);
+		background: rgba(255, 255, 255, 0.8);
+		color: #333;
+		font-family: 'Poppins', sans-serif;
+		font-size: 14px;
+		padding: 5px 10px;
+		border-radius: 5px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		opacity: 0;
+		transform: translateX(+20px) translateY(-50%);
+		transition: opacity 0.3s, transform 0.3s;
+	}
+
+
 	.card::before {
 		content: '';
 		position: absolute;
@@ -95,6 +143,28 @@
 	.card:hover {
 		transform: translateY(-10px);
 		background: linear-gradient(rgba(3, 73, 1, 0.35), rgba(0, 216, 32, 0.35));
+		.hover-text {
+			opacity: 1;
+			transform: translateX(0) translateY(-50%);
+		}
+	}
+
+	.description-card {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(255, 255, 255, 0.5);
+		backdrop-filter: blur(15px);
+		opacity: 0;
+		transition: opacity 0.3s;
+	}
+
+	.description-card.show {
+		opacity: 1;
 	}
 
 	@keyframes flowing-water {
@@ -109,13 +179,7 @@
 		}
 	}
 
-	.card_button {
-		display: flex;
-		justify-content: center;
-		margin-top: 20px;
-		padding: 20px;
-	}
-
+	
 	.track_details {
 		padding: 20px;
 		display: flex;

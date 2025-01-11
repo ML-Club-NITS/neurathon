@@ -3,8 +3,8 @@
   
     export let img: string;
     export let name: string;
-    export let username: string;
-    export let body: string;
+    // export let username: string;
+    // export let body: string;
   </script>
   
   <figure
