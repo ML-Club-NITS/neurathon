@@ -22,7 +22,7 @@
 	}
 </script>
 
-<div class="flex w-screen items-center justify-between bg-gray-200">
+<div class="glassy-navbar flex w-screen items-center justify-between">
 	<nav class="mx-6 my-3 flex gap-4">
 		<a href="/" class="rounded-lg bg-gray-400 px-2 py-1">Home</a>
 		<a href="/participate" class="rounded-lg bg-gray-400 px-2 py-1">Participate</a>
@@ -33,3 +33,40 @@
 </div>
 
 {@render children()}
+
+<style>
+	.glassy-navbar {
+		background-color: rgba(255, 255, 255, 0.2);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+		padding: 1rem 0;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 1000;
+	}
+
+	nav a {
+		text-decoration: none;
+		color: white;
+		transition:
+			background-color 0.3s,
+			color 0.3s;
+	}
+
+	nav a:hover {
+		background-color: rgba(255, 255, 255, 0.3);
+		color: black;
+	}
+
+	nav button {
+		transition: background-color 0.3s;
+	}
+
+	nav button:hover {
+		background-color: rgba(255, 0, 0, 0.8);
+	}
+</style>
