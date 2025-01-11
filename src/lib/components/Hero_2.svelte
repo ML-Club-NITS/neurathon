@@ -17,30 +17,36 @@
 		});
 
 		// GSAP Floating Animation for Text
-		gsap.to(floatingText, {
-			y: '-100px', // Moves the text upwards
-			duration: 1.85, // Time for the animation
-			ease: 'power1.inOut', // Smooth easing
-			repeat: -1, // Infinite loop
-			yoyo: true // Reverse back to original
-			// repeatDelay: 1,
-		});
+		// gsap.to(floatingText, {
+		// 	y: '-100px', // Moves the text upwards
+		// 	duration: 1.85, // Time for the animation
+		// 	ease: 'power1.inOut', // Smooth easing
+		// 	repeat: -1, // Infinite loop
+		// 	yoyo: true // Reverse back to original
+		// 	// repeatDelay: 1,
+		// });
 	});
 </script>
 
-<section class="relative bg-black px-3 py-5 lg:py-10">
-	<div class="grid items-center justify-items-center gap-5 lg:grid-cols-2 tracking-wider">
-		<div bind:this={animationContainer} class="relative z-0"></div>
-		<div>
-			<p
-				bind:this={floatingText}
-				class="pointer-events-none absolute inset-0 flex items-center justify-center text-4xl font-bold text-orange-600 md:text-7xl"
-			>
-				Neurathon 3.0
-			</p>
+<section class="relative w-full bg-black px-3 py-5 lg:py-10 mb-[-200px]">
+	<div class="w-full flex-col items-center justify-items-center">
+		<div
+			class="mb-[-20px] text-4xl font-semibold uppercase tracking-tighter text-orange-500 sm:mb-[-100px] sm:text-7xl sm:font-bold md:text-8xl"
+		>
+			<span class="animated-text animate-move-together" style="animation-delay: 0.1s;">N</span>
+			<span class="animated-text animate-move-together" style="animation-delay: 0.2s;">e</span>
+			<span class="animated-text animate-move-together" style="animation-delay: 0.3s;">u</span>
+			<span class="animated-text animate-move-together" style="animation-delay: 0.4s;">r</span>
+			<span class="animated-text animate-move-together" style="animation-delay: 0.5s;">a</span>
+			<span class="animated-text animate-move-together" style="animation-delay: 0.6s;">t</span>
+			<span class="animated-text animate-move-together" style="animation-delay: 0.7s;">h</span>
+			<span class="animated-text animate-move-together" style="animation-delay: 0.8s;">o</span>
+			<span class="animated-text animate-move-together" style="animation-delay: 0.8s;">n</span>
 		</div>
+		<div bind:this={animationContainer} class="relative w-fit"></div>
 	</div>
 </section>
+
 
 <style>
 	/* Optional styling for better visuals */

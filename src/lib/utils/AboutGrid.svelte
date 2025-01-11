@@ -4,8 +4,8 @@
 
 	let className: any = '';
 	export { className as class };
-	export let r = 10;
-	export let c = 10;
+	export let r = 5;
+	export let c = 5;
 	let rows = new Array(r).fill(1);
 	let cols = new Array(c).fill(1);
 </script>

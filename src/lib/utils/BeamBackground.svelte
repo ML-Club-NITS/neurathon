@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
-	import { M, Motion } from 'svelte-motion';
+	import { M, Motion} from 'svelte-motion';
 
 	let className: any = '';
 	export { className as class };
@@ -21,7 +21,6 @@
 			stroke-width={1.5}
 		/>
 		<defs>
-			<M.linearGradient />
 			<Motion
 				variants={{
 					initial: {
@@ -49,14 +48,8 @@
 				isSVG={true}
 				let:motion
 			>
-				<linearGradient id="grad1" use:motion>
-					<stop stop-color="#18CCFC" stop-opacity="0" />
-					<stop stop-color="#18CCFC" />
-					<stop offset="0.325" stop-color="#6344F5" />
-					<stop offset="1" stop-color="#AE48FF" stop-opacity="0" />
-				</linearGradient>
 			</Motion>
 		</defs>
 	</svg>
-	<slot>Helo</slot>
+	<slot></slot>
 </div>
