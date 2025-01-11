@@ -1,22 +1,26 @@
 <script>
 	import ButtonBackgroundShine from './ButtonBackgroundShine.svelte';
+	
+	export let title;
+	export let description;
+	export let image;
 </script>
 
 <div class="crad-container">
 	<div class="card">
 		<div class="card-header">
 			<div class="img-container">
-				<img src="src\components\assets\diamond.png" alt="diamond" draggable="false" />
+				<img src={image} alt={title} draggable="false" />
 			</div>
 		</div>
 		<div class="card-body">
-			<p class="card-text">Tracks</p>
+			<p class="card-text">{title}</p>
 		</div>
 		<div class="track_details">
-			<p>A small description about the track, like track details, or a catch phrase</p>
+			<p class="track-description">{description}</p>
 		</div>
 		<div class="card_button">
-			<ButtonBackgroundShine butto/>
+			<ButtonBackgroundShine />
 		</div>
 	</div>
 </div>

@@ -3,6 +3,24 @@
 	import Card3 from './Card3.svelte';
 	import HoverMagicCard from './HoverMagicCard.svelte';
 	import TrackCard from './TrackCard.svelte';
+
+	const tracks = [
+		{
+			title: 'Track 1',
+			description: 'This is the description of track 1',
+			image: 'src/components/assets/diamond.png'
+		},
+		{
+			title: 'Track 2',
+			description: 'This is the description of track 2',
+			image: 'src/components/assets/diamond.png'
+		},
+		{
+			title: 'Track 3',
+			description: 'This is the description of track 3',
+			image: 'src/components/assets/diamond.png'
+		},
+	];
 </script>
 
 <div class="track-container">
@@ -12,9 +30,9 @@
 		</div>
 	</div>
 	<div class="track-content">
-		<TrackCard/>
-		<TrackCard/>
-		<TrackCard/>
+		{#each tracks as track}
+			<TrackCard title={track.title} description={track.description} image={track.image} />
+		{/each}
 	</div>
 </div>
 
