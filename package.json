@@ -34,7 +34,16 @@
 		"vite": "^5.4.11"
 	},
 	"dependencies": {
+		"@popperjs/core": "^2.11.8",
 		"@supabase/ssr": "^0.5.2",
-		"@supabase/supabase-js": "^2.47.11"
+		"@supabase/supabase-js": "^2.47.11",
+		"clsx": "^2.1.1",
+		"flowbite": "^2.5.2",
+		"flowbite-svelte": "^0.47.4",
+		"gsap": "^3.12.5",
+		"lottie-web": "^5.12.2",
+		"mini-svg-data-uri": "^1.4.4",
+		"svelte-motion": "^0.12.2",
+		"tailwind-merge": "^2.6.0"
 	}
 }
