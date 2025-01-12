@@ -12,7 +12,7 @@
 	)}
 >
 	<!-- Grid  -->
-	<div class="absolute inset-0 [transform:rotateX(35deg)]">
+	<div class="absolute inset-0 [transform:rotateX(30deg)]">
 		<div
 			class={cn(
 				'animate-grid',
@@ -30,6 +30,6 @@
 	</div>
 
 	<!-- Background Gradient -->
-	<div class="absolute inset-0 bg-gradient-to-t from-white to-transparent to-40% dark:from-black">
+	<div class="absolute inset-0 bg-gradient-to-t from-[#56e6ff] to-transparent to-40% dark:from-black">
     </div>
 </div>

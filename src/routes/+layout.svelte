@@ -22,7 +22,7 @@
 	}
 </script>
 
-<div class="flex w-fit items-center justify-between bg-black">
+<!-- <div class="flex w-fit items-center justify-between bg-black">
 	<nav class="mx-6 my-3 flex gap-4">
 		<a href="/" class="rounded-lg bg-gray-400 px-2 py-1">Home</a>
 		<a href="/participate" class="rounded-lg bg-gray-400 px-2 py-1">Participate</a>
@@ -30,6 +30,6 @@
 			<button onclick={signOut} class="rounded-lg bg-red-500 px-2 py-1">LogOut</button>
 		{/if}
 	</nav>
-</div>
+</div> -->
 
 {@render children()}

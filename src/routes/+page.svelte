@@ -10,20 +10,6 @@
 
 <!-- <h1 class="text-4xl">Welcome to Supabase!</h1>
 <p>Last fetch Server Time: {data.currentTime}</p> -->
-
-<div
-	class="
-h-screen
-overflow-y-auto pt-4
-[&::-webkit-scrollbar-thumb]:rounded-full
-[&::-webkit-scrollbar-thumb]:bg-gray-300
-dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500
-[&::-webkit-scrollbar-track]:rounded-full
-[&::-webkit-scrollbar-track]:bg-gray-100
-dark:[&::-webkit-scrollbar-track]:bg-neutral-700
-[&::-webkit-scrollbar]:w-2 bg-slate-900"
->
-	<Navbar></Navbar>
-	<Hero_2></Hero_2>
-	<About></About>
-</div>
+<Navbar></Navbar>
+<Hero_2></Hero_2>
+<About></About>

@@ -4,7 +4,8 @@ export default {
 	theme: {
 		extend: {
 			animation: {
-				grid: 'grid 15s linear infinite'
+				grid: 'grid 15s linear infinite',
+				shimmer: 'shimmer 8s infinite'
 			},
 			keyframes: {
 				grid: {
@@ -22,6 +23,28 @@ export default {
 				animation: {
 					'fade-in': 'fadeIn 1s forwards',
 					'move-together': 'moveTogether 1s ease-in-out forwards'
+				},
+				shimmer: {
+					'0%, 90%, 100%': {
+						'background-position': 'calc(-100% - var(--shimmer-width)) 0'
+					},
+					'30%, 60%': {
+						'background-position': 'calc(100% + var(--shimmer-width)) 0'
+					}
+				},
+				'shine-pulse': {
+					'0%': {
+						'background-position': '0% 0%'
+					},
+					'40%': {
+						'background-position': '50% 70%'
+					},
+					'80%': {
+						'background-position': '100% 100%'
+					},
+					to: {
+						'background-position': '0% 0%'
+					}
 				}
 			}
 		}

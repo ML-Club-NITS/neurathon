@@ -44,7 +44,9 @@
 		"gsap": "^3.12.5",
 		"lottie-web": "^5.12.2",
 		"mini-svg-data-uri": "^1.4.4",
+		"svelte-inview": "^4.0.4",
 		"svelte-motion": "^0.12.2",
-		"tailwind-merge": "^2.6.0"
+		"tailwind-merge": "^2.6.0",
+		"vitest": "^2.1.8"
 	}
 }
