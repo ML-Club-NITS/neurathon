@@ -15,7 +15,7 @@ importers:
         specifier: ^0.5.2
         version: 0.5.2(@supabase/supabase-js@2.47.12)
       '@supabase/supabase-js':
-        specifier: ^2.47.11
+        specifier: ^2.47.12
         version: 2.47.12
       clsx:
         specifier: ^2.1.1
@@ -29,6 +29,9 @@ importers:
       gsap:
         specifier: ^3.12.5
         version: 3.12.5
+      lucide-svelte:
+        specifier: ^0.471.0
+        version: 0.471.0(svelte@5.17.3)
       mini-svg-data-uri:
         specifier: ^1.4.4
         version: 1.4.4
@@ -44,6 +47,9 @@ importers:
       svelte-motion:
         specifier: ^0.12.2
         version: 0.12.2(svelte@5.17.3)
+      svelte-reveal:
+        specifier: ^1.1.0
+        version: 1.1.0
       tailwind-merge:
         specifier: ^2.6.0
         version: 2.6.0
@@ -1184,6 +1190,11 @@ packages:
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
+  lucide-svelte@0.471.0:
+    resolution: {integrity: sha512-z+C6G2K089iDGbl8HzTdD5G6i5BvuaBxdIPQDa650Kb8TXBJRODa7YfmaIHy78+Y+YaB75N0lzUIQEclzflJrQ==}
+    peerDependencies:
+      svelte: ^3 || ^4 || ^5.0.0-next.42
+
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
 
@@ -1596,6 +1607,9 @@ packages:
     resolution: {integrity: sha512-7RrdRz9iVP55B9HT/C0hYW3pyrKlF61kAby/AkDtOAP0uHFQDrfd0qQetDC81cEsK9b40jt+jfcqSAXcA7LPEw==}
     peerDependencies:
       svelte: '>=3.35.0 || ^4.0.0 || ^5.0.0 || ^5.0.0-next.0'
+
+  svelte-reveal@1.1.0:
+    resolution: {integrity: sha512-TnLZy7UOj14ZGsbKjZUK/c+aCnPl1sieZ1VrmKPCtG1Cw9XDUslpV/KJGqJeo7sVNVeG7QnH1asrsugogR3YYg==}
 
   svelte@5.17.3:
     resolution: {integrity: sha512-eLgtpR2JiTgeuNQRCDcLx35Z7Lu9Qe09GPOz+gvtR9nmIZu5xgFd6oFiLGQlxLD0/u7xVyF5AUkjDVyFHe6Bvw==}
@@ -2896,6 +2910,10 @@ snapshots:
 
   lru-cache@10.4.3: {}
 
+  lucide-svelte@0.471.0(svelte@5.17.3):
+    dependencies:
+      svelte: 5.17.3
+
   magic-string@0.30.17:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
@@ -3229,6 +3247,8 @@ snapshots:
       style-value-types: 5.1.2
       svelte: 5.17.3
       tslib: 2.8.1
+
+  svelte-reveal@1.1.0: {}
 
   svelte@5.17.3:
     dependencies:
