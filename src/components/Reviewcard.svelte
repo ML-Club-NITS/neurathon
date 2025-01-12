@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
+	import { Filter } from 'lucide-svelte';
 
 	export let img: string;
 	export let name: string;
@@ -17,6 +18,6 @@
 	)}
 >
 	<div class="sponserImg flex items-center justify-center">
-		<img src={img} alt={name} class="w-25 h-25" />
+		<img src={img} alt={name} class="w-25 h-25 grayscale hover:grayscale-0 transition duration-300" />
 	</div>
 </figure>
