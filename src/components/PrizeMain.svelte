@@ -1,22 +1,26 @@
 <script>
 	import PrizeCard from './PrizeCard.svelte';
 	import diamond from '$lib/assets/diamond.png';
-
+	import doughnut from '$lib/assets/doughnut.png';
+	import drop1 from '$lib/assets/drop1.png';
+	import drop2 from '$lib/assets/drop2.png';
+	import gal from '$lib/assets/gal.png';
+	import gem from '$lib/assets/gem.png';
 	const prizes = [
 		{
 			title: 'Best Presentation',
-			award: 'Award',
-			image: diamond
+			award: 'Award1',
+			image: gem
 		},
 		{
 			title: 'Best Presentation',
-			award: 'Award',
-			image: diamond
+			award: 'Award2',
+			image: gal
 		},
 		{
 			title: 'Best Presentation',
-			award: 'Award',
-			image: diamond
+			award: 'Award3',
+			image: drop1
 		}
 	];
 </script>
@@ -28,8 +32,13 @@
 		Prizes
 	</span>
 	<div class="prize-content">
-		{#each prizes as prize}
-			<PrizeCard title={prize.title} award={prize.award} image={prize.image} />
+		{#each prizes as prize, index}
+			<div
+				class="prize-wrapper"
+				style={`transform: translateY(${index === 1 ? '0px' : '70px'});`}
+			>
+				<PrizeCard title={prize.title} award={prize.award} image={prize.image} />
+			</div>
 		{/each}
 	</div>
 </div>
@@ -43,13 +52,13 @@
 		row-gap: 30px;
 	}
 	.prize-content {
-		display: flex;
-		/* flex-wrap: wrap; */
-		justify-content: center;
-		/* width: 500px; */
-		/* height: 100%; */
-		gap: 65px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr); 
+		gap: 50px;
 		margin-top: 20px;
-		min-width: 00px;
+		width: 100%;
+	}
+	.prize-wrapper {
+		transition: transform 0.3s ease, boxw 0.3s ease;
 	}
 </style>

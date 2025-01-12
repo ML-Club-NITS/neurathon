@@ -33,7 +33,7 @@
 		width: 320px;
 		height: 400px;
 		border-radius: 1rem;
-		background: rgba(255, 255, 255, 0.1);
+		/* background: rgba(255, 255, 255, 0.1); */
 		backdrop-filter: blur(10px);
 		position: relative;
 		border: 4px solid transparent;
