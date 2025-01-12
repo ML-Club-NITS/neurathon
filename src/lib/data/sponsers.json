@@ -1,0 +1,28 @@
+{
+    "sponsers": [
+        {
+            "name": "Blockchain",
+            "img": "../src/lib/assets/blockchain.png"
+        },
+        {
+            "name": "Cisco",
+            "img": "../src/lib/assets/cisco.png"
+        },
+        {
+            "name": "Cocacola",
+            "img": "../src/lib/assets/cocacola.png"
+        },
+        {
+            "name": "Google",
+            "img": "../src/lib/assets/google.png"
+        },
+        {
+            "name": "IBM",
+            "img": "../src/lib/assets/ibm.png"
+        },
+        {
+            "name": "Walmart",
+            "img": "../src/lib/assets/walmart.png"
+        }
+    ]
+}

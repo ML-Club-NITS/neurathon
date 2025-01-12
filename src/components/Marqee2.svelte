@@ -14,35 +14,11 @@
 	import ibm from '$lib/assets/ibm.png';
 	import walmart from '$lib/assets/walmart.png';
 
-	const reviews = [
-		{
-			name: 'Blockchain',
-			img: blockchain
-		},
-		{
-			name: 'Cisco',
-			img: cisco
-		},
-		{
-			name: 'Cocacola',
-			img: cocacola
-		},
-		{
-			name: 'Google',
-			img: google
-		},
-		{
-			name: 'IBM',
-			img: ibm
-		},
-		{
-			name: 'Walmart',
-			img: walmart
-		}
-	];
+	import sponserData from '$lib/data/sponsers.json';
 
-	let firstRow = reviews.slice(0, reviews.length / 2);
-	let secondRow = reviews.slice(reviews.length / 2);
+
+	let firstRow = sponserData.sponsers.slice(0, sponserData.sponsers.length / 2);
+	let secondRow = sponserData.sponsers.slice(sponserData.sponsers.length / 2);
 </script>
 
 <div

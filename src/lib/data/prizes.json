@@ -1,0 +1,19 @@
+{
+    "prizes": [
+        {
+            "title": "Best Presentation",
+            "award": "Award1",
+            "image": "../src/lib/assets/gem.png"
+        },
+        {
+            "title": "Best Presentation",
+            "award": "Award2",
+            "image": "../src/lib/assets/gal.png"
+        },
+        {
+            "title": "Best Presentation",
+            "award": "Award3",
+            "image": "../src/lib/assets/drop1.png"
+        }
+    ]
+}
