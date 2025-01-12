@@ -1,5 +1,6 @@
 <script lang="ts">
 	import CustomCard from '../components/CustomCard.svelte';
+	import FaQs from '../components/FAQs.svelte';
 	import Prizes from '../components/Prizes.svelte';
 	import Prizes2 from '../components/Prizes2.svelte';
 	import Timeline from '../components/Timeline.svelte';
@@ -13,3 +14,4 @@
 <Prizes2 />
 <Timeline />
 <CustomCard />
+<FaQs />
