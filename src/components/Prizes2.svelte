@@ -1,13 +1,12 @@
 <script>
-
-	import RetroGrid from "./RetroGrid.svelte";
-
+	import RetroGrid from './RetroGrid.svelte';
 </script>
+
 <section
 	id="prizes"
 	class="h-full w-full justify-around overflow-hidden bg-white font-sans md:px-10 dark:bg-neutral-950"
 >
-	<div class="text-center font-bold text-4xl">Prizes</div>
+	<div class="text-center text-4xl font-bold">Prizes</div>
 	<div class="card-border my-14 h-[400px]">
 		<div class="card-bg">
 			<div class="container-logo">

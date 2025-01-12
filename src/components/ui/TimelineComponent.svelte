@@ -51,7 +51,7 @@
 </script>
 
 <div class="h-auto w-auto bg-white font-sans md:px-10 dark:bg-neutral-950" bind:this={containerRef}>
-	<div class="mt-40 text-4xl text-center font-bold">Timeline</div>
+	<div class="mt-40 text-center text-4xl font-bold">Timeline</div>
 	<div class="relative mx-28 max-w-7xl overflow-hidden pb-20">
 		{#each timelineData as item, index}
 			<div class="flex justify-start pt-10 md:gap-y-10 md:pt-40">
