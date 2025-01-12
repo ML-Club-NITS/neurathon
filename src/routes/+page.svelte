@@ -1,5 +1,6 @@
 <script lang="ts">
-	import Sponsers from '../components/Sponsers.svelte'
+	import Prizes from '../components/Prizes.svelte';
+	import Sponsers from '../components/Sponsers.svelte';
 
 	export let data;
 </script>
@@ -8,8 +9,11 @@
 	<div class="container">
 		<h1 class="mb-4 text-4xl">Neurathon</h1>
 		<p class="mb-6">Last fetch Server Time: {data?.currentTime || 'Unavailable'}</p>
-		<section class="sponsers">
+		<section id="sponsers">
 			<Sponsers/>
+		</section>
+		<section id="prizes">
+			<Prizes/>
 		</section>
 	</div>
 	<footer class="mt-8">
