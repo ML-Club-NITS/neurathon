@@ -19,7 +19,7 @@
 			title: 'Track 3',
 			description: 'This is the description of track 3',
 			image: 'src/components/assets/diamond.png'
-		},
+		}
 	];
 </script>
 
@@ -27,11 +27,10 @@
 	<div class="track-intro">
 		<div class="intro-card">
 			<span
-  				class="inline-flex animate-text-gradient bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] text-3xl text-center text-transparent bg-clip-text"
+				class="inline-flex animate-text-gradient bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text text-center text-3xl text-transparent"
 			>
 				Tracks
 			</span>
-
 		</div>
 	</div>
 	<div class="track-content">
@@ -50,9 +49,9 @@
 
 	.track-content {
 		display: flex;
-        gap: 30px;
-        justify-content: center;
-        flex-wrap: wrap;
+		gap: 30px;
+		justify-content: center;
+		flex-wrap: wrap;
 	}
 
 	.intro-card {

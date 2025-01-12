@@ -5,23 +5,23 @@
 	import ButtonBackgroundShine from './ButtonBackgroundShine.svelte';
 </script>
 
-<div class="m-20px flex h-[250px] flex-col gap-4 lg:flex-row w-[300px]">
+<div class="m-20px flex h-[250px] w-[300px] flex-col gap-4 lg:flex-row">
 	<MagicCard
-		class="group cursor-pointer flex flex-col items-center justify-center text-center whitespace-nowrap text-4xl shadow-2xl transition-all duration-300 hover:border-[#1cff149e]"
+		class="group flex cursor-pointer flex-col items-center justify-center whitespace-nowrap text-center text-4xl shadow-2xl transition-all duration-300 hover:border-[#1cff149e]"
 		gradientColor="#043634"
 		gradientSize={300}
 	>
-		<div class="det-container flex flex-col items-center justify-center gap-4 h-full w-full p-4">
-			<div class="img-container h-[100px] w-full border-2 overflow-hidden flex-shrink-0"></div>
+		<div class="det-container flex h-full w-full flex-col items-center justify-center gap-4 p-4">
+			<div class="img-container h-[100px] w-full flex-shrink-0 overflow-hidden border-2"></div>
 			<div
-				class="flex items-center justify-center gap-1.5 font-semibold text-lg transition-all duration-500 group-hover:text-[#7fe565]"
+				class="flex items-center justify-center gap-1.5 text-lg font-semibold transition-all duration-500 group-hover:text-[#7fe565]"
 			>
 				<!-- <img src={SupabaseSvg} alt="svelte_logo" class="size-10 mt-1.5" /> -->
 				Track Name
 			</div>
-      		<div class="button-container mt-2">
-        		<ButtonBackgroundShine />
-      		</div>
+			<div class="button-container mt-2">
+				<ButtonBackgroundShine />
+			</div>
 		</div>
 	</MagicCard>
 </div>

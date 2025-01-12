@@ -42,7 +42,7 @@
 		className
 	)}
 >
-	<div class="relative w-full z-10">
+	<div class="relative z-10 w-full">
 		<!-- Default  -->
 		<slot>
 			<div class="flex h-full items-center justify-center text-center">

@@ -6,19 +6,20 @@
 	// for bg-grid : please scroll to the bottom of the page to see the bg-grid :  tailwind.config.ts file.
 </script>
 
-<section class=" flex h-lvh w-full items-center justify-center bg-black md:px-24 px-5 lg:py-1 border-slate-500">
-	<ShineBorder
-    class="text-center text-2xl font-bold capitalize"
-    color={["#FF5722", "#0883FF"]}
-  >
-		<div class="h-fit w-full flex-col my-auto">
+<section
+	class=" flex h-lvh w-full items-center justify-center border-slate-500 bg-black px-5 md:px-24 lg:py-1"
+>
+	<ShineBorder class="text-center text-2xl font-bold capitalize" color={['#FF5722', '#0883FF']}>
+		<div class="my-auto h-fit w-full flex-col">
 			<AnimatedShinyText
-				class="w-full inline-flex items-center justify-center transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400"
+				class="inline-flex w-full items-center justify-center transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400"
 			>
-				<div class="w-fit text-5xl md:text-7xl font-bold sm:text-6xl text-wrap">About</div>
+				<div class="w-fit text-wrap text-5xl font-bold sm:text-6xl md:text-7xl">About</div>
 			</AnimatedShinyText>
-			<br>
-			<p class="max-w-fit tracking-normal leading-snug sm:text-[22px] text-[15px] text-gray-300 sm:mt-[50px] mt-[20px] mb-[5 0px]">
+			<br />
+			<p
+				class="mb-[5 0px] mt-[20px] max-w-fit text-[15px] leading-snug tracking-normal text-gray-300 sm:mt-[50px] sm:text-[22px]"
+			>
 				Neurathon is an innovative AI/ML-based hackathon designed to ignite creativity and foster
 				groundbreaking ideas in the field of artificial intelligence and machine learning. This
 				event brings together developers, data scientists, and tech enthusiasts from diverse

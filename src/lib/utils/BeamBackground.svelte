@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
-	import { M, Motion} from 'svelte-motion';
+	import { M, Motion } from 'svelte-motion';
 
 	let className: any = '';
 	export { className as class };
@@ -47,8 +47,7 @@
 				}}
 				isSVG={true}
 				let:motion
-			>
-			</Motion>
+			></Motion>
 		</defs>
 	</svg>
 	<slot></slot>

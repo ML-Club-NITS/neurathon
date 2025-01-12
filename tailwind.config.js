@@ -15,20 +15,20 @@ export default {
 			keyframes: {
 				shine: {
 					from: { backgroundPosition: '0 0' },
-					to: { backgroundPosition: '-200% 0' },
+					to: { backgroundPosition: '-200% 0' }
 				},
 				marquee: {
 					from: { transform: 'translateX(0)' },
-					to: { transform: 'translateX(calc(-100% - var(--gap)))' },
+					to: { transform: 'translateX(calc(-100% - var(--gap)))' }
 				},
 				'marquee-vertical': {
 					from: { transform: 'translateY(0)' },
-					to: { transform: 'translateY(calc(-100% - var(--gap)))' },
+					to: { transform: 'translateY(calc(-100% - var(--gap)))' }
 				},
 				'text-gradient': {
 					to: {
-						backgroundPosition: '200% center',
-					},
+						backgroundPosition: '200% center'
+					}
 				},
 				grid: {
 					'0%': { transform: 'translateY(-30%)' },

@@ -1,6 +1,6 @@
 <script>
 	import ButtonBackgroundShine from './ButtonBackgroundShine.svelte';
-	
+
 	export let title;
 	export let description;
 	export let image;
@@ -10,12 +10,10 @@
 	function showDescription() {
 		showDetails = !showDetails;
 	}
-
-
 </script>
 
 <div class="crad-container">
-	<div class="card" >
+	<div class="card">
 		<div class="card-header">
 			<div class="img-container">
 				<img src={image} alt={title} draggable="false" />
@@ -29,11 +27,19 @@
 		</div>
 		<div class="card-button">
 			<ButtonBackgroundShine />
-			<button class="hover-text" on:click={() => showDescription()} on:keydown={(e) => e.key === 'Enter' && showDescription()} aria-label="Show description">Tap!</button>
+			<button
+				class="hover-text"
+				on:click={() => showDescription()}
+				on:keydown={(e) => e.key === 'Enter' && showDescription()}
+				aria-label="Show description">Tap!</button
+			>
 		</div>
 	</div>
 	<div class="description-card">
-		<div class="details-container" style="transform: {showDetails ? 'translateX(0)' : 'translateX(-100%)'}">
+		<div
+			class="details-container"
+			style="transform: {showDetails ? 'translateX(0)' : 'translateX(-100%)'}"
+		>
 			<p class="details-title">{title}</p>
 			<p class="details-description">{description}</p>
 		</div>
@@ -112,9 +118,10 @@
 		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 		opacity: 0;
 		transform: translateX(+20px) translateY(-50%);
-		transition: opacity 0.3s, transform 0.3s;
+		transition:
+			opacity 0.3s,
+			transform 0.3s;
 	}
-
 
 	.card::before {
 		content: '';
@@ -179,7 +186,6 @@
 		}
 	}
 
-	
 	.track_details {
 		padding: 20px;
 		display: flex;
