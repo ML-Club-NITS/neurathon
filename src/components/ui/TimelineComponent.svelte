@@ -3,9 +3,6 @@
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
 	import { writable } from 'svelte/store';
-	import { reveal } from 'svelte-reveal';
-	import GradualSpacing from '../GradualSpacing.svelte';
-	import RetroGrid from '../RetroGrid.svelte';
 
 	type TimelineItem = {
 		title: string;
@@ -63,7 +60,7 @@
 					>
 						<div
 							class="h-4 w-4 rounded-full border border-neutral-300 bg-neutral-200 p-2 dark:border-neutral-700 dark:bg-neutral-800"
-						/>
+						></div>
 					</div>
 					<h3
 						class="hidden text-xl font-bold text-neutral-500 md:block md:pl-20 md:text-3xl dark:text-neutral-500"
@@ -93,8 +90,8 @@
 		>
 			<div
 				style="height: {$heightTransform}px; opacity: {$opacityTransform};"
-				class="absolute inset-x-0 top-0 w-[2px] rounded-full bg-gradient-to-t from-purple-500 from-[0%] via-blue-500 via-[10%] to-transparent"
-			/>
+				class="absolute inset-x-0 top-0 w-[2px] rounded-full bg-gradient-to-t from-[#0883FF] from-[0%] via-[#FF5722] via-[10%] to-transparent"
+			></div>
 		</div>
 	</div>
 </div>

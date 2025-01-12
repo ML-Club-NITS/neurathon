@@ -1,22 +1,20 @@
 <script lang="ts">
 	import Timeline from './ui/TimelineComponent.svelte';
-	import Content1 from './timeLineContents/Content1.svelte';
 	import Content2 from './timeLineContents/Content2.svelte';
 	import Content3 from './timeLineContents/Content3.svelte';
-	import RetroGrid from './RetroGrid.svelte';
 
 	let timelineData: any = [
 		{
-			title: 'Svelte 5',
-			content: Content1
+			title: 'Takeoff and Orientation',
+			content: "Event starts of with brief introduction of the Club and release of the Problem Statements."
 		},
 		{
-			title: 'Early 2023',
-			content: Content2
-		},
-		{
-			title: 'Changelog',
+			title: 'Building and Collab',
 			content: Content3
+		},
+		{
+			title: 'Final Evaluation and Closing',
+			content: Content2
 		}
 	];
 </script>
