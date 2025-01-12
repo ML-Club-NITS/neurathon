@@ -4,48 +4,40 @@
 	import logo from '$lib/assets/diamond.png';
 	// import logo from "../assets/logo.png";
 
+	import adobe from '$lib/assets/adobe.png';
+	import amazon from '$lib/assets/amazon.png';
+	import google from '$lib/assets/google.png';
+	import blockchain from '$lib/assets/blockchain.png';
+	import cisco from '$lib/assets/cisco.png';
+	import cocacola from '$lib/assets/cocacola.png';
+	import disney from '$lib/assets/disney.png';
+	import ibm from '$lib/assets/ibm.png';
+	import walmart from '$lib/assets/walmart.png';
+
 	const reviews = [
 		{
-			name: 'Bhide',
-			username: '@Bhide',
-			body: 'Noicee work. I love it. Keep it up.',
-			img: logo
+			name: 'Blockchain',
+			img: blockchain
 		},
 		{
-			name: 'Bhide',
-			username: '@Bhide',
-			body: 'Noicee work. I love it. Keep it up.',
-			img: logo
+			name: 'Cisco',
+			img: cisco
 		},
 		{
-			name: 'Bhide',
-			username: '@Bhide',
-			body: 'Noicee work. I love it. Keep it up.',
-			img: logo
+			name: 'Cocacola',
+			img: cocacola
 		},
 		{
-			name: 'Bhide',
-			username: '@Bhide',
-			body: 'Noicee work. I love it. Keep it up.',
-			img: logo
+			name: 'Google',
+			img: google
 		},
 		{
-			name: 'Bhide',
-			username: '@Bhide',
-			body: 'Noicee work. I love it. Keep it up.',
-			img: logo
+			name: 'IBM',
+			img: ibm
 		},
 		{
-			name: 'Bhide',
-			username: '@Bhide',
-			body: 'Noicee work. I love it. Keep it up.',
-			img: logo
-		},
-		{
-			name: 'Bhide',
-			username: '@Bhide',
-			body: 'Noicee work. I love it. Keep it up.',
-			img: logo
+			name: 'Walmart',
+			img: walmart
 		}
 		//   {
 		//     name: "Jethalal",
