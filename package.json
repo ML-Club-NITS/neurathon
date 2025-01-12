@@ -35,6 +35,11 @@
 	},
 	"dependencies": {
 		"@supabase/ssr": "^0.5.2",
-		"@supabase/supabase-js": "^2.47.11"
+		"@supabase/supabase-js": "^2.47.11",
+		"clsx": "^2.1.1",
+		"lucide-svelte": "^0.471.0",
+		"svelte-motion": "^0.12.2",
+		"svelte-reveal": "^1.1.0",
+		"tailwind-merge": "^2.6.0"
 	}
 }
