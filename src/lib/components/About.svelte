@@ -1,6 +1,5 @@
 <script>
 	import AnimatedShinyText from '$lib/utils/AnimatedShinyText.svelte';
-	import GridBeam from '$lib/utils/BeamBackground.svelte';
 	import RetroGrid from '$lib/utils/RetroGrid.svelte';
 	import ShineBorder from '$lib/utils/ShineBorder.svelte';
 	// for bg-grid : please scroll to the bottom of the page to see the bg-grid :  tailwind.config.ts file.
@@ -18,7 +17,7 @@
 			</AnimatedShinyText>
 			<br />
 			<p
-				class="mb-[5 0px] mt-[20px] max-w-fit text-[15px] leading-snug tracking-normal text-gray-300 sm:mt-[50px] sm:text-[22px]"
+				class="md:mb-[20px] mb-[50px] mt-[20px] max-w-fit text-[15px] leading-snug tracking-normal text-gray-300 sm:mt-[50px] sm:text-[22px] px-2 md:px-10 lg:px-16 text-justify"
 			>
 				Neurathon is an innovative AI/ML-based hackathon designed to ignite creativity and foster
 				groundbreaking ideas in the field of artificial intelligence and machine learning. This

@@ -3,10 +3,8 @@
 	import About from '$lib/components/About.svelte';
 	// import Hero_2 from '$lib/components/Hero_2.svelte';
 	import CustomCard from '../components/CustomCard.svelte';
-	import Prize from '../components/Prize.svelte';
 	import FaQs from '../components/FAQs.svelte';
-	import Prizes from '../components/Prizes.svelte';
-	import Prizes2 from '../components/Prizes2.svelte';
+	import PrizeMain from '../components/PrizeMain.svelte';
 	import Timeline from '../components/Timeline.svelte';
 
 	// export let data;
@@ -22,16 +20,15 @@
 		<section class="sponsers">
 			<Sponsers />
 		</section>
-		<section id="prizes">
+		<!-- <section id="prizes">
 			<Prize />
-		</section>
+		</section> -->
 		<section>
 			<FaQs />
 		</section>
-		<Prizes2 />
 		<Timeline />
 		<CustomCard />
-
+		<PrizeMain />
 	</div>
 	<footer class="mt-8">
 		<p class="text-xl">Made with ❤️ by ML Club</p>

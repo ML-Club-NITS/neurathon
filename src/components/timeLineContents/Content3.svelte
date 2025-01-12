@@ -1,10 +1,10 @@
 <div>
 	<p class="mb-4 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-		Deployed 5 new components on Aceternity today
+		Hackathon Start with a race against time and execution.
 	</p>
 	<div class="mb-8">
 		<div class="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-			✅ Card grid component
+			✅ Collaborate and Build
 		</div>
 	</div>
 	<div class="grid grid-cols-2 gap-4">
