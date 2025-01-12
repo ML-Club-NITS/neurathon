@@ -4,6 +4,7 @@
 	import PrizeMain from '../components/PrizeMain.svelte';
 	import Timeline from '../components/Timeline.svelte';
 	import FaQs from '../components/FAQs.svelte';
+	import Hero from '../components/Hero.svelte';
 
 	// export let data;
 </script>
@@ -13,6 +14,9 @@
 	<p class="mb-6">Last fetch Server Time: {data?.currentTime || 'Unavailable'}</p> -->
 	<!-- <Navbar/> -->
 	<!-- <Hero_2></Hero_2> -->
+	<section id="hero" class="w-full">
+		<Hero />
+	</section>
 	<main class="container">
 		<section class="conatiner" id="about">
 			<About />
