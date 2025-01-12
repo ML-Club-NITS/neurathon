@@ -71,14 +71,12 @@ export default {
 			}
 		}
 	},
-	plugins: ['tailwindcss-motion']
-		extend: {
-			fontFamily: {
-				rp1: ["readyplayer", "monospace"],
-				outfit: ["Outfit", "sans-serif"],
-				lps: ["LeagueSpartan", "sans-serif"],
-			},
-		}
-	},
-	plugins: []
+	plugins: ['tailwindcss-motion'],
+	extend: {
+		fontFamily: {
+			rp1: ["readyplayer", "monospace"],
+			outfit: ["Outfit", "sans-serif"],
+			lps: ["LeagueSpartan", "sans-serif"],
+		},
+	}
 };

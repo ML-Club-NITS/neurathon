@@ -25,9 +25,13 @@
 		<section id="prizes">
 			<Prize />
 		</section>
+		<section>
+			<FaQs />
+		</section>
 		<Prizes2 />
 		<Timeline />
 		<CustomCard />
+
 	</div>
 	<footer class="mt-8">
 		<p class="text-xl">Made with ❤️ by ML Club</p>
