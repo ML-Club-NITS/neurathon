@@ -23,6 +23,8 @@
 </script>
 
 <div class="glassy-navbar flex w-screen items-center justify-between">
+</div>
+<!-- <div class="flex w-fit items-center justify-between bg-black">
 	<nav class="mx-6 my-3 flex gap-4">
 		<a href="/" class="rounded-lg bg-gray-400 px-2 py-1">Home</a>
 		<a href="/participate" class="rounded-lg bg-gray-400 px-2 py-1">Participate</a>
@@ -30,7 +32,7 @@
 			<button onclick={signOut} class="rounded-lg bg-red-500 px-2 py-1">LogOut</button>
 		{/if}
 	</nav>
-</div>
+</div> -->
 
 {@render children()}
 
@@ -47,26 +49,5 @@
 		left: 0;
 		width: 100%;
 		z-index: 1000;
-	}
-
-	nav a {
-		text-decoration: none;
-		color: white;
-		transition:
-			background-color 0.3s,
-			color 0.3s;
-	}
-
-	nav a:hover {
-		background-color: rgba(255, 255, 255, 0.3);
-		color: black;
-	}
-
-	nav button {
-		transition: background-color 0.3s;
-	}
-
-	nav button:hover {
-		background-color: rgba(255, 0, 0, 0.8);
 	}
 </style>
