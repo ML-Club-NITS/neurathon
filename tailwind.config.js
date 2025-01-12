@@ -8,6 +8,7 @@ export default {
 				shine: 'shine 2s linear infinite',
 				marquee: 'marquee var(--duration) linear infinite',
 				'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
+				'text-gradient': 'text-gradient 1.5s linear infinite',
 			},
 			keyframes: {
 				shine: {
@@ -21,6 +22,11 @@ export default {
 				'marquee-vertical': {
 					from: { transform: 'translateY(0)' },
 					to: { transform: 'translateY(calc(-100% - var(--gap)))' },
+				},
+				'text-gradient': {
+					to: {
+						backgroundPosition: '200% center',
+					},
 				},
 			},
 		},

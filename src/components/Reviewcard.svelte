@@ -13,7 +13,7 @@
       // light styles
       "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
       // dark styles
-      "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+      "dark:border-gray-50/[.0] dark:bg-gray-50/[.00] dark:hover:bg-gray-50/[.01]"
     )}
   >
    <div class="sponserImg flex items-center justify-center">
