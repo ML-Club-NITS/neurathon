@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import gsap from 'gsap';
 	import lottie from 'lottie-web';
 	import animationData from '$lib/assets/hover_circle.json';
@@ -56,4 +56,4 @@
 	.pointer-events-none {
 		pointer-events: none;
 	}
-</style>
+</style> -->

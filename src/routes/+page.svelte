@@ -1,9 +1,7 @@
 <script lang="ts">
 	import About from '$lib/components/About.svelte';
-	import Hero from '$lib/components/Hero.svelte';
 	import Hero_2 from '$lib/components/Hero_2.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
-	import Particles from '$lib/utils/Particles.svelte';
 
 	let { data } = $props();
 </script>
