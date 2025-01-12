@@ -5,6 +5,7 @@
 </script>
 
 <section id="prizes" class="h-full w-full justify-center bg-white font-sans dark:bg-neutral-950">
+		
 	<div class="card-container mx-auto">
 		<div class="card">
 			<div class="card-prize-container">

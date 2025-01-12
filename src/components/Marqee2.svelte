@@ -39,48 +39,6 @@
 			name: 'Walmart',
 			img: walmart
 		}
-		//   {
-		//     name: "Jethalal",
-		//     username: "@Jethalal",
-		//     body: "I am loving it. Keep it up.",
-		//     img: "https://avatar.vercel.sh/jack",
-		//   },
-		//   {
-		//     name: "Popatlal",
-		//     username: "@Popatlal",
-		//     body: "I am loving it. Keep it up.",
-		//     img: "https://avatar.vercel.sh/jack",
-		//   },
-		//   {
-		//     name: "Iyer",
-		//     username: "@Iyer",
-		//     body: "I am loving it. Keep it up.",
-		//     img: "https://avatar.vercel.sh/jack",
-		//   },
-		//   {
-		//     name: "Sodhi",
-		//     username: "@Sodhi",
-		//     body: "I am loving it. Keep it up.",
-		//     img: "https://avatar.vercel.sh/jack",
-		//   },
-		//   {
-		//     name: "Dr. Hathi",
-		//     username: "@Dr. Hathi",
-		//     body: "I am loving it. Keep it up.",
-		//     img: "https://avatar.vercel.sh/jack",
-		//   },
-		//   {
-		//     name: "Taarak Mehta",
-		//     username: "@Taarak Mehta",
-		//     body: "I am loving it. Keep it up.",
-		//     img: "https://avatar.vercel.sh/jack",
-		//   },
-		//   {
-		//     name: "Anjali",
-		//     username: "@Anjali",
-		//     body: "I am loving it. Keep it up.",
-		//     img: "",
-		//   },
 	];
 
 	let firstRow = reviews.slice(0, reviews.length / 2);

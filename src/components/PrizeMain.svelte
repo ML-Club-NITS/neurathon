@@ -45,10 +45,12 @@
 	}
 	.prize-content {
 		display: flex;
+		/* flex-wrap: wrap; */
 		justify-content: center;
 		/* width: 500px; */
 		/* height: 100%; */
-		gap: 5px;
+		gap: 65px;
 		margin-top: 20px;
+		min-width: 00px;
 	}
 </style>

@@ -10,7 +10,8 @@ export default {
 				'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
 				'text-gradient': 'text-gradient 3s linear infinite',
 				grid: 'grid 15s linear infinite',
-				shimmer: 'shimmer 8s infinite'
+				shimmer: 'shimmer 8s infinite',
+				'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
 			},
 			keyframes: {
 				shine: {
@@ -67,7 +68,12 @@ export default {
 					to: {
 						'background-position': '0% 0%'
 					}
-				}
+				},
+				'border-beam': {
+					'100%': {
+						'offset-distance': '100%',
+					},
+				},
 			}
 		}
 	},
