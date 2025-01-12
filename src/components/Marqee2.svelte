@@ -90,12 +90,12 @@
 <div
 	class="bg-background relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg py-5 md:shadow-xl"
 >
-	<Marquee pauseOnHover class="[--duration:60s]">
+	<Marquee pauseOnHover class="[--duration:30s]">
 		{#each firstRow as item}
 			<Reviewcard {...item} />
 		{/each}
 	</Marquee>
-	<Marquee reverse pauseOnHover class="[--duration:60s]">
+	<Marquee reverse pauseOnHover class="[--duration:30s]">
 		{#each secondRow as item}
 			<Reviewcard {...item} />
 		{/each}

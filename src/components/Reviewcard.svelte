@@ -18,6 +18,10 @@
 	)}
 >
 	<div class="sponserImg flex items-center justify-center">
-		<img src={img} alt={name} class="w-25 h-25 grayscale hover:grayscale-0 transition duration-300" />
+		<img
+			src={img}
+			alt={name}
+			class="w-25 h-25 grayscale transition duration-300 hover:grayscale-0"
+		/>
 	</div>
 </figure>

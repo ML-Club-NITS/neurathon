@@ -2,7 +2,6 @@
 	import PrizeCard from './PrizeCard.svelte';
 	import diamond from '$lib/assets/diamond.png';
 
-
 	const prizes = [
 		{
 			title: 'Best Presentation',
