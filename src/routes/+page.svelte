@@ -1,25 +1,20 @@
 <script lang="ts">
-	import Card2 from '../components/Card2.svelte';
-	import CardBody from '../components/CardBody.svelte';
-	import CardIcon from '../components/CardIcon.svelte';
-	import SquareCard from '../components/SquareCard.svelte';
-	import Tracks from '../components/Tracks.svelte';
-	import Sponsers from '../components/Sponsers.svelte';
+	import Sponsers from '../components/Sponsers.svelte'
 
 	export let data;
 </script>
 
 <div class="main-body flex min-h-screen flex-col items-center justify-center bg-black text-white">
 	<div class="container">
-		<h1 class="mb-4 text-4xl">Welcome to Supabase!</h1>
+		<h1 class="mb-4 text-4xl">Neurathon</h1>
 		<p class="mb-6">Last fetch Server Time: {data?.currentTime || 'Unavailable'}</p>
-		<section class="tracks">
-			<Tracks />
-		</section>
 		<section class="sponsers">
 			<Sponsers/>
 		</section>
 	</div>
+	<footer class="mt-8">
+		<p class="text-xl">Made with ❤️ by ML Club</p>
+	</footer>
 </div>
 
 <style>

@@ -1,7 +1,7 @@
 <script>
     import Marquee from "./Marqee.svelte";
     import Reviewcard from "./Reviewcard.svelte";
-    import logo from "./assets/diamond.png";
+    import logo from "$lib/assets/diamond.png";
     // import logo from "../assets/logo.png";
   
     const reviews = [
@@ -96,14 +96,14 @@
   </script>
   
   <div
-    class="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background py-10 md:shadow-xl"
+    class="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background py-5 md:shadow-xl"
   >
-    <Marquee pauseOnHover class="[--duration:20s]">
+    <Marquee pauseOnHover class="[--duration:60s]">
       {#each firstRow as item}
         <Reviewcard {...item} />
       {/each}
     </Marquee>
-    <Marquee reverse pauseOnHover class="[--duration:20s]">
+    <Marquee reverse pauseOnHover class="[--duration:60s]">
       {#each secondRow as item}
         <Reviewcard {...item} />
       {/each}

@@ -8,7 +8,7 @@ export default {
 				shine: 'shine 2s linear infinite',
 				marquee: 'marquee var(--duration) linear infinite',
 				'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
-				'text-gradient': 'text-gradient 1.5s linear infinite',
+				'text-gradient': 'text-gradient 3s linear infinite',
 			},
 			keyframes: {
 				shine: {
