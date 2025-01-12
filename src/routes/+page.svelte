@@ -3,7 +3,7 @@
 	import About from '$lib/components/About.svelte';
 	// import Hero_2 from '$lib/components/Hero_2.svelte';
 	import CustomCard from '../components/CustomCard.svelte';
-	import Prizes from '../components/Prizes.svelte';
+	import Prize from '../components/Prize.svelte';
 	import Prizes2 from '../components/Prizes2.svelte';
 	import Timeline from '../components/Timeline.svelte';
 
@@ -19,6 +19,9 @@
 		<About />
 		<section class="sponsers">
 			<Sponsers />
+		</section>
+		<section id="prizes">
+			<Prize />
 		</section>
 		<Prizes2 />
 		<Timeline />
