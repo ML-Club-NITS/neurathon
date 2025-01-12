@@ -22,7 +22,7 @@
 
 <section
 	id="timeline"
-	class="flex h-full w-full flex-wrap justify-around overflow-hidden bg-white py-8 font-sans md:px-10 dark:bg-neutral-950"
+	class="flex h-full w-full flex-wrap justify-around overflow-hidden py-8 font-sans md:px-10"
 >
 	<Timeline {timelineData} />
 </section>

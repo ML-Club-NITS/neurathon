@@ -31,12 +31,9 @@
 	>
 		Prizes
 	</span>
-	<div class="prize-content">
+	<div class="prize-content pb-12">
 		{#each prizes as prize, index}
-			<div
-				class="prize-wrapper"
-				style={`transform: translateY(${index === 1 ? '0px' : '70px'});`}
-			>
+			<div class="prize-wrapper" style={`transform: translateY(${index === 1 ? '0px' : '70px'});`}>
 				<PrizeCard title={prize.title} award={prize.award} image={prize.image} />
 			</div>
 		{/each}
@@ -53,12 +50,14 @@
 	}
 	.prize-content {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr); 
+		grid-template-columns: repeat(3, 1fr);
 		gap: 50px;
 		margin-top: 20px;
 		width: 100%;
 	}
 	.prize-wrapper {
-		transition: transform 0.3s ease, boxw 0.3s ease;
+		transition:
+			transform 0.3s ease,
+			boxw 0.3s ease;
 	}
 </style>

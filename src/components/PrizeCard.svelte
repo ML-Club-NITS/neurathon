@@ -4,8 +4,7 @@
 	export let image;
 </script>
 
-<section id="prizes" class="h-full w-full justify-center bg-white font-sans dark:bg-neutral-950">
-		
+<section id="prizes" class="h-full w-full justify-center font-sans">
 	<div class="card-container mx-auto">
 		<div class="card">
 			<div class="card-prize-container">
@@ -72,28 +71,6 @@
 		margin-top: -50px;
 	}
 
-	.marquee {
-		position: absolute;
-		top: 50%;
-		left: 0;
-		transform: translateY(-50%);
-		width: 100%;
-		height: 4rem;
-		overflow: hidden;
-	}
-
-	.marquee__inner {
-		display: flex;
-		animation: marquee-scroll 8s linear infinite;
-	}
-
-	.marquee-text {
-		font-size: 2rem;
-		font-weight: bold;
-		color: rgba(255, 255, 255, 0.7);
-		margin-right: 2rem;
-	}
-
 	.prize-info {
 		position: absolute;
 		bottom: 1.5rem;
@@ -122,15 +99,6 @@
 		}
 		100% {
 			background-position: 0% 50%;
-		}
-	}
-
-	@keyframes marquee-scroll {
-		0% {
-			transform: translateX(100%);
-		}
-		100% {
-			transform: translateX(-100%);
 		}
 	}
 </style>
