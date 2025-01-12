@@ -3,9 +3,6 @@
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
 	import { writable } from 'svelte/store';
-	import { reveal } from 'svelte-reveal';
-	import GradualSpacing from '../GradualSpacing.svelte';
-	import RetroGrid from '../RetroGrid.svelte';
 
 	type TimelineItem = {
 		title: string;
@@ -50,8 +47,16 @@
 	});
 </script>
 
-<div class="h-auto w-auto bg-white font-sans md:px-10 dark:bg-neutral-950" bind:this={containerRef}>
-	<div class="mt-40 text-center text-4xl font-bold">Timeline</div>
+<div
+	class="h-auto w-auto bg-white text-center font-sans md:px-10 dark:bg-neutral-950"
+	bind:this={containerRef}
+>
+	<!-- <div class="text-center text-4xl font-bold">Timeline</div> -->
+	<span
+		class="inline-flex w-fit animate-text-gradient text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 text-center text-4xl font-bold text-transparent sm:text-5xl md:text-6xl"
+	>
+		Timeline
+	</span>
 	<div class="relative mx-28 max-w-7xl overflow-hidden pb-20">
 		{#each timelineData as item, index}
 			<div class="flex justify-start pt-10 md:gap-y-10 md:pt-40">
@@ -63,7 +68,7 @@
 					>
 						<div
 							class="h-4 w-4 rounded-full border border-neutral-300 bg-neutral-200 p-2 dark:border-neutral-700 dark:bg-neutral-800"
-						/>
+						></div>
 					</div>
 					<h3
 						class="hidden text-xl font-bold text-neutral-500 md:block md:pl-20 md:text-3xl dark:text-neutral-500"
@@ -93,8 +98,8 @@
 		>
 			<div
 				style="height: {$heightTransform}px; opacity: {$opacityTransform};"
-				class="absolute inset-x-0 top-0 w-[2px] rounded-full bg-gradient-to-t from-purple-500 from-[0%] via-blue-500 via-[10%] to-transparent"
-			/>
+				class="absolute inset-x-0 top-0 w-[2px] rounded-full bg-gradient-to-t from-[#0883FF] from-[0%] via-[#FF5722] via-[10%] to-transparent"
+			></div>
 		</div>
 	</div>
 </div>

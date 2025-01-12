@@ -45,7 +45,7 @@
 		z-index: 0;
 		position: relative;
 		padding: 1rem;
-		height: 370px;
+		height: 320px;
 		width: 300px;
 		box-sizing: border-box;
 		background: transparent;
