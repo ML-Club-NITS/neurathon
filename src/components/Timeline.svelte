@@ -6,7 +6,8 @@
 	let timelineData: any = [
 		{
 			title: 'Takeoff and Orientation',
-			content: "Event starts of with brief introduction of the Club and release of the Problem Statements."
+			content:
+				'Event starts of with brief introduction of the Club and release of the Problem Statements.'
 		},
 		{
 			title: 'Building and Collab',
@@ -21,7 +22,7 @@
 
 <section
 	id="timeline"
-	class="flex h-full w-full flex-wrap justify-around overflow-hidden bg-white font-sans md:px-10 dark:bg-neutral-950"
+	class="flex h-full w-full flex-wrap justify-around overflow-hidden bg-white py-8 font-sans md:px-10 dark:bg-neutral-950"
 >
 	<Timeline {timelineData} />
 </section>

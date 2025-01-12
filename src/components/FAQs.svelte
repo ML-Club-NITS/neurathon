@@ -31,7 +31,12 @@
 	});
 </script>
 
-<section class="py-8 text-white md:py-12 xl:py-16">
+<section class="my-12 py-8 text-center text-white md:py-12 xl:py-16">
+	<span
+		class="mb-12 inline-flex w-fit animate-text-gradient text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 text-center text-4xl font-bold text-transparent sm:text-5xl md:text-6xl"
+	>
+		FAQs
+	</span>
 	<div class="container mx-auto px-4">
 		<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
 			<div>
@@ -42,11 +47,6 @@
 					We hope you have found an answer to your question. If you need any help, please search
 					your query on our Support Center or contact us via email.
 				</p>
-				<a
-					href="#!"
-					class="inline-block rounded-lg bg-blue-600 px-6 py-3 text-lg font-semibold text-white transition hover:bg-blue-500"
-					>All FAQ</a
-				>
 			</div>
 			<div>
 				<div class="space-y-6">

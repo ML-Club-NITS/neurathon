@@ -21,9 +21,9 @@
 	];
 </script>
 
-<div class="prize-container">
+<div class="prize-container my-12 py-8">
 	<span
-		class="inline-flex animate-text-gradient bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 text-center text-5xl font-bold text-transparent"
+		class="inline-flex w-fit animate-text-gradient text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 text-center text-4xl font-bold text-transparent sm:text-5xl md:text-6xl"
 	>
 		Prizes
 	</span>
