@@ -6,7 +6,9 @@
 	export let shimmerDuration = '2s';
 	export let borderRadius = '100px';
 	export let background = 'rgba(0, 0, 0, 1)';
-	let className: any = '';
+
+	let className: string = '';
+
 	export { className as class };
 </script>
 

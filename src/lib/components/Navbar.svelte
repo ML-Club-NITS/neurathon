@@ -1,6 +1,3 @@
-<!-- svelte-ignore a11y_click_events_have_key_events -->
-<!-- svelte-ignore a11y_no_static_element_interactions -->
-
 <script lang="ts">
 	import imgsrc from '$lib/assets/MLClub_vector_logo_large.svg';
 	import { goto } from '$app/navigation';
@@ -78,7 +75,7 @@
 		</div>
 
 		<!-- Menu -->
-		<div
+		<button
 			class={`${
 				isMenuOpen ? '' : 'hidden'
 			} w-full items-center justify-between md:order-1 md:flex md:w-auto`}
@@ -134,7 +131,7 @@
 					</a>
 				</li>
 			</ul>
-		</div>
+		</button>
 	</div>
 </nav>
 
