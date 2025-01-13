@@ -1,8 +1,7 @@
 <!-- component -->
 <!-- Foooter -->
 <section class="w-full bg-gray-900">
-	<div class="mx-auto max-w-screen-xl space-y-8 overflow-hidden px-4 py-8 sm:px-6 lg:px-8 ">
-		
+	<div class="mx-auto max-w-screen-xl space-y-8 overflow-hidden px-4 py-8 sm:px-6 lg:px-8">
 		<div class="mt-8 flex justify-center space-x-6">
 			<a href="https://www.facebook.com/mlclubNITS" class="text-gray-400 hover:text-gray-500">
 				<span class="sr-only">Facebook</span>
@@ -39,7 +38,10 @@
 					></path>
 				</svg>
 			</a>
-			<a href="https://www.linkedin.com/company/machine-learning-club-nits/" class="text-gray-400 hover:text-gray-500">
+			<a
+				href="https://www.linkedin.com/company/machine-learning-club-nits/"
+				class="text-gray-400 hover:text-gray-500"
+			>
 				<span class="sr-only">LinkedIn</span>
 				<svg
 					class="h-6 w-6"
@@ -53,8 +55,12 @@
 				</svg>
 			</a>
 		</div>
-		<p class="mt-8 text-center text-base leading-6 text-gray-400 font-semibold">
+		<p class="mt-8 text-center text-base font-semibold leading-6 text-gray-400">
 			<a href="https://www.mlclubnits.com/">
-			© 2025 ML CLUB NITS&nbsp;&nbsp; | &nbsp;&nbsp;Made with ❤️&nbsp;&&nbsp;🍻 by <span class="text-orange-500">Machine Learning Club, NIT Silchar</span></a></p>
+				© 2025 ML CLUB NITS&nbsp;&nbsp; | &nbsp;&nbsp;Made with ❤️&nbsp;&&nbsp;🍻 by <span
+					class="text-orange-500">Machine Learning Club, NIT Silchar</span
+				></a
+			>
+		</p>
 	</div>
 </section>

@@ -25,26 +25,26 @@
 	];
 </script>
 
-
-
 <section
 	class="my-32 flex w-full items-center justify-center border-slate-500 bg-black px-5 md:px-24 lg:py-1"
 >
-<div class="prize-container my-12 py-8">
-	
-	<span
-		class="inline-flex w-fit animate-text-gradient text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 text-center text-4xl font-bold text-transparent sm:text-5xl md:text-6xl"
-	>
-		Prizes
-	</span>
-	<div class="prize-content pb-12">
-		{#each prizes as prize, index}
-			<div class="prize-wrapper" style={`transform: translateY(${index === 1 ? '0px' : '70px'});`}>
-				<PrizeCard title={prize.title} award={prize.award} image={prize.image} />
-			</div>
-		{/each}
+	<div class="prize-container my-12 py-8">
+		<span
+			class="inline-flex w-fit animate-text-gradient text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 text-center text-4xl font-bold text-transparent sm:text-5xl md:text-6xl"
+		>
+			Prizes
+		</span>
+		<div class="prize-content pb-12">
+			{#each prizes as prize, index}
+				<div
+					class="prize-wrapper"
+					style={`transform: translateY(${index === 1 ? '0px' : '70px'});`}
+				>
+					<PrizeCard title={prize.title} award={prize.award} image={prize.image} />
+				</div>
+			{/each}
+		</div>
 	</div>
-</div>
 </section>
 
 <style>

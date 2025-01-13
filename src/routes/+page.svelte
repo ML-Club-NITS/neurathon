@@ -37,5 +37,5 @@
 	</main>
 </div>
 <footer class="mt-8">
-	<Footer/>
+	<Footer />
 </footer>
