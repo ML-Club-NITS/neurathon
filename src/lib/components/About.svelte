@@ -2,6 +2,7 @@
 	import AnimatedShinyText from '$lib/utils/AnimatedShinyText.svelte';
 	import RetroGrid from '$lib/utils/RetroGrid.svelte';
 	import ShineBorder from '$lib/utils/ShineBorder.svelte';
+	import DownloadBrochureBtn from '../utils/DownloadBrochureBtn.svelte';
 	// for bg-grid : please scroll to the bottom of the page to see the bg-grid :  tailwind.config.ts file.
 </script>
 
@@ -29,6 +30,10 @@
 				ML.
 				<span class="text-primary">Register for an event of lifetime</span>
 			</p>
+			<div class="flex justify-center items-center hover:text-orange-600">
+				<DownloadBrochureBtn>Download Brochure</DownloadBrochureBtn>
+				<br>
+			</div>
 		</div>
 		<RetroGrid />
 	</ShineBorder>
