@@ -6,23 +6,8 @@
 	import drop2 from '$lib/assets/drop2.png';
 	import gal from '$lib/assets/gal.png';
 	import gem from '$lib/assets/gem.png';
-	const prizes = [
-		{
-			title: 'Best Presentation',
-			award: 'Award1',
-			image: gem
-		},
-		{
-			title: 'Best Presentation',
-			award: 'Award2',
-			image: gal
-		},
-		{
-			title: 'Best Presentation',
-			award: 'Award3',
-			image: drop1
-		}
-	];
+
+	import prizes from '$lib/data/prizes.json';
 </script>
 
 <section
@@ -35,7 +20,7 @@
 			Prizes
 		</span>
 		<div class="prize-content pb-12">
-			{#each prizes as prize, index}
+			{#each prizes.prizes as prize, index}
 				<div
 					class="prize-wrapper"
 					style={`transform: translateY(${index === 1 ? '0px' : '70px'});`}
