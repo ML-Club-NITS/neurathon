@@ -4,6 +4,7 @@
 	import PrizeMain from '../components/PrizeMain.svelte';
 	import Timeline from '../components/Timeline.svelte';
 	import FaQs from '../components/FAQs.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 	import Hero from '../components/Hero.svelte';
 
 	// export let data;
@@ -34,7 +35,7 @@
 			<FaQs />
 		</section>
 	</main>
-	<footer class="mt-8">
-		<p class="text-xl">Made with ❤️ by ML Club</p>
-	</footer>
 </div>
+<footer class="mt-8">
+	<Footer/>
+</footer>
