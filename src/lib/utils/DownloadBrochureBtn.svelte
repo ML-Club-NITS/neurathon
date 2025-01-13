@@ -2,8 +2,8 @@
 	import { cn } from '$lib/utils';
 
 	export let shimmerColor = '#ff0000';
-	export let shimmerSize = '0.05em';
-	export let shimmerDuration = '1s';
+	export let shimmerSize = '0.08em';
+	export let shimmerDuration = '2s';
 	export let borderRadius = '100px';
 	export let background = 'rgba(0, 0, 0, 1)';
 	let className: any = '';
@@ -33,13 +33,13 @@
 			></div>
 		</div>
 	</div>
-	<slot></slot>
+	<slot class="text-orange-600"></slot>
 	<!-- Highlight -->
 	<div
 		class={cn(
 			'insert-0 absolute h-full w-full',
 
-			'rounded-2xl px-4 py-1.5 text-sm font-medium shadow-[inset_0_-8px_10px_#ffffff2e]',
+			'rounded-2xl px-4 py-1.5 text-sm font-medium shadow-[inset_0_-8px_10px_#ff00003c]',
 
 			// transition
 			'transform-gpu transition-all duration-300 ease-in-out',
