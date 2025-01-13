@@ -1,13 +1,7 @@
 <script>
-	import PrizeCard from './PrizeCard.svelte';
-	import diamond from '$lib/assets/diamond.png';
-	import doughnut from '$lib/assets/doughnut.png';
-	import drop1 from '$lib/assets/drop1.png';
-	import drop2 from '$lib/assets/drop2.png';
-	import gal from '$lib/assets/gal.png';
-	import gem from '$lib/assets/gem.png';
-
 	import prizes from '$lib/data/prizes.json';
+
+	import PrizeCard from './PrizeCard.svelte';
 </script>
 
 <section

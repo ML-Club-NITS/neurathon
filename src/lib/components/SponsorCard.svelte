@@ -1,11 +1,8 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
-	import { Filter } from 'lucide-svelte';
 
 	export let img: string;
 	export let name: string;
-	// export let username: string;
-	// export let body: string;
 </script>
 
 <figure

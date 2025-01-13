@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { onMount, type ComponentType } from 'svelte';
+	import { onMount, type Component } from 'svelte';
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
 	import { writable } from 'svelte/store';
 
 	type TimelineItem = {
 		title: string;
-		content: ComponentType | string;
+		content: Component | string;
 	};
 	export let timelineData: TimelineItem[] = [];
 	let containerRef: HTMLDivElement | null = null;
@@ -48,14 +48,13 @@
 </script>
 
 <div class="h-auto w-auto bg-transparent text-center font-sans md:px-10" bind:this={containerRef}>
-	<!-- <div class="text-center text-4xl font-bold">Timeline</div> -->
 	<span
 		class="inline-flex w-fit animate-text-gradient text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 text-center text-4xl font-bold text-transparent sm:text-5xl md:text-6xl"
 	>
 		Timeline
 	</span>
 	<div class="relative mx-28 max-w-7xl overflow-hidden pb-20">
-		{#each timelineData as item, index}
+		{#each timelineData as item}
 			<div class="flex justify-start pt-10 md:gap-y-10 md:pt-40">
 				<div
 					class="sticky top-40 z-40 flex max-w-xs flex-col items-center self-start md:w-full md:flex-row lg:max-w-sm"

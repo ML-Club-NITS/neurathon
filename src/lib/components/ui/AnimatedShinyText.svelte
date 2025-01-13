@@ -2,11 +2,11 @@
 	import { cn } from '$lib/utils';
 
 	export let shimmerWidth = 300;
-	let className: any = '';
+	let className: string = '';
 	export { className as class };
 </script>
 
-<p
+<div
 	style:--shimmer-width="{shimmerWidth}px"
 	class={cn(
 		'mx-auto max-w-md text-neutral-600/50 dark:text-neutral-400/50 ',
@@ -21,4 +21,4 @@
 	)}
 >
 	<slot></slot>
-</p>
+</div>

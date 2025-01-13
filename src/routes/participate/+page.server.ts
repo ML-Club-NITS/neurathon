@@ -29,7 +29,7 @@ export const actions: Actions = {
 		const formData = await request.formData();
 		const TeamName = formData.get('teamname') as string;
 
-		const { data, error } = await supabase.from('teams').insert({
+		const { error } = await supabase.from('teams').insert({
 			TeamName,
 			CreatedBy: user?.id,
 			Members: [user?.user_metadata]
@@ -67,7 +67,7 @@ export const actions: Actions = {
 
 		redirect(303, '/participate');
 	},
-	leave: async ({ request, locals: { supabase, user } }) => {
+	leave: async ({ locals: { supabase, user } }) => {
 		const { data, error } = await supabase.rpc('remove_member_from_teams', { member_id: user?.id });
 
 		if (data) {
@@ -76,7 +76,7 @@ export const actions: Actions = {
 			console.error(error);
 		}
 	},
-	delete: async ({ request, locals: { supabase, user } }) => {
+	delete: async ({ locals: { supabase, user } }) => {
 		const { data, error } = await supabase.rpc('delete_team_by_creator', { member_id: user?.id });
 
 		if (data) {

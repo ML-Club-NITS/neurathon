@@ -1,20 +1,11 @@
 <script lang="ts">
-	import Sponsers from '../components/Sponsers.svelte';
-	import About from '$lib/components/About.svelte';
-	import PrizeMain from '../components/PrizeMain.svelte';
-	import Timeline from '../components/Timeline.svelte';
-	import FaQs from '../components/FAQs.svelte';
-	import Footer from '$lib/components/Footer.svelte';
-	import Hero from '../components/Hero.svelte';
+	import { Hero, About, Prizes, Timeline, Sponsers, FAQs, Footer } from '$lib/components';
 
 	// export let data;
 </script>
 
 <div class="main-body flex min-h-screen flex-col items-center justify-center bg-black text-white">
-	<!-- <h1 class="mb-4 text-4xl">Neurathon</h1>
-	<p class="mb-6">Last fetch Server Time: {data?.currentTime || 'Unavailable'}</p> -->
-	<!-- <Navbar/> -->
-	<!-- <Hero_2></Hero_2> -->
+	<!-- <p class="mb-6">Last fetch Server Time: {data?.currentTime || 'Unavailable'}</p> -->
 	<section id="hero" class="w-full">
 		<Hero />
 	</section>
@@ -26,13 +17,13 @@
 			<Timeline />
 		</section>
 		<section class="container" id="prizes">
-			<PrizeMain />
+			<Prizes />
 		</section>
 		<section id="sponsers">
 			<Sponsers />
 		</section>
 		<section id="faqs">
-			<FaQs />
+			<FAQs />
 		</section>
 	</main>
 </div>

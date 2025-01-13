@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 
-	import { goto, invalidate } from '$app/navigation';
+	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
 
 	import Navbar from '$lib/components/Navbar.svelte';
@@ -19,10 +19,10 @@
 		return () => data.subscription.unsubscribe();
 	});
 
-	async function signOut() {
-		const { error } = await supabase.auth.signOut();
-		goto('/');
-	}
+	// async function signOut() {
+	// 	const { error } = await supabase.auth.signOut();
+	// 	goto('/');
+	// }
 </script>
 
 <!-- <div class="glassy-navbar flex w-screen items-center justify-between">

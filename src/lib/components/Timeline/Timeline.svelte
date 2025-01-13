@@ -1,9 +1,13 @@
 <script lang="ts">
-	import Timeline from './ui/TimelineComponent.svelte';
-	import Content2 from './timeLineContents/Content2.svelte';
-	import Content3 from './timeLineContents/Content3.svelte';
+	import { type Component } from 'svelte';
 
-	let timelineData: any = [
+	// import Content1 from './Timeline/Content1.svelte';
+	import Content2 from './Content2.svelte';
+	import Content3 from './Content3.svelte';
+
+	import Timeline from './TimelineComponent.svelte';
+
+	let timelineData: { title: string; content: Component | string }[] = [
 		{
 			title: 'Takeoff and Orientation',
 			content:

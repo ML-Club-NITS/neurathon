@@ -1,12 +1,13 @@
 <script>
 	export let open = false;
 	import { slide } from 'svelte/transition';
+
 	const handleClick = () => (open = !open);
 </script>
 
 <div class="accordion">
 	<div class="header">
-		<button on:click={handleClick}>
+		<button onclick={handleClick}>
 			<div class="text">
 				<slot name="head"></slot>
 			</div>

@@ -5,7 +5,7 @@
 	export let repeat: number = 4;
 	export let reverse: boolean = false;
 
-	let className: any = '';
+	let className: string = '';
 	export { className as class };
 </script>
 
@@ -19,7 +19,7 @@
 		className
 	)}
 >
-	{#each { length: repeat } as _, i (i)}
+	{#each Array.from({ length: repeat }) as _, i (i)}
 		<div
 			class={cn('flex shrink-0 justify-around [gap:var(--gap)]', {
 				'animate-marquee flex-row': !vertical,

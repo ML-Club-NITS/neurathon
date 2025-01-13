@@ -1,10 +1,4 @@
-<script>
-	// import bg1 from '$lib/assets/bg1.jpeg';
-</script>
-
 <section>
-	<!-- <img src={bg1} alt=""> -->
-
 	<div
 		class="flex h-auto w-full flex-wrap-reverse items-center justify-between text-4xl text-white lg:flex-nowrap"
 	>
