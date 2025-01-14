@@ -53,7 +53,7 @@
 	>
 		Timeline
 	</span>
-	<div class="relative mx-28 max-w-7xl overflow-hidden pb-20">
+	<div class="relative mx-5 max-w-7xl overflow-hidden pb-20">
 		{#each timelineData as item}
 			<div class="flex justify-start pt-10 md:gap-y-10 md:pt-40">
 				<div
