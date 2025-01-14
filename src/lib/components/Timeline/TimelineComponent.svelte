@@ -47,13 +47,13 @@
 	});
 </script>
 
-<div class="h-auto w-auto bg-transparent text-center font-sans md:px-10" bind:this={containerRef}>
+<div class="h-auto w-auto bg-transparent text-center font-sans md:px-10 sm:px" bind:this={containerRef}>
 	<span
 		class="inline-flex w-fit animate-text-gradient text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 text-center text-4xl font-bold text-transparent sm:text-5xl md:text-6xl"
 	>
 		Timeline
 	</span>
-	<div class="relative mx-28 max-w-7xl overflow-hidden pb-20">
+	<div class="relative mx-5 max-w-7xl overflow-hidden pb-20">
 		{#each timelineData as item}
 			<div class="flex justify-start pt-10 md:gap-y-10 md:pt-40">
 				<div
