@@ -4,11 +4,8 @@ export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		fontFamily: {
-			fontFamily: {
-				rp1: ['readyplayer', 'monospace'],
-				outfit: ['Outfit', 'sans-serif'],
-				lps: ['LeagueSpartan', 'sans-serif']
-			}
+			LeagueSpartanFont: ['LeagueSpartanFont', 'Arial', 'sans-serif']
+			// Add custom font-family here
 		},
 		extend: {
 			animation: {
