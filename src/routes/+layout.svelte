@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 
-	import { invalidate } from '$app/navigation';
+	import { goto, invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
 
 	import Navbar from '$lib/components/Navbar.svelte';
@@ -9,7 +9,14 @@
 	let { data, children } = $props();
 	let { session, supabase } = $derived(data);
 
+	let url: string;
+
 	onMount(() => {
+		url = new URL(window.location.href.replace(/%2B/g, '+')).pathname;
+		if (url == '/login') {
+			goto('/auth');
+			console.log('Redirecting to /auth');
+		}
 		const { data } = supabase.auth.onAuthStateChange((_, newSession) => {
 			if (newSession?.expires_at !== session?.expires_at) {
 				invalidate('supabase:auth');
