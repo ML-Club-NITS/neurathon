@@ -3,6 +3,10 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
+		fontFamily: {
+			LeagueSpartanFont: ['LeagueSpartanFont', 'Arial', 'sans-serif']
+			// Add custom font-family here
+		},
 		extend: {
 			animation: {
 				shine: 'shine 2s linear infinite',
