@@ -1,26 +1,28 @@
 <script lang="ts">
 	import { type Component } from 'svelte';
-
-	// import Content1 from './Timeline/Content1.svelte';
-	import Content2 from './Content2.svelte';
-	import Content3 from './Content3.svelte';
-
 	import Timeline from './TimelineComponent.svelte';
+	import KaggleCard from './KaggleCard.svelte';
+	import Day1 from './Day1.svelte';
+	import Day2 from './Day2.svelte';
+	import Conclusion from './Conclusion.svelte';
 
 	let timelineData: { title: string; content: Component | string }[] = [
 		{
-			title: 'Takeoff and Orientation',
-			content:
-				'Event starts of with brief introduction of the Club and release of the Problem Statements.'
+			title: 'Preliminary',
+			content: KaggleCard
 		},
 		{
-			title: 'Building and Collab',
-			content: Content3
+			title: 'Day 1',
+			content: Day1
 		},
 		{
-			title: 'Final Evaluation and Closing',
-			content: Content2
-		}
+			title: 'Day 2',
+			content: Day2
+		},
+		{
+			title: 'Conclusion',
+			content: Conclusion
+		},
 	];
 </script>
 

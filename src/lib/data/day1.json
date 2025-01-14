@@ -1,0 +1,12 @@
+{
+    "eventDay1": [
+        {
+            "title": "Problem Statement Release",
+            "description": "The problem statement will be released on the website and the participants can start working on it."
+        },
+        {
+            "title": "GitHub Repository",
+            "description": "Set up the git repository, .bat file (for continuous integration) and Roll on the project."
+        }
+    ]
+}
