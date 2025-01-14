@@ -4,7 +4,7 @@
 </script>
 
 <section
-	class="my-32 flex w-full items-center justify-center border-slate-500 bg-black px-5 md:px-24 lg:py-1"
+	class="mt-32 flex w-full items-center justify-center border-slate-500 bg-black px-5 md:px-24 lg:py-1"
 >
 	<ShineBorder class="text-center text-2xl font-bold capitalize" color={['#FF5722', '#0883FF']}>
 		<div class="my-auto h-fit w-full flex-col">

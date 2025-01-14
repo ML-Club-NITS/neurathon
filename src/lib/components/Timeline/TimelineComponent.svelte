@@ -26,7 +26,7 @@
 				const rect = containerRef.getBoundingClientRect();
 				const windowHeight = window.innerHeight;
 				let progress = Math.min(
-					1,
+					2,
 					Math.max(0, (windowHeight - rect.top) / (windowHeight + rect.height))
 				);
 				progress = progress < 0.6 ? progress - 0.09 : progress - 0.004;
@@ -48,7 +48,7 @@
 </script>
 
 <div
-	class="font-sans h-auto w-auto bg-transparent text-center sm:px-0 md:px-10"
+	class="my-32 font-sans h-auto w-auto bg-transparent text-center sm:px-0 md:px-10"
 	bind:this={containerRef}
 >
 	<span
@@ -60,7 +60,7 @@
 		{#each timelineData as item}
 			<div class="flex justify-start pt-10 md:gap-y-10 md:pt-40">
 				<div
-					class="sticky top-40 z-40 flex max-w-xs flex-col items-center self-start md:w-full md:flex-row lg:max-w-sm"
+					class="sticky top-0 z-40 max-w-xs items-center self-start md:w-full md:flex-row lg:max-w-sm"
 				>
 					<div
 						class="absolute left-3 flex h-10 w-10 items-center justify-center rounded-full bg-white md:left-3 dark:bg-black"
@@ -82,11 +82,13 @@
 					>
 						{item.title}
 					</h3>
-					{#if typeof item.content === 'string'}
-						<p>{item.content}</p>
-					{:else}
-						<svelte:component this={item.content} />
-					{/if}
+					<div class="item-content-container">
+						{#if typeof item.content === 'string'}
+							<p>{item.content}</p>
+						{:else}
+							<svelte:component this={item.content} />
+						{/if}
+					</div>
 				</div>
 			</div>
 		{/each}
@@ -113,5 +115,30 @@
 			black 90%,
 			transparent 100%
 		);
+	}
+
+	@media (max-width: 768px) {
+		.item-content-container {
+			display: flex;
+			opacity: 1;
+			transform: translateY(5px);
+			transition:
+				opacity 0.4s,
+				transform 0.4s;
+			min-height: 200px;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+
+	.item-content-container {
+		display: flex;
+		transform: translateY(20px);
+		transition:
+			opacity 0.4s,
+			transform 0.4s;
+		min-height: 200px;
+		/* align-items: left; */
+		justify-content: left;
 	}
 </style>
