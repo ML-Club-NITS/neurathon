@@ -12,7 +12,7 @@
 	)}
 >
 	<!-- Grid  -->
-	<div class="absolute inset-0 [transform:rotateX(30deg)]">
+	<div class="absolute inset-0 [transform:rotateX(80deg)]">
 		<div
 			class={cn(
 				'animate-grid',
