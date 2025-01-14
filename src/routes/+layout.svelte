@@ -9,7 +9,8 @@
 	let { data, children } = $props();
 	let { session, supabase } = $derived(data);
 
-	let url:any;
+	let url: string;
+
 	onMount(() => {
 		url = new URL(window.location.href.replace(/%2B/g, '+')).pathname;
 		if (url == '/login') {

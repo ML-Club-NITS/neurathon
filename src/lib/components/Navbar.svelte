@@ -27,7 +27,7 @@
 			'timeline-btn': 'timeline',
 			'prizes-btn': 'prizes',
 			'sponsors-btn': 'sponsers',
-			'faqs-btn': 'faqs',
+			'faqs-btn': 'faqs'
 		};
 
 		Object.entries(buttonSectionMap).forEach(([buttonId, sectionId]) => {
@@ -44,14 +44,13 @@
 	});
 </script>
 
-
 <nav
 	class="fixed start-0 top-0 z-[10000] w-full rounded-sm border-b border-gray-200 bg-white bg-opacity-30 backdrop-blur-md backdrop-filter sm:rounded-none dark:border-gray-600 dark:bg-gray-900 dark:bg-opacity-30"
 >
 	<div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
 		<!-- Logo -->
 		<span id="top-btn" class="flex items-center space-x-3 rtl:space-x-reverse">
-			<img src={imgsrc} class="h-8" alt="MLClub NITS Logo" />
+			<img src={imgsrc} class="h-8" alt="MLClub NITS" />
 		</span>
 
 		<!-- Buttons -->
@@ -109,7 +108,14 @@
 		</div>
 
 		<!-- Menu -->
-		<button
+		<div
+			role="button"
+			tabindex="0"
+			onkeydown={(e) => {
+				if (e.key === 'Enter' || e.key === ' ') {
+					e.preventDefault();
+				}
+			}}
 			class={`${
 				isMenuOpen ? '' : 'hidden'
 			} w-full items-center justify-between md:order-1 md:flex md:w-auto`}
@@ -119,43 +125,43 @@
 			<div
 				class="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-6 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-opacity-30 md:p-0 rtl:space-x-reverse dark:border-gray-700 dark:bg-transparent dark:bg-opacity-30 md:dark:bg-opacity-30"
 			>
-				<span
+				<button
 					id="about-btn"
 					onclick={() => (isMenuOpen = false)}
 					class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
 				>
 					About
-				</span>
-				<span
+				</button>
+				<button
 					id="timeline-btn"
 					onclick={() => (isMenuOpen = false)}
 					class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
 				>
 					Timeline
-				</span>
-				<span
+				</button>
+				<button
 					id="prizes-btn"
 					onclick={() => (isMenuOpen = false)}
 					class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
 				>
 					Prizes
-				</span>
-				<span
+				</button>
+				<button
 					id="sponsors-btn"
 					onclick={() => (isMenuOpen = false)}
 					class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
 				>
 					Sponsors
-				</span>
-				<span
+				</button>
+				<button
 					id="faqs-btn"
 					onclick={() => (isMenuOpen = false)}
 					class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
 				>
 					FAQs
-				</span>
+				</button>
 			</div>
-		</button>
+		</div>
 	</div>
 </nav>
 
