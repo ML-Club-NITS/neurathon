@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 
-	import { invalidate } from '$app/navigation';
+	import { goto, invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
 
 	import Navbar from '$lib/components/Navbar.svelte';

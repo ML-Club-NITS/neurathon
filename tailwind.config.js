@@ -3,6 +3,13 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
+		fontFamily: {
+			fontFamily: {
+				rp1: ['readyplayer', 'monospace'],
+				outfit: ['Outfit', 'sans-serif'],
+				lps: ['LeagueSpartan', 'sans-serif']
+			}
+		},
 		extend: {
 			animation: {
 				shine: 'shine 2s linear infinite',

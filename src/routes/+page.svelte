@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Hero, About, Prizes, Timeline, Sponsers, FAQs, Footer } from '$lib/components';
+	import Timer from '$lib/components/Timer.svelte';
 
 	// export let data;
 </script>
@@ -24,6 +25,9 @@
 		</section>
 		<section id="faqs">
 			<FAQs />
+		</section>
+		<section>
+			<Timer />
 		</section>
 	</main>
 </div>
