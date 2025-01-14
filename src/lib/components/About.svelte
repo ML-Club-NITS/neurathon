@@ -1,5 +1,5 @@
 <script>
-	import { AnimatedShinyText, RetroGrid, ShineBorder, BrochureBtn } from './ui';
+	import { AnimatedShinyText, RetroGrid, ShineBorder } from './ui';
 	// for bg-grid : please scroll to the bottom of the page to see the bg-grid :  tailwind.config.ts file.
 </script>
 
@@ -27,10 +27,6 @@
 				ML.
 				<span class="text-primary">Register for an event of lifetime</span>
 			</p>
-			<div class="flex items-center justify-center hover:text-orange-600">
-				<BrochureBtn>Download Brochure</BrochureBtn>
-				<br />
-			</div>
 		</div>
 		<RetroGrid />
 	</ShineBorder>
