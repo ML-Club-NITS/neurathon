@@ -3,57 +3,47 @@
 	import { goto } from '$app/navigation';
 	let isMenuOpen = $state(false);
 
-	// Function to close the menu when clicking outside
+	//navigate or scroll
+	const handleNavigation = (id: string, path: string = '/') => {
+		if (window.location.pathname === path) {
+			const element = document.getElementById(id);
+			element?.scrollIntoView({ behavior: 'smooth' });
+		} else {
+			goto(path);
+		}
+	};
+
+	// Close menu when clicked outside
 	const closeMenu = (event: any) => {
 		if (event.target.closest('#navbar-sticky') === null) {
 			isMenuOpen = false;
 		}
 	};
-	let url: any;
+
 	$effect(() => {
-		url = new URL(window.location.href.replace(/%2B/g, '+')).pathname;
-		if (url === '/') {
-			document.getElementById('top-btn').addEventListener('click', () => {
-				document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+		const buttonSectionMap = {
+			'top-btn': 'hero',
+			'about-btn': 'about',
+			'timeline-btn': 'timeline',
+			'prizes-btn': 'prizes',
+			'sponsors-btn': 'sponsers',
+			'faqs-btn': 'faqs',
+		};
+
+		Object.entries(buttonSectionMap).forEach(([buttonId, sectionId]) => {
+			const button = document.getElementById(buttonId);
+			button?.addEventListener('click', () => handleNavigation(sectionId));
+		});
+
+		return () => {
+			Object.entries(buttonSectionMap).forEach(([buttonId, sectionId]) => {
+				const button = document.getElementById(buttonId);
+				button?.removeEventListener('click', () => handleNavigation(sectionId));
 			});
-			document.getElementById('about-btn').addEventListener('click', () => {
-				document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
-			});
-			document.getElementById('timeline-btn').addEventListener('click', () => {
-				document.getElementById('timeline').scrollIntoView({ behavior: 'smooth' });
-			});
-			document.getElementById('prizes-btn').addEventListener('click', () => {
-				document.getElementById('prizes').scrollIntoView({ behavior: 'smooth' });
-			});
-			document.getElementById('sponsors-btn').addEventListener('click', () => {
-				document.getElementById('sponsers').scrollIntoView({ behavior: 'smooth' });
-			});
-			document.getElementById('faqs-btn').addEventListener('click', () => {
-				document.getElementById('faqs').scrollIntoView({ behavior: 'smooth' });
-			});
-		}
-		else {
-			document.getElementById('top-btn').addEventListener('click', () => {
-				goto('/');
-			});
-			document.getElementById('about-btn').addEventListener('click', () => {
-				goto('/');
-			});
-			document.getElementById('timeline-btn').addEventListener('click', () => {
-				goto('/');
-			});
-			document.getElementById('prizes-btn').addEventListener('click', () => {
-				goto('/');
-			});
-			document.getElementById('sponsors-btn').addEventListener('click', () => {
-				goto('/');
-			});
-			document.getElementById('faqs-btn').addEventListener('click', () => {
-				goto('/');
-			});
-		}
+		};
 	});
 </script>
+
 
 <nav
 	class="fixed start-0 top-0 z-[10000] w-full rounded-sm border-b border-gray-200 bg-white bg-opacity-30 backdrop-blur-md backdrop-filter sm:rounded-none dark:border-gray-600 dark:bg-gray-900 dark:bg-opacity-30"
