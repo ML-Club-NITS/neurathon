@@ -12,14 +12,13 @@
 	</span>
 	<div class="container mx-auto px-4">
 		<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
-			<div>
-				<h2 class="mb-4 text-3xl font-bold md:text-4xl">
-					How can we help you? Unlocking possibilities for your web hosting FAQs answered.
-				</h2>
-				<p class="mb-6 text-lg text-gray-400">
+			<div class="flex flex-col items-center">
+				<h2 class="mb-4 text-3xl font-bold md:text-4xl">How can we help you today?</h2>
+				<p class="text-lg text-gray-400">
 					We hope you have found an answer to your question. If you need any help, please search
 					your query on our Support Center or contact us via email.
 				</p>
+				<img src="faq.jpeg" alt="" class="w-60 rounded-lg" />
 			</div>
 			<div>
 				<div class="space-y-0">

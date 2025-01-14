@@ -1,7 +1,7 @@
 <script lang="ts">
 	import imgsrc from '$lib/assets/MLClub_vector_logo_large.svg';
 	import { goto } from '$app/navigation';
-	let isMenuOpen = false;
+	let isMenuOpen = $state(false);
 
 	// Function to close the menu when clicking outside
 	const closeMenu = (event: any) => {
@@ -9,6 +9,50 @@
 			isMenuOpen = false;
 		}
 	};
+	let url: any;
+	$effect(() => {
+		url = new URL(window.location.href.replace(/%2B/g, '+')).pathname;
+		if (url === '/') {
+			document.getElementById('top-btn').addEventListener('click', () => {
+				document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+			});
+			document.getElementById('about-btn').addEventListener('click', () => {
+				document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+			});
+			document.getElementById('timeline-btn').addEventListener('click', () => {
+				document.getElementById('timeline').scrollIntoView({ behavior: 'smooth' });
+			});
+			document.getElementById('prizes-btn').addEventListener('click', () => {
+				document.getElementById('prizes').scrollIntoView({ behavior: 'smooth' });
+			});
+			document.getElementById('sponsors-btn').addEventListener('click', () => {
+				document.getElementById('sponsers').scrollIntoView({ behavior: 'smooth' });
+			});
+			document.getElementById('faqs-btn').addEventListener('click', () => {
+				document.getElementById('faqs').scrollIntoView({ behavior: 'smooth' });
+			});
+		}
+		else {
+			document.getElementById('top-btn').addEventListener('click', () => {
+				goto('/');
+			});
+			document.getElementById('about-btn').addEventListener('click', () => {
+				goto('/');
+			});
+			document.getElementById('timeline-btn').addEventListener('click', () => {
+				goto('/');
+			});
+			document.getElementById('prizes-btn').addEventListener('click', () => {
+				goto('/');
+			});
+			document.getElementById('sponsors-btn').addEventListener('click', () => {
+				goto('/');
+			});
+			document.getElementById('faqs-btn').addEventListener('click', () => {
+				goto('/');
+			});
+		}
+	});
 </script>
 
 <nav
@@ -16,9 +60,9 @@
 >
 	<div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
 		<!-- Logo -->
-		<a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+		<span id="top-btn" class="flex items-center space-x-3 rtl:space-x-reverse">
 			<img src={imgsrc} class="h-8" alt="MLClub NITS Logo" />
-		</a>
+		</span>
 
 		<!-- Buttons -->
 		<div class="flex space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
@@ -82,55 +126,45 @@
 			id="navbar-sticky"
 			onclick={() => (isMenuOpen = false)}
 		>
-			<ul
+			<div
 				class="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-6 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-opacity-30 md:p-0 rtl:space-x-reverse dark:border-gray-700 dark:bg-transparent dark:bg-opacity-30 md:dark:bg-opacity-30"
 			>
-				<li>
-					<a
-						href="/"
-						onclick={() => (isMenuOpen = false)}
-						class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
-					>
-						About
-					</a>
-				</li>
-				<li>
-					<a
-						href="/"
-						onclick={() => (isMenuOpen = false)}
-						class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
-					>
-						Timeline
-					</a>
-				</li>
-				<li>
-					<a
-						href="/"
-						onclick={() => (isMenuOpen = false)}
-						class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
-					>
-						Prizes
-					</a>
-				</li>
-				<li>
-					<a
-						href="/"
-						onclick={() => (isMenuOpen = false)}
-						class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
-					>
-						Sponsors
-					</a>
-				</li>
-				<li>
-					<a
-						href="/"
-						onclick={() => (isMenuOpen = false)}
-						class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
-					>
-						FAQs
-					</a>
-				</li>
-			</ul>
+				<span
+					id="about-btn"
+					onclick={() => (isMenuOpen = false)}
+					class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+				>
+					About
+				</span>
+				<span
+					id="timeline-btn"
+					onclick={() => (isMenuOpen = false)}
+					class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+				>
+					Timeline
+				</span>
+				<span
+					id="prizes-btn"
+					onclick={() => (isMenuOpen = false)}
+					class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+				>
+					Prizes
+				</span>
+				<span
+					id="sponsors-btn"
+					onclick={() => (isMenuOpen = false)}
+					class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+				>
+					Sponsors
+				</span>
+				<span
+					id="faqs-btn"
+					onclick={() => (isMenuOpen = false)}
+					class="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+				>
+					FAQs
+				</span>
+			</div>
 		</button>
 	</div>
 </nav>
