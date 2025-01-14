@@ -14,7 +14,7 @@
 			<div
 				class="absolute h-full w-40 bg-gradient-to-r from-black to-transparent bg-blend-lighten"
 			></div>
-			<video src="bg1.gif" class="w-full bg-blend-difference"></video>
+			<img src="bg1.gif" class="w-full bg-blend-difference" />
 		</div>
 	</div>
 	<div class="absolute h-full w-full bg-gradient-to-t from-black to-transparent"></div>
