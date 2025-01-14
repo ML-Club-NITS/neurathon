@@ -30,4 +30,3 @@
 >
 	<Timeline {timelineData} />
 </section>
-
