@@ -1,17 +1,17 @@
 <script>
-	import { AnimatedShinyText, RetroGrid, ShineBorder, BrochureBtn } from './ui';
+	import { AnimatedShinyText, RetroGrid, ShineBorder } from './ui';
 	// for bg-grid : please scroll to the bottom of the page to see the bg-grid :  tailwind.config.ts file.
 </script>
 
 <section
-	class="my-32 flex w-full items-center justify-center border-slate-500 bg-black px-5 md:px-24 lg:py-1"
+	class="md:mt-24 mt-16 flex w-full items-center justify-center border-slate-500 bg-black px-5 md:px-24 lg:py-1"
 >
-	<ShineBorder class="text-center text-2xl font-bold capitalize" color={['#FF5722', '#0883FF']}>
+	<ShineBorder class="text-center text-2xl font-bold capitalize py-6" color={['#FF5722', '#0883FF']}>
 		<div class="my-auto h-fit w-full flex-col">
 			<AnimatedShinyText
 				class="inline-flex w-full items-center justify-center transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400"
 			>
-				<div class="w-fit text-wrap text-5xl font-bold sm:text-6xl md:text-7xl">About</div>
+				<div class="w-fit text-wrap font-bold text-5xl sm:text-6xl md:text-7xl">About</div>
 			</AnimatedShinyText>
 			<br />
 			<p
@@ -27,10 +27,6 @@
 				ML.
 				<span class="text-primary">Register for an event of lifetime</span>
 			</p>
-			<div class="flex items-center justify-center hover:text-orange-600">
-				<BrochureBtn>Download Brochure</BrochureBtn>
-				<br />
-			</div>
 		</div>
 		<RetroGrid />
 	</ShineBorder>

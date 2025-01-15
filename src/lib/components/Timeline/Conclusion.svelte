@@ -5,7 +5,7 @@
 <div class="container flex h-[250px] flex-col items-center justify-center gap-4 lg:flex-row">
 	{#each conclusion.conclusion as event}
 		<div class="info-container">
-			<div class="title-container text-left">   
+			<div class="title-container text-left">
 				<h2>
 					<span class="text-2xl font-bold text-neutral-800 dark:text-neutral-200">
 						{event.title}

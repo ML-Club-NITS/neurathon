@@ -22,13 +22,13 @@
 		{
 			title: 'Conclusion',
 			content: Conclusion
-		},
+		}
 	];
 </script>
 
 <section
 	id="timeline"
-	class="flex h-full w-full flex-wrap justify-around overflow-hidden py-8 font-sans md:px-10"
+	class="font-sans flex h-full w-full flex-wrap justify-around overflow-hidden md:px-10"
 >
 	<Timeline {timelineData} />
 </section>

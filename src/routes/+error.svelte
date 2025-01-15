@@ -9,7 +9,7 @@
 </script>
 
 <div
-	class="container mx-auto flex h-screen flex-col items-center justify-center px-4 py-8 text-center font-mono text-white"
+	class="font-mono container mx-auto flex h-screen flex-col items-center justify-center px-4 py-8 text-center text-white"
 >
 	<div class="!h-52 w-52 bg-[url('error.jpeg')] bg-cover bg-center shadow-md">
 		<div class="h-full w-full bg-gradient-to-r from-black via-transparent to-black"></div>

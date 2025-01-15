@@ -2,6 +2,26 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@layer base {
+	@font-face {
+		font-family: 'LeagueSpartan';
+		font-style: normal;
+		src: url(/fonts/LeagueSpartanFont.ttf) format('ttf');
+	}
+
+	@font-face {
+		font-family: 'rp1';
+		font-style: normal;
+		src: url(/fonts/rp1font.ttf.ttf) format('ttf');
+	}
+
+	/* @font-face {
+		font-family: 'FontName';
+		font-style: normal;
+		src: url('/fonts/local_file_name') format('type');
+	} */
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -21,11 +41,11 @@ body {
 	}
 
 	::-webkit-scrollbar-track {
-		background: #000000;
+		background: transparent;
 	}
 
 	::-webkit-scrollbar-thumb {
-		background: #ff0000;
+		background: transparent;
 		border-radius: 2px;
 	}
 }

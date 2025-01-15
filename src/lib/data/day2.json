@@ -1,12 +1,12 @@
 {
-    "eventDay2": [
-        {
-            "title": "Model Making",
-            "description": "Participants will start making the model of the project. (Mostly it will start from Day 1)"
-        },
-        {
-            "title": "Submission Deadline",
-            "description": "The participants have to submit the project by the end of the day."
-        }
-    ]
+	"eventDay2": [
+		{
+			"title": "Model Making",
+			"description": "Participants will start making the model of the project. (Mostly it will start from Day 1)"
+		},
+		{
+			"title": "Submission Deadline",
+			"description": "The participants have to submit the project by the end of the day."
+		}
+	]
 }

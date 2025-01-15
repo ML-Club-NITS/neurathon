@@ -1,62 +1,41 @@
 <script lang="ts">
-	import { cn } from '$lib/utils';
-
-	export let shimmerColor = '#ff0000';
-	export let shimmerSize = '0.08em';
-	export let shimmerDuration = '2s';
-	export let borderRadius = '100px';
-	export let background = 'rgba(0, 0, 0, 1)';
-
-	let className: string = '';
-
-	export { className as class };
+	import file from '$lib/assets/brochure.pdf';
 </script>
 
-<button
-	style:--spread="90deg"
-	style:--shimmer-color={shimmerColor}
-	style:--radius={borderRadius}
-	style:--speed={shimmerDuration}
-	style:--cut={shimmerSize}
-	style:--bg={background}
-	class={cn(
-		'group relative z-0 flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap border border-white/10 px-6 py-3 text-white [background:var(--bg)] [border-radius:var(--radius)] dark:text-white',
-		'transform-gpu transition-transform duration-300 ease-in-out active:translate-y-[1px]',
-		className
-	)}
+<a
+	class="group relative z-0 flex transform-gpu cursor-pointer items-center justify-center gap-4 overflow-hidden whitespace-nowrap rounded-full border border-white/10 bg-orange-600 px-6 py-2 text-white
+		transition-transform duration-300 ease-in-out active:translate-y-[0px] dark:text-white"
+	href={file}
+	download="Neurathon'25  Brochure.pdf"
 >
-	<div class={cn('-z-30 blur-[2px]', 'absolute inset-0 overflow-visible [container-type:size]')}>
-		<div
-			class="absolute inset-0 h-[100cqh] animate-magicslide [aspect-ratio:1] [border-radius:0] [mask:none]"
-		>
-			<!--  spark before  -->
-			<div
-				class="absolute inset-[-100%] w-auto rotate-0 animate-spin-around [background:conic-gradient(from_calc(270deg-(var(--spread)*0.5)),transparent_0,var(--shimmer-color)_var(--spread),transparent_var(--spread))] [translate:0_0]"
-			></div>
-		</div>
-	</div>
-	<slot class="text-orange-600"></slot>
-	<!-- Highlight -->
-	<div
-		class={cn(
-			'insert-0 absolute h-full w-full',
-
-			'rounded-2xl px-4 py-1.5 text-sm font-medium shadow-[inset_0_-8px_10px_#ff00003c]',
-
-			// transition
-			'transform-gpu transition-all duration-300 ease-in-out',
-
-			// on hover
-			'group-hover:shadow-[inset_0_-6px_10px_#ff0000]',
-
-			// on click
-			'group-active:shadow-[inset_0_-10px_10px_#ff7000]'
-		)}
-	></div>
-	<!-- backdrop -->
-	<div
-		class={cn(
-			'absolute -z-20 [background:var(--bg)] [border-radius:var(--radius)] [inset:var(--cut)]'
-		)}
-	></div>
-</button>
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		xmlns:xlink="http://www.w3.org/1999/xlink"
+		viewBox="0,0,256,256"
+		width="32px"
+		height="32px"
+		fill-rule="nonzero"
+		><g
+			fill="#ffffff"
+			fill-rule="nonzero"
+			stroke="none"
+			stroke-width="2"
+			stroke-linecap="butt"
+			stroke-linejoin="miter"
+			stroke-miterlimit="10"
+			stroke-dasharray=""
+			stroke-dashoffset="0"
+			font-family="none"
+			font-weight="none"
+			font-size="none"
+			text-anchor="none"
+			style="mix-blend-mode: normal"
+			><g transform="scale(8,8)"
+				><path
+					d="M15,4v16.5625l-5.28125,-5.28125l-1.4375,1.4375l7,7l0.71875,0.6875l0.71875,-0.6875l7,-7l-1.4375,-1.4375l-5.28125,5.28125v-16.5625zM7,26v2h18v-2z"
+				></path></g
+			></g
+		></svg
+	>
+	<slot />
+</a>

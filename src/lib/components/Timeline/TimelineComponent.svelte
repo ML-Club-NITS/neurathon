@@ -48,7 +48,7 @@
 </script>
 
 <div
-	class="sm:px h-auto w-auto bg-transparent text-center font-sans md:px-10"
+	class="font-sans my-32 h-auto w-auto bg-transparent text-center sm:px-0 md:px-10"
 	bind:this={containerRef}
 >
 	<span
@@ -58,7 +58,7 @@
 	</span>
 	<div class="relative mx-5 max-w-7xl overflow-hidden pb-20">
 		{#each timelineData as item}
-			<div class="flex justify-start pt-10 md:gap-y-10 md:pt-40">
+			<div class="flex justify-start pt-20 md:gap-y-10 md:pt-40 ">
 				<div
 					class="sticky top-0 z-40 max-w-xs items-center self-start md:w-full md:flex-row lg:max-w-sm"
 				>
@@ -122,22 +122,23 @@
 			display: flex;
 			opacity: 1;
 			transform: translateY(5px);
-			transition: opacity 0.4s, transform 0.4s;
+			transition:
+				opacity 0.4s,
+				transform 0.4s;
 			min-height: 200px;
 			align-items: center;
 			justify-content: center;
-
 		}
 	}
 
 	.item-content-container {
 		display: flex;
 		transform: translateY(20px);
-		transition: opacity 0.4s, transform 0.4s;
+		transition:
+			opacity 0.4s,
+			transform 0.4s;
 		min-height: 200px;
 		/* align-items: left; */
 		justify-content: left;
 	}
-
-	
 </style>
