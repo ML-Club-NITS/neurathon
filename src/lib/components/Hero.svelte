@@ -12,7 +12,7 @@
 			<div class="text-2xl font-bold md:text-3xl lg:text-5xl xl:text-8xl">
 				Neurathon <span class="bg-gradient-to-r from-gray-950 to-transparent px-4">2025</span>
 			</div>
-			<div class="text-base font-thin mt-2 text-gray-400 md:text-lg lg:text-2xl">
+			<div class="mt-2 text-base font-thin text-gray-400 md:text-lg lg:text-2xl">
 				Where Creativity Meets Innovation
 			</div>
 			<div class="pt-6 text-base font-medium text-gray-400 md:text-lg">
@@ -21,10 +21,9 @@
 		</div>
 		<div class="h-auto w-full lg:w-auto">
 			<div
-				class="absolute h-full w-40 md:bg-gradient-to-r from-black to-transparent bg-blend-lighten"
-			>
-		</div>
-			<img src="bg1.gif" alt="" class="w-full bg-blend-difference" />
+				class="absolute h-full w-40 from-black to-transparent bg-blend-lighten md:bg-gradient-to-r"
+			></div>
+			<video src="hero.mp4" autoplay loop class="w-96"></video>
 		</div>
 	</div>
 </section>
