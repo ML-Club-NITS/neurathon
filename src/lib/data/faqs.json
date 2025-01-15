@@ -1,8 +1,8 @@
 {
 	"faqs": [
 		{
-			"question": "What criteria are used for evaluating hackathon submissions?",
-			"answer": "Hackathon submissions are evaluated based on innovation, technical implementation, problem-solving approach, user experience, and presentation quality."
+			"question": "What is the judging criteria for Neurathon?",
+			"answer": "Judging criteria include innovation, feasibility, technical complexity, societal impact, and the presentation of the final solution."
 		},
 		{
 			"question": "Is there any registration fee for the event?",
@@ -21,56 +21,12 @@
 			"answer": "Yes, you are encouraged to use APIs, provided they comply with the event’s rules and ethical guidelines."
 		},
 		{
-			"question": "Can we use PreTrained Models?",
-			"answer": "Yes, pre-trained models can be used as long as they align with the project goals and rules of the competition."
-		},
-		{
-			"question": "What tools or frameworks are allowed?",
-			"answer": "You can use any tools or frameworks that help you build and implement your project effectively."
-		},
-		{
-			"question": "Are there any restrictions on the programming languages we can use?",
-			"answer": "No, there are no restrictions. You can use any programming language that suits your project. But python is prefered to be used."
-		},
-		{
 			"question": "Do team members need to be from the same college?",
 			"answer": "Yes, team members have to be from same colleges or institutions."
 		},
 		{
 			"question": "Can we change team members after registration?",
 			"answer": "No, team members cannot be changed after registration. Please ensure that your team is final before registering."
-		},
-		{
-			"question": "Can we submit a project that has already been developed?",
-			"answer": "No, all projects must be developed during the hackathon."
-		},
-		{
-			"question": "Can we submit a project that has already been submitted to another hackathon?",
-			"answer": "No, all projects must be original and developed specifically for this hackathon."
-		},
-		{
-			"question": "Can we submit a project that has already been published?",
-			"answer": "No, all projects must be original and developed specifically for this hackathon."
-		},
-		{
-			"question": "Can we submit a project that has already been implemented in a startup?",
-			"answer": "No, all projects must be original and developed specifically for this hackathon."
-		},
-		{
-			"question": "Can we submit a project that has already been implemented in a company?",
-			"answer": "No, all projects must be original and developed specifically for this hackathon."
-		},
-		{
-			"question": "Can we submit a project that has already been implemented in a research paper?",
-			"answer": "No, all projects must be original and developed specifically for this hackathon."
-		},
-		{
-			"question": "Can we submit a project that has already been implemented in a thesis?",
-			"answer": "No, all projects must be original and developed specifically for this hackathon."
-		},
-		{
-			"question": "Can we submit a project that has already been implemented in a course?",
-			"answer": "No, all projects must be original and developed specifically for this hackathon."
 		},
 		{
 			"question": "Will there be any mentorship provided?",
@@ -85,16 +41,8 @@
 			"answer": "No, all submissions must be original and developed during the hackathon."
 		},
 		{
-			"question": "What should the GitHub repository include?",
-			"answer": "Your GitHub repository should include the source code, a README file with project details, instructions for running the project, and any relevant documentation."
-		},
-		{
 			"question": "Can we submit multiple entries?",
 			"answer": "No, each team is allowed to submit only one entry."
-		},
-		{
-			"question": "What is the judging criteria for Neurathon?",
-			"answer": "Judging criteria include innovation, feasibility, technical complexity, societal impact, and the presentation of the final solution."
 		}
 	]
 }

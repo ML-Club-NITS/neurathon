@@ -2,7 +2,7 @@
 	import conclusion from '$lib/data/conclusion.json';
 </script>
 
-<div class="container flex h-[250px] flex-col items-center justify-center gap-4 lg:flex-row">
+<div class="flex flex-col h-auto gap-4 lg:flex-row">
 	{#each conclusion.conclusion as event}
 		<div class="info-container">
 			<div class="title-container text-left">

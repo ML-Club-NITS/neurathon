@@ -9,8 +9,10 @@
 		<div
 			class="mt-20 flex h-auto w-full flex-col items-center justify-center text-center lg:ml-20 lg:mt-0 lg:w-auto lg:items-start"
 		>
-			<div class="text-2xl font-bold md:text-4xl">Neurathon 2025</div>
-			<div class="text-base font-thin text-gray-400 md:text-lg">
+			<div class="text-2xl font-bold md:text-3xl lg:text-5xl xl:text-8xl">
+				Neurathon <span class="bg-gradient-to-r from-gray-950 to-transparent px-4">2025</span>
+			</div>
+			<div class="text-base font-thin mt-2 text-gray-400 md:text-lg lg:text-2xl">
 				Where Creativity Meets Innovation
 			</div>
 			<div class="pt-6 text-base font-medium text-gray-400 md:text-lg">

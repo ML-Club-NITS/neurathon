@@ -1,4 +1,4 @@
-<section class="w-full bg-gray-900">
+<section class="w-full bg-gradient-to-b from-transparent to-gray-900">
 	<div class="mx-auto max-w-screen-xl space-y-8 overflow-hidden px-4 py-8 sm:px-6 lg:px-8">
 		<div class="mt-8 flex justify-center space-x-6">
 			<a href="https://www.facebook.com/mlclubNITS" class="text-gray-400 hover:text-gray-500">
