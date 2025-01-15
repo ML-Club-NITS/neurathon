@@ -21,10 +21,10 @@
 		</div>
 		<div class="h-auto w-full lg:w-auto">
 			<div
-				class="absolute h-full w-40 bg-gradient-to-r from-black to-transparent bg-blend-lighten"
-			></div>
-			<img src="bg1.gif" class="w-full bg-blend-difference" />
+				class="absolute h-full w-40 md:bg-gradient-to-r from-black to-transparent bg-blend-lighten"
+			>
+		</div>
+			<img src="bg1.gif" alt="" class="w-full bg-blend-difference" />
 		</div>
 	</div>
-	<div class="absolute h-full w-full bg-gradient-to-t from-black to-transparent"></div>
 </section>

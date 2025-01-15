@@ -5,15 +5,15 @@
 </script>
 
 <section
-	class="my-32 flex w-full items-center justify-center border-slate-500 bg-black px-5 md:px-24 lg:py-1"
+	class="flex w-full items-center justify-center border-slate-500 bg-black px-5 md:px-24 lg:py-1"
 >
-	<div class="prize-container my-12 py-8">
+	<div class="prize-container flex-col items-center justify-center gap-y-7 ">
 		<span
 			class="inline-flex w-fit animate-text-gradient text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 text-center text-2xl font-bold text-transparent md:text-3xl lg:text-5xl xl:text-8xl"
 		>
 			Prizes
 		</span>
-		<div class="prize-content pb-12">
+		<div class="prize-content w-full gap-12 grid grid-cols-3">
 			{#each prizes.prizes as prize, index}
 				<div
 					class="prize-wrapper"
@@ -27,20 +27,6 @@
 </section>
 
 <style>
-	.prize-container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		row-gap: 30px;
-	}
-	.prize-content {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 50px;
-		margin-top: 20px;
-		width: 100%;
-	}
 	.prize-wrapper {
 		transition:
 			transform 0.3s ease,
@@ -70,9 +56,6 @@
 	@media (max-width: 480px) {
 		.prize-content {
 			gap: 65px;
-		}
-		.prize-container span {
-			font-size: 1.5rem;
 		}
 	}
 </style>
