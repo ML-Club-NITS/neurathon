@@ -62,9 +62,9 @@
 		<div
 			class="flex aspect-square min-w-[80px] flex-col items-center justify-center gap-0 rounded-xl border border-indigo-600 px-1.5 py-1.5"
 		>
-			<h3
+			<span
 				class="countdown-element days font-manrope text-center text-2xl font-semibold text-indigo-600"
-			></h3>
+			></span>
 			<p class="font-inter w-full text-center text-sm font-normal capitalize text-indigo-600">
 				days
 			</p>
@@ -75,9 +75,9 @@
 		<div
 			class="flex aspect-square min-w-[80px] flex-col items-center justify-center gap-0 rounded-xl border border-indigo-600 px-1.5 py-1.5"
 		>
-			<h3
+			<span
 				class="countdown-element hours font-manrope text-center text-2xl font-semibold text-indigo-600"
-			></h3>
+			></span>
 			<p class="font-inter w-full text-center text-sm font-normal capitalize text-indigo-600">
 				Hour
 			</p>
@@ -88,9 +88,9 @@
 		<div
 			class="flex aspect-square min-w-[80px] flex-col items-center justify-center gap-0 rounded-xl border border-indigo-600 px-1.5 py-1.5"
 		>
-			<h3
+			<span
 				class="countdown-element minutes font-manrope text-center text-2xl font-semibold text-indigo-600"
-			></h3>
+			></span>
 			<p class="font-inter w-full text-center text-sm font-normal capitalize text-indigo-600">
 				Minutes
 			</p>
@@ -101,9 +101,9 @@
 		<div
 			class="flex aspect-square min-w-[80px] flex-col items-center justify-center gap-0 rounded-xl border border-indigo-600 px-1.5 py-1.5"
 		>
-			<h3
+			<span
 				class="countdown-element seconds sec font-manrope text-center text-2xl font-semibold text-indigo-600"
-			></h3>
+			></span>
 			<p class="font-inter w-full text-center text-sm font-normal capitalize text-indigo-600">
 				Seconds
 			</p>
