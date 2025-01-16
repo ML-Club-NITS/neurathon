@@ -17,9 +17,6 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      flowbite-svelte:
-        specifier: ^0.47.4
-        version: 0.47.4(rollup@4.30.1)(svelte@5.18.0)
       svelte-motion:
         specifier: ^0.12.2
         version: 0.12.2(svelte@5.18.0)
@@ -42,6 +39,9 @@ importers:
       '@sveltejs/vite-plugin-svelte':
         specifier: ^4.0.4
         version: 4.0.4(svelte@5.18.0)(vite@5.4.11(@types/node@22.10.7)(sass-embedded@1.83.4))
+      '@zerodevx/svelte-toast':
+        specifier: ^0.9.6
+        version: 0.9.6(svelte@5.18.0)
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.5.1)
@@ -54,6 +54,9 @@ importers:
       eslint-plugin-svelte:
         specifier: ^2.46.1
         version: 2.46.1(eslint@9.18.0(jiti@1.21.7))(svelte@5.18.0)
+      flowbite-svelte:
+        specifier: ^0.47.4
+        version: 0.47.4(rollup@4.30.1)(svelte@5.18.0)
       globals:
         specifier: ^15.14.0
         version: 15.14.0
@@ -632,6 +635,11 @@ packages:
 
   '@yr/monotone-cubic-spline@1.0.3':
     resolution: {integrity: sha512-FQXkOta0XBSUPHndIKON2Y9JeQz5ZeMqLYZVVK93FliNBFm7LNMIZmY6FrMEB9XPcDbE2bekMbZD6kzDkxwYjA==}
+
+  '@zerodevx/svelte-toast@0.9.6':
+    resolution: {integrity: sha512-nHlTrCjverlPK9yukK6fqbG3e/R+f10ldrc4nJHOe2qNDScuPTuYVSFEk2dDDtzWAwTN5pmdEXgA3M2RbT8jiw==}
+    peerDependencies:
+      svelte: ^3.57.0 || ^4.0.0 || ^5.0.0
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -2477,6 +2485,10 @@ snapshots:
       tinyrainbow: 1.2.0
 
   '@yr/monotone-cubic-spline@1.0.3': {}
+
+  '@zerodevx/svelte-toast@0.9.6(svelte@5.18.0)':
+    dependencies:
+      svelte: 5.18.0
 
   acorn-jsx@5.3.2(acorn@8.14.0):
     dependencies:

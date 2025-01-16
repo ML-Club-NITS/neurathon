@@ -3,6 +3,7 @@
 
 	import { goto, invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
+	import { SvelteToast } from '@zerodevx/svelte-toast';
 
 	import Navbar from '$lib/components/Navbar.svelte';
 
@@ -43,6 +44,7 @@
 		{/if}
 	</nav>
 </div> -->
+<SvelteToast options={{ reversed: true, intro: { y: 192 } }} />
 <Navbar />
 {@render children()}
 
@@ -61,3 +63,12 @@
 		z-index: 1000;
 	}
 </style> -->
+
+<style>
+	:root {
+	  --toastContainerTop: auto;
+	  --toastContainerRight: auto;
+	  --toastContainerBottom: 8rem;
+	  --toastContainerLeft: calc(50vw - 8rem);
+	}
+  </style>
