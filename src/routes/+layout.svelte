@@ -44,7 +44,6 @@
 	</nav>
 </div> -->
 <Navbar />
-<!-- <div class="h-16"></div> -->
 {@render children()}
 
 <!-- <style>

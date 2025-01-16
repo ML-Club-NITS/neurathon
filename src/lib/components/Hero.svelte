@@ -19,9 +19,8 @@
 		</div>
 		<div class="h-auto w-full lg:w-auto">
 			<div
-				class="absolute h-full w-40 md:bg-gradient-to-r from-black to-transparent bg-blend-lighten"
-			>
-		</div>
+				class="absolute h-full w-40 from-black to-transparent bg-blend-lighten md:bg-gradient-to-r"
+			></div>
 			<img src="bg1.gif" alt="" class="w-full bg-blend-difference" />
 		</div>
 	</div>

@@ -39,5 +39,19 @@ export const actions: Actions = {
 		} else {
 			redirect(303, '/participate');
 		}
+	},
+	resetPassword: async ({ request, locals: { supabase } }) => {
+		const formData = await request.formData();
+		const email = formData.get('email') as string;
+
+		console.log('email', email);
+
+		const { error } = await supabase.auth.resetPasswordForEmail(email, {
+			redirectTo: 'http://localhost:5173/auth/update-password'
+		});
+
+		if (error) {
+			console.log(error);
+		}
 	}
 };

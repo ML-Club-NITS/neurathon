@@ -1,57 +1,30 @@
-<div class="h-screen bg-gray-200 p-4 py-20 md:p-20 lg:p-32">
-	<div class="mx-auto max-w-sm overflow-hidden rounded-lg bg-white p-6 shadow-lg">
-		<form method="POST" action="?/login">
-			<div class="mb-4 flex gap-4">
-				<label class="mb-2 block font-bold text-gray-700" for="username"> Name </label>
-				<input
-					class="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
-					name="name"
-					type="text"
-				/>
-			</div>
-			<div class="mb-4 flex gap-4">
-				<label class="mb-2 block font-bold text-gray-700" for="username"> Email </label>
-				<input
-					class="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
-					name="email"
-					type="email"
-				/>
-			</div>
-			<div class="mb-6 flex gap-4">
-				<label class="mb-2 block font-bold text-gray-700" for="password"> Phone No. </label>
-				<input
-					class="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
-					name="phone"
-					type="tel"
-				/>
-			</div>
-			<div class="mb-6 flex gap-4">
-				<label class="mb-2 block font-bold text-gray-700" for="password"> Password </label>
-				<input
-					class="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
-					name="password"
-					type="password"
-				/>
-			</div>
-			<div class="flex items-center justify-between">
-				<button
-					class="focus:shadow-outline rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
-				>
-					Log In
-				</button>
-				<button
-					class="focus:shadow-outline rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
-					formaction="?/signup"
-				>
-					Sign Up
-				</button>
-				<a
-					class="inline-block align-baseline text-sm font-bold text-blue-500 hover:text-blue-800"
-					href="/"
-				>
-					Forgot Password?
-				</a>
-			</div>
-		</form>
-	</div>
+<script>
+	import { Tabs, TabItem } from 'flowbite-svelte';
+
+	import Login from './Login.svelte';
+	import Register from './Register.svelte';
+</script>
+
+<div class="mx-auto mt-36 w-fit">
+	<Tabs
+		tabStyle="pill"
+		defaultClass="bg-slate-800 flex gap-2 p-1 items-center rounded-lg w-fit mx-auto"
+		contentClass="p-2 m-2 rounded-lg"
+	>
+		<TabItem
+			open
+			inactiveClasses="text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-slate-500"
+			activeClasses="text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-white bg-gray-700"
+		>
+			<div slot="title">Login</div>
+			<Login />
+		</TabItem>
+		<TabItem
+			inactiveClasses="text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-slate-500"
+			activeClasses="text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-white bg-gray-700"
+		>
+			<div slot="title">Register</div>
+			<Register />
+		</TabItem>
+	</Tabs>
 </div>
