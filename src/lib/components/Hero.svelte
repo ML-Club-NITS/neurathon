@@ -24,11 +24,20 @@
 			</span>
 		</div>
 		<!-- Subtitle -->
-		<div class="ai-for-good">
-			<span class="text-neutral-600 text-lg md:text-3xl font-medium">
-				AI for Good
+		<div class="relative overflow-hidden group text-2xl md:text-3xl lg:text-4xl">
+			<span class="invisible">Text Glitch</span>
+			<span
+			  class="text-neutral-400 absolute top-0 left-0 group-hover:-translate-y-full transition-transform ease-in-out duration-500 hover:duration-300"
+			>
+			  Text Glitch
 			</span>
-		</div>
+			<span
+			  class="text-neutral-400 absolute top-0 left-0 translate-y-full group-hover:translate-y-0 transition-transform ease-in-out duration-500 hover:duration-300"
+			>
+			  Text Glitch
+			</span>
+		  </div>
+		  
 	</div>
 
 	<!-- GIF Section -->

@@ -111,24 +111,14 @@
   transition: transform 1s ease-out;
 }
 
-.fade-effect {
-  /* Fallback for older browsers */
-  position: relative;
-  display: inline-block;
-  
-  /* Apply the fade effect */
-  -webkit-mask-image: linear-gradient(to right, transparent, black);
-  mask-image: linear-gradient(to right, transparent, black);
-
-  /* Ensure full masking coverage */
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-  
-  /* Adjust the fade gradient strength as needed */
+@media (max-width: 720px) {
+	.drop2 {
+		right: 45%;
+		width:100%;
+	}
 }
+
+
 
 </style>
   
