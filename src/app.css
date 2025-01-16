@@ -6,13 +6,13 @@
 	@font-face {
 		font-family: 'LeagueSpartan';
 		font-style: normal;
-		src: url(/fonts/LeagueSpartanFont.ttf) format('ttf');
+		src: url(/static/fonts/LeagueSpartanFont.ttf) format('ttf');
 	}
 
 	@font-face {
 		font-family: 'rp1';
 		font-style: normal;
-		src: url(/fonts/rp1font.ttf.ttf) format('ttf');
+		src: url(/static/fonts/rp1font.ttf) format('ttf');
 	}
 
 	/* @font-face {

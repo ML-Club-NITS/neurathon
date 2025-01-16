@@ -11,7 +11,7 @@
 <div class="sponser-container my-12 py-8">
 	<div class="sponser_intro">
 		<span
-			class="inline-flex w-fit animate-text-gradient text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 text-center text-4xl font-bold text-transparent md:text-5xl lg:text-6xl xl:text-7xl"
+			class="inline-flex w-fit animate-text-gradient text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 text-center text-2xl font-bold text-transparent md:text-3xl lg:text-5xl 2xl:text-8xl"
 		>
 			Sponsors
 		</span>

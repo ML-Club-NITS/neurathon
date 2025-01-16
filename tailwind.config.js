@@ -5,7 +5,7 @@ export default {
 	theme: {
 		fontFamily: {
 			LeagueSpartanFont: ['LeagueSpartanFont', 'Arial', 'sans-serif'],
-			rp1: ['readyplayer', 'monospace']
+			rp1: ['rp1font', 'monospace']
 		},
 		extend: {
 			animation: {
