@@ -18,7 +18,6 @@ export default {
 				'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
 				'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
 				magicslide: 'magicslide var(--speed) ease-in-out infinite alternate'
-				
 			},
 			keyframes: {
 				shine: {

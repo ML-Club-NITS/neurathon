@@ -4,18 +4,20 @@
 </script>
 
 <section
-	class="md:mt-24 mt-16 flex w-full items-center justify-center border-slate-500 bg-black px-5 md:px-24 lg:py-1"
+	class="mt-16 flex w-full items-center justify-center border-slate-500 bg-black px-5 md:mt-24 md:px-24 lg:py-1"
 >
 	<ShineBorder class="text-center capitalize" color={['#FF5722', '#0883FF']}>
 		<div class="my-auto h-fit w-full flex-col">
 			<AnimatedShinyText
 				class="inline-flex w-full items-center justify-center transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400"
 			>
-				<div class="w-fit text-wrap font-bold text-2xl md:text-3xl lg:text-5xl 2xl:text-8xl">About</div>
+				<div class="w-fit text-wrap text-2xl font-bold md:text-3xl lg:text-5xl 2xl:text-8xl">
+					About
+				</div>
 			</AnimatedShinyText>
 			<br />
 			<p
-				class="mb-[50px] mt-[20px] max-w-fit px-2 text-justify text-gray-300 sm:mt-[50px] md:mb-[20px] md:px-10 lg:px-16 text-sm md:text-base lg:text-xl 2xl:text-4xl"
+				class="mb-[50px] mt-[20px] max-w-fit px-2 text-justify text-sm text-gray-300 sm:mt-[50px] md:mb-[20px] md:px-10 md:text-base lg:px-16 lg:text-xl 2xl:text-4xl"
 			>
 				Neurathon is an innovative AI/ML-based hackathon designed to ignite creativity and foster
 				groundbreaking ideas in the field of artificial intelligence and machine learning. This

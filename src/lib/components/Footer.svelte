@@ -55,8 +55,8 @@
 		</div>
 		<p class="mt-8 text-center text-base font-semibold leading-6 text-gray-400">
 			<a href="https://www.mlclubnits.com/">
-				© 2025 ML CLUB NITS&nbsp;&nbsp; | &nbsp;&nbsp;Made by <span
-					class="text-orange-500">Machine Learning Club, NIT Silchar</span
+				© 2025 ML CLUB NITS&nbsp;&nbsp; | &nbsp;&nbsp;Made by <span class="text-orange-500"
+					>Machine Learning Club, NIT Silchar</span
 				></a
 			>
 		</p>

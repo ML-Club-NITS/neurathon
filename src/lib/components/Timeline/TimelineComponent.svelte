@@ -58,7 +58,7 @@
 	</span>
 	<div class="relative mx-5 max-w-7xl overflow-hidden pb-20">
 		{#each timelineData as item}
-			<div class="flex justify-start pt-20 md:gap-y-10 md:pt-40 ">
+			<div class="flex justify-start pt-20 md:gap-y-10 md:pt-40">
 				<div
 					class="sticky top-0 z-40 max-w-xs items-center self-start md:w-full md:flex-row lg:max-w-sm"
 				>
@@ -70,7 +70,7 @@
 						></div>
 					</div>
 					<h3
-						class="hidden text-xl font-bold text-neutral-500 md:block md:pl-20 md:text-3xl dark:text-neutral-500"
+						class="hidden text-xl font-bold text-neutral-500 md:block md:pl-20 md:text-2xl lg:text-4xl dark:text-neutral-500"
 					>
 						{item.title}
 					</h3>
@@ -78,7 +78,7 @@
 
 				<div class="relative w-full pl-20 pr-4 md:pl-4">
 					<h3
-						class="mb-4 block text-left text-2xl font-bold text-neutral-500 md:hidden dark:text-neutral-500"
+						class="mb-4 block text-left text-xl font-bold text-neutral-500 md:hidden md:text-3xl lg:text-4xl dark:text-neutral-500"
 					>
 						{item.title}
 					</h3>

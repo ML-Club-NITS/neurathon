@@ -7,13 +7,13 @@
 <section
 	class="flex w-full items-center justify-center border-slate-500 bg-black px-5 md:px-24 lg:py-1"
 >
-	<div class="prize-container flex-col items-center justify-center gap-y-7 ">
+	<div class="prize-container flex-col items-center justify-center gap-y-7">
 		<span
-			class="inline-flex w-full justify-center mb-4 animate-text-gradient text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 !text-center text-3xl font-bold text-transparent md:text-3xl lg:text-5xl 2xl:text-8xl"
+			class="mb-4 inline-flex w-full animate-text-gradient justify-center text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 !text-center text-3xl font-bold text-transparent md:text-3xl lg:text-5xl 2xl:text-8xl"
 		>
 			Prizes
 		</span>
-		<div class="prize-content w-full gap-12 grid grid-cols-3">
+		<div class="prize-content grid w-full grid-cols-3 gap-12">
 			{#each prizes.prizes as prize, index}
 				<div
 					class="prize-wrapper"

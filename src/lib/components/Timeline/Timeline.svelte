@@ -28,7 +28,7 @@
 
 <section
 	id="timeline"
-	class="font-sans flex h-full w-full flex-wrap justify-around overflow-hidden md:px-10 "
+	class="font-sans flex h-full w-full flex-wrap justify-around overflow-hidden md:px-10"
 >
 	<Timeline {timelineData} />
 </section>
