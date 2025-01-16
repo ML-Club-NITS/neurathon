@@ -12,7 +12,7 @@
 	</span>
 	<div class="container mx-auto px-4">
 		<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
-			<div class="flex flex-col items-center">
+			<div class="flex flex-col items-center lg:sticky lg:top-[calc(50vh-100px)] lg:h-max">
 				<h2 class="mb-4 text-base font-bold md:text-lg lg:text-2xl 2xl:text-5xl">
 					How can we help you today?
 				</h2>
