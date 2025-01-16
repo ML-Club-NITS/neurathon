@@ -1,43 +1,39 @@
 <script>
-	import BrochureBtn from './ui/BrochureBtn.svelte';
+	import bubbleGif from '$lib/assets/bubble.gif';
 </script>
 
-<section class="min-h-[50vh]">
-	<div
-		class="flex h-auto w-full flex-wrap-reverse items-center justify-between text-4xl text-white lg:flex-nowrap"
-	>
-		<div
-			class="mt-20 flex h-auto w-full flex-col items-center justify-center text-center lg:ml-20 lg:mt-0 lg:w-auto lg:items-start"
-		>
-			<div class="text-2xl font-bold md:text-3xl lg:text-5xl 2xl:text-8xl">
-				Neurathon 2025
-			</div>
-			<div class="mt-2 text-base font-thin text-gray-400 md:text-lg lg:text-2xl">
-				Where Creativity Meets Innovation
-			</div>
-			<div class="pt-6 text-base font-medium text-gray-400 md:text-lg">
-				<BrochureBtn>Download Brochure</BrochureBtn>
-			</div>
+<!-- <section
+	class="md:mt-24 mt-16 flex w-full items-center justify-center border-slate-500 bg-black px-5 md:px-20 lg:py-1"
+>
+
+
+</section> -->
+
+
+<div class="hero flex flex-col-reverse py-16 md:py-16 items-center justify-center md:flex-row md:max-w-7xl md:items-center md:justify-evenly p-6 md:p-12 bg-transparent">
+	
+	
+	<!-- Text Section -->
+	<div class="text-content flex flex-col items-center md:items-start text-center md:text-left space-y-4">
+		<!-- Title -->
+		<div class="neurathon">
+			<span
+				class="inline-block animate-text-gradient bg-gradient-to-r from-white via-gray-400 to-white bg-[200%_auto] bg-clip-text font-LeagueSpartanFont text-4xl md:text-6xl font-bold text-transparent"
+			>
+				Neurathon
+			</span>
 		</div>
-		<div class="h-auto w-full lg:w-auto flex justify-center">
-			<!-- <div
-				class="absolute h-full w-40 from-black to-transparent bg-blend-lighten md:bg-gradient-to-r"
-			></div> -->
-			<video src="hero.mp4" autoplay loop class="w-96"></video>
+		<!-- Subtitle -->
+		<div class="ai-for-good">
+			<span class="text-neutral-600 text-lg md:text-3xl font-medium">
+				AI for Good
+			</span>
 		</div>
 	</div>
-</section>
 
+	<!-- GIF Section -->
+	<div class="gif flex justify-center">
+		<img src={bubbleGif} alt="Bubble Animation" class="h-64 md:h-80 lg:h-96 w-auto" />
+	</div>
+</div>
 
-<!-- <script>
-	import gif from "$lib/assets/ripple.gif"
-
-	let name = "Neurathon";
-	let tagline = "AI for Good";
-	let linkText = "Get Started";
-	let textLink = "/";
-</script>
-
-<div class="hero">
-	<video src={gif}></video>
-</div> -->

@@ -6,7 +6,7 @@
 
 <div class="main-body flex min-h-screen flex-col items-center justify-center bg-black text-white">
 	<!-- <p class="mb-6">Last fetch Server Time: {data?.currentTime || 'Unavailable'}</p> -->
-	<section id="hero" class="w-full">
+	<section id="hero" class="container">
 		<Hero />
 	</section>
 	<main class="container">
