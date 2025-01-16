@@ -27,3 +27,17 @@
 		</div>
 	</div>
 </section>
+
+
+<!-- <script>
+	import gif from "$lib/assets/ripple.gif"
+
+	let name = "Neurathon";
+	let tagline = "AI for Good";
+	let linkText = "Get Started";
+	let textLink = "/";
+</script>
+
+<div class="hero">
+	<video src={gif}></video>
+</div> -->
