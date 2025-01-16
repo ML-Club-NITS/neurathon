@@ -49,3 +49,7 @@ body {
 		border-radius: 2px;
 	}
 }
+
+img {
+	-webkit-user-drag: none;
+}

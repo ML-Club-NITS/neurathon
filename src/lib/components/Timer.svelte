@@ -57,7 +57,7 @@
 	});
 </script>
 
-<div class="count-down-main flex h-screen w-full items-center justify-center gap-1.5">
+<div class="count-down-main flex h-auto w-full items-center justify-center gap-1.5">
 	<div class="timer">
 		<div
 			class="flex aspect-square min-w-[80px] flex-col items-center justify-center gap-0 rounded-xl border border-indigo-600 px-1.5 py-1.5"

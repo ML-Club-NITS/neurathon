@@ -9,7 +9,7 @@
 >
 	<div class="prize-container flex-col items-center justify-center gap-y-7 ">
 		<span
-			class="w-fit animate-text-gradient bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text text-center font-bold text-transparent text-5xl sm:text-6xl md:text-7xl"
+			class="inline-flex w-full justify-center mb-4 animate-text-gradient text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 !text-center text-4xl font-bold text-transparent md:text-5xl lg:text-6xl xl:text-7xl"
 		>
 			Prizes
 		</span>
