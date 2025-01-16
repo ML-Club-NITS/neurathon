@@ -5,20 +5,12 @@
 			"answer": "Judging criteria include innovation, feasibility, technical complexity, societal impact, and the presentation of the final solution."
 		},
 		{
-			"question": "Is there any registration fee for the event?",
-			"answer": "No, there is no registration fee for the event. Participation is completely free."
-		},
-		{
 			"question": "Is there a certificate for participation?",
 			"answer": "Yes, all participants will receive certificates for their participation."
 		},
 		{
 			"question": "What is the criteria for team formation?",
 			"answer": "Teams can consist of 2-4 members. Each member must register individually and associate with the same team during registration."
-		},
-		{
-			"question": "Can we use APIs?",
-			"answer": "Yes, you are encouraged to use APIs, provided they comply with the event’s rules and ethical guidelines."
 		},
 		{
 			"question": "Do team members need to be from the same college?",
@@ -29,12 +21,8 @@
 			"answer": "No, team members cannot be changed after registration. Please ensure that your team is final before registering."
 		},
 		{
-			"question": "Will there be any mentorship provided?",
-			"answer": "Yes, mentors will be available to guide teams during the hackathon."
-		},
-		{
 			"question": "Will there be workshops or mentoring during the hackathon?",
-			"answer": "Yes, workshops and mentoring sessions will be conducted to help participants with their projects."
+			"answer": "No, workshops and mentoring sessions will not be conducted."
 		},
 		{
 			"question": "Can we work on pre-existing projects?",
