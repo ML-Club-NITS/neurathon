@@ -10,7 +10,7 @@
 </section> -->
 
 <div
-	class="hero flex flex-col-reverse items-center justify-center bg-transparent p-6 py-16 md:max-w-7xl md:flex-row md:items-center md:justify-evenly md:p-12 md:py-16"
+	class="hero flex flex-col-reverse items-center justify-center bg-transparent p-6 py-16 md:max-w-7xl md:flex-row md:items-center md:justify-center md:translate-x-10 md:p-12 md:py-16"
 >
 	<!-- Text Section -->
 	<div

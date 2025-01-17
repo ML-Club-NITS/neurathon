@@ -189,7 +189,7 @@
 
 	.dgg {
 		position: absolute;
-		top: 0%;
+		top: -10%;
 		right: 55%;
 		width: 85%;
 		height: auto;
@@ -208,6 +208,12 @@
 			top: 5%;
 			width: 100%;
 			left: 0%;
+		}
+	}
+
+	@media (max-width: 800px) {
+		.dgg {
+			top: 0%;
 		}
 	}
 </style>
