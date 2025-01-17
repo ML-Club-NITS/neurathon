@@ -95,10 +95,11 @@
 		<section id="sponsors">
 			<Sponsers />
 		</section>
-		
+		<img src={bubble} class="bubble2" alt="bubble2">
 		<section id="faqs">
 			<FAQs />
 		</section>
+		
 		
 	</main>
 	
@@ -127,6 +128,19 @@
 		height: auto;
 		opacity: 0.3;
 		z-index: 0;
+		transition: transform 1s ease-out;
+	}
+
+	.bubble2 {
+		/* display: block; */
+		position: absolute;
+		/* color: black; */
+		bottom: -7%;
+		right: 65%;
+		width: 1000px;
+		height: auto;
+		opacity: 0.3;
+		/* z-index: 0; */
 		transition: transform 1s ease-out;
 	}
 
