@@ -63,7 +63,7 @@
 						<img
 							class="h-8 w-8 rounded-full"
 							src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-							alt="User photo"
+							alt="User"
 						/>
 					</button>
 					<div

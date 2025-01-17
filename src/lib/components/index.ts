@@ -7,3 +7,4 @@ export { default as FAQs } from './FAQs.svelte';
 export { default as Footer } from './Footer.svelte';
 export { default as Timer } from './Timer.svelte';
 export { default as LeaderBoard } from './LeaderBoard.svelte';
+export { default as Banner } from './Banner.svelte';

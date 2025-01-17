@@ -103,7 +103,7 @@
 	}
 </script>
 
-<div>
+<div class="w-full">
 	<!-- Search Input -->
 	<div class="mb-4">
 		<input
@@ -115,14 +115,14 @@
 	</div>
 
 	<!-- Table -->
-	<Table hoverable={true}>
-		<TableHead>
-			<TableHeadCell>ID</TableHeadCell>
+	<Table hoverable={true} class="min-w-full rounded-md">
+		<TableHead class="w-full rounded-md">
+			<TableHeadCell class="rounded-tl-md">ID</TableHeadCell>
 			<TableHeadCell>Maker</TableHeadCell>
 			<TableHeadCell>Type</TableHeadCell>
-			<TableHeadCell>Make</TableHeadCell>
+			<TableHeadCell class="rounded-tr-md">Make</TableHeadCell>
 		</TableHead>
-		<TableBody>
+		<TableBody class="rounded-b-md">
 			{#if paginatedItems.length > 0}
 				{#each paginatedItems as item}
 					<TableBodyRow>
