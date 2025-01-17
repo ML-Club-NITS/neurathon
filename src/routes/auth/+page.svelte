@@ -1,6 +1,6 @@
 <script>
 	import { Tabs, TabItem } from 'flowbite-svelte';
-	import { toast } from '@zerodevx/svelte-toast'
+	import { toast } from '@zerodevx/svelte-toast';
 
 	import Login from './Login.svelte';
 	import Register from './Register.svelte';
@@ -10,45 +10,45 @@
 
 	$effect(() => {
 		if (form?.error) {
-			toast.push((typeof form?.error === 'string' ? form?.error : "Error occurred"), {
+			toast.push(typeof form?.error === 'string' ? form?.error : 'Error occurred', {
 				theme: {
 					'--toastColor': '#fff',
 					'--toastBackground': 'rgba(220, 38, 38, 0.9)',
 					'--toastBarBackground': '#DC2626'
 				},
 				onpop: () => {
-					goto('/auth')
+					goto('/auth');
 				},
 				duration: 3000
 			});
 		} else if (form?.login) {
-			toast.push("Login Successful", {
+			toast.push('Login Successful', {
 				theme: {
 					'--toastColor': 'mintcream',
 					'--toastBackground': 'rgba(72,187,120,0.9)',
 					'--toastBarBackground': '#2F855A'
 				},
 				onpop: () => {
-					goto('/participate')
+					goto('/participate');
 				},
 				duration: 1000
 			});
 		} else if (form?.signup) {
-			toast.push("Registeration Successful", {
+			toast.push('Registeration Successful', {
 				theme: {
 					'--toastColor': 'mintcream',
 					'--toastBackground': 'rgba(72,187,120,0.9)',
 					'--toastBarBackground': '#2F855A'
 				},
 				onpop: () => {
-					goto('/participate')
+					goto('/participate');
 				},
 				duration: 1000
 			});
 		} else if (form?.resetPassword) {
-			toast.push("Check your inbox", {
+			toast.push('Check your inbox', {
 				onpop: () => {
-					goto('/auth')
+					goto('/auth');
 				},
 				theme: {
 					'--toastColor': 'mintcream',
@@ -58,7 +58,7 @@
 				duration: 5000
 			});
 		}
-	})
+	});
 </script>
 
 <div class="mt-44 flex flex-col items-center">
@@ -87,8 +87,8 @@
 
 <style>
 	:root {
-	  --toastBackground: rgba(245, 208, 254, 0.95);
-	  --toastColor: #424242;
-	  --toastBarBackground: rgb(255, 145, 0);
+		--toastBackground: rgba(245, 208, 254, 0.95);
+		--toastColor: #424242;
+		--toastBarBackground: rgb(255, 145, 0);
 	}
 </style>

@@ -66,9 +66,9 @@
 
 <style>
 	:root {
-	  --toastContainerTop: auto;
-	  --toastContainerRight: auto;
-	  --toastContainerBottom: 8rem;
-	  --toastContainerLeft: calc(50vw - 8rem);
+		--toastContainerTop: auto;
+		--toastContainerRight: auto;
+		--toastContainerBottom: 8rem;
+		--toastContainerLeft: calc(50vw - 8rem);
 	}
-  </style>
+</style>
