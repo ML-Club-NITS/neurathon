@@ -122,21 +122,7 @@
 				<a
 					href="#"
 					class="block rounded p-2 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-					>Kanban</a
-				>
-			</li>
-			<li>
-				<a
-					href="#"
-					class="block rounded p-2 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
 					>Settings</a
-				>
-			</li>
-			<li>
-				<a
-					href="#"
-					class="block rounded p-2 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-					>Sign out</a
 				>
 			</li>
 		</ul>
@@ -147,6 +133,3 @@
 		</div>
 	</div>
 </div>
-
-<style>
-</style>

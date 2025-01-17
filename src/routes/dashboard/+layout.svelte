@@ -4,8 +4,8 @@
 
 <svelte:head>
 	<meta name="reset" content="true" />
+	<title>Dashboard</title>
 </svelte:head>
 <main>
-	<h1>Hi</h1>
 	<slot />
 </main>
