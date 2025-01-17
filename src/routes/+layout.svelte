@@ -15,7 +15,6 @@
 		url = new URL(window.location.href.replace(/%2B/g, '+')).pathname;
 		if (url == '/login') {
 			goto('/auth');
-			console.log('Redirecting to /auth');
 		}
 		const { data } = supabase.auth.onAuthStateChange((_, newSession) => {
 			if (newSession?.expires_at !== session?.expires_at) {
@@ -43,9 +42,18 @@
 		{/if}
 	</nav>
 </div> -->
-<Navbar />
+
 <!-- <div class="h-16"></div> -->
-{@render children()}
+{#if data.layout === 'dashboard'}
+	<div class="dashboard-layout">
+		{@render children()}
+	</div>
+{:else}
+	<div class="default-layout">
+		<Navbar />
+		{@render children()}
+	</div>
+{/if}
 
 <!-- <style>
 	.glassy-navbar {

@@ -19,9 +19,9 @@
 		<pre>0</pre>
 		R
 	</h1>
-	<div class="flex flex-col items-center text-lg text-gray-400">
-		Oh! Smash. You just hit a route that doesn't exist.
-		<div class="flex items-center gap-3 text-lg text-gray-400">
+	<div class="flex flex-col items-center text-lg text-gray-400 mb-10">
+		Oh! Smash. You just hit a route that doesn't exist.<br><br>
+		<div class="flex items-center gap-3 text-lg text-gray-400 flex-wrap justify-center">
 			The page <pre class="w-fit rounded-md bg-gray-900 px-3">{url}</pre>
 			you are looking for is not available.
 		</div>
