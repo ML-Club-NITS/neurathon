@@ -6,6 +6,10 @@
 	import cool1 from '$lib/assets/cool1.png';
 	import drop2 from '$lib/assets/drop2.png';
 	import dgg from '$lib/assets/dgg.png';
+	import stars from "$lib/assets/stars.png";
+	import modius from "$lib/assets/Mobius.jpeg";
+	import glass from "$lib/assets/Glass _Knot_.jpeg";
+	import orange from "$lib/assets/orange.jpeg";
 	import { onMount } from 'svelte';
 
 	let scrollPosition = 0;
@@ -15,6 +19,10 @@
 		const cool1 = document.querySelector('.cool1') as HTMLElement;
 		const drop2 = document.querySelector('.drop2') as HTMLElement;
 		const dgg = document.querySelector('.dgg') as HTMLElement;
+		const stars = document.querySelector('.stars') as HTMLElement;
+		const modius = document.querySelector('.modius') as HTMLElement;
+		const glass = document.querySelector('.glass') as HTMLElement;
+		const orange = document.querySelector('.orange') as HTMLElement;
 
 		if (bgImage) {
 			scrollPosition = window.scrollY;
@@ -32,6 +40,19 @@
 			scrollPosition = window.scrollY;
 			dgg.style.transform = `translateY(${scrollPosition * -0.2}px)`;
 		}
+		if(stars){
+			scrollPosition = window.scrollY;
+			stars.style.transform = `translateY(${scrollPosition * -0.2}px)`;
+		}
+		if(modius){
+			modius.style.transform = `translateY(${scrollPosition * -0.2}px)`;
+		}
+		if(glass){
+			glass.style.transform = `translateY(${scrollPosition * -0.2}px)`;
+		}
+		if(orange){
+			orange.style.transform = `translateY(${scrollPosition * -0.2}px)`;
+		}
 	};
 
 	onMount(() => {
@@ -48,10 +69,10 @@
 
 <!-- <img src={smooth1} class="smooth1" alt="smooth1" /> -->
 <img src={dgg} class="dgg" alt="dgg" />
-
+<!-- <img src={} alt=""> -->
 <img src={bubble} class="background-image" alt="Decorative" />
 
-<div class="main-body flex min-h-screen flex-col items-center justify-center bg-black text-white">
+<div class="main-body m-w-[1200px] overflow-hidden flex min-h-screen flex-col items-center justify-center bg-black text-white">
 	<!-- <p class="mb-6">Last fetch Server Time: {data?.currentTime || 'Unavailable'}</p> -->
 	<section id="hero" class="container">
 		<Hero />
@@ -66,26 +87,40 @@
 		<section class="container" id="timeline">
 			<Timeline />
 		</section>
+		<img src={glass} class="glass" alt="glass" />
 		<img src={drop2} class="drop2" alt="drop2" />
 		<section class="container" id="prizes">
 			<Prizes />
 		</section>
+		<img src={modius} class="modius" alt="modius" />
 		<section id="sponsors">
 			<Sponsers />
 		</section>
+		
 		<section id="faqs">
 			<FAQs />
 		</section>
+		
 	</main>
+	
 </div>
+
 <footer class="mt-8">
 	<Footer />
 </footer>
 
+
 <!-- </div> -->
 
 <style>
+	.main-body {
+		position: relative;
+		overflow: hidden;
+	}
+
+
 	.background-image {
+		display: block;
 		position: absolute;
 		top: 100%;
 		right: 75%;
@@ -100,6 +135,7 @@
 		position: absolute;
 		left: 70%;
 		width: 75%;
+		display: block;
 		height: auto;
 		opacity: 0.7;
 		z-index: 0;
@@ -117,6 +153,41 @@
 		transition: transform 1s ease-out;
 	}
 
+	
+
+	.glass {
+		position: absolute;
+		top: 450%;
+		left: 55%;
+		width: 85%;
+		height: auto;
+		opacity: 0.15;
+		z-index: 0;
+		transition: transform 1s ease-out;
+	}
+
+	.modius {
+
+		position: absolute;
+		top: 960%;
+		right: 55%;
+		width: 100%;
+		height: auto;
+		opacity: 0.0;
+		z-index: 0;
+		transition: transform 1s ease-out;
+	}
+
+	@media(max-width: 400px) {
+		.modius {
+			opacity: 0.15;
+		}
+	}
+
+	
+
+
+
 	.dgg {
 		position: absolute;
 		bottom: 0%;
@@ -128,7 +199,7 @@
 		transition: transform 1s ease-out;
 	}
 
-	@media (max-width: 767px) {
+	@media (max-width: 600px) {
 		.drop2 {
 			right: 45%;
 			width: 100%;
