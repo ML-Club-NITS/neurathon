@@ -65,20 +65,19 @@
 	// export let data;
 </script>
 
-<!-- <div class="main-body flex min-h-screen flex-col items-center justify-center bg-black text-white"> -->
 
-<!-- <img src={smooth1} class="smooth1" alt="smooth1" /> -->
-<img src={dgg} class="dgg" alt="dgg" />
-<!-- <img src={} alt=""> -->
-<img src={bubble} class="background-image" alt="Decorative" />
 
-<div class="main-body m-w-[1200px] overflow-hidden flex min-h-screen flex-col items-center justify-center bg-black text-white">
+
+<div class="main-body m-w-[1200px] flex min-h-screen flex-col items-center justify-center bg-black text-white">
 	<!-- <p class="mb-6">Last fetch Server Time: {data?.currentTime || 'Unavailable'}</p> -->
 	<section id="hero" class="container">
 		<Hero />
 	</section>
 
 	<main class="container">
+		<img src={dgg} class="dgg" alt="dgg" />
+
+        <img src={bubble} class="background-image" alt="Decorative" />
 		<section class="conatiner" id="about">
 			<About />
 		</section>
@@ -122,7 +121,7 @@
 	.background-image {
 		display: block;
 		position: absolute;
-		top: 100%;
+		top: 15%;
 		right: 75%;
 		width: 500px;
 		height: auto;
@@ -144,7 +143,7 @@
 
 	.drop2 {
 		position: absolute;
-		top: 300%;
+		top: 35%;
 		right: 55%;
 		width: 85%;
 		height: auto;
@@ -157,7 +156,7 @@
 
 	.glass {
 		position: absolute;
-		top: 450%;
+		/* top: 450%; */
 		left: 55%;
 		width: 85%;
 		height: auto;
@@ -169,7 +168,7 @@
 	.modius {
 
 		position: absolute;
-		top: 960%;
+		/* top: 960%; */
 		right: 55%;
 		width: 100%;
 		height: auto;
@@ -190,7 +189,7 @@
 
 	.dgg {
 		position: absolute;
-		bottom: 0%;
+		top: 0%;
 		right: 55%;
 		width: 85%;
 		height: auto;
@@ -199,16 +198,16 @@
 		transition: transform 1s ease-out;
 	}
 
-	@media (max-width: 600px) {
+	@media (max-width: 760px) {
 		.drop2 {
 			right: 45%;
 			width: 100%;
 		}
 
 		.dgg {
-			top: 50%;
+			top: 5%;
 			width: 100%;
-			left: 57%;
+			left: 0%;
 		}
 	}
 </style>
