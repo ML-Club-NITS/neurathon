@@ -39,7 +39,11 @@ export const load: LayoutLoad = async ({ data, depends, fetch, url }) => {
 	const {
 		data: { user }
 	} = await supabase.auth.getUser();
-	
 
-	return { session, supabase, user, layout: currentRoute.startsWith('/dashboard') ? 'dashboard' : 'default', };
+	return {
+		session,
+		supabase,
+		user,
+		layout: currentRoute.startsWith('/dashboard') ? 'dashboard' : 'default'
+	};
 };

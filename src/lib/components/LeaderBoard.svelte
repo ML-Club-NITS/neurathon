@@ -74,7 +74,10 @@
 	);
 
 	// Paginate the filtered items
-	$: paginatedItems = filteredItems.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+	$: paginatedItems = filteredItems.slice(
+		(currentPage - 1) * itemsPerPage,
+		currentPage * itemsPerPage
+	);
 
 	// Calculate total pages dynamically
 	$: totalPages = Math.ceil(filteredItems.length / itemsPerPage);
@@ -105,7 +108,7 @@
 
 <div class="w-full">
 	<!-- Search Input -->
-	<div class="mb-4">
+	<div class="mb-4 w-full">
 		<input
 			type="text"
 			placeholder="Search by Maker, Type, or Make..."
@@ -115,38 +118,36 @@
 	</div>
 
 	<!-- Table -->
-	<Table hoverable={true} class="min-w-full rounded-md">
-		<TableHead class="w-full rounded-md">
+	<Table hoverable={true} divClass="w-[initial] rounded-md">
+		<TableHead theadClass="rounded-md">
 			<TableHeadCell class="rounded-tl-md">ID</TableHeadCell>
 			<TableHeadCell>Maker</TableHeadCell>
 			<TableHeadCell>Type</TableHeadCell>
 			<TableHeadCell class="rounded-tr-md">Make</TableHeadCell>
 		</TableHead>
-		<TableBody class="rounded-b-md">
+		<TableBody tableBodyClass="rounded-b-md">
 			{#if paginatedItems.length > 0}
 				{#each paginatedItems as item}
 					<TableBodyRow>
-						<TableBodyCell>{item.id}</TableBodyCell>
-						<TableBodyCell>{item.maker}</TableBodyCell>
-						<TableBodyCell>{item.type}</TableBodyCell>
-						<TableBodyCell>{item.make}</TableBodyCell>
+						<TableBodyCell class="">{item.id}</TableBodyCell>
+						<TableBodyCell class="">{item.maker}</TableBodyCell>
+						<TableBodyCell class="">{item.type}</TableBodyCell>
+						<TableBodyCell class="">{item.make}</TableBodyCell>
 					</TableBodyRow>
 				{/each}
 			{:else}
 				<TableBodyRow>
-					<TableBodyCell colspan={4} class="text-center">
-						No items found.
-					</TableBodyCell>
+					<TableBodyCell colspan={4} class="text-center">No items found.</TableBodyCell>
 				</TableBodyRow>
 			{/if}
 		</TableBody>
 	</Table>
 
 	<!-- Pagination -->
-	<div class="mt-4 flex justify-center items-center space-x-2">
+	<div class="mt-4 flex items-center justify-center space-x-2">
 		<button
 			class="rounded bg-blue-500 px-4 py-2 text-white"
-			on:click={previousPage}
+			onclick={previousPage}
 			disabled={currentPage === 1}
 		>
 			Previous
@@ -160,7 +161,7 @@
 					class={`rounded px-4 py-2 ${
 						currentPage === button ? 'bg-blue-700 text-white' : 'bg-gray-200'
 					}`}
-					on:click={() => (currentPage = typeof button === 'number' ? button : currentPage)}
+					onclick={() => (currentPage = typeof button === 'number' ? button : currentPage)}
 				>
 					{button}
 				</button>
@@ -169,7 +170,7 @@
 
 		<button
 			class="rounded bg-blue-500 px-4 py-2 text-white"
-			on:click={nextPage}
+			onclick={nextPage}
 			disabled={currentPage === totalPages}
 		>
 			Next

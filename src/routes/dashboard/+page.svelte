@@ -1,5 +1,5 @@
-<script>
-	import { LeaderBoard } from '$lib/components';
+<script lang="ts">
+	import { GitHistory, LeaderBoard } from '$lib/components';
 	function toggleSidebar() {
 		const sidebar = document.getElementById('logo-sidebar');
 		if (sidebar) {
@@ -13,6 +13,12 @@
 			dropdown.classList.toggle('hidden');
 		}
 	}
+
+	let { data } = $props();
+	let { commits } = $derived(data);
+	$effect(() => {
+		console.log(commits);
+	});
 </script>
 
 <div>
@@ -108,7 +114,7 @@
 	<!-- Sidebar -->
 	<aside
 		id="logo-sidebar"
-		class="absolute -translate-x-0 top-0 z-10 h-screen w-64 border-r bg-white pt-20 transition-transform lg:fixed lg:translate-x-0 dark:border-gray-700 dark:bg-gray-800"
+		class="fixed top-0 z-10 h-screen w-64 -translate-x-0 border-r bg-white pt-20 transition-transform lg:fixed lg:translate-x-0 dark:border-gray-700 dark:bg-gray-800"
 	>
 		<ul class="space-y-2 px-3 font-medium">
 			<li>
@@ -127,9 +133,17 @@
 			</li>
 		</ul>
 	</aside>
-	<div class="left-0 top-0 flex w-auto p-4 sm:ml-64">
-		<div class="mt-14 rounded-lg p-4">
+	<div
+		class="left-0 top-0 mt-14 flex flex-col flex-wrap justify-evenly gap-4 p-4 sm:ml-64 lg:flex-row"
+	>
+		<div class="w-full max-w-[400px] rounded-lg">
 			<LeaderBoard />
+		</div>
+		<!-- <div class="rounded-lg w-full max-w-[400px]">
+			<LeaderBoard />
+		</div> -->
+		<div class="min-w-[400px] max-w-[600px] rounded-lg">
+			<GitHistory />
 		</div>
 	</div>
 </div>
