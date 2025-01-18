@@ -1,27 +1,47 @@
 <script>
-	import BrochureBtn from './ui/BrochureBtn.svelte';
+	import bubbleGif from '$lib/assets/bubble.gif';
 </script>
 
-<section class="min-h-[50vh]">
+<!-- <section
+	class="md:mt-24 mt-16 flex w-full items-center justify-center border-slate-500 bg-black px-5 md:px-20 lg:py-1"
+>
+
+
+</section> -->
+
+<div
+	class="hero flex flex-col-reverse items-center justify-center bg-transparent p-6 py-16 md:max-w-7xl md:flex-row md:items-center md:justify-evenly md:p-12 md:py-16"
+>
+	<!-- Text Section -->
 	<div
-		class="flex h-auto w-full flex-wrap-reverse items-center justify-between text-4xl text-white lg:flex-nowrap"
+		class="text-content flex flex-col items-center space-y-4 text-center md:items-start md:text-left"
 	>
-		<div
-			class="mt-20 flex h-auto w-full flex-col items-center justify-center text-center lg:ml-20 lg:mt-0 lg:w-auto lg:items-start"
-		>
-			<div class="text-2xl font-bold md:text-3xl lg:text-5xl 2xl:text-8xl">Neurathon 2025</div>
-			<div class="mt-2 text-base font-thin text-gray-400 md:text-lg lg:text-2xl">
-				Where Creativity Meets Innovation
-			</div>
-			<div class="pt-6 text-base font-medium text-gray-400 md:text-lg">
-				<BrochureBtn>Download Brochure</BrochureBtn>
-			</div>
+		<!-- Title -->
+		<div class="neurathon">
+			<span
+				class="inline-block animate-text-gradient bg-gradient-to-r from-white via-gray-400 to-white bg-[200%_auto] bg-clip-text font-LeagueSpartanFont text-4xl font-bold text-transparent md:text-6xl lg:text-8xl"
+			>
+				Neurathon
+			</span>
 		</div>
-		<div class="flex h-auto w-full justify-center lg:w-auto">
-			<!-- <div
-				class="absolute h-full w-40 from-black to-transparent bg-blend-lighten md:bg-gradient-to-r"
-			></div> -->
-			<video src="hero.mp4" autoplay loop class="w-96"></video>
+		<!-- Subtitle -->
+		<div class="group relative overflow-hidden text-2xl md:text-3xl lg:text-4xl">
+			<span class="invisible">AI For Good</span>
+			<span
+				class="absolute left-0 top-0 text-neutral-400 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full"
+			>
+				AI For Good
+			</span>
+			<span
+				class="absolute left-0 top-0 translate-y-full text-neutral-400 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0"
+			>
+				Get Started
+			</span>
 		</div>
 	</div>
-</section>
+
+	<!-- GIF Section -->
+	<div class="gif flex justify-center">
+		<img src={bubbleGif} alt="Bubble Animation" class="h-64 w-auto md:h-80 lg:h-96" />
+	</div>
+</div>

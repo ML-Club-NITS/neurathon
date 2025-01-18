@@ -7,7 +7,9 @@
 		<div class="rounded-lg border border-neutral-800 bg-black p-4 shadow-lg">
 			<div class="text-left">
 				<h2>
-					<span class="text-2xl font-bold text-neutral-800 dark:text-neutral-200">
+					<span
+						class="text-xl font-bold text-neutral-800 md:text-2xl lg:text-3xl dark:text-neutral-200"
+					>
 						{event.title}
 					</span>
 				</h2>
