@@ -29,7 +29,7 @@
 							<Accordion>
 								<span slot="head">{faq.question}</span>
 								<div slot="details">
-									<p>
+									<p class="text-base">
 										{faq.answer}
 									</p>
 								</div>

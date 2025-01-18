@@ -6,10 +6,10 @@
 	import cool1 from '$lib/assets/cool1.png';
 	import drop2 from '$lib/assets/drop2.png';
 	import dgg from '$lib/assets/dgg.png';
-	import stars from "$lib/assets/stars.png";
-	import modius from "$lib/assets/Mobius.jpeg";
-	import glass from "$lib/assets/Glass _Knot_.jpeg";
-	import orange from "$lib/assets/orange.jpeg";
+	import stars from '$lib/assets/stars.png';
+	import modius from '$lib/assets/Mobius.jpeg';
+	import glass from '$lib/assets/Glass _Knot_.jpeg';
+	import orange from '$lib/assets/orange.jpeg';
 	import { onMount } from 'svelte';
 
 	let scrollPosition = 0;
@@ -40,17 +40,17 @@
 			scrollPosition = window.scrollY;
 			dgg.style.transform = `translateY(${scrollPosition * -0.2}px)`;
 		}
-		if(stars){
+		if (stars) {
 			scrollPosition = window.scrollY;
 			stars.style.transform = `translateY(${scrollPosition * -0.2}px)`;
 		}
-		if(modius){
+		if (modius) {
 			modius.style.transform = `translateY(${scrollPosition * -0.2}px)`;
 		}
-		if(glass){
+		if (glass) {
 			glass.style.transform = `translateY(${scrollPosition * -0.2}px)`;
 		}
-		if(orange){
+		if (orange) {
 			orange.style.transform = `translateY(${scrollPosition * -0.2}px)`;
 		}
 	};
@@ -65,10 +65,9 @@
 	// export let data;
 </script>
 
-
-
-
-<div class="main-body m-w-[1200px] flex min-h-screen flex-col items-center justify-center bg-black text-white">
+<div
+	class="main-body m-w-[1200px] flex min-h-screen flex-col items-center justify-center bg-black text-white"
+>
 	<!-- <p class="mb-6">Last fetch Server Time: {data?.currentTime || 'Unavailable'}</p> -->
 	<section id="hero" class="container">
 		<Hero />
@@ -77,7 +76,7 @@
 	<main class="container">
 		<img src={dgg} class="dgg" alt="dgg" />
 
-        <img src={bubble} class="background-image" alt="Decorative" />
+		<img src={bubble} class="background-image" alt="Decorative" />
 		<section class="conatiner" id="about">
 			<About />
 		</section>
@@ -95,19 +94,16 @@
 		<section id="sponsors">
 			<Sponsers />
 		</section>
-		
+
 		<section id="faqs">
 			<FAQs />
 		</section>
-		
 	</main>
-	
 </div>
 
 <footer class="mt-8">
 	<Footer />
 </footer>
-
 
 <!-- </div> -->
 
@@ -116,7 +112,6 @@
 		position: relative;
 		overflow: hidden;
 	}
-
 
 	.background-image {
 		display: block;
@@ -152,8 +147,6 @@
 		transition: transform 1s ease-out;
 	}
 
-	
-
 	.glass {
 		position: absolute;
 		/* top: 450%; */
@@ -166,26 +159,21 @@
 	}
 
 	.modius {
-
 		position: absolute;
 		/* top: 960%; */
 		right: 55%;
 		width: 100%;
 		height: auto;
-		opacity: 0.0;
+		opacity: 0;
 		z-index: 0;
 		transition: transform 1s ease-out;
 	}
 
-	@media(max-width: 400px) {
+	@media (max-width: 400px) {
 		.modius {
 			opacity: 0.15;
 		}
 	}
-
-	
-
-
 
 	.dgg {
 		position: absolute;

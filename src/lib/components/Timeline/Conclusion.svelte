@@ -22,21 +22,6 @@
 </div>
 
 <style>
-	.container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 1rem;
-		height: 250px;
-	}
-
-	@media (min-width: 1024px) {
-		.container {
-			flex-direction: row;
-		}
-	}
-
 	.info-container {
 		padding: 1rem;
 		border: 1px solid #141313;

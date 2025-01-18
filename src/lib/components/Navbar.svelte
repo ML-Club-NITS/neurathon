@@ -26,7 +26,7 @@
 			'about-btn': 'about',
 			'timeline-btn': 'timeline',
 			'prizes-btn': 'prizes',
-			'sponsors-btn': 'sponsers',
+			'sponsors-btn': 'sponsors',
 			'faqs-btn': 'faqs'
 		};
 
