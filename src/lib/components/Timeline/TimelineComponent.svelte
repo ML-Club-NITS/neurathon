@@ -78,7 +78,7 @@
 
 				<div class="relative w-full pl-20 pr-4 md:pl-4">
 					<h3
-						class="mb-4 block text-left text-xl font-bold text-neutral-500 md:hidden md:text-3xl lg:text-4xl dark:text-neutral-500"
+						class="mb-4 block text-left text-base font-bold text-neutral-500 md:hidden md:text-3xl lg:text-4xl dark:text-neutral-500"
 					>
 						{item.title}
 					</h3>

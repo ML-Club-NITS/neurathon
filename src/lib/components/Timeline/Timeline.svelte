@@ -20,7 +20,7 @@
 			content: Day2
 		},
 		{
-			title: 'Conclusion',
+			title: 'Day 3',
 			content: Conclusion
 		}
 	];

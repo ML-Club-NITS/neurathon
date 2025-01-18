@@ -1,5 +1,8 @@
 <script lang="ts">
 	import day1Data from '$lib/data/day1.json';
+	import dd from "$lib/data/probStatData.json";
+	import MiniTimeline from './MiniTimeline.svelte';
+	let importData = dd.data;
 </script>
 
 <div class="flex h-auto flex-col gap-4 lg:flex-row">
@@ -8,7 +11,7 @@
 			<div class="text-left">
 				<h2>
 					<span
-						class="text-xl font-bold text-neutral-800 md:text-2xl lg:text-3xl dark:text-neutral-200"
+						class="text-base font-bold text-neutral-800 md:text-2xl lg:text-3xl dark:text-neutral-200"
 					>
 						{event.title}
 					</span>
@@ -19,6 +22,8 @@
 					{event.description}
 				</p>
 			</div>
+			<MiniTimeline {importData}/>
 		</div>
 	{/each}
 </div>
+
