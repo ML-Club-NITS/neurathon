@@ -69,7 +69,8 @@
 	class="main-body m-w-[1200px] flex min-h-screen flex-col items-center justify-center bg-black text-white"
 >
 	<!-- <p class="mb-6">Last fetch Server Time: {data?.currentTime || 'Unavailable'}</p> -->
-	<section id="hero" class="container">
+	<section id="hero" class="w-full">
+		<div class="h-20"></div>
 		<Hero />
 	</section>
 

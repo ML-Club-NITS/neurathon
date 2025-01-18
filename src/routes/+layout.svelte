@@ -3,6 +3,7 @@
 
 	import { goto, invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
+	import { SvelteToast } from '@zerodevx/svelte-toast';
 
 	import Navbar from '$lib/components/Navbar.svelte';
 
@@ -42,17 +43,16 @@
 		{/if}
 	</nav>
 </div> -->
-
 <!-- <div class="h-16"></div> -->
+
+<SvelteToast options={{ reversed: true, intro: { y: 192 } }} />
 {#if data.layout === 'dashboard'}
 	<div class="dashboard-layout">
 		{@render children()}
 	</div>
 {:else}
-	<div class="default-layout">
-		<Navbar />
-		{@render children()}
-	</div>
+	<Navbar />
+	{@render children()}
 {/if}
 
 <!-- <style>
@@ -70,3 +70,12 @@
 		z-index: 1000;
 	}
 </style> -->
+
+<style>
+	:root {
+		--toastContainerTop: auto;
+		--toastContainerRight: auto;
+		--toastContainerBottom: 8rem;
+		--toastContainerLeft: calc(50vw - 8rem);
+	}
+</style>
