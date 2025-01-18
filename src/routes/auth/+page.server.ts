@@ -1,7 +1,7 @@
 import type { Actions } from './$types';
 
 export const actions: Actions = {
-	signup: async ({ request, locals: { supabase } }) => {
+	register: async ({ request, locals: { supabase } }) => {
 		const formData = await request.formData();
 		const email = formData.get('email') as string;
 		const name = formData.get('name') as string;

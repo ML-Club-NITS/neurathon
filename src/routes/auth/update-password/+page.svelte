@@ -55,7 +55,7 @@
 			)
 		) {
 			formErrors.passwordError =
-				'Password must be 8-20 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character';
+				'Password must be 8-20 characters long and include uppercase, lowercase, a number, and a special character';
 		}
 
 		if (!formData.confirm_password) {
@@ -85,6 +85,7 @@
 			<label class="block font-bold text-slate-300" for="new_password"> New Password </label>
 			<input
 				class="focus:shadow-outline w-full appearance-none rounded border border-slate-400 bg-slate-700 p-2 leading-tight text-slate-400 opacity-80 shadow focus:outline-none"
+				class:!border-red-500={formErrors.passwordError}
 				name="new_password"
 				type="password"
 				id="new_password"
@@ -102,6 +103,7 @@
 			</label>
 			<input
 				class="focus:shadow-outline w-full appearance-none rounded border border-slate-400 bg-slate-700 p-2 leading-tight text-slate-400 opacity-80 shadow focus:outline-none"
+				class:!border-red-500={formErrors.confirmationError}
 				name="confirm_password"
 				type="password"
 				id="confirm_password"

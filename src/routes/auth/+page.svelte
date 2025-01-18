@@ -41,6 +41,9 @@
 					'--toastBarBackground': '#2F855A'
 				},
 				onpop: () => {
+					toast.push('Check your inbox', {
+						duration: 10000
+					});
 					goto('/participate');
 				},
 				duration: 1000
@@ -61,11 +64,11 @@
 	});
 </script>
 
-<div class="mt-44 flex flex-col items-center">
+<div class="mt-36 flex flex-col items-center md:mt-44">
 	<Tabs
 		tabStyle="pill"
 		defaultClass="bg-slate-800 flex gap-2 p-1 items-center rounded-lg w-fit mx-auto"
-		contentClass="p-2 m-2 rounded-lg"
+		contentClass="w-80 md:w-96 p-2 m-2 rounded-lg"
 	>
 		<TabItem
 			open
@@ -87,8 +90,8 @@
 
 <style>
 	:root {
-		--toastBackground: rgba(245, 208, 254, 0.95);
-		--toastColor: #424242;
+		--toastBackground: rgb(234, 88, 11);
+		--toastColor: #ffffff;
 		--toastBarBackground: rgb(255, 145, 0);
 	}
 </style>
