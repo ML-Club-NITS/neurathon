@@ -1,11 +1,10 @@
-// @ts-nocheck
 import type { PageServerLoad } from './$types';
 
-export const load = async () => {
+export const load: PageServerLoad = async () => {
 	const msg = await fetch('https://api.github.com/repos/tech-hunter-mainak/neurathon-24/commits');
-	let userData = await msg.json();
-	let dataSize = userData.length > 5 ? 5 : userData.length;
-	let commitData = [];
+	const userData = await msg.json();
+	const dataSize = userData.length > 5 ? 5 : userData.length;
+	const commitData = [];
 	for (let i = 0; i < dataSize; i++) {
 		commitData.push({
 			committerName: userData[i].commit.committer.name,
@@ -20,4 +19,3 @@ export const load = async () => {
 		commits: commitData
 	};
 };
-null as any as PageServerLoad;

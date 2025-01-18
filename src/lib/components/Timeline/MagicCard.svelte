@@ -5,7 +5,7 @@
 
 	export let gradientSize: number = 200;
 	export let gradientColor: string = '#262626';
-	export let gradientOpacity: number = 0.5;
+	export let gradientOpacity: number = 0.01;
 	let className: string = '';
 	export { className as class };
 

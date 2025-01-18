@@ -1,15 +1,12 @@
 <script lang="ts">
 	import { Hero, About, Prizes, Timeline, Sponsers, FAQs, Footer } from '$lib/components';
 
-	import drop from '$lib/assets/drop2.png';
 	import bubble from '$lib/assets/bubble.gif';
 	import cool1 from '$lib/assets/cool1.png';
 	import drop2 from '$lib/assets/drop2.png';
 	import dgg from '$lib/assets/dgg.png';
-	import stars from '$lib/assets/stars.png';
 	import modius from '$lib/assets/Mobius.jpeg';
 	import glass from '$lib/assets/Glass _Knot_.jpeg';
-	import orange from '$lib/assets/orange.jpeg';
 	import { onMount } from 'svelte';
 
 	let scrollPosition = 0;
@@ -95,7 +92,7 @@
 		<section id="sponsors">
 			<Sponsers />
 		</section>
-
+		<img src={bubble} class="bubble2" alt="bubble2" />
 		<section id="faqs">
 			<FAQs />
 		</section>
@@ -123,6 +120,19 @@
 		height: auto;
 		opacity: 0.3;
 		z-index: 0;
+		transition: transform 1s ease-out;
+	}
+
+	.bubble2 {
+		/* display: block; */
+		position: absolute;
+		/* color: black; */
+		bottom: -7%;
+		right: 65%;
+		width: 1000px;
+		height: auto;
+		opacity: 0.3;
+		/* z-index: 0; */
 		transition: transform 1s ease-out;
 	}
 
@@ -178,7 +188,7 @@
 
 	.dgg {
 		position: absolute;
-		top: 0%;
+		top: -10%;
 		right: 55%;
 		width: 85%;
 		height: auto;
@@ -197,6 +207,12 @@
 			top: 5%;
 			width: 100%;
 			left: 0%;
+		}
+	}
+
+	@media (max-width: 800px) {
+		.dgg {
+			top: 0%;
 		}
 	}
 </style>

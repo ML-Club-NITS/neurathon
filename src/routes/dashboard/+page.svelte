@@ -50,7 +50,7 @@
 							></path>
 						</svg>
 					</button>
-					<a href="#" class="ms-2 flex">
+					<a href="/dashboard" class="ms-2 flex">
 						<img src="https://flowbite.com/docs/images/logo.svg" class="me-3 h-8" alt="Logo" />
 						<span class="self-center text-xl font-semibold text-gray-800 dark:text-white"
 							>Brand</span
@@ -85,21 +85,21 @@
 						<ul class="py-1">
 							<li>
 								<a
-									href="#"
+									href="/dashboard"
 									class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
 									>Dashboard</a
 								>
 							</li>
 							<li>
 								<a
-									href="#"
+									href="/dashboard"
 									class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
 									>Settings</a
 								>
 							</li>
 							<li>
 								<a
-									href="#"
+									href="/dashboard"
 									class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
 									>Sign out</a
 								>
@@ -119,14 +119,14 @@
 		<ul class="space-y-2 px-3 font-medium">
 			<li>
 				<a
-					href="#"
+					href="/dashboard"
 					class="block rounded p-2 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
 					>Dashboard</a
 				>
 			</li>
 			<li>
 				<a
-					href="#"
+					href="/dashboard"
 					class="block rounded p-2 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
 					>Settings</a
 				>

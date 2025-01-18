@@ -7,7 +7,9 @@
 		<div class="info-container">
 			<div class="title-container text-left">
 				<h2>
-					<span class="text-2xl font-bold text-neutral-800 dark:text-neutral-200">
+					<span
+						class="text-base font-bold text-neutral-800 md:text-2xl lg:text-3xl dark:text-neutral-200"
+					>
 						{event.title}
 					</span>
 				</h2>

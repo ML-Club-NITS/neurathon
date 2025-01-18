@@ -2,15 +2,8 @@
 	import bubbleGif from '$lib/assets/bubble.gif';
 </script>
 
-<!-- <section
-	class="md:mt-24 mt-16 flex w-full items-center justify-center border-slate-500 bg-black px-5 md:px-20 lg:py-1"
->
-
-
-</section> -->
-
 <div
-	class="hero flex flex-col-reverse items-center justify-center bg-transparent p-6 py-16 md:max-w-7xl md:flex-row md:items-center md:justify-evenly md:p-12 md:py-16"
+	class="hero flex flex-col-reverse items-center justify-center bg-transparent p-6 py-16 md:max-w-7xl md:translate-x-10 md:flex-row md:items-center md:justify-center md:p-12 md:py-16"
 >
 	<!-- Text Section -->
 	<div
