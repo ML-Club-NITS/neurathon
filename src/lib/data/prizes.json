@@ -1,17 +1,17 @@
 {
 	"prizes": [
 		{
-			"title": "Best Presentation",
-			"award": "Award1",
+			"title": "Best Deployment Solution",
+			"award": "Award 2",
 			"image": "../src/lib/assets/gem.png"
 		},
 		{
-			"title": "Best Presentation",
-			"award": "Award2",
+			"title": "Grand Neurahon Champion",
+			"award": "Award 1",
 			"image": "../src/lib/assets/gal.png"
 		},
 		{
-			"title": "Best Presentation",
+			"title": "Sustainability Genius",
 			"award": "Award3",
 			"image": "../src/lib/assets/drop1.png"
 		}
