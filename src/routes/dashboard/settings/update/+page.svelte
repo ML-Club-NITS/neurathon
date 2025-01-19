@@ -1,11 +1,8 @@
 <script>
-
-	import { goto } from "$app/navigation";
-
+	import { goto } from '$app/navigation';
 </script>
-<section
-	class="flex min-h-screen items-center justify-center w-full"
->
+
+<section class="flex min-h-screen w-full items-center justify-center">
 	<div
 		class="font-std mb-10 w-full rounded-2xl bg-white p-10 font-normal leading-relaxed text-gray-900 shadow-xl"
 	>
@@ -81,7 +78,7 @@
 				<!-- Kaydet ve İptal Butonları -->
 				<div class="flex justify-end space-x-4">
 					<button
-                    onclick={() => goto('/dashboard/settings')}
+						onclick={() => goto('/dashboard/settings')}
 						type="button"
 						class="rounded-lg bg-gray-300 px-4 py-2 text-gray-700 hover:bg-gray-400">Cancel</button
 					>

@@ -7,7 +7,7 @@
 	});
 </script>
 
-<section class="h-auto w-full flex flex-col items-center justify-center gap-4 p-4">
+<section class="flex h-auto w-full flex-col items-center justify-center gap-4 p-4">
 	<div class="w-full text-left text-2xl font-semibold text-white">
 		Welcome, {data.user || 'user'}
 	</div>
