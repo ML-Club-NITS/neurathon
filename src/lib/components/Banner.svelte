@@ -1,9 +1,9 @@
 <script>
-	import { Banner, Skeleton, ImagePlaceholder } from 'flowbite-svelte';
+	import { Banner } from 'flowbite-svelte';
 </script>
 
-<Skeleton divClass="py-4" />
-<ImagePlaceholder divClass="py-4" />
+<!-- <Skeleton divClass="py-4" />
+<ImagePlaceholder divClass="py-4" /> -->
 
 <Banner id="cta-banner" position="absolute" bannerType="cta">
 	<a

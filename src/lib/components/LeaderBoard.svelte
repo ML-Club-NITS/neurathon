@@ -106,15 +106,10 @@
 	}
 </script>
 
-<div class="w-full">
+<div class="w-full text-white bg-gray-800 p-4 rounded-md overflow-x-scroll">
 	<!-- Search Input -->
-	<div class="mb-4 w-full">
-		<input
-			type="text"
-			placeholder="Search by Maker, Type, or Make..."
-			bind:value={searchQuery}
-			class="w-full rounded border px-4 py-2"
-		/>
+	<div class="text-xl font-bold mb-4 text-center">
+		LeaderBoard
 	</div>
 
 	<!-- Table -->
