@@ -14,8 +14,8 @@
 	};
 
 	// Close menu when clicked outside
-	const closeMenu = (event: any) => {
-		if (event.target.closest('#navbar-sticky') === null) {
+	const closeMenu = (event: MouseEvent | KeyboardEvent) => {
+		if (event.target && (event.target as Element).closest('#navbar-sticky') === null) {
 			isMenuOpen = false;
 		}
 	};

@@ -19,7 +19,8 @@
 		className
 	)}
 >
-	{#each Array.from({ length: repeat }) as _, i (i)}
+	{#each Array.from({ length: repeat }) as _unused, i (i)}
+		<!-- eslint-disable-line no-unused-vars -->
 		<div
 			class={cn('flex shrink-0 justify-around [gap:var(--gap)]', {
 				'animate-marquee flex-row': !vertical,
@@ -28,6 +29,7 @@
 				'[animation-direction:reverse]': reverse
 			})}
 		>
+			<div style="display: none;">{_unused}</div>
 			<slot>Default</slot>
 		</div>
 	{/each}

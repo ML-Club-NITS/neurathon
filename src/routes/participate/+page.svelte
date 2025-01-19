@@ -6,6 +6,7 @@
 
 	async function signOut() {
 		const { error } = await supabase.auth.signOut();
+		console.error(error);
 		goto('/');
 	}
 </script>
