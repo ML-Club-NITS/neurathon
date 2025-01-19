@@ -40,6 +40,7 @@
 	"dependencies": {
 		"@supabase/ssr": "^0.5.2",
 		"@supabase/supabase-js": "^2.47.15",
+		"@sveltejs/adapter-vercel": "^5.5.3",
 		"clsx": "^2.1.1",
 		"svelte-motion": "^0.12.2",
 		"tailwind-merge": "^2.6.0",

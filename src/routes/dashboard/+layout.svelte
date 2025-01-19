@@ -142,7 +142,7 @@
 		</ul>
 	</aside>
 	<main
-		class="max-h-auto mt-14 flex flex-col flex-wrap justify-center gap-4 overflow-scroll p-4 sm:ml-64 lg:flex-row"
+		class="max-h-auto mt-14 flex flex-col flex-wrap items-center gap-4 overflow-scroll p-4 lg:ml-64 lg:flex-row lg:items-start lg:justify-center"
 	>
 		<Banner />
 		{@render children()}
