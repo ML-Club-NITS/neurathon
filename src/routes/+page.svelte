@@ -67,7 +67,6 @@
 >
 	<!-- <p class="mb-6">Last fetch Server Time: {data?.currentTime || 'Unavailable'}</p> -->
 	<section id="hero" class="w-full">
-		<div class="h-20"></div>
 		<Hero />
 	</section>
 
