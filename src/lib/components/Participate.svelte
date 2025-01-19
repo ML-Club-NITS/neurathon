@@ -1,19 +1,17 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
-
 	import gem from '$lib/assets/gem.png';
 	import Button from './ui/Button.svelte';
 	import eligibilityData from '$lib/data/eligibilityData.json';
 	import ParticipateTimeline from './ui/ParticipateTimeline.svelte';
 
-	let { data } = $props();
-	let { TeamID, team, user, supabase } = $derived(data);
+	// let { data } = $props();
+	// let { supabase } = $derived(data);
 
-	async function signOut() {
-		const { error } = await supabase.auth.signOut();
-		console.error(error);
-		goto('/');
-	}
+	// async function signOut() {
+	// 	const { error } = await supabase.auth.signOut();
+	// 	console.error(error);
+	// 	goto('/');
+	// }
 
 	let neurathonDate = '--/--/2025';
 	// let neurathonDes = "hcbauv hhhhhhhhhhhhhhhhhhhhcchwnlhhhhhhhhhhlHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH";
