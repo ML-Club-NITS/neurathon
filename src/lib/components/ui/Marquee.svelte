@@ -31,6 +31,7 @@
 		>
 			<div style="display: none;">{_unused}</div>
 			<slot>Default</slot>
+			<div style="display: none;">{_unsed}</div>
 		</div>
 	{/each}
 </div>
