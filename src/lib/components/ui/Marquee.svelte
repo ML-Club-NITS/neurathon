@@ -19,7 +19,7 @@
 		className
 	)}
 >
-	{#each Array.from({ length: repeat }) as _, i (i)}
+	{#each Array.from({ length: repeat }) as i (i)}
 		<div
 			class={cn('flex shrink-0 justify-around [gap:var(--gap)]', {
 				'animate-marquee flex-row': !vertical,

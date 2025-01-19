@@ -1,9 +1,9 @@
 <script lang="ts">
 	type ImportData = {
-		title: String | 'Title';
-		description: String | 'Description';
-		date: String | 'Date';
-		id: String | 'Id';
+		title: string | 'Title';
+		description: string | 'Description';
+		date: string | 'Date';
+		id: string | 'Id';
 	};
 
 	export let importData: ImportData[] = [];
