@@ -1,13 +1,13 @@
 {
-    "data":[
-        {
-            "status":"undergraduate"
-        },
-        {
-            "status":"B.Tech"
-        },
-        {
-            "status":"M.Tech"
-        }
-    ]
+	"data": [
+		{
+			"status": "undergraduate"
+		},
+		{
+			"status": "B.Tech"
+		},
+		{
+			"status": "M.Tech"
+		}
+	]
 }

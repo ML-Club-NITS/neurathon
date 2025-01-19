@@ -15,24 +15,24 @@
 		goto('/');
 	}
 
-	let neurathonDate = "--/--/2025";
+	let neurathonDate = '--/--/2025';
 	// let neurathonDes = "hcbauv hhhhhhhhhhhhhhhhhhhhcchwnlhhhhhhhhhhlHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH";
 
 	let eligData2 = [
 		{
-			"title":"Registrations",
-			"des":"12",
-			"icon":"fi fi-ss-team-check-alt"
+			title: 'Registrations',
+			des: '12',
+			icon: 'fi fi-ss-team-check-alt'
 		},
 		{
-			"title":"Team Size",
-			"des":"2-4 Memberes",
-			"icon":"fi fi-ss-users-alt"
+			title: 'Team Size',
+			des: '2-4 Memberes',
+			icon: 'fi fi-ss-users-alt'
 		},
 		{
-			"title":"Registration Deadline",
-			"des": "--",
-			"icon":"fi fi-ss-clock"
+			title: 'Registration Deadline',
+			des: '--',
+			icon: 'fi fi-ss-clock'
 		}
 	];
 </script>
@@ -56,44 +56,52 @@
 					<i class="text-[0.7rem]">{neurathonDate}</i>
 				</div>
 				<div class="event-text text-wrap">
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque incidunt explicabo ipsum, magnam nihil harum reiciendis voluptate perferendis repellendus ut eaque, dolore iure. Cum et minus delectus rem saepe voluptatibus tenetur provident dignissimos natus possimus vel eaque quia facere fugiat, illo deleniti nam nemo sint rerum animi dolore quisquam quae!
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque incidunt explicabo ipsum,
+					magnam nihil harum reiciendis voluptate perferendis repellendus ut eaque, dolore iure. Cum
+					et minus delectus rem saepe voluptatibus tenetur provident dignissimos natus possimus vel
+					eaque quia facere fugiat, illo deleniti nam nemo sint rerum animi dolore quisquam quae!
 				</div>
 			</div>
 			<div class="reg-button flex justify-start pb-2 pl-5">
 				<Button title="Register" />
 			</div>
 		</div>
-		<div class="eligibility-container m-3 rounded bg-gray-700/[0.7] p-5 flex flex-col gap-2">
+		<div class="eligibility-container m-3 flex flex-col gap-2 rounded bg-gray-700/[0.7] p-5">
 			<h1 class="eligibility-text-container font-LeagueSpartanFont text-xl font-semibold">
 				Eligibility
 			</h1>
-			<div class="professions p-1 pl-0 flex flex-row">
+			<div class="professions flex flex-row p-1 pl-0">
 				{#each eligibilityData.data as i}
-					<div class="prof h-full w-fit rounded-xl bg-gray-900/[0.5] p-[0.375rem] px-[0.5rem] text-[0.7rem] mr-1">
+					<div
+						class="prof mr-1 h-full w-fit rounded-xl bg-gray-900/[0.5] p-[0.375rem] px-[0.5rem] text-[0.7rem]"
+					>
 						{i.status}
 					</div>
 				{/each}
 			</div>
 			<div class="elig-datas flex flex-wrap">
 				{#each eligData2 as item}
-				<div class="team-regs flex flex-row pb-2 mx-2">
-					<div class="team-reg-icon p-2 g-1 bg-gray-900/[0.5] w-[2.5rem] h-[2.5rem] flex justify-center rounded">
-						<i class="${item.icon} translate-y-[0.15rem]"></i>
+					<div class="team-regs mx-2 flex flex-row pb-2">
+						<div
+							class="team-reg-icon g-1 flex h-[2.5rem] w-[2.5rem] justify-center rounded bg-gray-900/[0.5] p-2"
+						>
+							<i class="${item.icon} translate-y-[0.15rem]"></i>
+						</div>
+						<div class="team-reg-det flex flex-col">
+							<div class="team-reg-text px-1 font-LeagueSpartanFont text-[0.65rem]">
+								{item.title}
+							</div>
+							<div class="team-reg-data mx-1 flex justify-start text-[0.85rem]">{item.des}</div>
+						</div>
 					</div>
-					<div class="team-reg-det flex flex-col">
-						<div class="team-reg-text text-[0.65rem] px-1 font-LeagueSpartanFont">{item.title}</div>
-						<div class="team-reg-data text-[0.85rem] flex justify-start mx-1">{item.des}</div>
-					</div>
-				</div>
 				{/each}
 			</div>
-			
 		</div>
 	</div>
 
-	<div class="neurathon-info-container overflow-hidden g-1">
-		<div class="event-timeline m-3 bg-gray-700/[0.5] rounded border-gray-400">
-			<ParticipateTimeline/>
+	<div class="neurathon-info-container g-1 overflow-hidden">
+		<div class="event-timeline m-3 rounded border-gray-400 bg-gray-700/[0.5]">
+			<ParticipateTimeline />
 		</div>
 	</div>
 	<!-- <div class="h-20"></div>
