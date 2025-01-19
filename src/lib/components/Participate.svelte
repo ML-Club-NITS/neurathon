@@ -3,6 +3,8 @@
 
 	import gem from '$lib/assets/gem.png';
 	import Button from './ui/Button.svelte';
+	import eligibilityData from '$lib/data/eligibilityData.json';
+	import ParticipateTimeline from './ui/ParticipateTimeline.svelte';
 
 	let { data } = $props();
 	let { TeamID, team, user, supabase } = $derived(data);
@@ -12,36 +14,86 @@
 		console.error(error);
 		goto('/');
 	}
+
+	let neurathonDate = "--/--/2025";
+	// let neurathonDes = "hcbauv hhhhhhhhhhhhhhhhhhhhcchwnlhhhhhhhhhhlHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH";
+
+	let eligData2 = [
+		{
+			"title":"Registrations",
+			"des":"12",
+			"icon":"fi fi-ss-team-check-alt"
+		},
+		{
+			"title":"Team Size",
+			"des":"2-4 Memberes",
+			"icon":"fi fi-ss-users-alt"
+		},
+		{
+			"title":"Registration Deadline",
+			"des": "--",
+			"icon":"fi fi-ss-clock"
+		}
+	];
 </script>
 
 <div class="text-whit mt-[4.3rem] flex flex-col gap-5 md:flex-row lg:flex-row xl:flex-row">
-	<div class="reg-container overflow-hidden bg-gray-700/[0.7]  flex flex-col justify-center m-3 rounded text-white">
-		<div class="event-info-card flex flex-row gap-5  px-5 pb-2 pt-5">
-			<div class="icon h-full w-fit rounded bg-white/[0.6]">
-				<img src={gem} class="max-w-16" alt="gem" />
+	<div class="reg g-1 text-white">
+		<div
+			class="reg-container m-3 flex flex-col justify-center overflow-hidden rounded bg-gray-700/[0.7]"
+		>
+			<div class="event-info-card flex flex-row gap-5 px-5 pb-2 pt-5">
+				<div class="icon h-full w-fit rounded bg-white/[0.6]">
+					<img src={gem} class="max-w-16" alt="gem" />
+				</div>
+				<div class="event-name">
+					<h1 class="font-LeagueSpartanFont text-[2rem] font-semibold">Neurathon</h1>
+				</div>
 			</div>
-			<div class="event-name">
-				<h1 class="text-[2rem] font-LeagueSpartanFont font-semibold">Neurathon</h1>
+			<div class="event-des p-5 pt-1">
+				<div class="event-date flex gap-1">
+					<i class="fi fi-br-calendar-day"></i>
+					<i class="text-[0.7rem]">{neurathonDate}</i>
+				</div>
+				<div class="event-text text-wrap">
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque incidunt explicabo ipsum, magnam nihil harum reiciendis voluptate perferendis repellendus ut eaque, dolore iure. Cum et minus delectus rem saepe voluptatibus tenetur provident dignissimos natus possimus vel eaque quia facere fugiat, illo deleniti nam nemo sint rerum animi dolore quisquam quae!
+				</div>
+			</div>
+			<div class="reg-button flex justify-start pb-2 pl-5">
+				<Button title="Register" />
 			</div>
 		</div>
-		<div class="event-des p-5 pt-1">
-			<div class="event-date flex gap-1">
-				<i class="fi fi-br-calendar-day"></i>
-				<i class="text-[0.7rem]">--/--/25</i>
+		<div class="eligibility-container m-3 rounded bg-gray-700/[0.7] p-5 flex flex-col gap-2">
+			<h1 class="eligibility-text-container font-LeagueSpartanFont text-xl font-semibold">
+				Eligibility
+			</h1>
+			<div class="professions p-1 pl-0 flex flex-row">
+				{#each eligibilityData.data as i}
+					<div class="prof h-full w-fit rounded-xl bg-gray-900/[0.5] p-[0.375rem] px-[0.5rem] text-[0.7rem] mr-1">
+						{i.status}
+					</div>
+				{/each}
 			</div>
-			<div class="event-text text-wrap">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, aspernatur?
+			<div class="elig-datas flex flex-wrap">
+				{#each eligData2 as item}
+				<div class="team-regs flex flex-row pb-2 mx-2">
+					<div class="team-reg-icon p-2 g-1 bg-gray-900/[0.5] w-[2.5rem] h-[2.5rem] flex justify-center rounded">
+						<i class="${item.icon} translate-y-[0.15rem]"></i>
+					</div>
+					<div class="team-reg-det flex flex-col">
+						<div class="team-reg-text text-[0.65rem] px-1 font-LeagueSpartanFont">{item.title}</div>
+						<div class="team-reg-data text-[0.85rem] flex justify-start mx-1">{item.des}</div>
+					</div>
+				</div>
+				{/each}
 			</div>
 			
 		</div>
-		<div class="reg-button flex justify-start pb-2 pl-5">
-			<Button title="Register"/>
-		</div>
-		
 	</div>
-	<div class="neurathon-info-container overflow-hidden bg-blue-500">
-		<div class="p">
-			Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia, tempore.
+
+	<div class="neurathon-info-container overflow-hidden g-1">
+		<div class="event-timeline m-3 bg-gray-700/[0.5] rounded border-gray-400">
+			<ParticipateTimeline/>
 		</div>
 	</div>
 	<!-- <div class="h-20"></div>
