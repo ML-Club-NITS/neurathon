@@ -1,5 +1,5 @@
 <script>
-	import { AnimatedShinyText, RetroGrid, ShineBorder } from './ui';
+	import { AnimatedShinyText, ShineBorder } from './ui';
 	// for bg-grid : please scroll to the bottom of the page to see the bg-grid :  tailwind.config.ts file.
 </script>
 
