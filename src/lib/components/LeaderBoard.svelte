@@ -106,16 +106,9 @@
 	}
 </script>
 
-<div class="w-full">
+<div class="w-full overflow-x-scroll rounded-md bg-gray-800 p-4 text-white">
 	<!-- Search Input -->
-	<div class="mb-4 w-full">
-		<input
-			type="text"
-			placeholder="Search by Maker, Type, or Make..."
-			bind:value={searchQuery}
-			class="w-full rounded border px-4 py-2"
-		/>
-	</div>
+	<div class="mb-4 text-center text-xl font-bold">LeaderBoard</div>
 
 	<!-- Table -->
 	<Table hoverable={true} divClass="w-[initial] rounded-md">

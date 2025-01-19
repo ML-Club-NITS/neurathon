@@ -1,9 +1,9 @@
 <script lang="ts">
 	type ImportData = {
-		title: String | 'Title';
-		description: String | 'Description';
-		date: String | 'Date';
-		id: String | 'Id';
+		title: string | 'Title';
+		description: string | 'Description';
+		date: string | 'Date';
+		id: string | 'Id';
 	};
 
 	export let importData: ImportData[] = [];
@@ -30,7 +30,6 @@
 	.timeline-item {
 		position: relative;
 		justify-items: left;
-		margin: 20px 0;
 		padding-left: 30px;
 		border-left: 2px solid rgb(64, 64, 64);
 	}
