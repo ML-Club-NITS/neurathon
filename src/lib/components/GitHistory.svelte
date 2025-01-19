@@ -14,6 +14,16 @@
 			date: '2021-10-10',
 			committerName: 'Committer Name 3',
 			commitMessage: 'Commit Message 3'
+		},
+		{
+			date: '2021-10-10',
+			committerName: 'Committer Name 3',
+			commitMessage: 'Commit Message 3'
+		},
+		{
+			date: '2021-10-10',
+			committerName: 'Committer Name 3',
+			commitMessage: 'Commit Message 3'
 		}
 	];
 </script>

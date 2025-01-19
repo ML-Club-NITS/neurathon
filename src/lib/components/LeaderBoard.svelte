@@ -106,11 +106,9 @@
 	}
 </script>
 
-<div class="w-full text-white bg-gray-800 p-4 rounded-md overflow-x-scroll">
+<div class="w-full overflow-x-scroll rounded-md bg-gray-800 p-4 text-white">
 	<!-- Search Input -->
-	<div class="text-xl font-bold mb-4 text-center">
-		LeaderBoard
-	</div>
+	<div class="mb-4 text-center text-xl font-bold">LeaderBoard</div>
 
 	<!-- Table -->
 	<Table hoverable={true} divClass="w-[initial] rounded-md">
