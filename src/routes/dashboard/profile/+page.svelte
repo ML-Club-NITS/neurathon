@@ -16,7 +16,7 @@
 				<h1 class="mb-2 text-2xl font-bold text-orange-800 dark:text-white">John Doe</h1>
 				<p class="text-gray-600 dark:text-gray-300">Software Developer</p>
 				<button
-					onclick={() => goto('/dashboard/settings/update')}
+					onclick={() => goto('/dashboard/profile/update')}
 					class="mt-4 rounded-lg bg-orange-800 px-4 py-2 text-white transition-colors duration-300 hover:bg-orange-900"
 					>Edit Profile</button
 				>

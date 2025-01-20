@@ -78,7 +78,7 @@
 				<!-- Kaydet ve İptal Butonları -->
 				<div class="flex justify-end space-x-4">
 					<button
-						onclick={() => goto('/dashboard/settings')}
+						onclick={() => goto('/dashboard/profile')}
 						type="button"
 						class="rounded-lg bg-gray-300 px-4 py-2 text-gray-700 hover:bg-gray-400">Cancel</button
 					>

@@ -13,7 +13,7 @@
 	</div>
 	<div class="flex w-full flex-row flex-wrap justify-evenly gap-4 p-4 lg:flex-row">
 		<div class="max-w-[600px] rounded-lg lg:min-w-[400px]">
-			<GitHistory />
+			<GitHistory {commits} />
 		</div>
 		<div class="w-full max-w-[400px] rounded-lg">
 			<LeaderBoard />

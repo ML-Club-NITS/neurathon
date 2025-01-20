@@ -121,22 +121,22 @@
 			<li>
 				<button
 					onclick={() => goto('/')}
-					class="block w-full rounded p-2 text-left text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-					>Home</button
+					class="inline-flex w-full gap-3 rounded p-2 text-left text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+					><i class="fi fi-rr-home"></i>Home</button
 				>
 			</li>
 			<li>
 				<button
 					onclick={() => goto('/dashboard')}
-					class="block w-full rounded p-2 text-left text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-					>Dashboard</button
+					class="inline-flex w-full gap-3 rounded p-2 text-left text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+					><i class="fi fi-rr-dashboard"></i>Dashboard</button
 				>
 			</li>
 			<li>
 				<button
-					onclick={() => goto('/dashboard/settings')}
-					class="block w-full rounded p-2 text-left text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-					>Settings</button
+					onclick={() => goto('/dashboard/profile')}
+					class="inline-flex w-full gap-3 rounded p-2 text-left text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+					><i class="fi fi-sr-user-pen"></i>Profile</button
 				>
 			</li>
 		</ul>
