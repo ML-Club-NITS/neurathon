@@ -99,6 +99,9 @@ export default {
 						transform: 'translate(calc(100cqw - 100%), 0)'
 					}
 				}
+			},
+			screens: {
+				custom_800: '800px'
 			}
 		}
 	},

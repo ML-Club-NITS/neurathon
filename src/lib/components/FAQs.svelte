@@ -4,7 +4,7 @@
 	import data from '$lib/data/faqs.json';
 </script>
 
-<section class="my-12 py-8 text-center text-white md:py-12 xl:py-16">
+<section id="faqs" class="pb-16 pt-24 text-center text-white md:pb-20 md:pt-28 xl:py-28">
 	<span
 		class="mb-12 inline-flex w-fit animate-text-gradient text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 text-center text-2xl font-bold text-transparent md:text-3xl lg:text-5xl 2xl:text-8xl"
 	>
