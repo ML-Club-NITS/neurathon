@@ -11,10 +11,10 @@
 				<div class="min-w-0 flex-1 py-0">
 					<div class="text-md text-gray-500">
 						<div>
-							<a href="#" class="mr-2 font-medium text-gray-900">v3.2.0</a>
+							<a href="/" class="mr-2 font-medium text-gray-900">v3.2.0</a>
 
 							<a
-								href="#"
+								href="/"
 								class="relative my-0.5 inline-flex items-center rounded-full border border-gray-300 bg-white px-3 py-0.5 text-sm"
 							>
 								<div class="absolute flex flex-shrink-0 items-center justify-center">
