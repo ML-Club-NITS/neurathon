@@ -27,6 +27,14 @@
 	} */
 }
 
+@layer utilities {
+	@media (max-width: 800px) {
+		.translate-y-custom {
+			transform: translateY(70px);
+		}
+	}
+}
+
 * {
 	margin: 0;
 	padding: 0;

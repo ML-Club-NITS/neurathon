@@ -48,7 +48,7 @@
 </script>
 
 <div
-	class="font-sans my-32 h-auto w-auto bg-transparent text-center sm:px-0 md:px-10"
+	class="font-sans mt-24 h-auto w-auto bg-transparent text-center sm:px-0 md:px-10"
 	bind:this={containerRef}
 >
 	<span
