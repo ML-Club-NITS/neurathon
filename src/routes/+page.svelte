@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	// import { onMount } from 'svelte';
 	import { Hero, About, Prizes, Timeline, Sponsors, FAQs, Footer } from '$lib/components';
 
 	import bubble from '$lib/assets/bubble.gif';
@@ -121,19 +121,16 @@
 		z-index: 0;
 		transition: transform 1s ease-out;
 	}
-
+	/* 
 	.bubble2 {
-		/* display: block; */
 		position: absolute;
-		/* color: black; */
 		bottom: -7%;
 		right: 65%;
 		width: 1000px;
 		height: auto;
 		opacity: 0.3;
-		/* z-index: 0; */
 		transition: transform 1s ease-out;
-	}
+	} */
 
 	.cool1 {
 		position: absolute;
