@@ -3,7 +3,7 @@
 </script>
 
 <div
-	class="hero flex flex-col-reverse items-center justify-center bg-transparent p-6 py-16 md:max-w-7xl md:translate-x-10 md:flex-row md:items-center md:justify-center md:p-12 md:py-16"
+	class="hero flex h-screen w-screen flex-col-reverse items-center justify-center bg-transparent p-6 py-16 md:max-w-7xl md:translate-x-10 md:flex-row md:items-center md:justify-center md:p-12 md:py-16"
 >
 	<!-- Text Section -->
 	<div
