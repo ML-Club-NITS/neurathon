@@ -63,7 +63,7 @@
 </script>
 
 <div
-	class="main-body m-w-[1200px] flex min-h-screen flex-col items-center justify-center bg-black text-white"
+	class="main-body flex h-auto min-h-screen max-w-[1200px] flex-col items-center justify-center bg-black text-white"
 >
 	<!-- <p class="mb-6">Last fetch Server Time: {data?.currentTime || 'Unavailable'}</p> -->
 	<section id="hero" class="w-full">
@@ -91,16 +91,15 @@
 		<section id="sponsors">
 			<Sponsers />
 		</section>
-		<img src={bubble} class="bubble2" alt="bubble2" />
+		<!-- <img src={bubble} class="bubble2" alt="bubble2" /> -->
 		<section id="faqs">
 			<FAQs />
 		</section>
 	</main>
+	<footer class="mt-8 w-screen">
+		<Footer />
+	</footer>
 </div>
-
-<footer class="mt-8">
-	<Footer />
-</footer>
 
 <!-- </div> -->
 
