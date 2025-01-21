@@ -1,0 +1,22 @@
+[
+    {
+        "version": "Preliminary Round",
+        "status": "Online",
+        "duration": "24h",
+        "updates": [
+            "Added a user profile page for personalized settings.",
+            "Implemented a dark mode for improved user experience at night.",
+            "Introduced real-time notifications for instant updates."
+        ]
+    },
+    {
+        "version": "Neurathon",
+        "status": "Offline",
+        "duration": "48h",
+        "updates": [
+            "Improved performance for dashboard analytics.",
+            "Bug fixes for mobile responsiveness.",
+            "Upgraded backend services for better scalability."
+        ]
+    }
+]
