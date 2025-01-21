@@ -15,16 +15,16 @@
 
 	let user = {
 		name: 'test',
-        image: userProfile,
-        role: 'Software Developer',
-        about: 'Lorem50',
-        contact: {
-            email: 'test',
-            phone: '9954722871',
-            location: 'San Francisco, CA'
-        },
-		id:'1'
-    };
+		image: userProfile,
+		role: 'Software Developer',
+		about: 'Lorem50',
+		contact: {
+			email: 'test',
+			phone: '9954722871',
+			location: 'San Francisco, CA'
+		},
+		id: '1'
+	};
 
 	let team = {
 		TeamName: 'Awesome Team',
@@ -38,17 +38,19 @@
 	let TeamID = 'fsw';
 </script>
 
-<div class="register-page h-auto w-auto bg-green-500 flex flex-col md:flex-row lg:flex-row xl:flex-row pt-16">
-	<div class="personal-info bg-red-500 m-5 p-5 md:w-[50%] lg:w-[50%] xl:w-[50%]">
+<div
+	class="register-page flex h-auto w-auto flex-col bg-green-500 pt-16 md:flex-row lg:flex-row xl:flex-row"
+>
+	<div class="personal-info m-5 bg-red-500 p-5 md:w-[50%] lg:w-[50%] xl:w-[50%]">
 		<!-- <div class="h-20"></div> -->
 		<!-- <button onclick={signOut} class="rounded-lg bg-red-500 px-2 py-1">LogOut</button>
 		<h1>Private page for User: {user?.email}</h1>
 		<h1>Name: {user?.user_metadata?.name}</h1>
 		<h1>Phone No.: {user?.user_metadata?.phone}</h1> -->
 		<!-- <p>Lorem100</p> -->
-		<PersonCard {user}/>
+		<PersonCard {user} />
 	</div>
-	<div class="team-info bg-blue-500 m-5 p-5  md:w-[50%] lg:w-[50%] xl:w-[50%]">
+	<div class="team-info m-5 bg-blue-500 p-5 md:w-[50%] lg:w-[50%] xl:w-[50%]">
 		{#if TeamID}
 			<div class="container border-2 border-black p-2">
 				<span class="bg-gray-400">Team ID: {TeamID}</span>
