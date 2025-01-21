@@ -5,18 +5,7 @@
 
     // let { data } = $props();
 	let { supabase } = $derived(data);
-	import { onMount } from 'svelte';
-
-	import type { user } from '@supabase/supabase-js';
-	// let user: User | null = null;
-	// let error = null;
-
-	// onMount(async () => {
-	// 	let { data: userData, error: authError } = await supabase.auth.getUser();
-	// 	user = userData?.user;
-	// 	error = authError;
-	// });
-
+	
 	async function signOut() {
 		const { error } = await supabase.auth.signOut();
 		console.error(error);

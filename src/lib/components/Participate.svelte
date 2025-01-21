@@ -23,18 +23,15 @@
 	];
 </script>
 
-<div class="overflow-hidden">
-	
-</div>
+<div class="overflow-hidden"></div>
 
 <GradientAnimation>
-	
 	<div
 		class="text-whit mt-[4.3rem] flex flex-col gap-5 gap-x-0 md:flex-row-reverse lg:flex-row-reverse xl:flex-row-reverse"
 	>
 		<div class="reg g-1 text-white md:w-[40%] lg:w-[30%] xl:w-[30%]">
 			<div
-				class="reg-container m-3 flex flex-col justify-center overflow-hidden rounded bg-gray-700/[0.7]"
+				class="reg-container m-3 flex flex-col justify-center overflow-hidden rounded border border-gray-600 bg-gray-700/[0.7]"
 			>
 				<div class="event-info-card flex flex-row gap-5 px-5 pb-2 pt-5">
 					<div class="icon h-full w-fit rounded bg-white/[0.6]">
@@ -50,18 +47,23 @@
 						<i class="text-[0.7rem]">{neurathonDate}</i>
 					</div>
 					<div class="event-text text-wrap">
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque incidunt explicabo
-						ipsum, magnam nihil harum reiciendis voluptate perferendis repellendus ut eaque, dolore
-						iure. Cum et minus delectus rem saepe voluptatibus tenetur provident dignissimos natus
-						possimus vel eaque quia facere fugiat, illo deleniti nam nemo sint rerum animi dolore
-						quisquam quae!
+						Neurathon is a distinguished machine learning hackathon designed for the development of
+						creative AI solutions within an intensive, collaborative environment. Participants form
+						teams to tackle challenges curated by the organizers, focusing on areas such as software
+						engineering, data modeling, and algorithm optimization. This event serves as a dynamic
+						platform for showcasing technical expertise, exchanging knowledge with industry peers,
+						and designing impactful AI-driven products. Neurathon offers a unique opportunity for
+						individuals passionate about machine learning to gain practical, hands-on experience
+						while contributing to the advancement of artificial intelligence
 					</div>
 				</div>
 				<div class="reg-button flex justify-start pb-2 pl-5">
 					<Button title="Register" />
 				</div>
 			</div>
-			<div class="eligibility-container m-3 flex flex-col gap-2 rounded bg-gray-700/[0.7] p-5">
+			<div
+				class="eligibility-container m-3 flex flex-col gap-2 rounded border border-gray-600 bg-gray-700/[0.7] p-5 "
+			>
 				<h1 class="eligibility-text-container font-LeagueSpartanFont text-xl font-semibold">
 					Eligibility
 				</h1>
@@ -95,7 +97,7 @@
 		</div>
 
 		<div class="neurathon-info-container g-1 overflow-hidden md:w-[70%] lg:w-[70%] xl:w-[70%]">
-			<div class="event-timeline m-3 rounded border border-gray-400 bg-gray-700/[0.5] pb-5">
+			<div class="event-timeline m-3 rounded border border-gray-600 bg-gray-700/[0.5] pb-5">
 				<ParticipateTimeline />
 			</div>
 		</div>
