@@ -7,11 +7,7 @@
 
 	let { supabase } = $derived(data);
 
-	async function signOut() {
-		const { error } = await supabase.auth.signOut();
-		console.error(error);
-		goto('/');
-	}
+	
 
 	let user = {
 		name: 'test',
@@ -43,12 +39,12 @@
 >
 	<div class="personal-info m-5 bg-red-500 p-5 md:w-[50%] lg:w-[50%] xl:w-[50%]">
 		<!-- <div class="h-20"></div> -->
-		<!-- <button onclick={signOut} class="rounded-lg bg-red-500 px-2 py-1">LogOut</button>
-		<h1>Private page for User: {user?.email}</h1>
+		
+		<!-- <h1>Private page for User: {user?.email}</h1>
 		<h1>Name: {user?.user_metadata?.name}</h1>
-		<h1>Phone No.: {user?.user_metadata?.phone}</h1> -->
+		<h1>Phone No.: {user?.user_metadata?.phone}</h1>  -->
 		<!-- <p>Lorem100</p> -->
-		<PersonCard {user} />
+		<PersonCard user={user} />
 	</div>
 	<div class="team-info m-5 bg-blue-500 p-5 md:w-[50%] lg:w-[50%] xl:w-[50%]">
 		{#if TeamID}

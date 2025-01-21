@@ -1,6 +1,8 @@
 <script lang="ts">
 	export let user;
 
+    
+
 	// let user = {
 	// 	name: 'test',
 	//     image: userProfile,
@@ -82,6 +84,7 @@
 				</div>
 			</div>
 		</div>
+        
 	</div>
 </div>
 
