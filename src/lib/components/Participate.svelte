@@ -27,9 +27,9 @@
 
 <GradientAnimation>
 	<div
-		class="text-whit mt-[4.3rem] flex flex-col gap-5 gap-x-0 md:flex-row-reverse lg:flex-row-reverse xl:flex-row-reverse"
+		class="text-whit mt-[4.3rem] flex flex-col gap-5 gap-x-0 md:flex-row lg:flex-row xl:flex-row"
 	>
-		<div class="reg g-1 text-white md:w-[40%] lg:w-[30%] xl:w-[30%]">
+		<div class="reg g-1 text-white md:w-[50%] lg:w-[50%] xl:w-[50%]">
 			<div
 				class="reg-container m-3 flex flex-col justify-center overflow-hidden rounded border border-gray-600 bg-gray-700/[0.7]"
 			>
@@ -96,7 +96,7 @@
 			</div>
 		</div>
 
-		<div class="neurathon-info-container g-1 overflow-hidden md:w-[70%] lg:w-[70%] xl:w-[70%]">
+		<div class="neurathon-info-container g-1 overflow-hidden md:w-[50%] lg:w-[50%] xl:w-[50%]">
 			<div class="event-timeline m-3 rounded border border-gray-600 bg-gray-700/[0.5] pb-5">
 				<ParticipateTimeline />
 			</div>
