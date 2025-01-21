@@ -16,17 +16,19 @@
 
 	function scrollToSection(event: Event, id: string) {
 		event.preventDefault();
-		const target = document.getElementById(id);
-		if (target) {
-			const targetPosition = target.getBoundingClientRect().top + window.scrollY;
-			// const navbarHeight = document.querySelector('nav')?.clientHeight || 0;
-			// const adjustedPosition = targetPosition - navbarHeight;
+		goto('/').then(() => {
+			const target = document.getElementById(id);
+			if (target) {
+				const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+				// const navbarHeight = document.querySelector('nav')?.clientHeight || 0;
+				// const adjustedPosition = targetPosition - navbarHeight;
 
-			window.scrollTo({
-				top: targetPosition,
-				behavior: 'smooth'
-			});
-		}
+				window.scrollTo({
+					top: targetPosition,
+					behavior: 'smooth'
+				});
+			}
+		});
 	}
 
 	function handleClickOutside(event: MouseEvent) {
