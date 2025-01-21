@@ -58,7 +58,6 @@
 			window.removeEventListener('scroll', handleScroll);
 		};
 	});
-
 </script>
 
 <div

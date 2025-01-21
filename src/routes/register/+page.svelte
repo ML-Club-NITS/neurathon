@@ -1,21 +1,20 @@
 <script lang="ts">
-    import { goto } from '$app/navigation';
-    import type { PageData } from './$types';
+	import { goto } from '$app/navigation';
+	import type { PageData } from './$types';
 	let { data }: { data: PageData } = $props();
 
-    // let { data } = $props();
+	// let { data } = $props();
 	let { supabase } = $derived(data);
-	
+
 	async function signOut() {
 		const { error } = await supabase.auth.signOut();
 		console.error(error);
 		goto('/');
 	}
-
 </script>
 
 <div class="register-page">
-    <div class="h-20"></div>
+	<div class="h-20"></div>
 	<button onclick={signOut} class="rounded-lg bg-red-500 px-2 py-1">LogOut</button>
 	<h1>Private page for User: {user?.email}</h1>
 	<h1>Name: {user?.user_metadata?.name}</h1>

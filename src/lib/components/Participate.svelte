@@ -62,7 +62,7 @@
 				</div>
 			</div>
 			<div
-				class="eligibility-container m-3 flex flex-col gap-2 rounded border border-gray-600 bg-gray-700/[0.7] p-5 "
+				class="eligibility-container m-3 flex flex-col gap-2 rounded border border-gray-600 bg-gray-700/[0.7] p-5"
 			>
 				<h1 class="eligibility-text-container font-LeagueSpartanFont text-xl font-semibold">
 					Eligibility

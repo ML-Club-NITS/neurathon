@@ -1,13 +1,11 @@
 <script>
 	import { goto } from '$app/navigation';
 
-	
 	export let title;
 
 	function toRegister() {
 		goto('/register');
 	}
-
 </script>
 
 <div class="flex h-auto items-center justify-center">
