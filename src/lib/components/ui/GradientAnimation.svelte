@@ -6,9 +6,9 @@
 	export let gradientBackgroundEnd: string | null = 'rgb(10,0,0)';
 	export let firstColor: string | null = '18, 113, 255';
 	export let secondColor: string | null = '221, 74, 255';
-	export let thirdColor: string | null = '100, 220, 255';
+	export let thirdColor: string | null = '0, 0, 0';
 	export let fourthColor: string | null = '200, 50, 50';
-	export let fifthColor: string | null = '180, 180, 50';
+	export let fifthColor: string | null = '0, 0, 0';
 	export let pointerColor: string | null = '76, 103, 235';
 	export let size: string | null = '80%';
 	export let blendingValue: string | null = 'hard-light';
@@ -58,7 +58,7 @@
 
 <div
 	class={cn(
-		'relative left-0 top-0 w-full h-full overflow-hidden bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]',
+		'relative left-0 top-0 w-full h-full overflow-hidden bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))] ',
 		containerClassName
 	)}
 >
@@ -77,7 +77,7 @@
 		</defs>
 	</svg>
 	<div class={cn('', className)}><slot /></div>
-	<div class="gradients-container absolute inset-0 h-full w-full [filter:url(#blurMe)_blur(40px)]">
+	<div class="gradients-container absolute inset-0 h-full w-full [filter:url(#blurMe)_blur(40px)] pointer-events-none">
 		<div
 			class={cn(
 				`absolute [background:radial-gradient(circle_at_center,_var(--first-color)_0,_var(--first-color)_50%)_no-repeat]`,
@@ -133,7 +133,7 @@
 				class={cn(
 					`absolute [background:radial-gradient(circle_at_center,_rgba(var(--pointer-color),_0.8)_0,_rgba(var(--pointer-color),_0)_50%)_no-repeat]`,
 					`-left-1/2 -top-1/2 h-full w-full [mix-blend-mode:var(--blending-value)]`,
-					`opacity-70`
+					`opacity-30`
 				)}
 			></div>
 		{/if}
