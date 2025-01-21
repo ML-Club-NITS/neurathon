@@ -5,7 +5,7 @@
 	import { onMount } from 'svelte';
 	import { SvelteToast } from '@zerodevx/svelte-toast';
 
-	import Navbar from '$lib/components/Navbar.svelte';
+	import { Navbar } from '$lib/components';
 
 	let { data, children } = $props();
 	let { session, supabase } = $derived(data);

@@ -133,6 +133,9 @@ export default {
 						transform: 'translateY(-50%)'
 					}
 				}
+			},
+			screens: {
+				custom_800: '800px'
 			}
 		}
 	},

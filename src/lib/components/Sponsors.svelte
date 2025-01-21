@@ -8,7 +8,7 @@
 	let secondRow = sponserData.sponsers.slice(sponserData.sponsers.length / 2);
 </script>
 
-<div class="sponser-container my-12 py-28">
+<div id="sponsors" class="sponser-container pt-28">
 	<div class="sponser_intro">
 		<span
 			class="inline-flex w-fit animate-text-gradient text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 text-center text-2xl font-bold text-transparent md:text-3xl lg:text-5xl 2xl:text-8xl"
