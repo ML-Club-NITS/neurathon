@@ -2,8 +2,6 @@
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import logo from '$lib/assets/MLClub_vector_logo_large.svg';
-	import { fade, slide } from 'svelte/transition';
-	import { cubicOut } from 'svelte/easing';
 
 	let isNavbarOpen = $state(false);
 	let NavBar = $state<Node | null>(null);
@@ -21,11 +19,11 @@
 		const target = document.getElementById(id);
 		if (target) {
 			const targetPosition = target.getBoundingClientRect().top + window.scrollY;
-			const navbarHeight = document.querySelector('nav')?.clientHeight || 0;
-			const adjustedPosition = targetPosition - navbarHeight;
+			// const navbarHeight = document.querySelector('nav')?.clientHeight || 0;
+			// const adjustedPosition = targetPosition - navbarHeight;
 
 			window.scrollTo({
-				top: adjustedPosition,
+				top: targetPosition,
 				behavior: 'smooth'
 			});
 		}
@@ -57,7 +55,7 @@
 <nav
 	class="fixed start-0 top-0 z-[10000] w-full rounded-sm border-b border-gray-200 bg-white bg-opacity-30 backdrop-blur-md backdrop-filter sm:rounded-none dark:border-gray-600 dark:bg-gray-900 dark:bg-opacity-30"
 >
-	<div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
+	<div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-4 p-4">
 		<a
 			href="/"
 			class="flex cursor-pointer items-center space-x-3 rtl:space-x-reverse"
@@ -119,31 +117,28 @@
 			</button>
 		</div>
 
-		{#if isNavbarOpen}
+		<div
+			class={`${isNavbarOpen ? '' : 'hidden'} w-full items-center justify-between md:order-1 md:flex md:w-auto`}
+			id="navbar-sticky"
+			bind:this={NavBar}
+		>
 			<div
-				class="w-full items-center justify-between pt-6 md:order-1 md:flex md:w-auto"
-				id="navbar-sticky"
-				bind:this={NavBar}
-				transition:slide={{ duration: 500, easing: cubicOut }}
+				class="flex flex-col gap-6 rounded-lg border border-gray-100 bg-gray-50 p-6 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-opacity-30 md:p-0 rtl:space-x-reverse dark:border-gray-700 dark:bg-transparent dark:bg-opacity-30 md:dark:bg-opacity-30"
 			>
-				<div
-					class="flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-6 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-opacity-30 md:p-0 rtl:space-x-reverse dark:border-gray-700 dark:bg-transparent dark:bg-opacity-30 md:dark:bg-opacity-30"
-				>
-					{#each NavLinks as NavLink}
-						<a
-							href="/"
-							class="block cursor-pointer rounded px-3 py-2 text-center text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
-							onclick={(event) => {
-								event.preventDefault();
-								handleLinkClick();
-								scrollToSection(event, NavLink.id);
-							}}
-						>
-							{NavLink.title}
-						</a>
-					{/each}
-				</div>
+				{#each NavLinks as NavLink}
+					<a
+						href="/"
+						class="block cursor-pointer rounded px-3 py-2 text-center text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+						onclick={(event) => {
+							event.preventDefault();
+							handleLinkClick();
+							scrollToSection(event, NavLink.id);
+						}}
+					>
+						{NavLink.title}
+					</a>
+				{/each}
 			</div>
-		{/if}
+		</div>
 	</div>
 </nav>
