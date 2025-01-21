@@ -18,5 +18,15 @@
 			"Bug fixes for mobile responsiveness.",
 			"Upgraded backend services for better scalability."
 		]
+	},
+	{
+		"version": "Neu",
+		"status": "Offline",
+		"duration": "48h",
+		"updates": [
+			"Improved performance for dashboard analytics.",
+			"Bug fixes for mobile responsiveness.",
+			"Upgraded backend services for better scalability."
+		]
 	}
 ]

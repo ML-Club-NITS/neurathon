@@ -17,7 +17,12 @@ export default {
 				shimmer: 'shimmer 8s infinite',
 				'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
 				'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
-				magicslide: 'magicslide var(--speed) ease-in-out infinite alternate'
+				magicslide: 'magicslide var(--speed) ease-in-out infinite alternate',
+				first: 'moveVertical 30s ease infinite',
+				second: 'moveInCircle 20s reverse infinite',
+				third: 'moveInCircle 40s linear infinite',
+				fourth: 'moveHorizontal 40s ease infinite',
+				fifth: 'moveInCircle 20s ease infinite'
 			},
 			keyframes: {
 				shine: {
@@ -48,10 +53,6 @@ export default {
 				fadeIn: {
 					'0%': { opacity: '0' },
 					'100%': { opacity: '1' }
-				},
-				animation: {
-					'fade-in': 'fadeIn 1s forwards',
-					'move-together': 'moveTogether 1s ease-in-out forwards'
 				},
 				shimmer: {
 					'0%, 90%, 100%': {
@@ -97,6 +98,39 @@ export default {
 				magicslide: {
 					to: {
 						transform: 'translate(calc(100cqw - 100%), 0)'
+					}
+				},
+				moveHorizontal: {
+					'0%': {
+						transform: 'translateX(-50%) translateY(-10%)'
+					},
+					'50%': {
+						transform: 'translateX(50%) translateY(10%)'
+					},
+					'100%': {
+						transform: 'translateX(-50%) translateY(-10%)'
+					}
+				},
+				moveInCircle: {
+					'0%': {
+						transform: 'rotate(0deg)'
+					},
+					'50%': {
+						transform: 'rotate(180deg)'
+					},
+					'100%': {
+						transform: 'rotate(360deg)'
+					}
+				},
+				moveVertical: {
+					'0%': {
+						transform: 'translateY(-50%)'
+					},
+					'50%': {
+						transform: 'translateY(50%)'
+					},
+					'100%': {
+						transform: 'translateY(-50%)'
 					}
 				}
 			}

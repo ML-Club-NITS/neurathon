@@ -1,21 +1,10 @@
 <script lang="ts">
 	import gem from '$lib/assets/gem.png';
-	import Button from './ui/Button.svelte';
 	import eligibilityData from '$lib/data/eligibilityData.json';
-	import ParticipateTimeline from './ui/ParticipateTimeline.svelte';
+	import { ParticipateTimeline, Button, GradientAnimation } from './ui';
 
-	// let { data } = $props();
-	// let { supabase } = $derived(data);
-
-	// async function signOut() {
-	// 	const { error } = await supabase.auth.signOut();
-	// 	console.error(error);
-	// 	goto('/');
-	// }
-
+	
 	let neurathonDate = '--/--/2025';
-	// let neurathonDes = "hcbauv hhhhhhhhhhhhhhhhhhhhcchwnlhhhhhhhhhhlHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH";
-
 	let eligData2 = [
 		{
 			title: 'Registrations',
@@ -35,7 +24,8 @@
 	];
 </script>
 
-<div
+<GradientAnimation>
+	<div
 	class="text-whit mt-[4.3rem] flex flex-col gap-5 gap-x-0 md:flex-row-reverse lg:flex-row-reverse xl:flex-row-reverse"
 >
 	<div class="reg g-1 text-white md:w-[40%] lg:w-[30%] xl:w-[30%]">
@@ -63,7 +53,7 @@
 				</div>
 			</div>
 			<div class="reg-button flex justify-start pb-2 pl-5">
-				<Button title="Register" />
+				<Button title="Register"/>
 			</div>
 		</div>
 		<div class="eligibility-container m-3 flex flex-col gap-2 rounded bg-gray-700/[0.7] p-5">
@@ -104,45 +94,8 @@
 			<ParticipateTimeline />
 		</div>
 	</div>
-	<!-- <div class="h-20"></div>
-	<button onclick={signOut} class="rounded-lg bg-red-500 px-2 py-1">LogOut</button>
-	<h1>Private page for User: {user?.email}</h1>
-	<h1>Name: {user?.user_metadata?.name}</h1>
-	<h1>Phone No.: {user?.user_metadata?.phone}</h1>
-
-	{#if TeamID}
-		<div class="container border-2 border-black p-2">
-			<span class="bg-gray-400">Team ID: {TeamID}</span>
-			<h1>Team: {team?.TeamName}</h1>
-			<p>Team Name: {team?.TeamName}</p>
-			<p>
-				Leader: {team.Members.find((m: { sub: string; name: string }) => m.sub === team?.CreatedBy)
-					?.name}
-			</p>
-			<p>Members:</p>
-			{#each team?.Members as member}
-				<p>{member.name} {member.phone}</p>
-			{/each}
-			<form method="POST">
-				{#if team?.CreatedBy === user?.id}
-					<button formaction="?/delete" class="rounded-lg bg-red-600 px-2 py-1">Delete</button>
-				{:else}
-					<button formaction="?/leave" class="rounded-lg bg-red-600 px-2 py-1">Leave</button>
-				{/if}
-			</form>
-		</div>
-	{:else}
-		<div class="container border-2 border-black bg-gray-400">
-			<form method="POST" class="m-2 flex gap-4 bg-gray-200">
-				<label for="teamname">Team Name</label>
-				<input type="text" id="teamname" name="teamname" />
-				<button formaction="?/register">Create Team</button>
-			</form>
-			<form method="POST" class="m-2 flex gap-4 bg-gray-200">
-				<label for="teamid">Team Id</label>
-				<input type="text" id="teamid" name="teamid" />
-				<button formaction="?/join">Join Team</button>
-			</form>
-		</div>
-	{/if} -->
+	
 </div>
+
+</GradientAnimation>
+
