@@ -3,7 +3,6 @@
 	import eligibilityData from '$lib/data/eligibilityData.json';
 	import { ParticipateTimeline, Button, GradientAnimation } from './ui';
 
-	
 	let neurathonDate = '--/--/2025';
 	let eligData2 = [
 		{
@@ -24,78 +23,81 @@
 	];
 </script>
 
-<GradientAnimation>
-	<div
-	class="text-whit mt-[4.3rem] flex flex-col gap-5 gap-x-0 md:flex-row-reverse lg:flex-row-reverse xl:flex-row-reverse"
->
-	<div class="reg g-1 text-white md:w-[40%] lg:w-[30%] xl:w-[30%]">
-		<div
-			class="reg-container m-3 flex flex-col justify-center overflow-hidden rounded bg-gray-700/[0.7]"
-		>
-			<div class="event-info-card flex flex-row gap-5 px-5 pb-2 pt-5">
-				<div class="icon h-full w-fit rounded bg-white/[0.6]">
-					<img src={gem} class="max-w-16" alt="gem" />
-				</div>
-				<div class="event-name">
-					<h1 class="font-LeagueSpartanFont text-[2rem] font-semibold">Neurathon</h1>
-				</div>
-			</div>
-			<div class="event-des p-5 pt-1">
-				<div class="event-date flex gap-1">
-					<i class="fi fi-br-calendar-day"></i>
-					<i class="text-[0.7rem]">{neurathonDate}</i>
-				</div>
-				<div class="event-text text-wrap">
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque incidunt explicabo ipsum,
-					magnam nihil harum reiciendis voluptate perferendis repellendus ut eaque, dolore iure. Cum
-					et minus delectus rem saepe voluptatibus tenetur provident dignissimos natus possimus vel
-					eaque quia facere fugiat, illo deleniti nam nemo sint rerum animi dolore quisquam quae!
-				</div>
-			</div>
-			<div class="reg-button flex justify-start pb-2 pl-5">
-				<Button title="Register"/>
-			</div>
-		</div>
-		<div class="eligibility-container m-3 flex flex-col gap-2 rounded bg-gray-700/[0.7] p-5">
-			<h1 class="eligibility-text-container font-LeagueSpartanFont text-xl font-semibold">
-				Eligibility
-			</h1>
-			<div class="professions flex flex-row p-1 pl-0">
-				{#each eligibilityData.data as i}
-					<div
-						class="prof mr-1 h-full w-fit rounded-xl bg-gray-900/[0.5] p-[0.375rem] px-[0.5rem] text-[0.7rem]"
-					>
-						{i.status}
-					</div>
-				{/each}
-			</div>
-			<div class="elig-datas flex flex-wrap">
-				{#each eligData2 as item}
-					<div class="team-regs mx-2 flex flex-row pb-2">
-						<div
-							class="team-reg-icon g-1 flex h-[2.5rem] w-[2.5rem] justify-center rounded bg-gray-900/[0.5] p-2"
-						>
-							<i class="${item.icon} translate-y-[0.15rem]"></i>
-						</div>
-						<div class="team-reg-det flex flex-col">
-							<div class="team-reg-text px-1 font-LeagueSpartanFont text-[0.65rem]">
-								{item.title}
-							</div>
-							<div class="team-reg-data mx-1 flex justify-start text-[0.85rem]">{item.des}</div>
-						</div>
-					</div>
-				{/each}
-			</div>
-		</div>
-	</div>
-
-	<div class="neurathon-info-container g-1 overflow-hidden md:w-[70%] lg:w-[70%] xl:w-[70%]">
-		<div class="event-timeline m-3 rounded border border-gray-400 bg-gray-700/[0.5] pb-5">
-			<ParticipateTimeline />
-		</div>
-	</div>
+<div class="overflow-hidden">
 	
 </div>
 
-</GradientAnimation>
+<GradientAnimation>
+	
+	<div
+		class="text-whit mt-[4.3rem] flex flex-col gap-5 gap-x-0 md:flex-row-reverse lg:flex-row-reverse xl:flex-row-reverse"
+	>
+		<div class="reg g-1 text-white md:w-[40%] lg:w-[30%] xl:w-[30%]">
+			<div
+				class="reg-container m-3 flex flex-col justify-center overflow-hidden rounded bg-gray-700/[0.7]"
+			>
+				<div class="event-info-card flex flex-row gap-5 px-5 pb-2 pt-5">
+					<div class="icon h-full w-fit rounded bg-white/[0.6]">
+						<img src={gem} class="max-w-16" alt="gem" />
+					</div>
+					<div class="event-name">
+						<h1 class="font-LeagueSpartanFont text-[2rem] font-semibold">Neurathon</h1>
+					</div>
+				</div>
+				<div class="event-des p-5 pt-1">
+					<div class="event-date flex gap-1">
+						<i class="fi fi-br-calendar-day"></i>
+						<i class="text-[0.7rem]">{neurathonDate}</i>
+					</div>
+					<div class="event-text text-wrap">
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque incidunt explicabo
+						ipsum, magnam nihil harum reiciendis voluptate perferendis repellendus ut eaque, dolore
+						iure. Cum et minus delectus rem saepe voluptatibus tenetur provident dignissimos natus
+						possimus vel eaque quia facere fugiat, illo deleniti nam nemo sint rerum animi dolore
+						quisquam quae!
+					</div>
+				</div>
+				<div class="reg-button flex justify-start pb-2 pl-5">
+					<Button title="Register" />
+				</div>
+			</div>
+			<div class="eligibility-container m-3 flex flex-col gap-2 rounded bg-gray-700/[0.7] p-5">
+				<h1 class="eligibility-text-container font-LeagueSpartanFont text-xl font-semibold">
+					Eligibility
+				</h1>
+				<div class="professions flex flex-row p-1 pl-0">
+					{#each eligibilityData.data as i}
+						<div
+							class="prof mr-1 h-full w-fit rounded-xl bg-gray-900/[0.5] p-[0.375rem] px-[0.5rem] text-[0.7rem]"
+						>
+							{i.status}
+						</div>
+					{/each}
+				</div>
+				<div class="elig-datas flex flex-wrap">
+					{#each eligData2 as item}
+						<div class="team-regs mx-2 flex flex-row pb-2">
+							<div
+								class="team-reg-icon g-1 flex h-[2.5rem] w-[2.5rem] justify-center rounded bg-gray-900/[0.5] p-2"
+							>
+								<i class="${item.icon} translate-y-[0.15rem]"></i>
+							</div>
+							<div class="team-reg-det flex flex-col">
+								<div class="team-reg-text px-1 font-LeagueSpartanFont text-[0.65rem]">
+									{item.title}
+								</div>
+								<div class="team-reg-data mx-1 flex justify-start text-[0.85rem]">{item.des}</div>
+							</div>
+						</div>
+					{/each}
+				</div>
+			</div>
+		</div>
 
+		<div class="neurathon-info-container g-1 overflow-hidden md:w-[70%] lg:w-[70%] xl:w-[70%]">
+			<div class="event-timeline m-3 rounded border border-gray-400 bg-gray-700/[0.5] pb-5">
+				<ParticipateTimeline />
+			</div>
+		</div>
+	</div>
+</GradientAnimation>

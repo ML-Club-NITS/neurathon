@@ -58,7 +58,7 @@
 
 <div
 	class={cn(
-		'relative left-0 top-0 w-screen h-screen overflow-hidden bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]',
+		'relative left-0 top-0 w-full h-full overflow-hidden bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]',
 		containerClassName
 	)}
 >
@@ -77,7 +77,7 @@
 		</defs>
 	</svg>
 	<div class={cn('', className)}><slot /></div>
-	<div class="gradients-container h-full w-full [filter:url(#blurMe)_blur(40px)]">
+	<div class="gradients-container absolute inset-0 h-full w-full [filter:url(#blurMe)_blur(40px)]">
 		<div
 			class={cn(
 				`absolute [background:radial-gradient(circle_at_center,_var(--first-color)_0,_var(--first-color)_50%)_no-repeat]`,
