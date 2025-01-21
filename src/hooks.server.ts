@@ -67,7 +67,19 @@ const authGuard: Handle = async ({ event, resolve }) => {
 	event.locals.session = session;
 	event.locals.user = user;
 
-	if (!event.locals.session && event.url.pathname.startsWith('/participate')) {
+	if (!event.locals.session && event.url.pathname.startsWith('/participate/register')) {
+		redirect(303, '/auth');
+	}
+
+	if (!event.locals.session && event.url.pathname.startsWith('/dashboard')) {
+		redirect(303, '/auth');
+	}
+
+	if (!event.locals.session && event.url.pathname.startsWith('/dashboard/profile')) {
+		redirect(303, '/auth');
+	}
+
+	if (!event.locals.session && event.url.pathname.startsWith('/dashboard/update')) {
 		redirect(303, '/auth');
 	}
 

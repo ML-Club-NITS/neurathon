@@ -24,7 +24,7 @@
 
 <div>
 	<nav
-		class="fixed top-0 z-50 w-full border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800"
+		class="fixed start-0 top-0 z-[10000] w-full rounded-sm border-b border-gray-200 bg-white bg-opacity-30 backdrop-blur-md backdrop-filter sm:rounded-none dark:border-gray-600 dark:bg-gray-900 dark:bg-opacity-30"
 	>
 		<div class="px-3 py-3 lg:px-5 lg:pl-3">
 			<div class="flex items-center justify-between">
@@ -54,7 +54,7 @@
 					<a href="/dashboard" class="ms-2 flex">
 						<img src="https://flowbite.com/docs/images/logo.svg" class="me-3 h-8" alt="Logo" />
 						<span class="self-center text-xl font-semibold text-gray-800 dark:text-white"
-							>Brand</span
+							>Neurathon</span
 						>
 					</a>
 				</div>
@@ -93,14 +93,14 @@
 							</li>
 							<li>
 								<a
-									href="/dashboard"
+									href="/dashboard/profile"
 									class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
-									>Settings</a
+									>Profile</a
 								>
 							</li>
 							<li>
 								<a
-									href="/dashboard"
+									href="/"
 									class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
 									>Sign out</a
 								>
@@ -115,7 +115,7 @@
 	<!-- Sidebar -->
 	<aside
 		id="logo-sidebar"
-		class="fixed top-0 z-10 h-screen w-64 -translate-x-0 border-r bg-white pt-20 transition-transform lg:fixed lg:translate-x-0 dark:border-gray-700 dark:bg-gray-800"
+		class="fixed top-0 z-10 h-screen w-64 -translate-x-0 border-r bg-white pt-20 transition-transform lg:fixed lg:translate-x-0 dark:border-gray-700 dark:bg-[#21212196]"
 	>
 		<ul class="space-y-2 px-3 font-medium">
 			<li>

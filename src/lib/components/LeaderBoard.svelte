@@ -9,56 +9,56 @@
 	} from 'flowbite-svelte';
 
 	let items = [
-		{ id: 1, maker: 'Toyota', type: 'ABC', make: 2017 },
-		{ id: 2, maker: 'Ford', type: 'CDE', make: 2018 },
-		{ id: 3, maker: 'Volvo', type: 'FGH', make: 2019 },
-		{ id: 4, maker: 'Saab', type: 'IJK', make: 2020 },
-		{ id: 5, maker: 'Audi', type: 'LMN', make: 2021 },
-		{ id: 6, maker: 'BMW', type: 'OPQ', make: 2022 },
-		{ id: 7, maker: 'Mercedes', type: 'RST', make: 2023 },
-		{ id: 8, maker: 'Volkswagen', type: 'UVW', make: 2024 },
-		{ id: 9, maker: 'Honda', type: 'XYZ', make: 2025 },
-		{ id: 10, maker: 'Nissan', type: '123', make: 2026 },
-		{ id: 11, maker: 'Chevrolet', type: '456', make: 2027 },
-		{ id: 12, maker: 'Hyundai', type: '789', make: 2028 },
-		{ id: 13, maker: 'Kia', type: '101112', make: 2029 },
-		{ id: 14, maker: 'Mazda', type: '131415', make: 2030 },
-		{ id: 15, maker: 'Subaru', type: '161718', make: 2031 },
-		{ id: 16, maker: 'Porsche', type: '192021', make: 2032 },
-		{ id: 17, maker: 'Lexus', type: '222324', make: 2033 },
-		{ id: 18, maker: 'Acura', type: '252627', make: 2034 },
-		{ id: 19, maker: 'Infiniti', type: '282930', make: 2035 },
-		{ id: 20, maker: 'Buick', type: '313233', make: 2036 },
-		{ id: 21, maker: 'Cadillac', type: '343536', make: 2037 },
-		{ id: 22, maker: 'GMC', type: '373839', make: 2038 },
-		{ id: 23, maker: 'Jeep', type: '404142', make: 2039 },
-		{ id: 24, maker: 'Land Rover', type: '434445', make: 2040 },
-		{ id: 25, maker: 'Lincoln', type: '464748', make: 2041 },
-		{ id: 26, maker: 'Mitsubishi', type: '495051', make: 2042 },
-		{ id: 27, maker: 'Ram', type: '525354', make: 2043 },
-		{ id: 28, maker: 'Tesla', type: '555657', make: 2044 },
-		{ id: 29, maker: 'Chrysler', type: '585960', make: 2045 },
-		{ id: 30, maker: 'Dodge', type: '616263', make: 2046 },
-		{ id: 31, maker: 'Fiat', type: '646566', make: 2047 },
-		{ id: 32, maker: 'Jaguar', type: '676869', make: 2048 },
-		{ id: 33, maker: 'Mini', type: '707172', make: 2049 },
-		{ id: 34, maker: 'Smart', type: '737475', make: 2050 },
-		{ id: 35, maker: 'Volvo', type: '767778', make: 2051 },
-		{ id: 36, maker: 'Audi', type: '798081', make: 2052 },
-		{ id: 37, maker: 'BMW', type: '828384', make: 2053 },
-		{ id: 38, maker: 'Mercedes', type: '858687', make: 2054 },
-		{ id: 39, maker: 'Volkswagen', type: '888990', make: 2055 },
-		{ id: 40, maker: 'Honda', type: '919293', make: 2056 },
-		{ id: 41, maker: 'Nissan', type: '949596', make: 2057 },
-		{ id: 42, maker: 'Chevrolet', type: '979899', make: 2058 },
-		{ id: 43, maker: 'Hyundai', type: '100101102', make: 2059 },
-		{ id: 44, maker: 'Kia', type: '103104105', make: 2060 },
-		{ id: 45, maker: 'Mazda', type: '106107108', make: 2061 },
-		{ id: 46, maker: 'Subaru', type: '109110111', make: 2062 },
-		{ id: 47, maker: 'Porsche', type: '112113114', make: 2063 },
-		{ id: 48, maker: 'Lexus', type: '115116117', make: 2064 },
-		{ id: 49, maker: 'Acura', type: '118119120', make: 2065 },
-		{ id: 50, maker: 'Infiniti', type: '121122123', make: 2066 }
+		{ Rank: 1, Team: 'Toyota', type: 'ABC', make: 2017 },
+		{ Rank: 2, Team: 'Ford', type: 'CDE', make: 2018 },
+		{ Rank: 3, Team: 'Volvo', type: 'FGH', make: 2019 },
+		{ Rank: 4, Team: 'Saab', type: 'IJK', make: 2020 },
+		{ Rank: 5, Team: 'Audi', type: 'LMN', make: 2021 },
+		{ Rank: 6, Team: 'BMW', type: 'OPQ', make: 2022 },
+		{ Rank: 7, Team: 'Mercedes', type: 'RST', make: 2023 },
+		{ Rank: 8, Team: 'Volkswagen', type: 'UVW', make: 2024 },
+		{ Rank: 9, Team: 'Honda', type: 'XYZ', make: 2025 },
+		{ Rank: 10, Team: 'Nissan', type: '123', make: 2026 },
+		{ Rank: 11, Team: 'Chevrolet', type: '456', make: 2027 },
+		{ Rank: 12, Team: 'Hyundai', type: '789', make: 2028 },
+		{ Rank: 13, Team: 'Kia', type: '101112', make: 2029 },
+		{ Rank: 14, Team: 'Mazda', type: '131415', make: 2030 },
+		{ Rank: 15, Team: 'Subaru', type: '161718', make: 2031 },
+		{ Rank: 16, Team: 'Porsche', type: '192021', make: 2032 },
+		{ Rank: 17, Team: 'Lexus', type: '222324', make: 2033 },
+		{ Rank: 18, Team: 'Acura', type: '252627', make: 2034 },
+		{ Rank: 19, Team: 'Infiniti', type: '282930', make: 2035 },
+		{ Rank: 20, Team: 'Buick', type: '313233', make: 2036 },
+		{ Rank: 21, Team: 'Cadillac', type: '343536', make: 2037 },
+		{ Rank: 22, Team: 'GMC', type: '373839', make: 2038 },
+		{ Rank: 23, Team: 'Jeep', type: '404142', make: 2039 },
+		{ Rank: 24, Team: 'Land Rover', type: '434445', make: 2040 },
+		{ Rank: 25, Team: 'Lincoln', type: '464748', make: 2041 },
+		{ Rank: 26, Team: 'Mitsubishi', type: '495051', make: 2042 },
+		{ Rank: 27, Team: 'Ram', type: '525354', make: 2043 },
+		{ Rank: 28, Team: 'Tesla', type: '555657', make: 2044 },
+		{ Rank: 29, Team: 'Chrysler', type: '585960', make: 2045 },
+		{ Rank: 30, Team: 'Dodge', type: '616263', make: 2046 },
+		{ Rank: 31, Team: 'Fiat', type: '646566', make: 2047 },
+		{ Rank: 32, Team: 'Jaguar', type: '676869', make: 2048 },
+		{ Rank: 33, Team: 'Mini', type: '707172', make: 2049 },
+		{ Rank: 34, Team: 'Smart', type: '737475', make: 2050 },
+		{ Rank: 35, Team: 'Volvo', type: '767778', make: 2051 },
+		{ Rank: 36, Team: 'Audi', type: '798081', make: 2052 },
+		{ Rank: 37, Team: 'BMW', type: '828384', make: 2053 },
+		{ Rank: 38, Team: 'Mercedes', type: '858687', make: 2054 },
+		{ Rank: 39, Team: 'Volkswagen', type: '888990', make: 2055 },
+		{ Rank: 40, Team: 'Honda', type: '919293', make: 2056 },
+		{ Rank: 41, Team: 'Nissan', type: '949596', make: 2057 },
+		{ Rank: 42, Team: 'Chevrolet', type: '979899', make: 2058 },
+		{ Rank: 43, Team: 'Hyundai', type: '100101102', make: 2059 },
+		{ Rank: 44, Team: 'Kia', type: '103104105', make: 2060 },
+		{ Rank: 45, Team: 'Mazda', type: '106107108', make: 2061 },
+		{ Rank: 46, Team: 'Subaru', type: '109110111', make: 2062 },
+		{ Rank: 47, Team: 'Porsche', type: '112113114', make: 2063 },
+		{ Rank: 48, Team: 'Lexus', type: '115116117', make: 2064 },
+		{ Rank: 49, Team: 'Acura', type: '118119120', make: 2065 },
+		{ Rank: 50, Team: 'Infiniti', type: '121122123', make: 2066 }
 	];
 
 	let currentPage = 1;
@@ -68,7 +68,7 @@
 	// Filter items based on the search query
 	$: filteredItems = items.filter(
 		(item) =>
-			item.maker.toLowerCase().includes(searchQuery.toLowerCase()) ||
+			item.Team.toLowerCase().includes(searchQuery.toLowerCase()) ||
 			item.type.toLowerCase().includes(searchQuery.toLowerCase()) ||
 			String(item.make).includes(searchQuery)
 	);
@@ -113,19 +113,17 @@
 	<!-- Table -->
 	<Table hoverable={true} divClass="w-[initial] rounded-md">
 		<TableHead theadClass="rounded-md">
-			<TableHeadCell class="rounded-tl-md">ID</TableHeadCell>
-			<TableHeadCell>Maker</TableHeadCell>
+			<TableHeadCell class="rounded-tl-md">Rank</TableHeadCell>
+			<TableHeadCell>Team Name</TableHeadCell>
 			<TableHeadCell>Type</TableHeadCell>
-			<TableHeadCell class="rounded-tr-md">Make</TableHeadCell>
 		</TableHead>
 		<TableBody tableBodyClass="rounded-b-md">
 			{#if paginatedItems.length > 0}
 				{#each paginatedItems as item}
 					<TableBodyRow>
-						<TableBodyCell class="">{item.id}</TableBodyCell>
-						<TableBodyCell class="">{item.maker}</TableBodyCell>
+						<TableBodyCell class="">{item.Rank}</TableBodyCell>
+						<TableBodyCell class="">{item.Team}</TableBodyCell>
 						<TableBodyCell class="">{item.type}</TableBodyCell>
-						<TableBodyCell class="">{item.make}</TableBodyCell>
 					</TableBodyRow>
 				{/each}
 			{:else}
