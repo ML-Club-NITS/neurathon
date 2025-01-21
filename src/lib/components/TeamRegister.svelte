@@ -11,9 +11,7 @@
 				<h2 class="mb-5 text-4xl font-bold text-blue-900">Update Profile</h2>
 			</div>
 
-			<!-- Bilgi Düzenleme Formu -->
 			<form class="space-y-4">
-				<!-- İsim ve Unvan -->
 				<div>
 					<label for="name" class="block text-sm font-medium text-gray-700">Name</label>
 					<input
@@ -33,7 +31,6 @@
 					/>
 				</div>
 
-				<!-- Organizasyon Bilgisi -->
 				<div>
 					<label for="organization" class="block text-sm font-medium text-gray-700"
 						>Organization</label
@@ -46,7 +43,6 @@
 					/>
 				</div>
 
-				<!-- İletişim Bilgileri -->
 				<div>
 					<label for="email" class="block text-sm font-medium text-gray-700">Email</label>
 					<input
@@ -75,7 +71,6 @@
 					/>
 				</div>
 
-				<!-- Kaydet ve İptal Butonları -->
 				<div class="flex justify-end space-x-4">
 					<button
 						onclick={() => goto('/dashboard/settings')}
