@@ -1,6 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
 @import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css');
 @import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css');
 @import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css');
@@ -24,6 +25,14 @@
 		font-style: normal;
 		src: url('/fonts/local_file_name') format('type');
 	} */
+}
+
+@layer utilities {
+	@media (max-width: 800px) {
+		.translate-y-custom {
+			transform: translateY(70px);
+		}
+	}
 }
 
 * {
