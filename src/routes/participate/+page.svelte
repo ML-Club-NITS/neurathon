@@ -3,5 +3,5 @@
 </script>
 
 <section class="flex justify-evenly">
-	<Participate/>
+	<Participate />
 </section>

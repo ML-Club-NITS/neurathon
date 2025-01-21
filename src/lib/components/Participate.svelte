@@ -35,7 +35,9 @@
 	];
 </script>
 
-<div class="text-whit mt-[4.3rem] flex flex-col gap-5 gap-x-0 md:flex-row-reverse lg:flex-row-reverse xl:flex-row-reverse">
+<div
+	class="text-whit mt-[4.3rem] flex flex-col gap-5 gap-x-0 md:flex-row-reverse lg:flex-row-reverse xl:flex-row-reverse"
+>
 	<div class="reg g-1 text-white md:w-[40%] lg:w-[30%] xl:w-[30%]">
 		<div
 			class="reg-container m-3 flex flex-col justify-center overflow-hidden rounded bg-gray-700/[0.7]"
@@ -98,7 +100,7 @@
 	</div>
 
 	<div class="neurathon-info-container g-1 overflow-hidden md:w-[70%] lg:w-[70%] xl:w-[70%]">
-		<div class="event-timeline m-3 pb-5 rounded border border-gray-400 bg-gray-700/[0.5]">
+		<div class="event-timeline m-3 rounded border border-gray-400 bg-gray-700/[0.5] pb-5">
 			<ParticipateTimeline />
 		</div>
 	</div>
