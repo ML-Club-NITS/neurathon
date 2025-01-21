@@ -1,32 +1,81 @@
 [
 	{
+		"version": "Registration",
+		"status": "Online",
+		"duration": "",
+		"description": "Welcome to Neurathon-2025",
+		"updates": [
+			"All new participants must individually log in through the official Neurathon-2025 website.",
+			"After logging in, participants will be redirected to the dashboard.",
+			"The dashboard menu will provide a live link for the Kaggle competition."
+		]
+	},
+	{
 		"version": "Preliminary Round",
 		"status": "Online",
-		"duration": "24h",
+		"duration": "20 Days",
+		"description": "Participants will engage in a challenging Kaggle competition. This round serves as the preliminary stage, with top-performing teams advancing to Round 2.",
 		"updates": [
-			"Added a user profile page for personalized settings.",
-			"Implemented a dark mode for improved user experience at night.",
-			"Introduced real-time notifications for instant updates."
+			"Participants must individually register for the Kaggle competition.",
+			"Individual scores will be recorded throughout the preliminary round.",
+			"A leaderboard will be displayed on the website's dashboard, showing the top qualifying candidates.",
+			"Submission of the final results CSV for evaluation.",
+			"Evaluation is based on accuracy, with the highest-performing models advancing.",
+			"Teams must submit a well-documented Jupyter Notebook detailing their approach, methodology, and code."
+		]
+	},
+	{
+		"version": "Team Formation",
+		"status": "Online",
+		"duration": "",
+		"description": "Qualified candidates will proceed to the main round, Neurathon-2025, held at the NIT Silchar campus.",
+		"updates": [
+			"Qualified candidates will be notified via email or through the website's dashboard.",
+			"Candidates must either create a team or join an existing one.",
+			"Teams can consist of 2-4 members, including one designated leader.",
+			"The team leader must provide a Git repository link to track commit history.",
+			"Teams can monitor commit changes and contest progress through the dashboard."
 		]
 	},
 	{
 		"version": "Neurathon",
 		"status": "Offline",
-		"duration": "48h",
+		"duration": "",
+		"description": "Held at NIT Silchar, this round involves problem-solving, model-making, and presentations, culminating in a prize distribution ceremony and a speaker session.",
 		"updates": [
-			"Improved performance for dashboard analytics.",
-			"Bug fixes for mobile responsiveness.",
-			"Upgraded backend services for better scalability."
+			"Day 1: Problem statements will be released on-site and on the website.",
+			"Participants must regularly check the dashboard for updates regarding timings, notifications, and any changes.",
+			"Day 1 & Day 2: Teams will work on model-making based on the provided problem statement.",
+			"Teams must create a private GitHub repository, add contributors, and use an auto_commit.bat file for automated commits.",
+			"All commits must be completed by the end of Day 2.",
+			"Day 3: Teams will present their models and methodologies through detailed PPTs.",
+			"Presentations will be evaluated based on creativity, technical execution, and overall impact.",
+			"The event will conclude with a speaker session by industry leaders and a prize distribution ceremony."
 		]
 	},
 	{
-		"version": "Neu",
+		"version": "Model Making",
 		"status": "Offline",
-		"duration": "48h",
+		"duration": "2 Days",
+		"description": "Teams will develop solutions to the provided problem statements using any preferred methodology.",
 		"updates": [
-			"Improved performance for dashboard analytics.",
-			"Bug fixes for mobile responsiveness.",
-			"Upgraded backend services for better scalability."
+			"Teams have two days to complete their solutions.",
+			"There are no restrictions on creativity.",
+			"Teams must prepare a presentation showcasing their solution, which will be used during the presentation round."
+		]
+	},
+	{
+		"version": "Presentation and Speaker Session",
+		"status": "Offline",
+		"duration": "1 Day",
+		"description": "The final day of Neurathon-2025, featuring team presentations and a concluding speaker session.",
+		"updates": [
+			"No commits will be accepted after Day 2.",
+			"Teams must present their solutions before a panel of judges, explaining their models in detail.",
+			"Teams should be prepared to answer questions about their development process, working methodology, and initial solution concepts.",
+			"Awards will be given for Grand Neurathon Champion, Best Deployment, and Most Sustainable Solution.",
+			"All updates will be communicated through the website.",
+			"The event will conclude with a speaker session, marking the end of Neurathon-2025."
 		]
 	}
 ]
