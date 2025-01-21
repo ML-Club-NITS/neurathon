@@ -46,7 +46,7 @@
 						<i class="fi fi-br-calendar-day"></i>
 						<i class="text-[0.7rem]">{neurathonDate}</i>
 					</div>
-					<div class="event-text text-wrap text-[0.95rem] ">
+					<div class="event-text text-wrap text-[0.95rem]">
 						Neurathon is a distinguished machine learning hackathon designed for the development of
 						creative AI solutions within an intensive, collaborative environment. Participants form
 						teams to tackle challenges curated by the organizers, focusing on areas such as software

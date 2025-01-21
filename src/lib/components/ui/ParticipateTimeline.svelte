@@ -6,7 +6,8 @@
 	<div class="mx-auto ml-0 p-8 pl-7">
 		{#each data as item (item.version)}
 			<div class="relative pb-8">
-				<span class="absolute left-5 top-5 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
+				<span class="absolute left-5 top-5 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"
+				></span>
 				<div class="relative flex items-start space-x-3">
 					<div>
 						<div class="relative px-1">
@@ -16,7 +17,7 @@
 					<div class="min-w-0 flex-1 py-0">
 						<div class="text-md text-gray-500">
 							<div>
-								<a href="/" class="mr-2 font-medium text-white text-2xl">{item.version}</a>
+								<a href="/" class="mr-2 text-2xl font-medium text-white">{item.version}</a>
 								<a
 									href="/"
 									class="relative my-0.5 inline-flex items-center rounded-full border border-gray-300 bg-white px-3 py-0.5 text-sm"
