@@ -134,34 +134,54 @@
 			</li>
 			<li>
 				<button
-					onclick={() => {goto('/dashboard'); active = 1}}
-					class="{(active == 1) ? "bg-slate-500 hover:bg-slate-500" : "dark:hover:bg-gray-700"} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
+					onclick={() => {
+						goto('/dashboard');
+						active = 1;
+					}}
+					class="{active == 1
+						? 'bg-slate-500 hover:bg-slate-500'
+						: 'dark:hover:bg-gray-700'} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
 					><i class="fi fi-rr-dashboard"></i>Dashboard</button
 				>
 			</li>
 			{#if registered}
 				<li>
 					<button
-						onclick={() => {goto('/dashboard/team'); active = 2}}
-						class="{(active == 2) ? "bg-slate-500 hover:bg-slate-500" : "dark:hover:bg-gray-700"} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
+						onclick={() => {
+							goto('/dashboard/team');
+							active = 2;
+						}}
+						class="{active == 2
+							? 'bg-slate-500 hover:bg-slate-500'
+							: 'dark:hover:bg-gray-700'} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
 					>
 						<i class="fi fi-sr-team-check"></i>Team
 					</button>
 				</li>
-				{:else if r1Qulified}
+			{:else if r1Qulified}
 				<li>
 					<button
-						onclick={() => {goto('/dashboard/team'); active = 2}}
-						class="{(active == 2) ? "bg-slate-500 hover:bg-slate-500" : "dark:hover:bg-gray-700"} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
+						onclick={() => {
+							goto('/dashboard/team');
+							active = 2;
+						}}
+						class="{active == 2
+							? 'bg-slate-500 hover:bg-slate-500'
+							: 'dark:hover:bg-gray-700'} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
 					>
-					<i class="fi fi-sr-users-medical"></i>Register Team
+						<i class="fi fi-sr-users-medical"></i>Register Team
 					</button>
 				</li>
 			{/if}
 			<li>
 				<button
-					onclick={() => {goto('/dashboard/profile'); active = 3}}
-					class="{(active == 3) ? "bg-slate-500 hover:bg-slate-500" : "dark:hover:bg-gray-700"} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
+					onclick={() => {
+						goto('/dashboard/profile');
+						active = 3;
+					}}
+					class="{active == 3
+						? 'bg-slate-500 hover:bg-slate-500'
+						: 'dark:hover:bg-gray-700'} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
 					><i class="fi fi-sr-user-pen"></i>Profile</button
 				>
 			</li>

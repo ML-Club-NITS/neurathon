@@ -1,12 +1,11 @@
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
-
 	const timer = new Date();
-	const r1Time = new Date("13 Feb 2025");
-	const r1TimeEnd = new Date("17 Feb 2025");
-	const r2Time = new Date("21 March 2025");
-	const r2TimeEnd = new Date("23 March 2025");
+	const r1Time = new Date('13 Feb 2025');
+	const r1TimeEnd = new Date('17 Feb 2025');
+	const r2Time = new Date('21 March 2025');
+	const r2TimeEnd = new Date('23 March 2025');
 	if (timer < r1Time) {
 		return {
 			commits: [],
@@ -45,8 +44,7 @@ export const load: PageServerLoad = async () => {
 			round: 2,
 			timer: (timer.getTime() - r2Time.getTime()) / 1000
 		};
-	}
-	else {
+	} else {
 		return {
 			commits: []
 		};

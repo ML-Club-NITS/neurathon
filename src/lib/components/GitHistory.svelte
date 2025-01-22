@@ -27,7 +27,7 @@
 	// 	}
 	// ];
 	export let commits;
-</script>	
+</script>
 
 <div class="flex max-w-full flex-col gap-2 rounded-lg bg-orange-800 p-4 text-white">
 	<h1 class="text-center text-xl font-bold">Latest Changes</h1>

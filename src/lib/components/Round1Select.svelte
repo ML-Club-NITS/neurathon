@@ -5,7 +5,6 @@
 	let qulifiedR1 = true;
 </script>
 
-
 <div>
 	Congratulations! {qulifiedR1
 		? teamLead
@@ -15,7 +14,7 @@
 </div>
 {#if teamLead && qulifiedR1}
 	<button
-		class="mt-3 px-4 py-2 rounded-md bg-gray-900"
+		class="mt-3 rounded-md bg-gray-900 px-4 py-2"
 		onclick={() => {
 			goto('/dashboard/team');
 		}}
