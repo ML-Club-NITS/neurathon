@@ -1,7 +1,7 @@
 <script>
 	import { goto } from '$app/navigation';
 	// import { Banner } from '$lib/components';
-	let { children } = $props();
+	let { children, data } = $props();
 	let r1Qulified = true;
 	let registered = false;
 	function toggleSidebar() {
@@ -17,6 +17,11 @@
 			dropdown.classList.toggle('hidden');
 		}
 	}
+
+	let active = $state(1);
+	$effect(() => {
+		active;
+	});
 </script>
 
 <svelte:head>
@@ -129,16 +134,16 @@
 			</li>
 			<li>
 				<button
-					onclick={() => goto('/dashboard')}
-					class="inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+					onclick={() => {goto('/dashboard'); active = 1}}
+					class="{(active == 1) ? "bg-slate-500 hover:bg-slate-500" : "dark:hover:bg-gray-700"} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
 					><i class="fi fi-rr-dashboard"></i>Dashboard</button
 				>
 			</li>
 			{#if registered}
 				<li>
 					<button
-						onclick={() => goto('/dashboard/team')}
-						class="inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+						onclick={() => {goto('/dashboard/team'); active = 2}}
+						class="{(active == 2) ? "bg-slate-500 hover:bg-slate-500" : "dark:hover:bg-gray-700"} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
 					>
 						<i class="fi fi-sr-team-check"></i>Team
 					</button>
@@ -146,8 +151,8 @@
 				{:else if r1Qulified}
 				<li>
 					<button
-						onclick={() => goto('/dashboard/team')}
-						class="inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+						onclick={() => {goto('/dashboard/team'); active = 2}}
+						class="{(active == 2) ? "bg-slate-500 hover:bg-slate-500" : "dark:hover:bg-gray-700"} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
 					>
 					<i class="fi fi-sr-users-medical"></i>Register Team
 					</button>
@@ -155,8 +160,8 @@
 			{/if}
 			<li>
 				<button
-					onclick={() => goto('/dashboard/profile')}
-					class="inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+					onclick={() => {goto('/dashboard/profile'); active = 3}}
+					class="{(active == 3) ? "bg-slate-500 hover:bg-slate-500" : "dark:hover:bg-gray-700"} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
 					><i class="fi fi-sr-user-pen"></i>Profile</button
 				>
 			</li>

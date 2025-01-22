@@ -1,5 +1,5 @@
 import { redirect } from '@sveltejs/kit';
-import type { PageServerLoad, Actions } from '../$types';
+import type { PageServerLoad, Actions } from '../../$types';
 
 export const load: PageServerLoad = async ({ depends, locals: { supabase, user } }) => {
 	depends('supabase:db:teams');
