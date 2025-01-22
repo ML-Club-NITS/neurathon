@@ -5,6 +5,9 @@ export const load: PageServerLoad = async () => {
 	const userData = await msg.json();
 	const dataSize = userData.length > 5 ? 5 : userData.length;
 	const commitData = [];
+	const timer = new Date();
+	const r1Time = new Date();
+	const r2Time = new Date();
 	for (let i = 0; i < dataSize; i++) {
 		commitData.push({
 			committerName: userData[i].commit.committer.name,

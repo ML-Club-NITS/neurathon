@@ -73,16 +73,14 @@
 		</ol>
 	</nav>
 	<div
-		class="font-std mb-10 mt-3 w-full rounded-lg bg-[#ffffff27] p-10 pt-5 font-normal leading-relaxed text-gray-900 shadow-xl"
+		class="font-std mb-10 mt-3 w-full rounded-lg bg-[#ffac13] p-10 pt-5 font-normal leading-relaxed text-gray-900 shadow-xl"
 	>
 		<div class="flex flex-col">
 			<div class="mb-5 flex flex-col items-start justify-between md:flex-row">
-				<h2 class="text-3xl font-bold text-blue-900">Update Profile</h2>
+				<h2 class="text-3xl font-bold text-red-900">Update Profile</h2>
 			</div>
 
-			<!-- Bilgi Düzenleme Formu -->
 			<form class="space-y-4">
-				<!-- İsim ve Unvan -->
 				<div>
 					<label for="name" class="block text-sm font-medium text-gray-700">Name</label>
 					<input
@@ -102,7 +100,6 @@
 					/>
 				</div>
 
-				<!-- Organizasyon Bilgisi -->
 				<div>
 					<label for="organization" class="block text-sm font-medium text-gray-700"
 						>Organization</label
@@ -114,8 +111,7 @@
 						value="Estep Bilişim"
 					/>
 				</div>
-
-				<!-- İletişim Bilgileri -->
+				
 				<div>
 					<label for="email" class="block text-sm font-medium text-gray-700">Email</label>
 					<input
@@ -144,7 +140,6 @@
 					/>
 				</div>
 
-				<!-- Kaydet ve İptal Butonları -->
 				<div class="flex justify-end space-x-4">
 					<button
 						onclick={() => goto('/dashboard/profile')}

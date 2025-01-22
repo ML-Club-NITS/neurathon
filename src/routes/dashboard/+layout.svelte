@@ -1,7 +1,9 @@
 <script>
 	import { goto } from '$app/navigation';
-	import { Banner } from '$lib/components';
+	// import { Banner } from '$lib/components';
 	let { children } = $props();
+	let r1Qulified = true;
+	let registered = false;
 	function toggleSidebar() {
 		const sidebar = document.getElementById('logo-sidebar');
 		if (sidebar) {
@@ -121,21 +123,40 @@
 			<li>
 				<button
 					onclick={() => goto('/')}
-					class="inline-flex w-full gap-3 rounded p-2 text-left text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+					class="inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
 					><i class="fi fi-rr-home"></i>Home</button
 				>
 			</li>
 			<li>
 				<button
 					onclick={() => goto('/dashboard')}
-					class="inline-flex w-full gap-3 rounded p-2 text-left text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+					class="inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
 					><i class="fi fi-rr-dashboard"></i>Dashboard</button
 				>
 			</li>
+			{#if registered}
+				<li>
+					<button
+						onclick={() => goto('/dashboard/team')}
+						class="inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+					>
+						<i class="fi fi-sr-team-check"></i>Team
+					</button>
+				</li>
+				{:else if r1Qulified}
+				<li>
+					<button
+						onclick={() => goto('/dashboard/team')}
+						class="inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+					>
+					<i class="fi fi-sr-users-medical"></i>Register Team
+					</button>
+				</li>
+			{/if}
 			<li>
 				<button
 					onclick={() => goto('/dashboard/profile')}
-					class="inline-flex w-full gap-3 rounded p-2 text-left text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+					class="inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
 					><i class="fi fi-sr-user-pen"></i>Profile</button
 				>
 			</li>
@@ -144,7 +165,7 @@
 	<main
 		class="max-h-auto mt-14 flex flex-col flex-wrap items-center gap-4 overflow-scroll p-4 lg:ml-64 lg:flex-row lg:items-start lg:justify-center"
 	>
-		<Banner />
+		<!-- <Banner /> -->
 		{@render children()}
 	</main>
 </div>
