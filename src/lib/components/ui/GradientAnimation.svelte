@@ -23,7 +23,7 @@
 	let tgX = 0;
 	let tgY = 0;
 
-	$: tgX || tgY, updateGradient();
+	$: if (tgX || tgY) updateGradient();
 
 	onMount(() => {
 		document.body.style.setProperty('--gradient-background-start', gradientBackgroundStart);

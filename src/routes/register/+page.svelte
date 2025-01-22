@@ -4,7 +4,7 @@
 	let { data }: { data: PageData } = $props();
 
 	// let { data } = $props();
-	let { supabase } = $derived(data);
+	let { supabase, user, TeamID, team } = $derived(data);
 
 	async function signOut() {
 		const { error } = await supabase.auth.signOut();
