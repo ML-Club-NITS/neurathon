@@ -1,17 +1,19 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
 	import neurathon_logo from '$lib/assets/nurathon_logo.svg';
+	import { onMount } from 'svelte';
+
 	let { children } = $props();
 	let r1Qulified = true;
 	let registered = false;
 
-	function toggleSidebar() {
-		const sidebar = document.getElementById('logo-sidebar');
-		if (sidebar) {
-			sidebar.classList.toggle('-translate-x-full');
-		}
-	}
+	// function toggleSidebar() {
+	// 	const sidebar = document.getElementById('logo-sidebar');
+	// 	if (sidebar) {
+	// 		sidebar.classList.toggle('-translate-x-full');
+	// 	}
+	// }
 
 	function toggleUserMenu() {
 		const dropdown = document.getElementById('dropdown-user');
@@ -19,12 +21,34 @@
 			dropdown.classList.toggle('hidden');
 		}
 	}
-
+	let isSidebarOpen = $state(false);
+	let SideBar = $state<Node | null>(null);
 	let active = $state('');
+
+	function handleClickOutside(event: MouseEvent) {
+		if (isSidebarOpen && SideBar && !SideBar.contains(event.target as Node)) {
+			isSidebarOpen = false;
+		}
+	}
+
+	function toggleSideBar(event: MouseEvent) {
+		event.stopPropagation();
+		isSidebarOpen = !isSidebarOpen;
+	}
+
+	function handleLinkClick() {
+		isSidebarOpen = false;
+	}
 
 	$effect(() => {
 		active = page.url.pathname;
-		// active;
+	});
+
+	onMount(() => {
+		document.addEventListener('click', handleClickOutside);
+		return () => {
+			document.removeEventListener('click', handleClickOutside);
+		};
 	});
 </script>
 
@@ -43,10 +67,10 @@
 				<!-- Menu and Logo -->
 				<div class="flex items-center">
 					<button
-						onclick={() => toggleSidebar()}
+						onclick={toggleSideBar}
 						aria-controls="logo-sidebar"
 						type="button"
-						class="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 transition-all duration-200 ease-in-out hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 lg:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+						class="m-1 inline-flex items-center rounded-lg p-1 text-sm text-gray-500 transition-all duration-200 ease-in-out hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 lg:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
 					>
 						<span class="sr-only">Open sidebar</span>
 						<svg
@@ -127,22 +151,29 @@
 
 	<!-- Sidebar -->
 	<aside
+		bind:this={SideBar}
 		id="logo-sidebar"
-		class="fixed top-0 z-10 h-screen w-64 -translate-x-0 border-r bg-white pt-20 transition-transform duration-300 ease-in-out lg:fixed lg:translate-x-0 dark:border-gray-700 dark:bg-[#21212196]"
+		class={`${isSidebarOpen ? '-translate-x-0' : '-translate-x-full'} fixed top-0 z-10 h-screen w-64 border-r bg-white pt-20 transition-transform duration-300 ease-in-out lg:fixed lg:translate-x-0 dark:border-gray-700 dark:bg-[#141414e9]`}
 	>
 		<ul class="space-y-2 px-3 font-medium">
 			<li>
 				<button
-					onclick={() => goto('/')}
+					onclick={() => {
+						handleLinkClick();
+						goto('/');
+					}}
 					class="inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 transition-all duration-200 ease-in-out hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
 					><i class="fi fi-rr-home"></i>Home</button
 				>
 			</li>
 			<li>
 				<button
-					onclick={() => goto('/dashboard')}
+					onclick={() => {
+						handleLinkClick();
+						goto('/dashboard');
+					}}
 					class="{active == '/dashboard'
-						? 'bg-slate-500 hover:bg-slate-500'
+						? 'bg-slate-800 hover:bg-slate-700'
 						: 'dark:hover:bg-gray-700'} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
 					><i class="fi fi-rr-dashboard"></i>Dashboard</button
 				>
@@ -150,9 +181,12 @@
 			{#if registered}
 				<li>
 					<button
-						onclick={() => goto('/dashboard/team')}
+						onclick={() => {
+							handleLinkClick();
+							goto('/dashboard/team');
+						}}
 						class="{active == '/dashboard/team'
-							? 'bg-slate-500 hover:bg-slate-500'
+							? 'bg-slate-800 hover:bg-slate-700'
 							: 'dark:hover:bg-gray-700'} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
 					>
 						<i class="fi fi-sr-team-check"></i>Team
@@ -161,9 +195,12 @@
 			{:else if r1Qulified}
 				<li>
 					<button
-						onclick={() => goto('/dashboard/team')}
+						onclick={() => {
+							handleLinkClick();
+							goto('/dashboard/team');
+						}}
 						class="{active == '/dashboard/team'
-							? 'bg-slate-500 hover:bg-slate-500'
+							? 'bg-slate-800 hover:bg-slate-700'
 							: 'dark:hover:bg-gray-700'} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
 					>
 						<i class="fi fi-sr-users-medical"></i>Register Team
@@ -172,9 +209,12 @@
 			{/if}
 			<li>
 				<button
-					onclick={() => goto('/dashboard/profile')}
+					onclick={() => {
+						handleLinkClick();
+						goto('/dashboard/profile');
+					}}
 					class="{active == '/dashboard/profile'
-						? 'bg-slate-500 hover:bg-slate-500'
+						? 'bg-slate-800 hover:bg-slate-700'
 						: 'dark:hover:bg-gray-700'} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
 					><i class="fi fi-sr-user-pen"></i>Profile</button
 				>
