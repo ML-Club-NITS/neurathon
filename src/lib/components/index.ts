@@ -10,3 +10,4 @@ export { default as Timer } from './Timer.svelte';
 export { default as LeaderBoard } from './LeaderBoard.svelte';
 export { default as Banner } from './Banner.svelte';
 export { default as GitHistory } from './GitHistory.svelte';
+export { default as Round1Select } from './Round1Select.svelte';

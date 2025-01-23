@@ -1,63 +1,71 @@
 <script>
-	const commits = [
-		{
-			date: '2021-10-10',
-			committerName: 'Committer Name 1',
-			commitMessage: 'Commit Message 1'
-		},
-		{
-			date: '2021-10-10',
-			committerName: 'Committer Name 2',
-			commitMessage: 'Commit Message 2'
-		},
-		{
-			date: '2021-10-10',
-			committerName: 'Committer Name 3',
-			commitMessage: 'Commit Message 3'
-		},
-		{
-			date: '2021-10-10',
-			committerName: 'Committer Name 3',
-			commitMessage: 'Commit Message 3'
-		},
-		{
-			date: '2021-10-10',
-			committerName: 'Committer Name 3',
-			commitMessage: 'Commit Message 3'
-		}
-	];
+	// const commits = [
+	// 	{
+	// 		date: '2021-10-10',
+	// 		committerName: 'Committer Name 1',
+	// 		commitMessage: 'Commit Message 1'
+	// 	},
+	// 	{
+	// 		date: '2021-10-10',
+	// 		committerName: 'Committer Name 2',
+	// 		commitMessage: 'Commit Message 2'
+	// 	},
+	// 	{
+	// 		date: '2021-10-10',
+	// 		committerName: 'Committer Name 3',
+	// 		commitMessage: 'Commit Message 3'
+	// 	},
+	// 	{
+	// 		date: '2021-10-10',
+	// 		committerName: 'Committer Name 3',
+	// 		commitMessage: 'Commit Message 3'
+	// 	},
+	// 	{
+	// 		date: '2021-10-10',
+	// 		committerName: 'Committer Name 3',
+	// 		commitMessage: 'Commit Message 3'
+	// 	}
+	// ];
+	export let commits;
 </script>
 
-<div class="flex flex-col gap-2 rounded-lg bg-gray-900 p-4 text-white">
+<div class="flex max-w-full flex-col gap-2 rounded-lg bg-orange-800 p-4 text-white">
 	<h1 class="text-center text-xl font-bold">Latest Changes</h1>
 	<div class="flex flex-col gap-4">
-		{#each commits as { date, committerName, commitMessage }}
+		{#each commits as { commitDate, committerName, commitMessage, commitUrl, committerAvatar, committerUrl }}
 			<div>
-				<time class="flex w-full justify-start pb-2 text-sm">{date}</time>
-				<div class="flex flex-row items-start gap-2 rounded-md bg-gray-950 p-2">
-					<div class="h-14 min-w-14 rounded-full bg-white"></div>
+				<time class="flex w-full justify-start pb-1 text-sm">{commitDate}</time>
+				<div class="flex flex-row items-start gap-2 rounded-md bg-gray-950 p-3 pt-2">
 					<div class="flex w-full flex-col gap-2">
 						<div class="flex flex-row justify-between gap-2">
 							<div class="flex flex-col">
-								<div class="w-full text-lg font-semibold">{committerName}</div>
-								<div class="text-sm">{commitMessage}</div>
+								<div class="text-base">{commitMessage}</div>
+								<div class="w-full text-sm font-semibold">
+									<a
+										class="mt-1 flex items-start gap-2"
+										href={committerUrl}
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Committer Profile"
+									>
+										<img
+											src={committerAvatar}
+											alt="Committer Avater"
+											class="h-5 w-5 rounded-full"
+										/>
+										{committerName}
+									</a>
+								</div>
 							</div>
 							<div>
-								<button class="rounded-md bg-gray-800 p-1 text-white" aria-label="View Commit">
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										class="h-6 w-6"
-										fill="none"
-										viewBox="0 0 24 24"
-										stroke="currentColor"
-									>
-										<path
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="2"
-											d="M9 5l7 7-7 7"
-										/>
-									</svg>
+								<button
+									onclick={() => {
+										window.open(commitUrl);
+									}}
+									class="rounded-md p-1 text-white"
+									aria-label="View Commit"
+								>
+									<i class="fi fi-rr-arrow-up-right-from-square"></i>
 								</button>
 							</div>
 						</div>
