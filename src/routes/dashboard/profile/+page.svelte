@@ -20,7 +20,6 @@
 	});
 </script>
 
-
 <section class="flex flex-col items-center justify-center">
 	<nav class="flex w-full" aria-label="Breadcrumb">
 		<ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
