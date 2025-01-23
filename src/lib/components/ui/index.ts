@@ -7,3 +7,4 @@ export { default as BrochureBtn } from './BrochureBtn.svelte';
 export { default as GradientAnimation } from './GradientAnimation.svelte';
 export { default as ParticipateTimeline } from './ParticipateTimeline.svelte';
 export { default as Button } from './Button.svelte';
+export { default as PersonCard } from './PersonCard.svelte';

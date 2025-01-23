@@ -2,8 +2,8 @@
 	import { cn } from '$lib/utils';
 	import { onMount } from 'svelte';
 
-	export let gradientBackgroundStart: string | null = 'rgb(0, 0, 50)';
-	export let gradientBackgroundEnd: string | null = 'rgb(10,0,0)';
+	export let gradientBackgroundStart: string | null = 'rgb(0, 0, 0)';
+	export let gradientBackgroundEnd: string | null = 'rgb(0,0,0)';
 	export let firstColor: string | null = '18, 113, 255';
 	export let secondColor: string | null = '221, 74, 255';
 	export let thirdColor: string | null = '0, 0, 0';
@@ -23,7 +23,9 @@
 	let tgX = 0;
 	let tgY = 0;
 
-	$: tgX || tgY, updateGradient();
+	$: {
+		if (tgX || tgY) updateGradient();
+	}
 
 	onMount(() => {
 		document.body.style.setProperty('--gradient-background-start', gradientBackgroundStart);
