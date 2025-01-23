@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { GitHistory, LeaderBoard } from '$lib/components';
-	import Round1Select from '$lib/components/Round1Select.svelte';
+	import Round1Select from '$lib/components/Notification.svelte';
 	let { data } = $props();
 	let { commits, round, timer } = $derived(data);
 	// $effect(() => {

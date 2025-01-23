@@ -13,7 +13,7 @@
 	}
 </script>
 
-<div class="register-page">
+<div class="register-page text-red-400">
 	<div class="h-20"></div>
 	<button onclick={signOut} class="rounded-lg bg-red-500 px-2 py-1">LogOut</button>
 	<h1>Private page for User: {user?.email}</h1>
@@ -45,14 +45,14 @@
 		<div class="container border-2 border-black bg-gray-400">
 			<form method="POST" class="m-2 flex gap-4 bg-gray-200">
 				<label for="teamname">Team Name</label>
-				<input type="text" id="teamname" name="teamname" />
-				<button formaction="?/register">Create Team</button>
+				<input type="text" id="teamname" class="h-full" name="teamname" />
+				<button formaction="?/register" class="bg-gray-800 p-2">Create Team</button>
 			</form>
-			<form method="POST" class="m-2 flex gap-4 bg-gray-200">
+			<!-- <form method="POST" class="m-2 flex gap-4 bg-gray-200">
 				<label for="teamid">Team Id</label>
 				<input type="text" id="teamid" name="teamid" />
 				<button formaction="?/join">Join Team</button>
-			</form>
+			</form> -->
 		</div>
 	{/if}
 </div>

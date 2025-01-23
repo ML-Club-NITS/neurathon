@@ -1,8 +1,22 @@
 <script>
 	import { goto } from '$app/navigation';
 
-	let teamLead = true;
-	let qulifiedR1 = true;
+	let teamLead = true;		
+	let qulifiedR1 = true;		
+	let team = {
+		TeamName: 'Team Name',
+		Members: [
+			{
+				name: 'Member 1',
+				phone: '1234567890'
+			},
+			{
+				name: 'Member 2',
+				phone: '1234567890'
+			}
+		],
+		CreatedBy: '1234567890'
+	};
 </script>
 
 
