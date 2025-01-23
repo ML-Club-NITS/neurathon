@@ -1,6 +1,25 @@
-<script>
+<script lang="ts">
 	import { goto } from '$app/navigation';
+
+	// Toggle dark mode based on system preference
+	if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		document.documentElement.classList.add('dark');
+	}
+
+	// Add hover effect to skill tags
+	const skillTags = document.querySelectorAll('.bg-indigo-100');
+	skillTags.forEach((tag) => {
+		tag.addEventListener('mouseover', () => {
+			tag.classList.remove('bg-indigo-100', 'text-indigo-800');
+			tag.classList.add('bg-blue-900', 'text-white');
+		});
+		tag.addEventListener('mouseout', () => {
+			tag.classList.remove('bg-blue-900', 'text-white');
+			tag.classList.add('bg-indigo-100', 'text-indigo-800');
+		});
+	});
 </script>
+
 
 <section class="flex flex-col items-center justify-center">
 	<nav class="flex w-full" aria-label="Breadcrumb">
@@ -156,40 +175,20 @@
 			</div>
 		</div>
 	</div>
-
-	<style>
-		@keyframes fadeIn {
-			from {
-				opacity: 0;
-				transform: translateY(-10px);
-			}
-			to {
-				opacity: 1;
-				transform: translateY(0);
-			}
-		}
-		.animate-fade-in {
-			animation: fadeIn 0.5s ease-out forwards;
-		}
-	</style>
-
-	<script>
-		// Toggle dark mode based on system preference
-		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			document.documentElement.classList.add('dark');
-		}
-
-		// Add hover effect to skill tags
-		const skillTags = document.querySelectorAll('.bg-indigo-100');
-		skillTags.forEach((tag) => {
-			tag.addEventListener('mouseover', () => {
-				tag.classList.remove('bg-indigo-100', 'text-indigo-800');
-				tag.classList.add('bg-blue-900', 'text-white');
-			});
-			tag.addEventListener('mouseout', () => {
-				tag.classList.remove('bg-blue-900', 'text-white');
-				tag.classList.add('bg-indigo-100', 'text-indigo-800');
-			});
-		});
-	</script>
 </section>
+
+<style>
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(-10px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	.animate-fade-in {
+		animation: fadeIn 0.5s ease-out forwards;
+	}
+</style>

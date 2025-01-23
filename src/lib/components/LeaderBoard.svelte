@@ -1,4 +1,12 @@
 <script lang="ts">
+	import { Motion, useMotionValue, useMotionTemplate } from 'svelte-motion';
+	// Mouse-following effect
+	let mouseX = useMotionValue(0);
+	let mouseY = useMotionValue(0);
+	let background = useMotionTemplate`
+		radial-gradient(200px circle at ${mouseX}px ${mouseY}px, rgba(255, 255, 255, 0.1), transparent 80%)
+	`;
+
 	import {
 		Table,
 		TableBody,
@@ -8,57 +16,58 @@
 		TableHeadCell
 	} from 'flowbite-svelte';
 
+	// Sample data with Rank, Team Name, Points, and Links
 	let items = [
-		{ id: 1, maker: 'Toyota', type: 'ABC', make: 2017 },
-		{ id: 2, maker: 'Ford', type: 'CDE', make: 2018 },
-		{ id: 3, maker: 'Volvo', type: 'FGH', make: 2019 },
-		{ id: 4, maker: 'Saab', type: 'IJK', make: 2020 },
-		{ id: 5, maker: 'Audi', type: 'LMN', make: 2021 },
-		{ id: 6, maker: 'BMW', type: 'OPQ', make: 2022 },
-		{ id: 7, maker: 'Mercedes', type: 'RST', make: 2023 },
-		{ id: 8, maker: 'Volkswagen', type: 'UVW', make: 2024 },
-		{ id: 9, maker: 'Honda', type: 'XYZ', make: 2025 },
-		{ id: 10, maker: 'Nissan', type: '123', make: 2026 },
-		{ id: 11, maker: 'Chevrolet', type: '456', make: 2027 },
-		{ id: 12, maker: 'Hyundai', type: '789', make: 2028 },
-		{ id: 13, maker: 'Kia', type: '101112', make: 2029 },
-		{ id: 14, maker: 'Mazda', type: '131415', make: 2030 },
-		{ id: 15, maker: 'Subaru', type: '161718', make: 2031 },
-		{ id: 16, maker: 'Porsche', type: '192021', make: 2032 },
-		{ id: 17, maker: 'Lexus', type: '222324', make: 2033 },
-		{ id: 18, maker: 'Acura', type: '252627', make: 2034 },
-		{ id: 19, maker: 'Infiniti', type: '282930', make: 2035 },
-		{ id: 20, maker: 'Buick', type: '313233', make: 2036 },
-		{ id: 21, maker: 'Cadillac', type: '343536', make: 2037 },
-		{ id: 22, maker: 'GMC', type: '373839', make: 2038 },
-		{ id: 23, maker: 'Jeep', type: '404142', make: 2039 },
-		{ id: 24, maker: 'Land Rover', type: '434445', make: 2040 },
-		{ id: 25, maker: 'Lincoln', type: '464748', make: 2041 },
-		{ id: 26, maker: 'Mitsubishi', type: '495051', make: 2042 },
-		{ id: 27, maker: 'Ram', type: '525354', make: 2043 },
-		{ id: 28, maker: 'Tesla', type: '555657', make: 2044 },
-		{ id: 29, maker: 'Chrysler', type: '585960', make: 2045 },
-		{ id: 30, maker: 'Dodge', type: '616263', make: 2046 },
-		{ id: 31, maker: 'Fiat', type: '646566', make: 2047 },
-		{ id: 32, maker: 'Jaguar', type: '676869', make: 2048 },
-		{ id: 33, maker: 'Mini', type: '707172', make: 2049 },
-		{ id: 34, maker: 'Smart', type: '737475', make: 2050 },
-		{ id: 35, maker: 'Volvo', type: '767778', make: 2051 },
-		{ id: 36, maker: 'Audi', type: '798081', make: 2052 },
-		{ id: 37, maker: 'BMW', type: '828384', make: 2053 },
-		{ id: 38, maker: 'Mercedes', type: '858687', make: 2054 },
-		{ id: 39, maker: 'Volkswagen', type: '888990', make: 2055 },
-		{ id: 40, maker: 'Honda', type: '919293', make: 2056 },
-		{ id: 41, maker: 'Nissan', type: '949596', make: 2057 },
-		{ id: 42, maker: 'Chevrolet', type: '979899', make: 2058 },
-		{ id: 43, maker: 'Hyundai', type: '100101102', make: 2059 },
-		{ id: 44, maker: 'Kia', type: '103104105', make: 2060 },
-		{ id: 45, maker: 'Mazda', type: '106107108', make: 2061 },
-		{ id: 46, maker: 'Subaru', type: '109110111', make: 2062 },
-		{ id: 47, maker: 'Porsche', type: '112113114', make: 2063 },
-		{ id: 48, maker: 'Lexus', type: '115116117', make: 2064 },
-		{ id: 49, maker: 'Acura', type: '118119120', make: 2065 },
-		{ id: 50, maker: 'Infiniti', type: '121122123', make: 2066 }
+		{ rank: 1, teamName: 'Team Alpha', points: 1500, gitRepoLink: 'https://github.com/team-alpha', deploymentLink: 'https://team-alpha.com' },
+		{ rank: 2, teamName: 'Team Beta', points: 1400, gitRepoLink: 'https://github.com/team-beta', deploymentLink: '' },
+		{ rank: 3, teamName: 'Team Gamma', points: 1300, gitRepoLink: 'https://github.com/team-gamma', deploymentLink: 'https://team-gamma.com' },
+		{ rank: 4, teamName: 'Team Delta', points: 1200, gitRepoLink: 'https://github.com/team-delta', deploymentLink: '' },
+		{ rank: 5, teamName: 'Team Epsilon', points: 1100, gitRepoLink: 'https://github.com/team-epsilon', deploymentLink: 'https://team-epsilon.com' },
+		{ rank: 6, teamName: 'Team Zeta', points: 1000, gitRepoLink: 'https://github.com/team-zeta', deploymentLink: '' },
+		{ rank: 7, teamName: 'Team Eta', points: 900, gitRepoLink: 'https://github.com/team-eta', deploymentLink: 'https://team-eta.com' },
+		{ rank: 8, teamName: 'Team Theta', points: 800, gitRepoLink: 'https://github.com/team-theta', deploymentLink: '' },
+		{ rank: 9, teamName: 'Team Iota', points: 700, gitRepoLink: 'https://github.com/team-iota', deploymentLink: 'https://team-iota.com' },
+		{ rank: 10, teamName: 'Team Kappa', points: 600, gitRepoLink: 'https://github.com/team-kappa', deploymentLink: '' },
+		{ rank: 11, teamName: 'Team Lambda', points: 500, gitRepoLink: 'https://github.com/team-lambda', deploymentLink: 'https://team-lambda.com' },
+		{ rank: 12, teamName: 'Team Mu', points: 400, gitRepoLink: 'https://github.com/team-mu', deploymentLink: '' },
+		{ rank: 13, teamName: 'Team Nu', points: 300, gitRepoLink: 'https://github.com/team-nu', deploymentLink: 'https://team-nu.com' },
+		{ rank: 14, teamName: 'Team Xi', points: 200, gitRepoLink: 'https://github.com/team-xi', deploymentLink: '' },
+		{ rank: 15, teamName: 'Team Omicron', points: 100, gitRepoLink: 'https://github.com/team-omicron', deploymentLink: 'https://team-omicron.com' },
+		{ rank: 16, teamName: 'Team Pi', points: 90, gitRepoLink: 'https://github.com/team-pi', deploymentLink: '' },
+		{ rank: 17, teamName: 'Team Rho', points: 80, gitRepoLink: 'https://github.com/team-rho', deploymentLink: 'https://team-rho.com' },
+		{ rank: 18, teamName: 'Team Sigma', points: 70, gitRepoLink: 'https://github.com/team-sigma', deploymentLink: '' },
+		{ rank: 19, teamName: 'Team Tau', points: 60, gitRepoLink: 'https://github.com/team-tau', deploymentLink: 'https://team-tau.com' },
+		{ rank: 20, teamName: 'Team Upsilon', points: 50, gitRepoLink: 'https://github.com/team-upsilon', deploymentLink: '' },
+		{ rank: 21, teamName: 'Team Phi', points: 40, gitRepoLink: 'https://github.com/team-phi', deploymentLink: 'https://team-phi.com' },
+		{ rank: 22, teamName: 'Team Chi', points: 30, gitRepoLink: 'https://github.com/team-chi', deploymentLink: '' },
+		{ rank: 23, teamName: 'Team Psi', points: 20, gitRepoLink: 'https://github.com/team-psi', deploymentLink: 'https://team-psi.com' },
+		{ rank: 24, teamName: 'Team Omega', points: 10, gitRepoLink: 'https://github.com/team-omega', deploymentLink: '' },
+		{ rank: 25, teamName: 'Team Alpha1', points: 1500, gitRepoLink: 'https://github.com/team-alpha1', deploymentLink: 'https://team-alpha1.com' },
+		{ rank: 26, teamName: 'Team Beta1', points: 1400, gitRepoLink: 'https://github.com/team-beta1', deploymentLink: '' },
+		{ rank: 27, teamName: 'Team Gamma1', points: 1300, gitRepoLink: 'https://github.com/team-gamma1', deploymentLink: 'https://team-gamma1.com' },
+		{ rank: 28, teamName: 'Team Delta1', points: 1200, gitRepoLink: 'https://github.com/team-delta1', deploymentLink: '' },
+		{ rank: 29, teamName: 'Team Epsilon1', points: 1100, gitRepoLink: 'https://github.com/team-epsilon1', deploymentLink: 'https://team-epsilon1.com' },
+		{ rank: 30, teamName: 'Team Zeta1', points: 1000, gitRepoLink: 'https://github.com/team-zeta1', deploymentLink: '' },
+		{ rank: 31, teamName: 'Team Eta1', points: 900, gitRepoLink: 'https://github.com/team-eta1', deploymentLink: 'https://team-eta1.com' },
+		{ rank: 32, teamName: 'Team Theta1', points: 800, gitRepoLink: 'https://github.com/team-theta1', deploymentLink: '' },
+		{ rank: 33, teamName: 'Team Iota1', points: 700, gitRepoLink: 'https://github.com/team-iota1', deploymentLink: 'https://team-iota1.com' },
+		{ rank: 34, teamName: 'Team Kappa1', points: 600, gitRepoLink: 'https://github.com/team-kappa1', deploymentLink: '' },
+		{ rank: 35, teamName: 'Team Lambda1', points: 500, gitRepoLink: 'https://github.com/team-lambda1', deploymentLink: 'https://team-lambda1.com' },
+		{ rank: 36, teamName: 'Team Mu1', points: 400, gitRepoLink: 'https://github.com/team-mu1', deploymentLink: '' },
+		{ rank: 37, teamName: 'Team Nu1', points: 300, gitRepoLink: 'https://github.com/team-nu1', deploymentLink: 'https://team-nu1.com' },
+		{ rank: 38, teamName: 'Team Xi1', points: 200, gitRepoLink: 'https://github.com/team-xi1', deploymentLink: '' },
+		{ rank: 39, teamName: 'Team Omicron1', points: 100, gitRepoLink: 'https://github.com/team-omicron1', deploymentLink: 'https://team-omicron1.com' },
+		{ rank: 40, teamName: 'Team Pi1', points: 90, gitRepoLink: 'https://github.com/team-pi1', deploymentLink: '' },
+		{ rank: 41, teamName: 'Team Rho1', points: 80, gitRepoLink: 'https://github.com/team-rho1', deploymentLink: 'https://team-rho1.com' },
+		{ rank: 42, teamName: 'Team Sigma1', points: 70, gitRepoLink: 'https://github.com/team-sigma1', deploymentLink: '' },
+		{ rank: 43, teamName: 'Team Tau1', points: 60, gitRepoLink: 'https://github.com/team-tau1', deploymentLink: 'https://team-tau1.com' },
+		{ rank: 44, teamName: 'Team Upsilon1', points: 50, gitRepoLink: 'https://github.com/team-upsilon1', deploymentLink: '' },
+		{ rank: 45, teamName: 'Team Phi1', points: 40, gitRepoLink: 'https://github.com/team-phi1', deploymentLink: 'https://team-phi1.com' },
+		{ rank: 46, teamName: 'Team Chi1', points: 30, gitRepoLink: 'https://github.com/team-chi1', deploymentLink: '' },
+		{ rank: 47, teamName: 'Team Psi1', points: 20, gitRepoLink: 'https://github.com/team-psi1', deploymentLink: 'https://team-psi1.com' },
+		{ rank: 48, teamName: 'Team Omega1', points: 10, gitRepoLink: 'https://github.com/team-omega1', deploymentLink: '' },
+		{ rank: 49, teamName: 'Team Alpha2', points: 1500, gitRepoLink: 'https://github.com/team-alpha2', deploymentLink: 'https://team-alpha2.com' },
+		{ rank: 50, teamName: 'Team Beta2', points: 1400, gitRepoLink: 'https://github.com/team-beta2', deploymentLink: '' }
 	];
 
 	let currentPage = 1;
@@ -68,9 +77,8 @@
 	// Filter items based on the search query
 	$: filteredItems = items.filter(
 		(item) =>
-			item.maker.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			item.type.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			String(item.make).includes(searchQuery)
+			item.teamName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+			String(item.points).includes(searchQuery)
 	);
 
 	// Paginate the filtered items
@@ -106,67 +114,96 @@
 	}
 </script>
 
-<div class="w-full overflow-x-scroll rounded-md bg-gray-800 p-4 text-white">
+<div
+	role="presentation"
+	onmousemove={(e) => {
+		const { left, top } = e.currentTarget.getBoundingClientRect();
+		mouseX.set(e.clientX - left);
+		mouseY.set(e.clientY - top);
+	}}
+	class="group relative overflow-hidden w-full overflow-x-scroll rounded-md border border-gray-800 bg-gradient-to-r from-indigo-900/[0.3] to-black p-4 text-white shadow-sm transition-all duration-300 opacity-95 hover:opacity-100 backdrop-blur-sm"
+>
+	<Motion
+		style={{
+			background
+		}}
+		let:motion
+	>
+		<div
+			use:motion
+			class="pointer-events-none absolute -inset-px rounded-md opacity-0 transition-opacity duration-300 group-hover:opacity-75"
+		></div>
+	</Motion>
+
 	<!-- Search Input -->
 	<div class="mb-4 text-center text-xl font-bold">LeaderBoard</div>
 
 	<!-- Table -->
-	<Table hoverable={true} divClass="w-[initial] rounded-md">
-		<TableHead theadClass="rounded-md">
-			<TableHeadCell class="rounded-tl-md">ID</TableHeadCell>
-			<TableHeadCell>Maker</TableHeadCell>
-			<TableHeadCell>Type</TableHeadCell>
-			<TableHeadCell class="rounded-tr-md">Make</TableHeadCell>
-		</TableHead>
-		<TableBody tableBodyClass="rounded-b-md">
-			{#if paginatedItems.length > 0}
-				{#each paginatedItems as item}
+	 <div class="table-da ">
+		<Table hoverable={true} divClass="w-[initial] rounded-md overflow-hidden">
+			<TableHead theadClass="rounded-md text-white bg-gray-800">
+				<TableHeadCell class="rounded-tl-md bg-black backdrop-blur-sm shadow-lg py-3 px-4 border border-r-0 border-b-0 border-gray-950 ">Rank</TableHeadCell>
+				<TableHeadCell class="bg-black backdrop-blur-sm shadow-lg py-3 px-4 border-t border-gray-950">Team Name</TableHeadCell>
+				<TableHeadCell class="bg-black backdrop-blur-sm shadow-lg py-3 px-4 border-t border-gray-950">Points</TableHeadCell>
+				<TableHeadCell class="rounded-tr-md bg-black border border-l-0 border-b-0 border-gray-950 backdrop-blur-sm shadow-lg py-3 px-4">Link</TableHeadCell>
+			</TableHead>
+			<TableBody tableBodyClass="rounded-b-md text-white">
+				{#if paginatedItems.length > 0}
+					{#each paginatedItems as item, index}
+						<TableBodyRow class="bg-transparent border border-transparent hover:bg-gray-700/50 transition-all duration-300 ease-in-out transform hover:scale-[1.02]">
+							<TableBodyCell class="bg-black py-3 px-4 border border-black">{item.rank}</TableBodyCell>
+							<TableBodyCell class="bg-black py-3 px-4 border-b border-gray-700/50">{item.teamName}</TableBodyCell>
+							<TableBodyCell class="bg-black py-3 px-4 border-b border-gray-700/50">{item.points}</TableBodyCell>
+							<TableBodyCell class="bg-black py-3 px-4 border border-black">
+								{#if item.deploymentLink}
+									<a href={item.deploymentLink} target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">Deployment Link</a>
+								{:else}
+									<a href={item.gitRepoLink} target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">Git Repo Link</a>
+								{/if}
+							</TableBodyCell>
+						</TableBodyRow>
+					{/each}
+				{:else}
 					<TableBodyRow>
-						<TableBodyCell class="">{item.id}</TableBodyCell>
-						<TableBodyCell class="">{item.maker}</TableBodyCell>
-						<TableBodyCell class="">{item.type}</TableBodyCell>
-						<TableBodyCell class="">{item.make}</TableBodyCell>
+						<TableBodyCell colspan={4} class="text-center py-6 text-gray-400">No items found.</TableBodyCell>
 					</TableBodyRow>
-				{/each}
-			{:else}
-				<TableBodyRow>
-					<TableBodyCell colspan={4} class="text-center">No items found.</TableBodyCell>
-				</TableBodyRow>
-			{/if}
-		</TableBody>
-	</Table>
+				{/if}
+			</TableBody>
+		</Table>
+	 </div>
+	
 
 	<!-- Pagination -->
 	<div class="mt-4 flex items-center justify-center space-x-2">
 		<button
-			class="rounded bg-blue-500 px-4 py-2 text-white"
+			class="rounded bg-black/25 transition-all duration-300 hover:bg-black/100 px-4 py-2 text-white"
 			onclick={previousPage}
 			disabled={currentPage === 1}
 		>
-			Previous
+			{"<"}
 		</button>
 
-		{#each paginationButtons as button}
+		<!-- {#each paginationButtons as button}
 			{#if button === '...'}
 				<span class="px-4 py-2">...</span>
 			{:else}
 				<button
 					class={`rounded px-4 py-2 ${
-						currentPage === button ? 'bg-blue-700 text-white' : 'bg-gray-200'
+						currentPage === button ? 'bg-black/95 text-white' : 'bg-black/25 transition-all duration-300 hover:bg-black/95'
 					}`}
 					onclick={() => (currentPage = typeof button === 'number' ? button : currentPage)}
 				>
 					{button}
 				</button>
 			{/if}
-		{/each}
+		{/each} -->
 
 		<button
-			class="rounded bg-blue-500 px-4 py-2 text-white"
+			class="rounded bg-black/25 transition-all duration-300 hover:bg-black/95 px-4 py-2 text-white"
 			onclick={nextPage}
 			disabled={currentPage === totalPages}
 		>
-			Next
+			{">"}
 		</button>
 	</div>
 </div>

@@ -1,7 +1,7 @@
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
-	const timer = new Date();
+	const timer = new Date('22 March 2025');
 	const r1Time = new Date('13 Feb 2025');
 	const r1TimeEnd = new Date('17 Feb 2025');
 	const r2Time = new Date('21 March 2025');
@@ -40,7 +40,7 @@ export const load: PageServerLoad = async () => {
 			});
 		}
 		return {
-			commits: [commitData],
+			commits: commitData,
 			round: 2,
 			timer: (timer.getTime() - r2Time.getTime()) / 1000
 		};
