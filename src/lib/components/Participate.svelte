@@ -29,7 +29,7 @@
 	<div
 		class="text-whit mt-[4.3rem] flex flex-col gap-5 gap-x-0 md:flex-row lg:flex-row xl:flex-row"
 	>
-		<div class="reg g-1 text-white md:w-[40%] lg:w-[40%] xl:w-[40%]">
+		<div class="reg g-1 sticky top-0 h-fit text-white md:w-[40%] lg:w-[40%] xl:w-[40%]">
 			<div
 				class="reg-container m-3 flex flex-col justify-center overflow-hidden rounded border border-gray-600 bg-gray-700/[0.7]"
 			>
