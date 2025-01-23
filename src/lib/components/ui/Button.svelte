@@ -2,9 +2,10 @@
 	import { goto } from '$app/navigation';
 
 	export let title;
+	export let path = '/dashboard';
 
 	function toRegister() {
-		goto('/register');
+		goto(path);
 	}
 </script>
 

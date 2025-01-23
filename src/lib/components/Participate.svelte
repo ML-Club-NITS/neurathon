@@ -76,7 +76,7 @@
 						</div>
 					{/each}
 				</div>
-				<div class="elig-datas flex flex-wrap pt-3">
+				<div class="elig-datas flex flex-wrap pt-3 justify-between">
 					{#each eligData2 as item}
 						<div class="team-regs mr-5 flex flex-row pb-2">
 							<div

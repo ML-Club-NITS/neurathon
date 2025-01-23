@@ -6,13 +6,13 @@
 			"image": "../src/lib/assets/gem.png"
 		},
 		{
-			"title": "Grand Neurahon Champion",
+			"title": "Grand Neurathon Champion",
 			"award": "Award 1",
 			"image": "../src/lib/assets/gal.png"
 		},
 		{
 			"title": "Sustainability Genius",
-			"award": "Award3",
+			"award": "Award 3",
 			"image": "../src/lib/assets/drop1.png"
 		}
 	]
