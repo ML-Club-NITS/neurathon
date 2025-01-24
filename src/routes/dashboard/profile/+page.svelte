@@ -1,35 +1,19 @@
 <script lang="ts">
-	// import { goto } from '$app/navigation';
-
 	let { data } = $props();
 	let { user } = $derived(data);
 
-	// Toggle dark mode based on system preference
 	if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 		document.documentElement.classList.add('dark');
 	}
-
-	// Add hover effect to skill tags
-	const skillTags = document.querySelectorAll('.bg-indigo-100');
-	skillTags.forEach((tag) => {
-		tag.addEventListener('mouseover', () => {
-			tag.classList.remove('bg-indigo-100', 'text-indigo-800');
-			tag.classList.add('bg-blue-900', 'text-white');
-		});
-		tag.addEventListener('mouseout', () => {
-			tag.classList.remove('bg-blue-900', 'text-white');
-			tag.classList.add('bg-indigo-100', 'text-indigo-800');
-		});
-	});
 </script>
 
-<section class="flex flex-col items-center justify-center">
-	<nav class="flex w-full" aria-label="Breadcrumb">
+<section class="flex flex-col items-center justify-center min-h-auto bg-neutral-900 p-4 text-neutral-100">
+	<nav class="flex w-full max-w-4xl mb-6" aria-label="Breadcrumb">
 		<ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
 			<li class="inline-flex items-center">
 				<a
 					href="/"
-					class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
+					class="inline-flex items-center text-sm font-medium text-gray-400 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
 					aria-label="Home"
 				>
 					<svg
@@ -64,7 +48,7 @@
 					</svg>
 					<a
 						href="/dashboard"
-						class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white"
+						class="ms-1 text-sm font-medium text-gray-400 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white"
 						>Dashboard</a
 					>
 				</div>
@@ -94,23 +78,16 @@
 		</ol>
 	</nav>
 
-	<!-- <div class="w-full text-2xl font-semibold text-white">Profile</div> -->
-	<div class="mx-auto grid w-full max-w-4xl grid-cols-1 gap-6 p-4 md:grid-cols-2">
-		<!-- User Profile Card -->
+	<div class="w-full max-w-4xl grid grid-cols-1 gap-6 md:grid-cols-2">
 		<div
-			class="group relative rounded-xl border border-neutral-800 bg-neutral-900 p-6 shadow-lg transition-transform duration-300 hover:scale-105"
+			class="group relative rounded-xl border border-neutral-800 bg-neutral-800 p-6 shadow-lg transition-transform duration-300 hover:scale-105"
 		>
 			<div class="space-y-4">
-				<!-- Name -->
 				<h2 class="text-2xl font-bold text-neutral-100">{user?.user_metadata?.name}</h2>
-
-				<!-- Team Name -->
 				<div>
 					<label for="team-name" class="text-sm font-medium text-neutral-400">Team Name</label>
 					<p id="team-name" class="text-neutral-200">{user?.user_metadata?.team_name}</p>
 				</div>
-
-				<!-- Contact Info -->
 				<div>
 					<label for="contact-info" class="text-sm font-medium text-neutral-400">Contact Info</label
 					>
@@ -122,15 +99,11 @@
 			</div>
 		</div>
 
-		<!-- Education Card -->
 		<div
-			class="group relative rounded-xl border border-neutral-800 bg-neutral-900 p-6 shadow-lg transition-transform duration-300 hover:scale-105"
+			class="group relative rounded-xl border border-neutral-800 bg-neutral-800 p-6 shadow-lg transition-transform duration-300 hover:scale-105"
 		>
 			<div class="space-y-4">
-				<!-- College Name -->
 				<h2 class="text-2xl font-bold text-neutral-100">{user?.user_metadata?.college_name}</h2>
-
-				<!-- Location -->
 				<div>
 					<label for="college-location" class="text-sm font-medium text-neutral-400">Location</label
 					>
@@ -138,14 +111,10 @@
 						{user?.user_metadata?.college_location}
 					</p>
 				</div>
-
-				<!-- Course -->
 				<div>
 					<label for="course" class="text-sm font-medium text-neutral-400">Course</label>
 					<p id="course" class="text-neutral-200">{user?.user_metadata?.course}</p>
 				</div>
-
-				<!-- Additional Info -->
 				<div>
 					<label for="additional-info" class="text-sm font-medium text-neutral-400"
 						>Additional Info</label
