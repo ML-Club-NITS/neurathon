@@ -1,88 +1,155 @@
-import { redirect } from '@sveltejs/kit';
+import { fail } from '@sveltejs/kit';
 import type { PageServerLoad, Actions } from '../../$types';
 
 export const load: PageServerLoad = async ({ depends, locals: { supabase, user } }) => {
-	depends('supabase:db:teams');
+	depends('supabase:db:teams'); // Invalidate cache when teams data changes
 
-	const { data, error } = await supabase.rpc('get_team', { member_id: user?.id });
+	try {
+		// Fetch the team ID for the current user
+		const { data: teamId, error: teamIdError } = await supabase.rpc('get_team', {
+			member_id: user?.id,
+		});
 
-	if (error) {
-		console.error(error);
-	}
-	if (data) {
-		const { data: team, error } = await supabase.from('teams').select().eq('TeamID', data);
-
-		if (error) {
-			console.error(error);
+		if (teamIdError) {
+			console.error('Error fetching team ID:', teamIdError);
+			return { TeamID: null, team: null };
 		}
 
-		return { TeamID: data, team: team ? (team[0] ?? []) : [] };
-	} else {
-		console.log('UUID does not exist in any team.');
-	}
+		if (!teamId) {
+			console.log('User is not part of any team.');
+			return { TeamID: null, team: null };
+		}
 
-	return { TeamID: null, team: [], metadata: [] };
+		// Fetch the team details using the team ID
+		const { data: team, error: teamError } = await supabase
+			.from('teams')
+			.select('*')
+			.eq('TeamID', teamId)
+			.single();
+
+		if (teamError) {
+			console.error('Error fetching team details:', teamError);
+			return { TeamID: null, team: null };
+		}
+
+		return { TeamID: teamId, team };
+	} catch (error) {
+		console.error('Unexpected error in load function:', error);
+		return { TeamID: null, team: null };
+	}
 };
 
 export const actions: Actions = {
 	register: async ({ request, locals: { supabase, user } }) => {
-		const formData = await request.formData();
-		const TeamName = formData.get('teamname') as string;
+		try {
+			const formData = await request.formData();
+			const teamName = formData.get('teamname') as string;
 
-		const { error } = await supabase.from('teams').insert({
-			TeamName,
-			CreatedBy: user?.id,
-			Members: [user?.user_metadata]
-		});
-
-		if (error) {
-			console.error(error);
-		}
-		redirect(303, '/participate');
-	},
-	join: async ({ request, locals: { supabase, user } }) => {
-		const formData = await request.formData();
-		const TeamID = formData.get('teamid') as string;
-
-		const { data, error } = await supabase.from('teams').select().eq('TeamID', TeamID);
-
-		if (error) {
-			console.error(error);
-		} else if (data && data.length > 0) {
-			if (data[0].Members.length < 4) {
-				const { error } = await supabase.rpc('append_member_to_team', {
-					member_data: user?.user_metadata,
-					team_id: parseInt(TeamID, 10) ?? 0
-				});
-
-				if (error) {
-					console.error(error);
-				}
-			} else {
-				console.log('Team is full');
+			if (!teamName) {
+				return fail(400, { message: 'Team name is required.' });
 			}
-		} else {
-			console.error('Team not found');
-		}
 
-		redirect(303, '/participate');
+			// Create a new team
+			const { error } = await supabase.from('teams').insert({
+				TeamName: teamName,
+				CreatedBy: user?.id,
+				Members: [user?.user_metadata], // Add the creator as the first member
+			});
+
+			if (error) {
+				console.error('Error creating team:', error);
+				return fail(500, { message: 'Failed to create team.' });
+			}
+
+			return { success: true, message: 'Team created successfully!' };
+		} catch (error) {
+			console.error('Error in register action:', error);
+			return fail(500, { message: 'An unexpected error occurred.' });
+		}
 	},
+
+	join: async ({ request, locals: { supabase, user } }) => {
+		try {
+			const formData = await request.formData();
+			const teamId = formData.get('teamid') as string;
+
+			if (!teamId) {
+				return fail(400, { message: 'Team ID is required.' });
+			}
+
+			// Fetch the team to check if it exists and has space
+			const { data: team, error: teamError } = await supabase
+				.from('teams')
+				.select('*')
+				.eq('TeamID', teamId)
+				.single();
+
+			if (teamError) {
+				console.error('Error fetching team:', teamError);
+				return fail(500, { message: 'Failed to fetch team details.' });
+			}
+
+			if (!team) {
+				return fail(404, { message: 'Team not found.' });
+			}
+
+			if (team.Members.length >= 4) {
+				return fail(400, { message: 'Team is full.' });
+			}
+
+			// Add the user to the team
+			const { error: appendError } = await supabase.rpc('append_member_to_team', {
+				member_data: user?.user_metadata,
+				team_id: parseInt(teamId, 10),
+			});
+
+			if (appendError) {
+				console.error('Error joining team:', appendError);
+				return fail(500, { message: 'Failed to join team.' });
+			}
+
+			return { success: true, message: 'Joined team successfully!' };
+		} catch (error) {
+			console.error('Error in join action:', error);
+			return fail(500, { message: 'An unexpected error occurred.' });
+		}
+	},
+
 	leave: async ({ locals: { supabase, user } }) => {
-		const { data, error } = await supabase.rpc('remove_member_from_teams', { member_id: user?.id });
+		try {
+			// Remove the user from their current team
+			const { data, error } = await supabase.rpc('remove_member_from_teams', {
+				member_id: user?.id,
+			});
 
-		if (data) {
-			redirect(303, '/participate');
-		} else {
-			console.error(error);
+			if (error) {
+				console.error('Error leaving team:', error);
+				return fail(500, { message: 'Failed to leave team.' });
+			}
+
+			return { success: true, message: 'Left team successfully!' };
+		} catch (error) {
+			console.error('Error in leave action:', error);
+			return fail(500, { message: 'An unexpected error occurred.' });
 		}
 	},
-	delete: async ({ locals: { supabase, user } }) => {
-		const { data, error } = await supabase.rpc('delete_team_by_creator', { member_id: user?.id });
 
-		if (data) {
-			redirect(303, '/participate');
-		} else {
-			console.error(error);
+	delete: async ({ locals: { supabase, user } }) => {
+		try {
+			// Delete the team if the user is the creator
+			const { data, error } = await supabase.rpc('delete_team_by_creator', {
+				member_id: user?.id,
+			});
+
+			if (error) {
+				console.error('Error deleting team:', error);
+				return fail(500, { message: 'Failed to delete team.' });
+			}
+
+			return { success: true, message: 'Team deleted successfully!' };
+		} catch (error) {
+			console.error('Error in delete action:', error);
+			return fail(500, { message: 'An unexpected error occurred.' });
 		}
-	}
+	},
 };
