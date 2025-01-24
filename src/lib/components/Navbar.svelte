@@ -30,7 +30,7 @@
 				const target = document.getElementById(id);
 				if (target) {
 					const targetPosition = target.getBoundingClientRect().top + window.scrollY;
-	
+
 					window.scrollTo({
 						top: targetPosition,
 						behavior: 'smooth'

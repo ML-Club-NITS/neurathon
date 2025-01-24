@@ -1,15 +1,19 @@
-<script>
+<script lang="ts">
+	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
-	// import { Banner } from '$lib/components';
-	let { children, data } = $props();
+	import neurathon_logo from '$lib/assets/nurathon_logo.svg';
+	import { onMount } from 'svelte';
+
+	let { children } = $props();
 	let r1Qulified = true;
 	let registered = false;
-	function toggleSidebar() {
-		const sidebar = document.getElementById('logo-sidebar');
-		if (sidebar) {
-			sidebar.classList.toggle('-translate-x-full');
-		}
-	}
+
+	// function toggleSidebar() {
+	// 	const sidebar = document.getElementById('logo-sidebar');
+	// 	if (sidebar) {
+	// 		sidebar.classList.toggle('-translate-x-full');
+	// 	}
+	// }
 
 	function toggleUserMenu() {
 		const dropdown = document.getElementById('dropdown-user');
@@ -17,10 +21,34 @@
 			dropdown.classList.toggle('hidden');
 		}
 	}
+	let isSidebarOpen = $state(false);
+	let SideBar = $state<Node | null>(null);
+	let active = $state('');
 
-	let active = $state(1);
+	function handleClickOutside(event: MouseEvent) {
+		if (isSidebarOpen && SideBar && !SideBar.contains(event.target as Node)) {
+			isSidebarOpen = false;
+		}
+	}
+
+	function toggleSideBar(event: MouseEvent) {
+		event.stopPropagation();
+		isSidebarOpen = !isSidebarOpen;
+	}
+
+	function handleLinkClick() {
+		isSidebarOpen = false;
+	}
+
 	$effect(() => {
-		active;
+		active = page.url.pathname;
+	});
+
+	onMount(() => {
+		document.addEventListener('click', handleClickOutside);
+		return () => {
+			document.removeEventListener('click', handleClickOutside);
+		};
 	});
 </script>
 
@@ -30,18 +58,19 @@
 </svelte:head>
 
 <div>
+	<!-- Navbar -->
 	<nav
-		class="fixed start-0 top-0 z-[10000] w-full rounded-sm border-b border-gray-200 bg-white bg-opacity-30 backdrop-blur-md backdrop-filter sm:rounded-none dark:border-gray-600 dark:bg-gray-900 dark:bg-opacity-30"
+		class="fixed start-0 top-0 z-[10000] w-full border-b border-gray-200 bg-white bg-opacity-30 backdrop-blur-md backdrop-filter transition-all duration-300 ease-in-out hover:shadow-lg dark:border-gray-600 dark:bg-gray-900 dark:bg-opacity-30"
 	>
-		<div class="px-3 py-3 lg:px-5 lg:pl-3">
-			<div class="flex items-center justify-between">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="flex h-16 items-center justify-between">
 				<!-- Menu and Logo -->
 				<div class="flex items-center">
 					<button
-						onclick={() => toggleSidebar()}
+						onclick={toggleSideBar}
 						aria-controls="logo-sidebar"
 						type="button"
-						class="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:ring-2 focus:ring-gray-200 lg:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+						class="m-1 inline-flex items-center rounded-lg p-1 text-sm text-gray-500 transition-all duration-200 ease-in-out hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 lg:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
 					>
 						<span class="sr-only">Open sidebar</span>
 						<svg
@@ -58,19 +87,20 @@
 							></path>
 						</svg>
 					</button>
-					<a href="/dashboard" class="ms-2 flex">
-						<img src="https://flowbite.com/docs/images/logo.svg" class="me-3 h-8" alt="Logo" />
-						<span class="self-center text-xl font-semibold text-gray-800 dark:text-white"
+					<a href="/dashboard" class="ml-2 flex items-center">
+						<img src={neurathon_logo} class="mr-3 h-8" alt="Logo" />
+						<span
+							class="self-center text-xl font-semibold text-gray-800 transition-colors duration-200 ease-in-out hover:text-gray-600 dark:text-white dark:hover:text-gray-300"
 							>Neurathon</span
 						>
 					</a>
 				</div>
 
 				<!-- User Profile -->
-				<div class="relative ms-3">
+				<div class="relative ml-3">
 					<button
 						onclick={() => toggleUserMenu()}
-						class="flex rounded-full bg-gray-800 text-sm focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+						class="flex rounded-full bg-gray-800 text-sm transition-all duration-200 ease-in-out hover:ring-4 hover:ring-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:hover:ring-gray-600 dark:focus:ring-gray-600"
 						aria-expanded="false"
 					>
 						<span class="sr-only">Open user menu</span>
@@ -82,7 +112,7 @@
 					</button>
 					<div
 						id="dropdown-user"
-						class="absolute right-0 z-50 mt-2 hidden w-48 divide-y divide-gray-100 rounded bg-white shadow dark:divide-gray-600 dark:bg-gray-700"
+						class="absolute right-0 z-50 mt-2 hidden w-48 divide-y divide-gray-100 rounded-lg bg-white shadow-lg transition-all duration-200 ease-in-out dark:divide-gray-600 dark:bg-gray-700"
 					>
 						<div class="px-4 py-3">
 							<p class="text-sm text-gray-900 dark:text-white">Neil Sims</p>
@@ -94,21 +124,21 @@
 							<li>
 								<a
 									href="/dashboard"
-									class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
+									class="block px-4 py-2 text-sm text-gray-700 transition-all duration-200 ease-in-out hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
 									>Dashboard</a
 								>
 							</li>
 							<li>
 								<a
 									href="/dashboard/profile"
-									class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
+									class="block px-4 py-2 text-sm text-gray-700 transition-all duration-200 ease-in-out hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
 									>Profile</a
 								>
 							</li>
 							<li>
 								<a
 									href="/"
-									class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
+									class="block px-4 py-2 text-sm text-gray-700 transition-all duration-200 ease-in-out hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
 									>Sign out</a
 								>
 							</li>
@@ -121,56 +151,81 @@
 
 	<!-- Sidebar -->
 	<aside
+		bind:this={SideBar}
 		id="logo-sidebar"
-		class="fixed top-0 z-10 h-screen w-64 -translate-x-0 border-r bg-white pt-20 transition-transform lg:fixed lg:translate-x-0 dark:border-gray-700 dark:bg-[#21212196]"
+		class={`${isSidebarOpen ? '-translate-x-0' : '-translate-x-full'} fixed top-0 z-10 h-screen w-64 border-r bg-white pt-20 transition-transform duration-300 ease-in-out lg:fixed lg:translate-x-0 dark:border-gray-700 dark:bg-[#141414e9]`}
 	>
 		<ul class="space-y-2 px-3 font-medium">
 			<li>
 				<button
-					onclick={() => goto('/')}
-					class="inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+					onclick={() => {
+						handleLinkClick();
+						goto('/');
+					}}
+					class="inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 transition-all duration-200 ease-in-out hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
 					><i class="fi fi-rr-home"></i>Home</button
 				>
 			</li>
 			<li>
 				<button
-					onclick={() => {goto('/dashboard'); active = 1}}
-					class="{(active == 1) ? "bg-slate-500 hover:bg-slate-500" : "dark:hover:bg-gray-700"} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
+					onclick={() => {
+						handleLinkClick();
+						goto('/dashboard');
+					}}
+					class="{active == '/dashboard'
+						? 'bg-slate-800 hover:bg-slate-700'
+						: 'dark:hover:bg-gray-700'} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
 					><i class="fi fi-rr-dashboard"></i>Dashboard</button
 				>
 			</li>
 			{#if registered}
 				<li>
 					<button
-						onclick={() => {goto('/dashboard/team'); active = 2}}
-						class="{(active == 2) ? "bg-slate-500 hover:bg-slate-500" : "dark:hover:bg-gray-700"} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
+						onclick={() => {
+							handleLinkClick();
+							goto('/dashboard/team');
+						}}
+						class="{active == '/dashboard/team'
+							? 'bg-slate-800 hover:bg-slate-700'
+							: 'dark:hover:bg-gray-700'} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
 					>
 						<i class="fi fi-sr-team-check"></i>Team
 					</button>
 				</li>
-				{:else if r1Qulified}
+			{:else if r1Qulified}
 				<li>
 					<button
-						onclick={() => {goto('/dashboard/team'); active = 2}}
-						class="{(active == 2) ? "bg-slate-500 hover:bg-slate-500" : "dark:hover:bg-gray-700"} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
+						onclick={() => {
+							handleLinkClick();
+							goto('/dashboard/team');
+						}}
+						class="{active == '/dashboard/team'
+							? 'bg-slate-800 hover:bg-slate-700'
+							: 'dark:hover:bg-gray-700'} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
 					>
-					<i class="fi fi-sr-users-medical"></i>Register Team
+						<i class="fi fi-sr-users-medical"></i>Register Team
 					</button>
 				</li>
 			{/if}
 			<li>
 				<button
-					onclick={() => {goto('/dashboard/profile'); active = 3}}
-					class="{(active == 3) ? "bg-slate-500 hover:bg-slate-500" : "dark:hover:bg-gray-700"} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
+					onclick={() => {
+						handleLinkClick();
+						goto('/dashboard/profile');
+					}}
+					class="{active == '/dashboard/profile'
+						? 'bg-slate-800 hover:bg-slate-700'
+						: 'dark:hover:bg-gray-700'} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-gray-900 hover:bg-gray-100 dark:text-white"
 					><i class="fi fi-sr-user-pen"></i>Profile</button
 				>
 			</li>
 		</ul>
 	</aside>
+
+	<!-- Main Content -->
 	<main
 		class="max-h-auto mt-14 flex flex-col flex-wrap items-center gap-4 overflow-scroll p-4 lg:ml-64 lg:flex-row lg:items-start lg:justify-center"
 	>
-		<!-- <Banner /> -->
 		{@render children()}
 	</main>
 </div>
