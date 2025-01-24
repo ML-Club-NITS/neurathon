@@ -5,9 +5,13 @@
 	import { onMount } from 'svelte';
 
 	let { children, data } = $props();
-	let { user } = $derived(data);
-	let r1Qulified = true;
-	let registered = true;
+	let { user, supabase, TeamID } = $derived(data);
+
+	async function signOut() {
+		const { error } = await supabase.auth.signOut();
+		console.error(error);
+		goto('/');
+	}
 
 	// function toggleSidebar() {
 	// 	const sidebar = document.getElementById('logo-sidebar');
@@ -107,14 +111,14 @@
 						<span class="sr-only">Open user menu</span>
 						<div
 							class="h-8 w-8 rounded-full flex items-center justify-center text-white font-semibold text-lg"
-						>U</div>
+						>{user?.user_metadata?.name[0]}</div>
 					</button>
 					<div
 						id="dropdown-user"
 						class="absolute right-0 z-50 mt-2 hidden w-48 divide-y divide-gray-100 rounded-lg bg-white shadow-lg transition-all duration-200 ease-in-out dark:divide-gray-600 dark:bg-gray-700"
 					>
 						<div class="px-4 py-3">
-							<p class="text-sm text-gray-900 dark:text-white">Neil Sims</p>
+							<p class="text-sm text-gray-900 dark:text-white">{user?.user_metadata?.name}</p>
 						</div>
 						<ul class="py-1">
 							<li>
@@ -132,10 +136,10 @@
 								>
 							</li>
 							<li>
-								<a
-									href="/"
+								<button
+									onclick={()=>{signOut(); goto('/')}}
 									class="block px-4 py-2 text-sm text-gray-700 transition-all duration-200 ease-in-out hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
-									>Sign out</a
+									>Sign out</button
 								>
 							</li>
 						</ul>
@@ -174,7 +178,7 @@
 					><i class="fi fi-rr-dashboard"></i>Dashboard</button
 				>
 			</li>
-			{#if registered}
+			{#if TeamID}
 				<li>
 					<button
 						onclick={() => {
@@ -188,7 +192,7 @@
 						<i class="fi fi-sr-team-check"></i>Team
 					</button>
 				</li>
-			{:else if r1Qulified}
+			{:else}
 				<li>
 					<button
 						onclick={() => {
