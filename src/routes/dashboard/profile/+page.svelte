@@ -20,7 +20,7 @@
 	});
 </script>
 
-<section class="flex flex-col items-center justify-center">
+<section class="flex flex-col items-center justify-center w-full">
 	<nav class="flex w-full" aria-label="Breadcrumb">
 		<ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
 			<li class="inline-flex items-center">
@@ -93,7 +93,7 @@
 
 	<!-- <div class="w-full text-2xl font-semibold text-white">Profile</div> -->
 	<div
-		class="animate-fade-in mt-4 w-full max-w-4xl rounded-xl bg-white p-8 shadow-2xl transition-all duration-300 dark:bg-gray-800"
+		class="animate-fade-in mt-4 w-full rounded-xl bg-white p-8 shadow-2xl transition-all duration-300 dark:bg-gray-800"
 	>
 		<div class="flex flex-col md:flex-row">
 			<div class="mb-8 text-center md:mb-0 md:w-1/3">

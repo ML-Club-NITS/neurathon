@@ -4,9 +4,10 @@
 	import neurathon_logo from '$lib/assets/nurathon_logo.svg';
 	import { onMount } from 'svelte';
 
-	let { children } = $props();
+	let { children, data } = $props();
+	let { user } = $derived(data);
 	let r1Qulified = true;
-	let registered = false;
+	let registered = true;
 
 	// function toggleSidebar() {
 	// 	const sidebar = document.getElementById('logo-sidebar');
@@ -104,11 +105,9 @@
 						aria-expanded="false"
 					>
 						<span class="sr-only">Open user menu</span>
-						<img
-							class="h-8 w-8 rounded-full"
-							src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-							alt="User"
-						/>
+						<div
+							class="h-8 w-8 rounded-full flex items-center justify-center text-white font-semibold text-lg"
+						>U</div>
 					</button>
 					<div
 						id="dropdown-user"
@@ -116,9 +115,6 @@
 					>
 						<div class="px-4 py-3">
 							<p class="text-sm text-gray-900 dark:text-white">Neil Sims</p>
-							<p class="truncate text-sm font-medium text-gray-500 dark:text-gray-300">
-								neil.sims@flowbite.com
-							</p>
 						</div>
 						<ul class="py-1">
 							<li>

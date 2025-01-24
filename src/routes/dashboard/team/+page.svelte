@@ -42,8 +42,8 @@
 			</form>
 		</div>
 	{:else}
-		<div class="container border-2 border-black bg-gray-400">
-			<form method="POST" class="m-2 flex gap-4 bg-gray-200">
+		<div class="container">
+			<form method="POST" class="flex flex-col gap-4">
 				<label for="teamname">Team Name</label>
 				<input type="text" id="teamname" class="h-full" name="teamname" />
 				<button formaction="?/register" class="bg-gray-800 p-2">Create Team</button>
