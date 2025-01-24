@@ -1,9 +1,26 @@
-<script>
+<script lang="ts">
+	import { onMount, onDestroy } from 'svelte';
 	import { goto } from '$app/navigation';
 	import neurathon_logo from '$lib/assets/nurathon_logo.svg';
 	let { children } = $props();
-	let r1Qulified = true;
+	let r1Qualified = true;
 	let registered = false;
+
+	let sideRef: HTMLElement | null = null;
+	let profRef: HTMLElement | null = null;
+
+	function handleClickOutside(event: MouseEvent) {
+		if(sideRef && !sideRef.contains(event.target as Node)) {
+			const sidebar = document.getElementById('logo-sidebar');
+			const profbar = document.getElementById('dropdown-user');
+			if(sidebar) {
+				sideRef.classList.add('-translate-x-full');
+			}
+			if(profbar){
+				profRef?.classList.add('hidden');
+			}
+		}
+	}
 
 	function toggleSidebar() {
 		const sidebar = document.getElementById('logo-sidebar');
@@ -18,6 +35,15 @@
 			dropdown.classList.toggle('hidden');
 		}
 	}
+
+	onMount(() => {
+		document.addEventListener('mousedown', handleClickOutside);
+
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside);
+		};
+	});
+
 
 	let active = $state(1);
 	$effect(() => {
@@ -70,7 +96,7 @@
 				</div>
 
 				<!-- User Profile -->
-				<div class="relative ml-3">
+				<div class="relative ml-3" >
 					<button
 						onclick={() => toggleUserMenu()}
 						class="flex rounded-full bg-gray-800 text-sm transition-all duration-200 ease-in-out hover:ring-4 hover:ring-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:hover:ring-gray-600 dark:focus:ring-gray-600"
@@ -85,6 +111,7 @@
 					</button>
 					<div
 						id="dropdown-user"
+						bind:this={profRef}
 						class="absolute right-0 z-50 mt-2 hidden w-48 divide-y divide-gray-100 rounded-lg bg-white shadow-lg transition-all duration-200 ease-in-out dark:divide-gray-600 dark:bg-gray-700"
 					>
 						<div class="px-4 py-3">
@@ -125,6 +152,7 @@
 	<!-- Sidebar -->
 	<aside
 		id="logo-sidebar"
+		bind:this={sideRef}
 		class="fixed top-0 z-10 h-screen w-64 -translate-x-full border-r bg-white pt-20 transition-transform duration-300 ease-in-out lg:fixed lg:translate-x-0 dark:border-gray-700 dark:bg-[#21212196]"
 	>
 		<ul class="space-y-2 px-3 font-medium">
@@ -161,7 +189,7 @@
 						<i class="fi fi-sr-team-check"></i>Team
 					</button>
 				</li>
-			{:else if r1Qulified}
+			{:else if r1Qualified}
 				<li>
 					<button
 						onclick={() => {
