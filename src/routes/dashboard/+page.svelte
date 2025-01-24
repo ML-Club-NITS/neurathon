@@ -3,6 +3,9 @@
 	import Notification from '$lib/components/Notification.svelte';
 	let { data } = $props();
 	let { commits, round, timer } = $derived(data);
+	$effect(() => {
+		console.log(timer);
+	});
 </script>
 
 <section class="flex h-auto w-full flex-col items-center justify-center gap-4">
@@ -11,10 +14,10 @@
 	</div>
 	<div><Notification /></div>
 	<div class="flex w-full flex-row flex-wrap justify-evenly gap-4 lg:flex-row lg:flex-nowrap">
-		<div class="rounded-lg md:w-full lg:min-w-[300px] lg:max-w-full">
+		<!-- <div class="rounded-lg md:w-full lg:min-w-[300px] lg:max-w-full">
 			<GitHistory {commits} />
-		</div>
-		<!-- {#if round === 1.5}
+		</div> -->
+		{#if round === 1.5}
 			<div class="w-full rounded-lg lg:max-w-[50%]">
 				<LeaderBoard />
 			</div>
@@ -25,6 +28,6 @@
 			<div class="w-full rounded-lg lg:max-w-[50%]">
 				<LeaderBoard />
 			</div>
-		{/if} -->
+		{/if}
 	</div>
 </section>

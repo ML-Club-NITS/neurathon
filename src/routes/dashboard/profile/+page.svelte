@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
+	// import { goto } from '$app/navigation';
 
 	let { data } = $props();
 	let { user } = $derived(data);
@@ -95,60 +95,68 @@
 	</nav>
 
 	<!-- <div class="w-full text-2xl font-semibold text-white">Profile</div> -->
-	<div class="w-full max-w-4xl mx-auto p-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+	<div class="mx-auto grid w-full max-w-4xl grid-cols-1 gap-6 p-4 md:grid-cols-2">
 		<!-- User Profile Card -->
 		<div
-		  class="group relative rounded-xl bg-neutral-900 border border-neutral-800 p-6 shadow-lg hover:scale-105 transition-transform duration-300"
+			class="group relative rounded-xl border border-neutral-800 bg-neutral-900 p-6 shadow-lg transition-transform duration-300 hover:scale-105"
 		>
-		  <div class="space-y-4">
-			<!-- Name -->
-			<h2 class="text-2xl font-bold text-neutral-100">{user?.user_metadata?.name}</h2>
-	  
-			<!-- Team Name -->
-			<div>
-			  <label for="team-name" class="text-sm font-medium text-neutral-400">Team Name</label>
-			  <p id="team-name" class="text-neutral-200">{user?.user_metadata?.team_name}</p>
+			<div class="space-y-4">
+				<!-- Name -->
+				<h2 class="text-2xl font-bold text-neutral-100">{user?.user_metadata?.name}</h2>
+
+				<!-- Team Name -->
+				<div>
+					<label for="team-name" class="text-sm font-medium text-neutral-400">Team Name</label>
+					<p id="team-name" class="text-neutral-200">{user?.user_metadata?.team_name}</p>
+				</div>
+
+				<!-- Contact Info -->
+				<div>
+					<label for="contact-info" class="text-sm font-medium text-neutral-400">Contact Info</label
+					>
+					<div id="contact-info">
+						<p class="text-neutral-200">{user?.email}</p>
+						<p class="text-neutral-200">{user?.user_metadata?.phone}</p>
+					</div>
+				</div>
 			</div>
-	  
-			<!-- Contact Info -->
-			<div>
-			  <label for="contact-info" class="text-sm font-medium text-neutral-400">Contact Info</label>
-			  <div id="contact-info">
-				  <p class="text-neutral-200">{user?.email}</p>
-				  <p class="text-neutral-200">{user?.user_metadata?.phone}</p>
-			  </div>
-			</div>
-		  </div>
 		</div>
-	  
+
 		<!-- Education Card -->
 		<div
-		  class="group relative rounded-xl bg-neutral-900 border border-neutral-800 p-6 shadow-lg hover:scale-105 transition-transform duration-300"
+			class="group relative rounded-xl border border-neutral-800 bg-neutral-900 p-6 shadow-lg transition-transform duration-300 hover:scale-105"
 		>
-		  <div class="space-y-4">
-			<!-- College Name -->
-			<h2 class="text-2xl font-bold text-neutral-100">{user?.user_metadata?.college_name}</h2>
-	  
-			<!-- Location -->
-			<div>
-			  <label for="college-location" class="text-sm font-medium text-neutral-400">Location</label>
-			  <p id="college-location" class="text-neutral-200">{user?.user_metadata?.college_location}</p>
+			<div class="space-y-4">
+				<!-- College Name -->
+				<h2 class="text-2xl font-bold text-neutral-100">{user?.user_metadata?.college_name}</h2>
+
+				<!-- Location -->
+				<div>
+					<label for="college-location" class="text-sm font-medium text-neutral-400">Location</label
+					>
+					<p id="college-location" class="text-neutral-200">
+						{user?.user_metadata?.college_location}
+					</p>
+				</div>
+
+				<!-- Course -->
+				<div>
+					<label for="course" class="text-sm font-medium text-neutral-400">Course</label>
+					<p id="course" class="text-neutral-200">{user?.user_metadata?.course}</p>
+				</div>
+
+				<!-- Additional Info -->
+				<div>
+					<label for="additional-info" class="text-sm font-medium text-neutral-400"
+						>Additional Info</label
+					>
+					<p id="additional-info" class="text-neutral-200">
+						Enrolled in {user?.user_metadata?.year} year
+					</p>
+				</div>
 			</div>
-	  
-			<!-- Course -->
-			<div>
-			  <label for="course" class="text-sm font-medium text-neutral-400">Course</label>
-			  <p id="course" class="text-neutral-200">{user?.user_metadata?.course}</p>
-			</div>
-	  
-			<!-- Additional Info -->
-			<div>
-			  <label for="additional-info" class="text-sm font-medium text-neutral-400">Additional Info</label>
-			  <p id="additional-info" class="text-neutral-200">Enrolled in {user?.user_metadata?.year} year</p>
-			</div>
-		  </div>
 		</div>
-	  </div>
+	</div>
 </section>
 
 <style>

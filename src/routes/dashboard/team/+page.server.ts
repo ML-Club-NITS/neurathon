@@ -7,7 +7,7 @@ export const load: PageServerLoad = async ({ depends, locals: { supabase, user }
 	try {
 		// Fetch the team ID for the current user
 		const { data: teamId, error: teamIdError } = await supabase.rpc('get_team', {
-			member_id: user?.id,
+			member_id: user?.id
 		});
 
 		if (teamIdError) {
@@ -53,7 +53,7 @@ export const actions: Actions = {
 			const { error } = await supabase.from('teams').insert({
 				TeamName: teamName,
 				CreatedBy: user?.id,
-				Members: [user?.user_metadata], // Add the creator as the first member
+				Members: [user?.user_metadata] // Add the creator as the first member
 			});
 
 			if (error) {
@@ -100,7 +100,7 @@ export const actions: Actions = {
 			// Add the user to the team
 			const { error: appendError } = await supabase.rpc('append_member_to_team', {
 				member_data: user?.user_metadata,
-				team_id: parseInt(teamId, 10),
+				team_id: parseInt(teamId, 10)
 			});
 
 			if (appendError) {
@@ -118,8 +118,9 @@ export const actions: Actions = {
 	leave: async ({ locals: { supabase, user } }) => {
 		try {
 			// Remove the user from their current team
-			const { data, error } = await supabase.rpc('remove_member_from_teams', {
-				member_id: user?.id,
+			//   { data, error }
+			const { error } = await supabase.rpc('remove_member_from_teams', {
+				member_id: user?.id
 			});
 
 			if (error) {
@@ -137,8 +138,9 @@ export const actions: Actions = {
 	delete: async ({ locals: { supabase, user } }) => {
 		try {
 			// Delete the team if the user is the creator
-			const { data, error } = await supabase.rpc('delete_team_by_creator', {
-				member_id: user?.id,
+			// { data , error }
+			const { error } = await supabase.rpc('delete_team_by_creator', {
+				member_id: user?.id
 			});
 
 			if (error) {
@@ -151,5 +153,5 @@ export const actions: Actions = {
 			console.error('Error in delete action:', error);
 			return fail(500, { message: 'An unexpected error occurred.' });
 		}
-	},
+	}
 };

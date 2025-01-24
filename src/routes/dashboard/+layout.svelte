@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
+	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import neurathon_logo from '$lib/assets/nurathon_logo.svg';
 	let { children } = $props();
@@ -49,16 +49,13 @@
 	}
 
 	onMount(() => {
-    document.addEventListener('mousedown', handleClickOutside);
+		document.addEventListener('mousedown', handleClickOutside);
 
-    return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
-    };
-});
-	let active = $state(1);
-	$effect(() => {
-		active;
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside);
+		};
 	});
+	let active = $state(1);
 </script>
 
 <svelte:head>
