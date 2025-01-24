@@ -7,8 +7,10 @@
 	}
 </script>
 
-<section class="flex flex-col items-center justify-center min-h-auto bg-neutral-900 p-4 text-neutral-100">
-	<nav class="flex w-full max-w-4xl mb-6" aria-label="Breadcrumb">
+<section
+	class="min-h-auto flex flex-col items-center justify-center bg-neutral-900 p-4 text-neutral-100"
+>
+	<nav class="mb-6 flex w-full max-w-4xl" aria-label="Breadcrumb">
 		<ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
 			<li class="inline-flex items-center">
 				<a
@@ -78,7 +80,7 @@
 		</ol>
 	</nav>
 
-	<div class="w-full max-w-4xl grid grid-cols-1 gap-6 md:grid-cols-2">
+	<div class="grid w-full max-w-4xl grid-cols-1 gap-6 md:grid-cols-2">
 		<div
 			class="group relative rounded-xl border border-neutral-800 bg-neutral-800 p-6 shadow-lg transition-transform duration-300 hover:scale-105"
 		>

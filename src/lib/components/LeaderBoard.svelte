@@ -498,16 +498,14 @@
 										href={item.deploymentLink}
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-blue-400 hover:text-blue-300"
-										>Deployment Link</a
+										class="text-blue-400 hover:text-blue-300">Deployment Link</a
 									>
 								{:else}
 									<a
 										href={item.gitRepoLink}
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-blue-400 hover:text-blue-300"
-										>Git Repo Link</a
+										class="text-blue-400 hover:text-blue-300">Git Repo Link</a
 									>
 								{/if}
 							</TableBodyCell>
@@ -534,7 +532,6 @@
 			{'<'}
 		</button>
 
-		
 		<button
 			class="rounded-md bg-gray-800/50 px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-gray-800/70 disabled:opacity-50 disabled:hover:bg-gray-800/50"
 			onclick={nextPage}

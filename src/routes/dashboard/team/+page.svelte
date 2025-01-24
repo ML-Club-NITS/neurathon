@@ -51,7 +51,8 @@
 					<p id="team-id" class="text-neutral-100">{TeamID}</p>
 				</div>
 				<div>
-					<label for="team-name" class="block text-sm font-medium text-neutral-400">Team Name</label>
+					<label for="team-name" class="block text-sm font-medium text-neutral-400">Team Name</label
+					>
 					<p id="team-name" class="text-neutral-100">{team?.TeamName}</p>
 				</div>
 				<div>
