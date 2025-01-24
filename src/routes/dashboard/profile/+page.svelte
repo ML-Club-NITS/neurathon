@@ -106,15 +106,17 @@
 	  
 			<!-- Team Name -->
 			<div>
-			  <label class="text-sm font-medium text-neutral-400">Team Name</label>
-			  <p class="text-neutral-200">{user?.user_metadata?.team_name}</p>
+			  <label for="team-name" class="text-sm font-medium text-neutral-400">Team Name</label>
+			  <p id="team-name" class="text-neutral-200">{user?.user_metadata?.team_name}</p>
 			</div>
 	  
 			<!-- Contact Info -->
 			<div>
-			  <label class="text-sm font-medium text-neutral-400">Contact Info</label>
-			  <p class="text-neutral-200">{user?.email}</p>
-			  <p class="text-neutral-200">{user?.user_metadata?.phone}</p>
+			  <label for="contact-info" class="text-sm font-medium text-neutral-400">Contact Info</label>
+			  <div id="contact-info">
+				  <p class="text-neutral-200">{user?.email}</p>
+				  <p class="text-neutral-200">{user?.user_metadata?.phone}</p>
+			  </div>
 			</div>
 		  </div>
 		</div>
@@ -129,20 +131,20 @@
 	  
 			<!-- Location -->
 			<div>
-			  <label class="text-sm font-medium text-neutral-400">Location</label>
-			  <p class="text-neutral-200">{user?.user_metadata?.college_location}</p>
+			  <label for="college-location" class="text-sm font-medium text-neutral-400">Location</label>
+			  <p id="college-location" class="text-neutral-200">{user?.user_metadata?.college_location}</p>
 			</div>
 	  
 			<!-- Course -->
 			<div>
-			  <label class="text-sm font-medium text-neutral-400">Course</label>
-			  <p class="text-neutral-200">{user?.user_metadata?.course}</p>
+			  <label for="course" class="text-sm font-medium text-neutral-400">Course</label>
+			  <p id="course" class="text-neutral-200">{user?.user_metadata?.course}</p>
 			</div>
 	  
 			<!-- Additional Info -->
 			<div>
-			  <label class="text-sm font-medium text-neutral-400">Additional Info</label>
-			  <p class="text-neutral-200">Enrolled in {user?.user_metadata?.year} year</p>
+			  <label for="additional-info" class="text-sm font-medium text-neutral-400">Additional Info</label>
+			  <p id="additional-info" class="text-neutral-200">Enrolled in {user?.user_metadata?.year} year</p>
 			</div>
 		  </div>
 		</div>
@@ -159,8 +161,5 @@
 			opacity: 1;
 			transform: translateY(0);
 		}
-	}
-	.animate-fade-in {
-		animation: fadeIn 0.5s ease-out forwards;
 	}
 </style>
