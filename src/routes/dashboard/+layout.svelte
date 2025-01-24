@@ -125,7 +125,7 @@
 	<!-- Sidebar -->
 	<aside
 		id="logo-sidebar"
-		class="fixed top-0 z-10 h-screen w-64 -translate-x-0 border-r bg-white pt-20 transition-transform duration-300 ease-in-out lg:fixed lg:translate-x-0 dark:border-gray-700 dark:bg-[#21212196]"
+		class="fixed top-0 z-10 h-screen w-64 -translate-x-full border-r bg-white pt-20 transition-transform duration-300 ease-in-out lg:fixed lg:translate-x-0 dark:border-gray-700 dark:bg-[#21212196]"
 	>
 		<ul class="space-y-2 px-3 font-medium">
 			<li>
