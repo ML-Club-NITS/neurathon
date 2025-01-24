@@ -10,18 +10,30 @@
 	let profRef: HTMLElement | null = null;
 
 	function handleClickOutside(event: MouseEvent) {
-		if(sideRef && !sideRef.contains(event.target as Node)) {
+		const sidebarButton = document.querySelector('[aria-controls="logo-sidebar"]');
+		const profileButton = document.querySelector('[aria-expanded="false"]');
+
+		if (
+			(sidebarButton && sidebarButton.contains(event.target as Node)) ||
+			(profileButton && profileButton.contains(event.target as Node))
+		) {
+			return;
+		}
+
+		if (sideRef && !sideRef.contains(event.target as Node)) {
 			const sidebar = document.getElementById('logo-sidebar');
-			const profbar = document.getElementById('dropdown-user');
-			if(sidebar) {
-				sideRef.classList.add('-translate-x-full');
+			if (sidebar) {
+				sidebar.classList.add('-translate-x-full');
 			}
-			if(profbar){
-				profRef?.classList.add('hidden');
+		}
+
+		if (profRef && !profRef.contains(event.target as Node)) {
+			const profbar = document.getElementById('dropdown-user');
+			if (profbar) {
+				profbar.classList.add('hidden');
 			}
 		}
 	}
-
 	function toggleSidebar() {
 		const sidebar = document.getElementById('logo-sidebar');
 		if (sidebar) {
@@ -37,14 +49,12 @@
 	}
 
 	onMount(() => {
-		document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
 
-		return () => {
-			document.removeEventListener('mousedown', handleClickOutside);
-		};
-	});
-
-
+    return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+    };
+});
 	let active = $state(1);
 	$effect(() => {
 		active;
@@ -96,7 +106,7 @@
 				</div>
 
 				<!-- User Profile -->
-				<div class="relative ml-3" >
+				<div class="relative ml-3">
 					<button
 						onclick={() => toggleUserMenu()}
 						class="flex rounded-full bg-gray-800 text-sm transition-all duration-200 ease-in-out hover:ring-4 hover:ring-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:hover:ring-gray-600 dark:focus:ring-gray-600"
