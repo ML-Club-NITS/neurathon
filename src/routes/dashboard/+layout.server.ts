@@ -1,6 +1,24 @@
-import type { PageServerLoad } from './$types';
+import type { PageServerLoad, Actions } from './$types';
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async ({ depends, locals: { supabase, user } }: { depends: (key: string) => void, locals: { supabase: any, user: any } }) => {
+    // depends('supabase:db:teams');
+
+	// const { data, error } = await supabase.rpc('get_team', { member_id: user?.id });
+
+	// if (error) {
+	// 	console.error(error);
+	// }
+	// if (data) {
+	// 	const { data: team, error } = await supabase.from('teams').select().eq('TeamID', data);
+
+	// 	if (error) {
+	// 		console.error(error);
+	// 	}
+
+	// 	return { TeamID: data, team: team ? (team[0] ?? []) : [] };
+	// } else {
+	// 	console.log('UUID does not exist in any team.');
+	// }
 
     const timer = new Date();
     const r1Time = new Date("13 Feb 2025");
