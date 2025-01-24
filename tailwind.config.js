@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
@@ -22,7 +21,9 @@ export default {
 				second: 'moveInCircle 20s reverse infinite',
 				third: 'moveInCircle 40s linear infinite',
 				fourth: 'moveHorizontal 40s ease infinite',
-				fifth: 'moveInCircle 20s ease infinite'
+				fifth: 'moveInCircle 20s ease infinite',
+				flip: 'flip 6s infinite steps(2, end)', // Added flip animation
+				kitrotate: 'kitrotate 3s linear infinite both' // Added kitrotate animation
 			},
 			keyframes: {
 				shine: {
@@ -131,6 +132,16 @@ export default {
 					},
 					'100%': {
 						transform: 'translateY(-50%)'
+					}
+				},
+				flip: {
+					to: {
+						transform: 'rotate(360deg)'
+					}
+				},
+				kitrotate: {
+					to: {
+						transform: 'rotate(90deg)'
 					}
 				}
 			},

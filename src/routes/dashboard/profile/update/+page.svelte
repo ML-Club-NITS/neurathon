@@ -1,9 +1,11 @@
 <script>
 	import { goto } from '$app/navigation';
+	let { data } = $props();
+	let { user } = $derived(data);
 </script>
 
 <section class="flex min-h-screen w-full flex-col items-center justify-center">
-	<nav class="flex w-full" aria-label="Breadcrumb">
+	<nav class="my-2 flex w-full" aria-label="Breadcrumb">
 		<ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
 			<li class="inline-flex items-center">
 				<a
@@ -73,86 +75,164 @@
 		</ol>
 	</nav>
 	<div
-		class="font-std mb-10 mt-3 w-full rounded-lg bg-[#ffac13] p-10 pt-5 font-normal leading-relaxed text-gray-900 shadow-xl"
+		class="my-2 flex w-full items-center rounded-lg border border-blue-300 bg-blue-50 p-4 text-sm text-blue-800 dark:border-blue-800 dark:bg-gray-800 dark:text-blue-400"
+		role="alert"
 	>
-		<div class="flex flex-col">
-			<div class="mb-5 flex flex-col items-start justify-between md:flex-row">
-				<h2 class="text-3xl font-bold text-red-900">Update Profile</h2>
-			</div>
-
-			<form class="space-y-4">
-				<div>
-					<label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-					<input
-						type="text"
-						id="name"
-						class="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500"
-						value="John Doe"
-					/>
-				</div>
-				<div>
-					<label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-					<input
-						type="text"
-						id="title"
-						class="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500"
-						value="Software Developer"
-					/>
-				</div>
-
-				<div>
-					<label for="organization" class="block text-sm font-medium text-gray-700"
-						>Organization</label
-					>
-					<input
-						type="text"
-						id="organization"
-						class="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500"
-						value="Estep Bilişim"
-					/>
-				</div>
-
-				<div>
-					<label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-					<input
-						type="email"
-						id="email"
-						class="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500"
-						value="john.doe@example.com"
-					/>
-				</div>
-				<div>
-					<label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
-					<input
-						type="tel"
-						id="phone"
-						class="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500"
-						value="+1 (555) 123-4567"
-					/>
-				</div>
-				<div>
-					<label for="location" class="block text-sm font-medium text-gray-700">Location</label>
-					<input
-						type="text"
-						id="location"
-						class="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500"
-						value="San Francisco, CA"
-					/>
-				</div>
-
-				<div class="flex justify-end space-x-4">
-					<button
-						onclick={() => goto('/dashboard/profile')}
-						type="button"
-						class="rounded-lg bg-gray-300 px-4 py-2 text-gray-700 hover:bg-gray-400">Cancel</button
-					>
-					<button
-						type="submit"
-						class="rounded-lg bg-indigo-800 px-4 py-2 text-white hover:bg-indigo-700"
-						>Save Changes</button
-					>
-				</div>
-			</form>
+		<svg
+			class="me-3 inline h-4 w-4 shrink-0"
+			aria-hidden="true"
+			xmlns="http://www.w3.org/2000/svg"
+			fill="currentColor"
+			viewBox="0 0 20 20"
+		>
+			<path
+				d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+			/>
+		</svg>
+		<span class="sr-only">Info</span>
+		<div>
+			<span class="font-medium">Info alert!</span> Change a few things up and try submitting again.
 		</div>
 	</div>
+	<div class="w-full max-w-[800px] mx-auto">
+		<div
+		  class="group relative grid overflow-hidden rounded-xl px-8 py-6 shadow-[0_1000px_0_0_hsl(0_0%_20%)_inset] transition-colors duration-200"
+		>
+		  <!-- Animated Gradient Background -->
+		  <span>
+			<span
+			  class="spark mask-gradient animate-flip before:animate-kitrotate absolute inset-0 h-[100%] w-[100%] overflow-hidden rounded-xl [mask:linear-gradient(white,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:rotate-[-90deg] before:bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] before:content-[''] before:[inset:0_auto_auto_50%] before:[translate:-50%_-15%]"
+			/>
+		  </span>
+	  
+		  <!-- Backdrop for Content -->
+		  <span
+			class="backdrop absolute inset-px rounded-[11px] bg-neutral-950 transition-colors duration-200"
+		  />
+	  
+		  <!-- Form Content -->
+		  <div class="space-y-6 z-10">
+			<h2 class="text-3xl font-bold text-neutral-200">Update Profile</h2>
+	  
+			<form class="space-y-6">
+			  <!-- Name Field -->
+			  <div>
+				<label for="name" class="block text-sm font-medium text-neutral-400 mb-2">Name</label>
+				<div
+				  id="name"
+				  class="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
+				>
+				  {user?.user_metadata?.name}
+				</div>
+			  </div>
+	  
+			  <!-- Email Field -->
+			  <div>
+				<label for="email" class="block text-sm font-medium text-neutral-400 mb-2">Email</label>
+				<div
+				  id="email"
+				  class="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
+				>
+				  {user?.email}
+				</div>
+			  </div>
+	  
+			  <!-- Phone Field -->
+			  <div>
+				<label for="phone" class="block text-sm font-medium text-neutral-400 mb-2">Phone</label>
+				<div
+				  id="phone"
+				  class="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
+				>
+				  {user?.user_metadata?.phone}
+				</div>
+			  </div>
+	  
+			  <!-- Conditional Fields -->
+			  {#if 0}
+				<!-- Organization Field -->
+				<div>
+				  <label for="organization" class="block text-sm font-medium text-neutral-400 mb-2"
+					>Organization</label
+				  >
+				  <input
+					type="text"
+					id="organization"
+					class="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
+					value="Estep Bilişim"
+				  />
+				</div>
+	  
+				<!-- Location Field -->
+				<div>
+				  <label for="location" class="block text-sm font-medium text-neutral-400 mb-2"
+					>Location</label
+				  >
+				  <input
+					type="text"
+					id="location"
+					class="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
+					value="San Francisco, CA"
+				  />
+				</div>
+			  {:else}
+				<!-- Organization Field -->
+				<div>
+				  <label for="organization" class="block text-sm font-medium text-neutral-400 mb-2"
+					>Organization</label
+				  >
+				  <input
+					type="text"
+					id="organization"
+					class="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
+					value="San Francisco, CA"
+				  />
+				</div>
+	  
+				<!-- Course Field -->
+				<div>
+				  <label for="course" class="block text-sm font-medium text-neutral-400 mb-2">Course</label>
+				  <select
+					id="course"
+					class="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
+				  >
+					<option value="ug" selected>UG</option>
+					<option value="pg">PG</option>
+				  </select>
+				</div>
+	  
+				<!-- College ID Submission Field -->
+				<div>
+				  <label for="collegeId" class="block text-sm font-medium text-neutral-400 mb-2"
+					>College ID Submission</label
+				  >
+				  <input
+					type="file"
+					id="collegeId"
+					class="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
+					accept=".pdf,.jpeg,.jpg,.png"
+				  />
+				</div>
+			  {/if}
+	  
+			  <!-- Buttons -->
+			  <div class="flex justify-end space-x-4">
+				<button
+				  onclick={() => goto('/dashboard/profile')}
+				  type="button"
+				  class="rounded-lg bg-neutral-700 px-6 py-2 text-neutral-200 hover:bg-neutral-600 transition-colors duration-200"
+				>
+				  Cancel
+				</button>
+				<button
+				  type="submit"
+				  class="rounded-lg bg-indigo-600 px-6 py-2 text-white hover:bg-indigo-700 transition-colors duration-200"
+				>
+				  Save Changes
+				</button>
+			  </div>
+			</form>
+		  </div>
+		</div>
+	  </div>
 </section>
