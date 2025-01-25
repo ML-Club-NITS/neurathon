@@ -111,7 +111,7 @@
 			></span>
 
 			<!-- Form Content -->
-			<div class="relative z-10 space-y-6">
+			<div class="relative z-0 space-y-6">
 				<h2 class="text-3xl font-bold text-neutral-200">Update Profile</h2>
 
 				<form class="space-y-6">

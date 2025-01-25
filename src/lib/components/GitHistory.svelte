@@ -68,12 +68,12 @@
 	>
 		<div
 			use:motion
-			class="pointer-events-none absolute -inset-px rounded-md opacity-0 transition-opacity duration-300 group-hover:opacity-75"
+			class="pointer-events-none absolute -inset-px rounded-md opacity-0 transition-opacity duration-300 group-hover:opacity-35"
 		></div>
 	</Motion>
 
 	<!-- Title -->
-	<h1 class="mb-6 text-center text-2xl font-bold text-white/90">Latest Changes</h1>
+	<h1 class="mb-6 text-center  text-2xl font-bold text-white/90">Latest Changes</h1>
 
 	<!-- Search Input -->
 	<div class="mb-6">
@@ -108,7 +108,7 @@
 							href={commit.commitUrl}
 							target="_blank"
 							rel="noopener noreferrer"
-							class="flex items-center space-x-2 rounded-md bg-indigo-600/50 px-3 py-1.5 text-sm font-medium text-white transition-all duration-300 hover:bg-indigo-600/70"
+							class="flex items-center space-x-2 rounded-md bg-indigo-600/25 px-3 py-1.5 text-sm font-medium text-white transition-all duration-300 hover:bg-indigo-600/55"
 						>
 							<span>View Commit</span>
 							<i class="fas fa-external-link-alt text-xs"></i>

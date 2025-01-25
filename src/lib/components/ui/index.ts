@@ -8,3 +8,4 @@ export { default as GradientAnimation } from './GradientAnimation.svelte';
 export { default as ParticipateTimeline } from './ParticipateTimeline.svelte';
 export { default as Button } from './Button.svelte';
 export { default as PersonCard } from './PersonCard.svelte';
+export { default as TextGenerateEffect } from './TextGenerateEffect.svelte';

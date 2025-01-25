@@ -31,15 +31,22 @@
 	>
 		<div
 			use:motion
-			class="pointer-events-none absolute -inset-px rounded-md opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+			class="pointer-events-none absolute -inset-px rounded-md opacity-0 transition-opacity duration-300 group-hover:opacity-50"
 		></div>
 	</Motion>
 
 	<!-- Content -->
 	<div class="relative flex flex-col">
 		<div class="mb-4 text-center">
-			<h2 class="text-2xl font-bold">Congratulations!</h2>
-			<p class="mt-2 text-lg">
+			<span
+				class="inline-flex pb-6 font-LeagueSpartanFont animate-text-gradient bg-gradient-to-r from-[#FFFFFF] via-[#BE87FF] to-[#FFFFFF] bg-[200%_auto] bg-clip-text text-center text-3xl md:text-4xl lg:text-5xl font-bold text-transparent"
+			>
+				Congratulations
+			</span>
+
+			
+
+			<p class="mt-2 text-xl font-semibold bg-gradient-to-b from-white to-neutral-500 text-transparent bg-clip-text">
 				{qulifiedR1
 					? teamLead
 						? 'Your team has qualified for the Kaggle round. To continue to the second round, you need to add your GitHub repository.'
@@ -50,7 +57,7 @@
 		<div class="git-add-button"></div>
 		{#if teamLead && qulifiedR1}
 			<button
-				class="mt-4 self-center rounded-md bg-gray-900 px-6 py-3 text-lg font-semibold text-white transition-all duration-200 ease-in-out hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2"
+				class="mt-4 self-center rounded-md bg-indigo-600/25 px-6 py-3 text-lg font-semibold text-white transition-all duration-200 ease-in-out hover:bg-indigo-600/55 focus:outline-none focus:ring-2 focus:ring-indigo-800/25 focus:ring-offset-2"
 				onclick={() => {
 					goto('/dashboard/team');
 				}}
