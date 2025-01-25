@@ -23,13 +23,11 @@
 	];
 </script>
 
-<div class="overflow-hidden"></div>
-
 <GradientAnimation>
-	<div
-		class="text-whit mt-[4.3rem] flex flex-col gap-5 gap-x-0 md:flex-row lg:flex-row xl:flex-row"
-	>
-		<div class="reg g-1 sticky top-0 h-fit text-white md:w-[40%] lg:w-[40%] xl:w-[40%]">
+	<div class="text-white mt-[4.3rem] flex flex-col gap-5 md:flex-row">
+		<div
+			class="reg g-1 h-fit text-white md:w-[40%] lg:w-[40%] xl:w-[40%]"
+		>
 			<div
 				class="reg-container m-3 flex flex-col justify-center overflow-hidden rounded border border-gray-600 bg-gray-700/[0.7]"
 			>
@@ -97,7 +95,7 @@
 		</div>
 
 		<div class="neurathon-info-container g-1 overflow-hidden md:w-[60%] lg:w-[60%] xl:w-[60%]">
-			<div class="event-timeline m-3 rounded border border-gray-600 bg-gray-700/[0.5] pb-5">
+			<div class="event-timeline m-3  rounded border border-gray-600 bg-gray-700/[0.5] pb-5 ">
 				<ParticipateTimeline />
 			</div>
 		</div>
