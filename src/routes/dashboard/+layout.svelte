@@ -7,7 +7,7 @@
 
 	let { children, data } = $props();
 	let { supabase, user } = $derived(data);
-	
+
 	let r1Qulified = true;
 	let registered = false;
 
@@ -49,7 +49,6 @@
 		} else {
 			goto('/participate');
 		}
-
 	}
 
 	$effect(() => {
@@ -125,7 +124,7 @@
 					<div
 						bind:this={MenuBar}
 						id="dropdown-user"
-						class={`absolute ${isMenubarOpen ? "" : "hidden"} right-0 z-50 mt-2 w-48 divide-y divide-gray-100 rounded-lg bg-white shadow-lg transition-all duration-200 ease-in-out dark:divide-gray-600 dark:bg-gray-700`}
+						class={`absolute ${isMenubarOpen ? '' : 'hidden'} right-0 z-50 mt-2 w-48 divide-y divide-gray-100 rounded-lg bg-white shadow-lg transition-all duration-200 ease-in-out dark:divide-gray-600 dark:bg-gray-700`}
 					>
 						<div class="px-4 py-3">
 							<p class="text-sm text-gray-900 dark:text-white">{user?.user_metadata.name}</p>
@@ -140,20 +139,20 @@
 									onclick={handleLinkClick}
 									class="block px-4 py-2 text-sm text-gray-700 transition-all duration-200 ease-in-out hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
 									>Dashboard</a
-									>
-								</li>
-								<li>
-									<a
+								>
+							</li>
+							<li>
+								<a
 									href="/dashboard/profile"
 									onclick={handleLinkClick}
 									class="block px-4 py-2 text-sm text-gray-700 transition-all duration-200 ease-in-out hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
 									>Profile</a
-									>
-								</li>
-								<li>
-									<button
+								>
+							</li>
+							<li>
+								<button
 									onclick={signOut}
-									class="block w-full text-left px-4 py-2 text-sm text-gray-700 transition-all duration-200 ease-in-out hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
+									class="block w-full px-4 py-2 text-left text-sm text-gray-700 transition-all duration-200 ease-in-out hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
 									>Sign out</button
 								>
 							</li>
