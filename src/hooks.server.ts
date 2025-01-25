@@ -67,21 +67,14 @@ const authGuard: Handle = async ({ event, resolve }) => {
 	event.locals.session = session;
 	event.locals.user = user;
 
-	if (!event.locals.session && event.url.pathname.startsWith('/participate/register')) {
+	// if (event.url.pathname.endsWith('.css')) {
+	// 	console.log('Resolving CSS path:', event.url.pathname);
+	// 	return resolve(event);
+	// }
+
+	if (!event.locals.session && event.url.pathname.startsWith('/dashboard')) {
 		redirect(303, '/auth');
 	}
-
-	// if (!event.locals.session && event.url.pathname.startsWith('/dashboard')) {
-	// 	redirect(303, '/auth');
-	// }
-
-	// if (!event.locals.session && event.url.pathname.startsWith('/dashboard/profile')) {
-	// 	redirect(303, '/auth');
-	// }
-
-	// if (!event.locals.session && event.url.pathname.startsWith('/dashboard/update')) {
-	// 	redirect(303, '/auth');
-	// }
 
 	if (event.locals.session && event.url.pathname === '/auth') {
 		redirect(303, '/dashboard');

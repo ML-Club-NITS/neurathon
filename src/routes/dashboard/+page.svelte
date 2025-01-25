@@ -3,11 +3,11 @@
 	import Notification from '$lib/components/Notification.svelte';
 	let { data } = $props();
 	let { commits, round } = $derived(data);
-	console.log(commits);
+	// console.log(commits);
 </script>
 
 <section class="flex h-auto w-full flex-col items-center justify-center gap-4">
-	<nav class="flex w-full mt-2" aria-label="Breadcrumb">
+	<nav class="mt-2 flex w-full" aria-label="Breadcrumb">
 		<ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
 			<li class="inline-flex items-center">
 				<a

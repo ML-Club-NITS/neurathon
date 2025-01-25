@@ -1,6 +1,6 @@
 <script lang="ts">
 	let { data } = $props();
-	let { text, context } = $derived(data);
+	let { text } = $derived(data);
 </script>
 
 <div

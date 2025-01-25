@@ -101,7 +101,7 @@
 			<!-- Animated Gradient Background -->
 			<span>
 				<span
-					class="spark mask-gradient absolute inset-0 h-[100%] w-[100%] animate-flip overflow-hidden rounded-xl [mask:linear-gradient(white,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:rotate-[-90deg] before:animate-kitrotate before:bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] before:content-[''] before:[inset:0_auto_auto_50%] before:[translate:-50%_-15%]"
+					class="spark mask-gradient animate-flip before:animate-kitrotate absolute inset-0 h-[100%] w-[100%] overflow-hidden rounded-xl [mask:linear-gradient(white,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:rotate-[-90deg] before:bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] before:content-[''] before:[inset:0_auto_auto_50%] before:[translate:-50%_-15%]"
 				></span>
 			</span>
 
@@ -205,15 +205,19 @@
 						</div>
 
 						<!-- College ID Submission Field -->
-						<div class="h-max flex flex-col">
-							<div class="mb-2 block text-sm font-medium text-neutral-400"
-								>Organization ID Submission</div
+						<div class="flex h-max flex-col">
+							<div class="mb-2 block text-sm font-medium text-neutral-400">
+								Organization ID Submission
+							</div>
+							<label
+								for="collegeId"
+								class="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
+								>Choose file (pdf, jpg, jpeg, png supported)</label
 							>
-							<label for="collegeId" class="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500">Choose file (pdf, jpg, jpeg, png supported)</label>
 							<input
 								type="file"
 								id="collegeId"
-								class="w-full hidden rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
+								class="hidden w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
 								accept=".pdf,.jpeg,.jpg,.png"
 							/>
 						</div>

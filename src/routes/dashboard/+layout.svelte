@@ -1,24 +1,12 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
 	import neurathon_logo from '$lib/assets/nurathon_logo.svg';
+	import { onMount } from 'svelte';
 
-	let { children, data } = $props();
-	let { user, supabase, TeamID } = $derived(data);
-
-	async function signOut() {
-		const { error } = await supabase.auth.signOut();
-		console.error(error);
-		goto('/');
-	}
-
-	// function toggleSidebar() {
-	// 	const sidebar = document.getElementById('logo-sidebar');
-	// 	if (sidebar) {
-	// 		sidebar.classList.toggle('-translate-x-full');
-	// 	}
-	// }
+	let { children } = $props();
+	let r1Qulified = true;
+	let registered = false;
 
 	function toggleUserMenu() {
 		const dropdown = document.getElementById('dropdown-user');
@@ -26,22 +14,14 @@
 			dropdown.classList.toggle('hidden');
 		}
 	}
+
 	let isSidebarOpen = $state(false);
 	let SideBar = $state<Node | null>(null);
 	let active = $state('');
 
-	let sideRef: HTMLElement | null = null;
-	let profRef: HTMLElement | null = null;
 	function handleClickOutside(event: MouseEvent) {
-		if(sideRef && !sideRef.contains(event.target as Node)) {
-			const sidebar = document.getElementById('logo-sidebar');
-			const profbar = document.getElementById('dropdown-user');
-			if(sidebar) {
-				sideRef.classList.add('-translate-x-full');
-			}
-			if(profbar){
-				profRef?.classList.add('hidden');
-			}
+		if (isSidebarOpen && SideBar && !SideBar.contains(event.target as Node)) {
+			isSidebarOpen = false;
 		}
 	}
 
@@ -59,9 +39,9 @@
 	});
 
 	onMount(() => {
-		document.addEventListener('mousedown', handleClickOutside);
+		document.addEventListener('click', handleClickOutside);
 		return () => {
-			document.removeEventListener('mousedown', handleClickOutside);
+			document.removeEventListener('click', handleClickOutside);
 		};
 	});
 </script>
@@ -118,17 +98,21 @@
 						aria-expanded="false"
 					>
 						<span class="sr-only">Open user menu</span>
-						<div
-							class="h-8 w-8 rounded-full flex items-center justify-center text-white font-semibold text-lg"
-						>{user?.user_metadata?.name[0]}</div>
+						<img
+							class="h-8 w-8 rounded-full"
+							src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+							alt="User"
+						/>
 					</button>
 					<div
 						id="dropdown-user"
-						bind:this={profRef}
 						class="absolute right-0 z-50 mt-2 hidden w-48 divide-y divide-gray-100 rounded-lg bg-white shadow-lg transition-all duration-200 ease-in-out dark:divide-gray-600 dark:bg-gray-700"
 					>
 						<div class="px-4 py-3">
-							<p class="text-sm text-gray-900 dark:text-white">{user?.user_metadata?.name}</p>
+							<p class="text-sm text-gray-900 dark:text-white">Neil Sims</p>
+							<p class="truncate text-sm font-medium text-gray-500 dark:text-gray-300">
+								neil.sims@flowbite.com
+							</p>
 						</div>
 						<ul class="py-1">
 							<li>
@@ -146,10 +130,10 @@
 								>
 							</li>
 							<li>
-								<button
-									onclick={()=>{signOut(); goto('/')}}
+								<a
+									href="/"
 									class="block px-4 py-2 text-sm text-gray-700 transition-all duration-200 ease-in-out hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
-									>Sign out</button
+									>Sign out</a
 								>
 							</li>
 						</ul>
@@ -163,7 +147,7 @@
 	<aside
 		bind:this={SideBar}
 		id="logo-sidebar"
-		class={`${isSidebarOpen ? '-translate-x-0' : '-translate-x-full'} fixed top-0 z-10 h-screen w-64 -translate-x-full border-r bg-white pt-20 transition-transform duration-300 ease-in-out lg:fixed lg:translate-x-0 dark:border-gray-700 dark:bg-[#21212196]`}
+		class={`${isSidebarOpen ? '-translate-x-0' : '-translate-x-full'} fixed top-0 z-10 h-screen w-64 border-r bg-white pt-20 transition-transform duration-300 ease-in-out lg:fixed lg:translate-x-0 dark:border-gray-700 dark:bg-[#141414e9]`}
 	>
 		<ul class="space-y-2 px-3 font-medium">
 			<li>
@@ -188,7 +172,7 @@
 					><i class="fi fi-rr-dashboard"></i>Dashboard</button
 				>
 			</li>
-			{#if TeamID}
+			{#if registered}
 				<li>
 					<button
 						onclick={() => {
@@ -202,7 +186,7 @@
 						<i class="fi fi-sr-team-check"></i>Team
 					</button>
 				</li>
-			{:else}
+			{:else if r1Qulified}
 				<li>
 					<button
 						onclick={() => {

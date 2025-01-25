@@ -1,10 +1,7 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
-	import type { PageData } from './$types';
-	let { data }: { data: PageData } = $props();
+	let { data } = $props();
 
-	// let { data } = $props();
-	let { supabase, user, TeamID, team } = $derived(data);
+	let { user, TeamID, team } = $derived(data);
 
 	let profileCompleted = true;
 </script>
@@ -104,22 +101,22 @@
 				<h2 class="mb-4 text-2xl font-bold">Team Information</h2>
 				<div class="space-y-4">
 					<div>
-						<label class="text-sm font-medium text-neutral-400">Team ID</label>
+						<span class="text-sm font-medium text-neutral-400">Team ID</span>
 						<p class="text-neutral-100">{TeamID}</p>
 					</div>
 					<div>
-						<label class="text-sm font-medium text-neutral-400">Team Name</label>
+						<span class="text-sm font-medium text-neutral-400">Team Name</span>
 						<p class="text-neutral-100">{team?.TeamName}</p>
 					</div>
 					<div>
-						<label class="text-sm font-medium text-neutral-400">Team Leader</label>
+						<span class="text-sm font-medium text-neutral-400">Team Leader</span>
 						<p class="text-neutral-100">
 							{team.Members.find((m: { sub: string; name: string }) => m.sub === team?.CreatedBy)
 								?.name}
 						</p>
 					</div>
 					<div>
-						<label class="text-sm font-medium text-neutral-400">Team Members</label>
+						<span class="text-sm font-medium text-neutral-400">Team Members</span>
 						<div class="space-y-2">
 							{#each team?.Members as member}
 								<p class="text-neutral-100">
