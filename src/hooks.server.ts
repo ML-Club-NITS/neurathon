@@ -67,11 +67,6 @@ const authGuard: Handle = async ({ event, resolve }) => {
 	event.locals.session = session;
 	event.locals.user = user;
 
-	// if (event.url.pathname.endsWith('.css')) {
-	// 	console.log('Resolving CSS path:', event.url.pathname);
-	// 	return resolve(event);
-	// }
-
 	if (!event.locals.session && event.url.pathname.startsWith('/dashboard')) {
 		redirect(303, '/auth');
 	}

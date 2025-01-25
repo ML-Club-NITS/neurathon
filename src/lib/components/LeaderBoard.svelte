@@ -429,7 +429,7 @@
 		mouseX.set(e.clientX - left);
 		mouseY.set(e.clientY - top);
 	}}
-	class="group relative w-full overflow-hidden rounded-md border border-gray-800 bg-gradient-to-r from-indigo-900/[0.3] to-black p-6 text-white opacity-95 shadow-lg backdrop-blur-sm transition-all duration-300 hover:opacity-100"
+	class="group scroll-m-0 relative w-full overflow-hidden rounded-md border border-gray-800 bg-gradient-to-r from-indigo-900/[0.3] to-black p-6 text-white opacity-95 shadow-lg backdrop-blur-sm transition-all duration-300 hover:opacity-100"
 >
 	<Motion
 		style={{
@@ -456,9 +456,9 @@
 		/>
 	</div>
 
-	<!-- Table -->
-	<div class="table-da">
-		<Table hoverable={true} divClass="w-[initial] rounded-md overflow-hidden">
+	<!-- Table Container with Horizontal Scroll -->
+	<div class="table-da overflow-x-auto">
+		<Table hoverable={true} divClass="min-w-[600px] rounded-md overflow-hidden">
 			<TableHead theadClass="rounded-md text-white bg-gray-800">
 				<TableHeadCell
 					class="rounded-tl-md border border-b-0 border-r-0 border-gray-950 bg-black px-4 py-3 shadow-lg backdrop-blur-sm"
