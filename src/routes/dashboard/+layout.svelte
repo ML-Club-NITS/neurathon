@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
-	import neurathon_logo from '$lib/assets/nurathon_logo.svg';
+	// import neurathon_logo from '$lib/assets/nurathon_logo.svg';
+	// import logo2 from '$lib/assets/logo2.png';
+	import log4 from '$lib/assets/log4.png';
 	import { onMount } from 'svelte';
 	import GradientAnimation from '$lib/components/ui/GradientAnimation.svelte';
 
@@ -83,7 +85,7 @@
 						</svg>
 					</button>
 					<a href="/dashboard" class="ml-2 flex items-center">
-						<img src={neurathon_logo} class="mr-3 h-8" alt="Logo" />
+						<img src={log4} class="mr-0 h-16" alt="Logo" />
 						<span
 							class="self-center text-xl font-semibold text-gray-800 transition-colors duration-200 ease-in-out hover:text-gray-600 dark:text-white dark:hover:text-gray-300"
 							>Neurathon</span
