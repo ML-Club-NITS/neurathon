@@ -1,9 +1,13 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
-	import neurathon_logo from '$lib/assets/nurathon_logo.svg';
-	import { onMount } from 'svelte';
 	import { toast } from '@zerodevx/svelte-toast';
+
+	// import neurathon_logo from '$lib/assets/nurathon_logo.svg';
+	// import logo2 from '$lib/assets/logo2.png';
+	import GradientAnimation from '$lib/components/ui/GradientAnimation.svelte';
+	import log4 from '$lib/assets/log4.png';
 
 	let { children, data } = $props();
 	let { supabase, user } = $derived(data);
@@ -99,7 +103,7 @@
 						</svg>
 					</button>
 					<a href="/dashboard" class="ml-2 flex items-center">
-						<img src={neurathon_logo} class="mr-3 h-8" alt="Logo" />
+						<img src={log4} class="mr-0 h-16" alt="Logo" />
 						<span
 							class="self-center text-xl font-semibold text-gray-800 transition-colors duration-200 ease-in-out hover:text-gray-600 dark:text-white dark:hover:text-gray-300"
 							>Neurathon</span
@@ -237,9 +241,24 @@
 	</aside>
 
 	<!-- Main Content -->
-	<main
-		class="max-h-auto mt-14 flex flex-col flex-wrap items-center gap-4 overflow-scroll p-4 lg:ml-64 lg:flex-row lg:items-start lg:justify-center"
+	<GradientAnimation
+		gradientBackgroundStart="rgb(0, 0, 0)"
+		gradientBackgroundEnd="rgb(0, 0, 0)"
+		firstColor="18, 113, 255"
+		secondColor="221, 74, 255"
+		thirdColor="0, 0, 0"
+		fourthColor="200, 50, 50"
+		fifthColor="0, 0, 0"
+		pointerColor="76, 103, 235"
+		size="80%"
+		blendingValue="hard-light"
+		interactive={true}
+		containerClassName="min-h-screen"
 	>
-		{@render children()}
-	</main>
+		<main
+			class="max-h-auto mt-14 flex flex-col flex-wrap items-center gap-4 overflow-hidden p-4 lg:ml-64 lg:flex-row lg:items-start lg:justify-center"
+		>
+			{@render children()}
+		</main>
+	</GradientAnimation>
 </div>

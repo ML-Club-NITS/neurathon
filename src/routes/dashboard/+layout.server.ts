@@ -52,7 +52,7 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 				'https://api.github.com/repos/tech-hunter-mainak/neurathon-24/commits'
 			);
 			const userData = await msg.json();
-			const dataSize = userData.length > 5 ? 5 : userData.length;
+			const dataSize = userData.length;
 			const commitData = [];
 			for (let i = 0; i < dataSize; i++) {
 				commitData.push({

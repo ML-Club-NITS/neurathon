@@ -4,7 +4,7 @@
 	let { data } = $props();
 </script>
 
-<section class="flex justify-evenly">
+<section class="flex max-h-screen justify-evenly">
 	<!-- mlclub -->
 	<Participate {data} />
 </section>

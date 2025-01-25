@@ -90,8 +90,8 @@
 	});
 </script>
 
-<section class="flex min-h-screen w-full flex-col items-center justify-center">
-	<nav class="my-2 flex w-full" aria-label="Breadcrumb">
+<section class="flex min-h-screen w-full flex-col items-center justify-center p-4">
+	<nav class="my-2 w-full" aria-label="Breadcrumb">
 		<ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
 			<li class="inline-flex items-center">
 				<a
@@ -161,7 +161,7 @@
 		</ol>
 	</nav>
 	<div
-		class="my-2 flex w-full items-center rounded-lg border border-blue-300 bg-blue-50 p-4 text-sm text-blue-800 dark:border-blue-800 dark:bg-gray-800 dark:text-blue-400"
+		class="my-2 w-full rounded-lg border border-blue-300 bg-blue-50 p-4 text-sm text-blue-800 dark:border-blue-800 dark:bg-gray-800 dark:text-blue-400"
 		role="alert"
 	>
 		<svg
@@ -180,24 +180,24 @@
 			<span class="font-medium">Info alert!</span> Change a few things up and try submitting again.
 		</div>
 	</div>
-	<div class="mx-auto w-full max-w-[800px]">
+	<div class="w-full">
 		<div
-			class="group relative grid overflow-hidden rounded-xl px-8 py-6 shadow-[0_1000px_0_0_hsl(0_0%_20%)_inset] transition-colors duration-200"
+			class="group relative w-full overflow-hidden rounded-xl px-4 py-6 shadow-[0_1000px_0_0_hsl(0_0%_20%)_inset] transition-colors duration-200 sm:px-8"
 		>
 			<!-- Animated Gradient Background -->
 			<span>
 				<span
-					class="spark mask-gradient animate-flip before:animate-kitrotate absolute inset-0 h-[100%] w-[100%] overflow-hidden rounded-xl [mask:linear-gradient(white,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:rotate-[-90deg] before:bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] before:content-[''] before:[inset:0_auto_auto_50%] before:[translate:-50%_-15%]"
+					class="spark mask-gradient animate-flip before:animate-kitrotate absolute inset-0 h-full w-full overflow-hidden rounded-xl [mask:linear-gradient(white,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:rotate-[-90deg] before:bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] before:content-[''] before:[inset:0_auto_auto_50%] before:[translate:-50%_-15%]"
 				></span>
 			</span>
 
 			<!-- Backdrop for Content -->
 			<span
-				class="backdrop absolute inset-px rounded-[11px] bg-neutral-950 transition-colors duration-200"
+				class="backdrop absolute inset-0 w-full rounded-[11px] bg-neutral-950 transition-colors duration-200"
 			></span>
 
 			<!-- Form Content -->
-			<div class="z-0 space-y-6">
+			<div class="relative z-0 space-y-6">
 				<h2 class="text-3xl font-bold text-neutral-200">Update Profile</h2>
 
 				<form
