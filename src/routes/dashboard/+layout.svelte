@@ -3,18 +3,16 @@
 	import { goto } from '$app/navigation';
 	import neurathon_logo from '$lib/assets/nurathon_logo.svg';
 	import { onMount } from 'svelte';
+	import { toast } from '@zerodevx/svelte-toast';
 
-	let { children } = $props();
+	let { children, data } = $props();
+	let { supabase, user } = $derived(data);
+	
 	let r1Qulified = true;
 	let registered = false;
 
-	function toggleUserMenu() {
-		const dropdown = document.getElementById('dropdown-user');
-		if (dropdown) {
-			dropdown.classList.toggle('hidden');
-		}
-	}
-
+	let isMenubarOpen = $state(false);
+	let MenuBar = $state<Node | null>(null);
 	let isSidebarOpen = $state(false);
 	let SideBar = $state<Node | null>(null);
 	let active = $state('');
@@ -23,6 +21,14 @@
 		if (isSidebarOpen && SideBar && !SideBar.contains(event.target as Node)) {
 			isSidebarOpen = false;
 		}
+		if (isMenubarOpen && MenuBar && !MenuBar.contains(event.target as Node)) {
+			isMenubarOpen = false;
+		}
+	}
+
+	function toggleMenuBar(event: MouseEvent) {
+		event.stopPropagation();
+		isMenubarOpen = !isMenubarOpen;
 	}
 
 	function toggleSideBar(event: MouseEvent) {
@@ -32,6 +38,18 @@
 
 	function handleLinkClick() {
 		isSidebarOpen = false;
+		isMenubarOpen = false;
+	}
+
+	async function signOut() {
+		const { error } = await supabase.auth.signOut();
+
+		if (error) {
+			toast.push('Error signing out');
+		} else {
+			goto('/participate');
+		}
+
 	}
 
 	$effect(() => {
@@ -93,7 +111,7 @@
 				<!-- User Profile -->
 				<div class="relative ml-3">
 					<button
-						onclick={() => toggleUserMenu()}
+						onclick={toggleMenuBar}
 						class="flex rounded-full bg-gray-800 text-sm transition-all duration-200 ease-in-out hover:ring-4 hover:ring-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:hover:ring-gray-600 dark:focus:ring-gray-600"
 						aria-expanded="false"
 					>
@@ -105,35 +123,38 @@
 						/>
 					</button>
 					<div
+						bind:this={MenuBar}
 						id="dropdown-user"
-						class="absolute right-0 z-50 mt-2 hidden w-48 divide-y divide-gray-100 rounded-lg bg-white shadow-lg transition-all duration-200 ease-in-out dark:divide-gray-600 dark:bg-gray-700"
+						class={`absolute ${isMenubarOpen ? "" : "hidden"} right-0 z-50 mt-2 w-48 divide-y divide-gray-100 rounded-lg bg-white shadow-lg transition-all duration-200 ease-in-out dark:divide-gray-600 dark:bg-gray-700`}
 					>
 						<div class="px-4 py-3">
-							<p class="text-sm text-gray-900 dark:text-white">Neil Sims</p>
+							<p class="text-sm text-gray-900 dark:text-white">{user?.user_metadata.name}</p>
 							<p class="truncate text-sm font-medium text-gray-500 dark:text-gray-300">
-								neil.sims@flowbite.com
+								{user?.user_metadata.email}
 							</p>
 						</div>
 						<ul class="py-1">
 							<li>
 								<a
 									href="/dashboard"
+									onclick={handleLinkClick}
 									class="block px-4 py-2 text-sm text-gray-700 transition-all duration-200 ease-in-out hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
 									>Dashboard</a
-								>
-							</li>
-							<li>
-								<a
+									>
+								</li>
+								<li>
+									<a
 									href="/dashboard/profile"
+									onclick={handleLinkClick}
 									class="block px-4 py-2 text-sm text-gray-700 transition-all duration-200 ease-in-out hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
 									>Profile</a
-								>
-							</li>
-							<li>
-								<a
-									href="/"
-									class="block px-4 py-2 text-sm text-gray-700 transition-all duration-200 ease-in-out hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
-									>Sign out</a
+									>
+								</li>
+								<li>
+									<button
+									onclick={signOut}
+									class="block w-full text-left px-4 py-2 text-sm text-gray-700 transition-all duration-200 ease-in-out hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
+									>Sign out</button
 								>
 							</li>
 						</ul>
