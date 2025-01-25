@@ -4,7 +4,7 @@
 	let mouseX = useMotionValue(0);
 	let mouseY = useMotionValue(0);
 	let background = useMotionTemplate`
-		radial-gradient(200px circle at ${mouseX}px ${mouseY}px, rgba(255, 255, 255, 0.1), transparent 80%)
+		radial-gradient(300px circle at ${mouseX}px ${mouseY}px, rgba(255, 255, 255, 0.15), transparent 80%)
 	`;
 
 	import {
@@ -17,7 +17,15 @@
 	} from 'flowbite-svelte';
 
 	// Sample data with Rank, Team Name, Points, and Links
-	let items = [
+	interface Item {
+		rank: number;
+		teamName: string;
+		points: number;
+		deploymentLink?: string;
+		gitRepoLink?: string;
+	}
+
+	let items: Item[] = [
 		{
 			rank: 1,
 			teamName: 'Team Alpha',
@@ -421,7 +429,7 @@
 		mouseX.set(e.clientX - left);
 		mouseY.set(e.clientY - top);
 	}}
-	class="group relative w-full overflow-hidden overflow-x-scroll rounded-md border border-gray-800 bg-gradient-to-r from-indigo-900/[0.3] to-black p-4 text-white opacity-95 shadow-sm backdrop-blur-sm transition-all duration-300 hover:opacity-100"
+	class="group relative w-full overflow-hidden rounded-md border border-gray-800 bg-gradient-to-r from-indigo-900/[0.3] to-black p-6 text-white opacity-95 shadow-lg backdrop-blur-sm transition-all duration-300 hover:opacity-100"
 >
 	<Motion
 		style={{
@@ -435,15 +443,25 @@
 		></div>
 	</Motion>
 
+	<!-- Title -->
+	<h1 class="mb-6 text-center text-2xl font-bold text-white/90">Leaderboard</h1>
+
 	<!-- Search Input -->
-	<div class="mb-4 text-center text-xl font-bold">LeaderBoard</div>
+	<div class="mb-6">
+		<input
+			type="text"
+			bind:value={searchQuery}
+			placeholder="Search teams..."
+			class="w-full rounded-md border border-gray-700 bg-gray-900/50 px-4 py-2 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+		/>
+	</div>
 
 	<!-- Table -->
 	<div class="table-da">
 		<Table hoverable={true} divClass="w-[initial] rounded-md overflow-hidden">
 			<TableHead theadClass="rounded-md text-white bg-gray-800">
 				<TableHeadCell
-					class="rounded-tl-md border border-b-0 border-r-0 border-gray-950 bg-black px-4 py-3 shadow-lg backdrop-blur-sm "
+					class="rounded-tl-md border border-b-0 border-r-0 border-gray-950 bg-black px-4 py-3 shadow-lg backdrop-blur-sm"
 					>Rank</TableHeadCell
 				>
 				<TableHeadCell
@@ -480,14 +498,16 @@
 										href={item.deploymentLink}
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-blue-400 hover:text-blue-300">Deployment Link</a
+										class="text-blue-400 hover:text-blue-300"
+										>Deployment Link</a
 									>
 								{:else}
 									<a
 										href={item.gitRepoLink}
 										target="_blank"
 										rel="noopener noreferrer"
-										class="text-blue-400 hover:text-blue-300">Git Repo Link</a
+										class="text-blue-400 hover:text-blue-300"
+										>Git Repo Link</a
 									>
 								{/if}
 							</TableBodyCell>
@@ -505,32 +525,18 @@
 	</div>
 
 	<!-- Pagination -->
-	<div class="mt-4 flex items-center justify-center space-x-2">
+	<div class="mt-6 flex items-center justify-center space-x-2">
 		<button
-			class="rounded bg-black/25 px-4 py-2 text-white transition-all duration-300 hover:bg-black/100"
+			class="rounded-md bg-gray-800/50 px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-gray-800/70 disabled:opacity-50 disabled:hover:bg-gray-800/50"
 			onclick={previousPage}
 			disabled={currentPage === 1}
 		>
 			{'<'}
 		</button>
 
-		<!-- {#each paginationButtons as button}
-			{#if button === '...'}
-				<span class="px-4 py-2">...</span>
-			{:else}
-				<button
-					class={`rounded px-4 py-2 ${
-						currentPage === button ? 'bg-black/95 text-white' : 'bg-black/25 transition-all duration-300 hover:bg-black/95'
-					}`}
-					onclick={() => (currentPage = typeof button === 'number' ? button : currentPage)}
-				>
-					{button}
-				</button>
-			{/if}
-		{/each} -->
-
+		
 		<button
-			class="rounded bg-black/25 px-4 py-2 text-white transition-all duration-300 hover:bg-black/95"
+			class="rounded-md bg-gray-800/50 px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-gray-800/70 disabled:opacity-50 disabled:hover:bg-gray-800/50"
 			onclick={nextPage}
 			disabled={currentPage === totalPages}
 		>

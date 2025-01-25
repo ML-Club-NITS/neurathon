@@ -6,7 +6,7 @@
 	// let { data } = $props();
 	let { supabase, user, TeamID, team } = $derived(data);
 
-	let profileCompleted = false;
+	let profileCompleted = true;
 </script>
 
 <nav class="mt-2 flex w-full" aria-label="Breadcrumb">
@@ -100,39 +100,103 @@
 
 	<div class="register-page w-full overflow-hidden rounded-lg bg-slate-600 p-4 text-red-400">
 		{#if TeamID}
-			<div class="container border-2 border-black bg-slate-600 p-2">
-				<span class="bg-gray-400">Team ID: {TeamID}</span>
-				<h1>Team: {team?.TeamName}</h1>
-				<p>Team Name: {team?.TeamName}</p>
-				<p>
-					Leader: {team.Members.find(
-						(m: { sub: string; name: string }) => m.sub === team?.CreatedBy
-					)?.name}
-				</p>
-				<p>Members:</p>
-				{#each team?.Members as member}
-					<p>{member.name} {member.phone}</p>
-				{/each}
-				<form method="POST">
-					{#if team?.CreatedBy === user?.id}
-						<button formaction="?/delete" class="rounded-lg bg-red-600 px-2 py-1">Delete</button>
-					{:else}
-						<button formaction="?/leave" class="rounded-lg bg-red-600 px-2 py-1">Leave</button>
-					{/if}
-				</form>
+			<div class="rounded-xl bg-neutral-800 p-6 shadow-lg">
+				<h2 class="mb-4 text-2xl font-bold">Team Information</h2>
+				<div class="space-y-4">
+					<div>
+						<label class="text-sm font-medium text-neutral-400">Team ID</label>
+						<p class="text-neutral-100">{TeamID}</p>
+					</div>
+					<div>
+						<label class="text-sm font-medium text-neutral-400">Team Name</label>
+						<p class="text-neutral-100">{team?.TeamName}</p>
+					</div>
+					<div>
+						<label class="text-sm font-medium text-neutral-400">Team Leader</label>
+						<p class="text-neutral-100">
+							{team.Members.find((m: { sub: string; name: string }) => m.sub === team?.CreatedBy)
+								?.name}
+						</p>
+					</div>
+					<div>
+						<label class="text-sm font-medium text-neutral-400">Team Members</label>
+						<div class="space-y-2">
+							{#each team?.Members as member}
+								<p class="text-neutral-100">
+									{member.name} - {member.phone}
+								</p>
+							{/each}
+						</div>
+					</div>
+					<p>
+						Leader: {team.Members.find(
+							(m: { sub: string; name: string }) => m.sub === team?.CreatedBy
+						)?.name}
+					</p>
+					<p>Members:</p>
+					{#each team?.Members as member}
+						<p>{member.name} {member.phone}</p>
+					{/each}
+					<form method="POST" class="flex gap-4">
+						{#if team?.CreatedBy === user?.id}
+							<button
+								formaction="?/delete"
+								class="rounded-lg bg-red-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-red-700"
+							>
+								Delete Team
+							</button>
+						{:else}
+							<button
+								formaction="?/leave"
+								class="rounded-lg bg-red-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-red-700"
+							>
+								Leave Team
+							</button>
+						{/if}
+					</form>
+				</div>
 			</div>
 		{:else}
-			<div class="container flex gap-4">
-				<form method="POST" class="flex w-full flex-col gap-4">
-					<label for="teamname">Team Name</label>
-					<input type="text" id="teamname" class="h-full" name="teamname" />
-					<button formaction="?/register" class="bg-gray-800 p-2">Create Team</button>
-				</form>
-				<form method="POST" class="flex w-full flex-col gap-4">
-					<label for="teamid">Team Id</label>
-					<input type="text" id="teamid" name="teamid" />
-					<button formaction="?/join" class="bg-gray-800 p-2">Join Team</button>
-				</form>
+			<div class="rounded-xl bg-neutral-800 p-6 shadow-lg">
+				<h2 class="mb-4 text-2xl font-bold">Join or Create a Team</h2>
+				<div class="space-y-6">
+					<form method="POST" class="space-y-4">
+						<div>
+							<label for="teamname" class="block text-sm font-medium text-neutral-400"
+								>Team Name</label
+							>
+							<input
+								type="text"
+								id="teamname"
+								name="teamname"
+								class="w-full rounded-lg border border-neutral-600 bg-neutral-700 px-4 py-2 text-neutral-100 focus:border-indigo-500 focus:ring-indigo-500"
+							/>
+						</div>
+						<button
+							formaction="?/register"
+							class="w-full rounded-lg bg-indigo-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-700"
+						>
+							Create Team
+						</button>
+					</form>
+					<form method="POST" class="space-y-4">
+						<div>
+							<label for="teamid" class="block text-sm font-medium text-neutral-400">Team ID</label>
+							<input
+								type="text"
+								id="teamid"
+								name="teamid"
+								class="w-full rounded-lg border border-neutral-600 bg-neutral-700 px-4 py-2 text-neutral-100 focus:border-indigo-500 focus:ring-indigo-500"
+							/>
+						</div>
+						<button
+							formaction="?/join"
+							class="w-full rounded-lg bg-indigo-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-700"
+						>
+							Join Team
+						</button>
+					</form>
+				</div>
 			</div>
 		{/if}
 	</div>
