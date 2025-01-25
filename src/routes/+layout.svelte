@@ -8,7 +8,7 @@
 	import { Navbar } from '$lib/components';
 
 	let { data, children } = $props();
-	let { session, supabase } = $derived(data);
+	let { session, supabase, user } = $derived(data);
 
 	let url: string;
 
@@ -34,7 +34,7 @@
 		{@render children()}
 	</div>
 {:else}
-	<Navbar />
+	<Navbar isRegistered={!!user} />
 	{@render children()}
 {/if}
 

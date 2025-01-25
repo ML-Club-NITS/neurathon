@@ -1,7 +1,93 @@
-<script>
-	import { goto } from '$app/navigation';
-	let { data } = $props();
-	let { user } = $derived(data);
+<script lang="ts">
+	import { enhance } from '$app/forms';
+	import { toast } from '@zerodevx/svelte-toast';
+
+	let { data, form: formData } = $props();
+	let { user, profile } = $derived(data);
+
+	let selectedFile = $state<File | null>(null);
+	let filePreviewUrl = $state<string | null>(null);
+
+	let form = $state({
+		institute: ''
+	});
+
+	let formErrors = $state({
+		instituteError: '',
+		fileError: ''
+	});
+
+	const validate = () => {
+		formErrors.instituteError = '';
+
+		if (!form.institute) formErrors.instituteError = 'Field is required';
+		if (!selectedFile) formErrors.fileError = 'File is required';
+
+		return !Object.values(formErrors).some((error) => error !== '');
+	};
+
+	function handleFileSelect(event: Event) {
+		formErrors.fileError = '';
+
+		const target = event.target as HTMLInputElement;
+		const file = target.files?.[0] || null;
+
+		const validTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+		const maxSizeInBytes = 2 * 1024 * 1024; // 2 MB
+
+		if (file) {
+			if (!validTypes.includes(file.type)) {
+				formErrors.fileError = 'File must be a JPEG, JPG or PNG.';
+				return;
+			} else if (file.size > maxSizeInBytes) {
+				formErrors.fileError = 'File size must be less than 2 MB.';
+				return;
+			}
+
+			selectedFile = file;
+			if (file.type.startsWith('image/') || file.type === 'application/pdf') {
+				const reader = new FileReader();
+				reader.onload = () => {
+					filePreviewUrl = reader.result as string;
+				};
+				reader.readAsDataURL(file);
+			} else {
+				filePreviewUrl = null;
+			}
+		} else {
+			selectedFile = null;
+			filePreviewUrl = null;
+		}
+	}
+
+	function clearFile() {
+		selectedFile = null;
+		filePreviewUrl = null;
+		formErrors.fileError = '';
+	}
+
+	$effect(() => {
+		if (formData?.success) {
+			toast.push('Profile updated successfully', {
+				theme: {
+					'--toastColor': '#fff',
+					'--toastBackground': 'rgba(16, 185, 129, 0.9)',
+					'--toastBarBackground': '#10B981'
+				},
+				duration: 1500
+			});
+		}
+		if (formData?.error) {
+			toast.push(formData?.error, {
+				theme: {
+					'--toastColor': '#fff',
+					'--toastBackground': 'rgba(220, 38, 38, 0.9)',
+					'--toastBarBackground': '#DC2626'
+				},
+				duration: 1500
+			});
+		}
+	});
 </script>
 
 <section class="flex min-h-screen w-full flex-col items-center justify-center">
@@ -111,15 +197,29 @@
 			></span>
 
 			<!-- Form Content -->
-			<div class="z-10 space-y-6">
+			<div class="z-0 space-y-6">
 				<h2 class="text-3xl font-bold text-neutral-200">Update Profile</h2>
 
-				<form class="space-y-6">
+				<form
+					id="profileForm"
+					method="POST"
+					class="space-y-6"
+					action="?/completeProfile"
+					enctype="multipart/form-data"
+					autocomplete="off"
+					use:enhance={({ cancel }) => {
+						if (!validate()) {
+							return cancel();
+						}
+
+						return async ({ update }) => update();
+					}}
+					novalidate
+				>
 					<!-- Name Field -->
 					<div>
-						<label for="name" class="mb-2 block text-sm font-medium text-neutral-400">Name</label>
+						<span class="mb-2 block text-sm font-medium text-neutral-400">Name</span>
 						<div
-							id="name"
 							class="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
 						>
 							{user?.user_metadata?.name}
@@ -128,9 +228,8 @@
 
 					<!-- Email Field -->
 					<div>
-						<label for="email" class="mb-2 block text-sm font-medium text-neutral-400">Email</label>
+						<span class="mb-2 block text-sm font-medium text-neutral-400">Email</span>
 						<div
-							id="email"
 							class="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
 						>
 							{user?.email}
@@ -139,55 +238,67 @@
 
 					<!-- Phone Field -->
 					<div>
-						<label for="phone" class="mb-2 block text-sm font-medium text-neutral-400">Phone</label>
+						<span class="mb-2 block text-sm font-medium text-neutral-400">Phone</span>
 						<div
-							id="phone"
 							class="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
 						>
 							{user?.user_metadata?.phone}
 						</div>
 					</div>
 
-					<!-- Conditional Fields -->
-					{#if 0}
-						<!-- Organization Field -->
+					{#if !!profile}
+						<!-- Institute Field -->
 						<div>
-							<label for="organization" class="mb-2 block text-sm font-medium text-neutral-400"
-								>Organization</label
-							>
-							<input
-								type="text"
-								id="organization"
+							<span class="mb-2 block text-sm font-medium text-neutral-400">Institute Name</span>
+							<div
 								class="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
-								value="Estep Bilişim"
-							/>
+							>
+								{profile.institute}
+							</div>
 						</div>
 
-						<!-- Location Field -->
+						<!-- Course Field -->
 						<div>
-							<label for="location" class="mb-2 block text-sm font-medium text-neutral-400"
-								>Location</label
+							<span class="mb-2 block text-sm font-medium text-neutral-400">Course</span>
+							<div
+								class="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 uppercase text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
 							>
-							<input
-								type="text"
-								id="location"
-								class="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
-								value="San Francisco, CA"
-							/>
+								{profile.course}
+							</div>
+						</div>
+
+						<!-- College ID Field -->
+						<div>
+							<span class="mb-2 block text-sm font-medium text-neutral-400">College ID</span>
+							<div
+								class="mt-2 flex h-64 w-full items-center justify-center overflow-hidden rounded-lg bg-neutral-800"
+							>
+								<img
+									src={profile.college_id_url}
+									alt="Selected file preview"
+									class="h-full w-full object-cover"
+								/>
+							</div>
 						</div>
 					{:else}
-						<!-- Organization Field -->
+						<!-- Institute Field -->
 						<div>
-							<label for="organization" class="mb-2 block text-sm font-medium text-neutral-400"
-								>Organization</label
+							<label for="institute" class="mb-2 block text-sm font-medium text-neutral-400"
+								>Institute</label
 							>
 							<input
 								type="text"
-								id="organization"
+								id="institute"
+								name="institute"
 								class="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
-								value=""
+								class:!border-red-500={formErrors.instituteError}
+								bind:value={form.institute}
 								placeholder="Add your organisation (i.e., college, university, etc...)"
+								aria-invalid={formErrors.instituteError ? 'true' : 'false'}
 							/>
+							{#if formErrors.instituteError}
+								<p class="pt-1 text-right text-xs text-red-500">{formErrors.instituteError}</p>
+							{/if}
 						</div>
 
 						<!-- Course Field -->
@@ -197,6 +308,7 @@
 							>
 							<select
 								id="course"
+								name="course"
 								class="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
 							>
 								<option value="ug" selected>UG</option>
@@ -207,38 +319,81 @@
 						<!-- College ID Submission Field -->
 						<div class="flex h-max flex-col">
 							<div class="mb-2 block text-sm font-medium text-neutral-400">
-								Organization ID Submission
+								institute ID Submission
 							</div>
 							<label
 								for="collegeId"
 								class="w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
-								>Choose file (pdf, jpg, jpeg, png supported)</label
+								class:!border-red-500={formErrors.fileError}
+								>Choose file (JPEG, JPG or PNG | Max 2 MB)</label
 							>
 							<input
 								type="file"
 								id="collegeId"
+								name="collegeId"
 								class="hidden w-full rounded-lg border border-neutral-700 bg-neutral-900 px-4 py-3 text-neutral-200 focus:border-indigo-500 focus:ring-indigo-500"
 								accept=".pdf,.jpeg,.jpg,.png"
+								onchange={handleFileSelect}
+								aria-invalid={formErrors.fileError ? 'true' : 'false'}
 							/>
+							{#if formErrors.fileError}
+								<p class="pt-1 text-right text-xs text-red-500">{formErrors.fileError}</p>
+							{/if}
+						</div>
+
+						<!-- File Preview -->
+						{#if selectedFile}
+							<div class="mt-2 text-sm text-neutral-400">
+								{#if selectedFile.type.startsWith('image/')}
+									<!-- Image Preview -->
+									<div
+										class="mt-2 flex h-64 w-full items-center justify-center overflow-hidden rounded-lg bg-neutral-800"
+									>
+										<img
+											src={filePreviewUrl}
+											alt="Selected file preview"
+											class="h-full w-full object-cover"
+										/>
+									</div>
+									<!-- {:else if selectedFile.type === 'application/pdf'}
+								<div
+									class="mt-2 flex h-64 w-full items-center justify-center overflow-hidden rounded-lg bg-neutral-800"
+								>
+									<embed
+										src={`${filePreviewUrl}#toolbar=0`}
+										type="application/pdf"
+										class="h-full w-full"
+									/>
+								</div> -->
+								{/if}
+
+								<!-- Clear Button -->
+								<button
+									onclick={clearFile}
+									type="button"
+									class="mt-2 text-sm text-red-500 hover:text-red-600"
+								>
+									Clear File
+								</button>
+							</div>
+						{/if}
+
+						<!-- Buttons -->
+						<div class="flex justify-end space-x-4">
+							<button
+								type="reset"
+								class="rounded-lg bg-neutral-700 px-6 py-2 text-neutral-200 transition-colors duration-200 hover:bg-neutral-600"
+							>
+								Cancel
+							</button>
+							<button
+								type="submit"
+								class="rounded-lg bg-indigo-600 px-6 py-2 text-white transition-colors duration-200 hover:bg-indigo-700"
+							>
+								Save Changes
+							</button>
 						</div>
 					{/if}
-
-					<!-- Buttons -->
-					<div class="flex justify-end space-x-4">
-						<button
-							onclick={() => goto('/dashboard/profile')}
-							type="button"
-							class="rounded-lg bg-neutral-700 px-6 py-2 text-neutral-200 transition-colors duration-200 hover:bg-neutral-600"
-						>
-							Cancel
-						</button>
-						<button
-							type="submit"
-							class="rounded-lg bg-indigo-600 px-6 py-2 text-white transition-colors duration-200 hover:bg-indigo-700"
-						>
-							Save Changes
-						</button>
-					</div>
 				</form>
 			</div>
 		</div>

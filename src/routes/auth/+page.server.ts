@@ -53,5 +53,3 @@ export const actions: Actions = {
 		return { resetPassword: true };
 	}
 };
-
-// console.log(error);

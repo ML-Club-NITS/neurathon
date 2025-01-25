@@ -3,11 +3,13 @@
 	import eligibilityData from '$lib/data/eligibilityData.json';
 	import { ParticipateTimeline, Button, GradientAnimation } from './ui';
 
+	let { data } = $props();
+
 	let neurathonDate = '--/--/2025';
 	let eligData2 = [
 		{
 			title: 'Registrations',
-			des: '--',
+			des: data?.data[0].count ?? '-',
 			icon: 'fi fi-ss-team-check-alt'
 		},
 		{
