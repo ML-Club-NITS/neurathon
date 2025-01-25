@@ -3,6 +3,7 @@
 	import { goto } from '$app/navigation';
 	import neurathon_logo from '$lib/assets/nurathon_logo.svg';
 	import { onMount } from 'svelte';
+	import GradientAnimation from '$lib/components/ui/GradientAnimation.svelte';
 
 	let { children } = $props();
 	let r1Qulified = true;
@@ -217,9 +218,24 @@
 	</aside>
 
 	<!-- Main Content -->
+	<GradientAnimation
+	gradientBackgroundStart="rgb(0, 0, 0)"
+	gradientBackgroundEnd="rgb(0, 0, 0)"
+	firstColor="18, 113, 255"
+	secondColor="221, 74, 255"
+	thirdColor="0, 0, 0"
+	fourthColor="200, 50, 50"
+	fifthColor="0, 0, 0"
+	pointerColor="76, 103, 235"
+	size="80%"
+	blendingValue="hard-light"
+	interactive={true}
+	containerClassName="min-h-screen"
+>
 	<main
 		class="max-h-auto mt-14 flex flex-col flex-wrap items-center gap-4 overflow-scroll p-4 lg:ml-64 lg:flex-row lg:items-start lg:justify-center"
 	>
 		{@render children()}
 	</main>
+	</GradientAnimation>
 </div>

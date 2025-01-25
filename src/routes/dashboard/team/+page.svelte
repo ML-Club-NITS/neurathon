@@ -1,8 +1,9 @@
 <script lang="ts">
+	import { GradientAnimation } from '$lib/components/ui';
+	import { cn } from '$lib/utils';
+
 	let { data } = $props();
-
 	let { user, TeamID, team } = $derived(data);
-
 	let profileCompleted = true;
 </script>
 
@@ -73,9 +74,10 @@
 		</li>
 	</ol>
 </nav>
+
 {#if profileCompleted}
 	<div
-		class="my-1 flex w-full items-center rounded-lg border border-blue-300 bg-blue-50 p-4 text-sm text-blue-800 dark:border-blue-800 dark:bg-gray-800 dark:text-blue-400"
+		class="my-4 flex w-full items-center rounded-lg border border-blue-300 bg-blue-50 p-4 text-sm text-blue-800 dark:border-blue-800 dark:bg-gray-800 dark:text-blue-400"
 		role="alert"
 	>
 		<svg
@@ -95,7 +97,7 @@
 		</div>
 	</div>
 
-	<div class="register-page w-full overflow-hidden rounded-lg bg-slate-600 p-4 text-red-400">
+	<div class="register-page w-full overflow-hidden rounded-lg text-red-400">
 		{#if TeamID}
 			<div class="rounded-xl bg-neutral-800 p-6 shadow-lg">
 				<h2 class="mb-4 text-2xl font-bold">Team Information</h2>
@@ -125,15 +127,6 @@
 							{/each}
 						</div>
 					</div>
-					<p>
-						Leader: {team.Members.find(
-							(m: { sub: string; name: string }) => m.sub === team?.CreatedBy
-						)?.name}
-					</p>
-					<p>Members:</p>
-					{#each team?.Members as member}
-						<p>{member.name} {member.phone}</p>
-					{/each}
 					<form method="POST" class="flex gap-4">
 						{#if team?.CreatedBy === user?.id}
 							<button
@@ -199,7 +192,7 @@
 	</div>
 {:else}
 	<div
-		class="my-1 flex w-full items-center rounded-lg border border-blue-300 bg-blue-50 p-4 text-sm text-blue-800 dark:border-blue-800 dark:bg-gray-800 dark:text-blue-400"
+		class="my-4 flex w-full items-center rounded-lg border border-blue-300 bg-blue-50 p-4 text-sm text-blue-800 dark:border-blue-800 dark:bg-gray-800 dark:text-blue-400"
 		role="alert"
 	>
 		<svg

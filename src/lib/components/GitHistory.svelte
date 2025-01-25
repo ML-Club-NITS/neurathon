@@ -92,7 +92,7 @@
 				<div
 					class="transform rounded-md border border-gray-800 bg-gray-900/50 p-4 transition-all duration-300 hover:scale-[1.02] hover:bg-gray-800/50 hover:shadow-lg"
 				>
-					<div class="flex flex-col pb-2 gap-4 lg:flex-row xl:flex-row items-center justify-between">
+					<div class="flex flex-col pb-2 gap-4 md:flex-row items-center justify-between">
 						<div class="flex items-center space-x-4">
 							<img
 								src={commit.committerAvatar}
@@ -139,7 +139,7 @@
 				<button
 					class={`rounded-md px-4 py-2 text-sm font-medium transition-all duration-300 ${
 						currentPage === button
-							? 'bg-indigo-600/70 text-white'
+							? 'bg-orange-600/70 text-white'
 							: 'bg-gray-800/50 text-white hover:bg-gray-800/70'
 					}`}
 					onclick={() => (currentPage = typeof button === 'number' ? button : currentPage)}
