@@ -3,6 +3,7 @@
 	import Notification from '$lib/components/Notification.svelte';
 	let { data } = $props();
 	let { commits } = $derived(data);
+	console.log(commits);
 </script>
 
 <section class="flex h-auto w-full flex-col items-center justify-center gap-4">

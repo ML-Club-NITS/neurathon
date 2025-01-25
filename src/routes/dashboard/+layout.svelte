@@ -1,8 +1,8 @@
 <script lang="ts">
+	import { onMount, onDestroy } from 'svelte';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
 	import neurathon_logo from '$lib/assets/nurathon_logo.svg';
-	import { onMount } from 'svelte';
 
 	let { children, data } = $props();
 	let { user, supabase, TeamID } = $derived(data);
@@ -30,9 +30,18 @@
 	let SideBar = $state<Node | null>(null);
 	let active = $state('');
 
+	let sideRef: HTMLElement | null = null;
+	let profRef: HTMLElement | null = null;
 	function handleClickOutside(event: MouseEvent) {
-		if (isSidebarOpen && SideBar && !SideBar.contains(event.target as Node)) {
-			isSidebarOpen = false;
+		if(sideRef && !sideRef.contains(event.target as Node)) {
+			const sidebar = document.getElementById('logo-sidebar');
+			const profbar = document.getElementById('dropdown-user');
+			if(sidebar) {
+				sideRef.classList.add('-translate-x-full');
+			}
+			if(profbar){
+				profRef?.classList.add('hidden');
+			}
 		}
 	}
 
@@ -50,9 +59,9 @@
 	});
 
 	onMount(() => {
-		document.addEventListener('click', handleClickOutside);
+		document.addEventListener('mousedown', handleClickOutside);
 		return () => {
-			document.removeEventListener('click', handleClickOutside);
+			document.removeEventListener('mousedown', handleClickOutside);
 		};
 	});
 </script>
@@ -115,6 +124,7 @@
 					</button>
 					<div
 						id="dropdown-user"
+						bind:this={profRef}
 						class="absolute right-0 z-50 mt-2 hidden w-48 divide-y divide-gray-100 rounded-lg bg-white shadow-lg transition-all duration-200 ease-in-out dark:divide-gray-600 dark:bg-gray-700"
 					>
 						<div class="px-4 py-3">
@@ -153,7 +163,7 @@
 	<aside
 		bind:this={SideBar}
 		id="logo-sidebar"
-		class={`${isSidebarOpen ? '-translate-x-0' : '-translate-x-full'} fixed top-0 z-10 h-screen w-64 border-r bg-white pt-20 transition-transform duration-300 ease-in-out lg:fixed lg:translate-x-0 dark:border-gray-700 dark:bg-[#141414e9]`}
+		class={`${isSidebarOpen ? '-translate-x-0' : '-translate-x-full'} fixed top-0 z-10 h-screen w-64 -translate-x-full border-r bg-white pt-20 transition-transform duration-300 ease-in-out lg:fixed lg:translate-x-0 dark:border-gray-700 dark:bg-[#21212196]`}
 	>
 		<ul class="space-y-2 px-3 font-medium">
 			<li>

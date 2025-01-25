@@ -5,9 +5,11 @@
 
 	// let { data } = $props();
 	let { supabase, user, TeamID, team } = $derived(data);
+
+	let profileCompleted = false;
 </script>
 
-<nav class="flex w-full mt-2" aria-label="Breadcrumb">
+<nav class="mt-2 flex w-full" aria-label="Breadcrumb">
 	<ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
 		<li class="inline-flex items-center">
 			<a
@@ -69,67 +71,90 @@
 						d="m1 9 4-4-4-4"
 					/>
 				</svg>
-				<span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400"
-					>Team</span
-				>
+				<span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">Team</span>
 			</div>
 		</li>
 	</ol>
 </nav>
-<div
-	class="my-1 w-full flex items-center rounded-lg border border-blue-300 bg-blue-50 p-4 text-sm text-blue-800 dark:border-blue-800 dark:bg-gray-800 dark:text-blue-400"
-	role="alert"
->
-	<svg
-		class="me-3 inline h-4 w-4 shrink-0"
-		aria-hidden="true"
-		xmlns="http://www.w3.org/2000/svg"
-		fill="currentColor"
-		viewBox="0 0 20 20"
+{#if profileCompleted}
+	<div
+		class="my-1 flex w-full items-center rounded-lg border border-blue-300 bg-blue-50 p-4 text-sm text-blue-800 dark:border-blue-800 dark:bg-gray-800 dark:text-blue-400"
+		role="alert"
 	>
-		<path
-			d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
-		/>
-	</svg>
-	<span class="sr-only">Info</span>
-	<div>
-		<span class="font-medium">Alert!</span> Create your own team or join a team.
+		<svg
+			class="me-3 inline h-4 w-4 shrink-0"
+			aria-hidden="true"
+			xmlns="http://www.w3.org/2000/svg"
+			fill="currentColor"
+			viewBox="0 0 20 20"
+		>
+			<path
+				d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+			/>
+		</svg>
+		<span class="sr-only">Info</span>
+		<div>
+			<span class="font-medium">Alert!</span> Create your own team or join a team.
+		</div>
 	</div>
-</div>
-<div class="register-page w-full overflow-hidden rounded-lg bg-slate-600 p-4 text-red-400">
-	{#if TeamID}
-		<div class="container border-2 border-black bg-slate-600 p-2">
-			<span class="bg-gray-400">Team ID: {TeamID}</span>
-			<h1>Team: {team?.TeamName}</h1>
-			<p>Team Name: {team?.TeamName}</p>
-			<p>
-				Leader: {team.Members.find((m: { sub: string; name: string }) => m.sub === team?.CreatedBy)
-					?.name}
-			</p>
-			<p>Members:</p>
-			{#each team?.Members as member}
-				<p>{member.name} {member.phone}</p>
-			{/each}
-			<form method="POST">
-				{#if team?.CreatedBy === user?.id}
-					<button formaction="?/delete" class="rounded-lg bg-red-600 px-2 py-1">Delete</button>
-				{:else}
-					<button formaction="?/leave" class="rounded-lg bg-red-600 px-2 py-1">Leave</button>
-				{/if}
-			</form>
+
+	<div class="register-page w-full overflow-hidden rounded-lg bg-slate-600 p-4 text-red-400">
+		{#if TeamID}
+			<div class="container border-2 border-black bg-slate-600 p-2">
+				<span class="bg-gray-400">Team ID: {TeamID}</span>
+				<h1>Team: {team?.TeamName}</h1>
+				<p>Team Name: {team?.TeamName}</p>
+				<p>
+					Leader: {team.Members.find(
+						(m: { sub: string; name: string }) => m.sub === team?.CreatedBy
+					)?.name}
+				</p>
+				<p>Members:</p>
+				{#each team?.Members as member}
+					<p>{member.name} {member.phone}</p>
+				{/each}
+				<form method="POST">
+					{#if team?.CreatedBy === user?.id}
+						<button formaction="?/delete" class="rounded-lg bg-red-600 px-2 py-1">Delete</button>
+					{:else}
+						<button formaction="?/leave" class="rounded-lg bg-red-600 px-2 py-1">Leave</button>
+					{/if}
+				</form>
+			</div>
+		{:else}
+			<div class="container flex gap-4">
+				<form method="POST" class="flex w-full flex-col gap-4">
+					<label for="teamname">Team Name</label>
+					<input type="text" id="teamname" class="h-full" name="teamname" />
+					<button formaction="?/register" class="bg-gray-800 p-2">Create Team</button>
+				</form>
+				<form method="POST" class="flex w-full flex-col gap-4">
+					<label for="teamid">Team Id</label>
+					<input type="text" id="teamid" name="teamid" />
+					<button formaction="?/join" class="bg-gray-800 p-2">Join Team</button>
+				</form>
+			</div>
+		{/if}
+	</div>
+{:else}
+	<div
+		class="my-1 flex w-full items-center rounded-lg border border-blue-300 bg-blue-50 p-4 text-sm text-blue-800 dark:border-blue-800 dark:bg-gray-800 dark:text-blue-400"
+		role="alert"
+	>
+		<svg
+			class="me-3 inline h-4 w-4 shrink-0"
+			aria-hidden="true"
+			xmlns="http://www.w3.org/2000/svg"
+			fill="currentColor"
+			viewBox="0 0 20 20"
+		>
+			<path
+				d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+			/>
+		</svg>
+		<span class="sr-only">Info</span>
+		<div>
+			<span class="font-medium">Alert!</span> Complete your profile to register your team.
 		</div>
-	{:else}
-		<div class="container flex gap-4">
-			<form method="POST" class="flex w-full flex-col gap-4">
-				<label for="teamname">Team Name</label>
-				<input type="text" id="teamname" class="h-full" name="teamname" />
-				<button formaction="?/register" class="bg-gray-800 p-2">Create Team</button>
-			</form>
-			<form method="POST" class="flex w-full flex-col gap-4">
-				<label for="teamid">Team Id</label>
-				<input type="text" id="teamid" name="teamid" />
-				<button formaction="?/join" class="bg-gray-800 p-2">Join Team</button>
-			</form>
-		</div>
-	{/if}
-</div>
+	</div>
+{/if}

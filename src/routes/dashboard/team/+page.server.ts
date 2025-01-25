@@ -1,28 +1,5 @@
 import { redirect } from '@sveltejs/kit';
-import type { PageServerLoad, Actions } from '../../$types';
-
-export const load: PageServerLoad = async ({ depends, locals: { supabase, user } }) => {
-	depends('supabase:db:teams');
-
-	const { data, error } = await supabase.rpc('get_team', { member_id: user?.id });
-
-	if (error) {
-		console.error(error);
-	}
-	if (data) {
-		const { data: team, error } = await supabase.from('teams').select().eq('TeamID', data);
-
-		if (error) {
-			console.error(error);
-		}
-
-		return { TeamID: data, team: team ? (team[0] ?? []) : [] };
-	} else {
-		console.log('UUID does not exist in any team.');
-	}
-
-	return { TeamID: null, team: [], metadata: [] };
-};
+import type { Actions } from '../../$types';
 
 export const actions: Actions = {
 	register: async ({ request, locals: { supabase, user } }) => {
@@ -38,7 +15,7 @@ export const actions: Actions = {
 		if (error) {
 			console.error(error);
 		}
-		redirect(303, '/participate');
+		redirect(303, '/dashboard/team');
 	},
 	join: async ({ request, locals: { supabase, user } }) => {
 		const formData = await request.formData();
@@ -65,13 +42,13 @@ export const actions: Actions = {
 			console.error('Team not found');
 		}
 
-		redirect(303, '/participate');
+		redirect(303, '/dashboard/team');
 	},
 	leave: async ({ locals: { supabase, user } }) => {
 		const { data, error } = await supabase.rpc('remove_member_from_teams', { member_id: user?.id });
 
 		if (data) {
-			redirect(303, '/participate');
+			redirect(303, '/dashboard');
 		} else {
 			console.error(error);
 		}
@@ -80,7 +57,7 @@ export const actions: Actions = {
 		const { data, error } = await supabase.rpc('delete_team_by_creator', { member_id: user?.id });
 
 		if (data) {
-			redirect(303, '/participate');
+			redirect(303, '/dashboard');
 		} else {
 			console.error(error);
 		}
