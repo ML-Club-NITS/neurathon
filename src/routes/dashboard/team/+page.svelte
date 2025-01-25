@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Motion, useMotionValue, useMotionTemplate } from 'svelte-motion';
+	import { fade, fly } from 'svelte/transition';
 
 	let { data } = $props();
 	let { user, TeamID, team } = $derived(data);
@@ -85,6 +86,7 @@
 	<div
 		class="my-4 flex w-full items-center rounded-lg border border-blue-300 bg-blue-50 p-4 text-sm text-blue-800 dark:border-blue-800 dark:bg-gray-800 dark:text-blue-400"
 		role="alert"
+		transition:fade
 	>
 		<svg
 			class="me-3 inline h-4 w-4 shrink-0"
@@ -113,6 +115,7 @@
 				}}
 				class="group relative w-full overflow-hidden rounded-xl bg-neutral-950"
 				role="presentation"
+				transition:fly={{ y: 20, duration: 300 }}
 			>
 				<div
 					class="absolute right-5 top-0 h-px w-80 bg-gradient-to-l from-transparent via-white/30 via-10% to-transparent"
@@ -128,29 +131,37 @@
 						class="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
 					></div>
 				</Motion>
-				<div class="relative flex flex-col gap-3 rounded-xl border border-white/10 px-4 py-5">
-					<h2 class="mb-4 font-LeagueSpartanFont text-2xl font-bold text-neutral-200 md:text-4xl">
+				<div
+					class="relative flex w-full flex-col gap-3 rounded-xl border border-white/10 px-4 py-5"
+				>
+					<h2
+						class="mdlg:text-6xl mb-4 animate-text-gradient bg-gradient-to-r from-[#FFFFFF] via-[#CBCBCB] to-[#FFFFFF] bg-[200%_auto] bg-clip-text text-center font-LeagueSpartanFont text-5xl font-bold text-neutral-200 text-transparent md:text-4xl lg:text-5xl"
+					>
 						Team Information
 					</h2>
-					<div class="space-y-4">
+					<div class="space-y-4 lg:mb-11 lg:ml-16">
 						<div>
 							<span class="text-sm font-medium text-neutral-400">Team ID</span>
-							<p class="text-xl text-neutral-100">{TeamID}</p>
+							<p class="font-LeagueSpartanFont text-xl font-bold text-neutral-100">{TeamID}</p>
 						</div>
 						<div>
 							<span class="text-sm font-medium text-neutral-400">Team Name</span>
-							<p class="text-xl text-neutral-100">{team?.TeamName}</p>
+							<p class="font-LeagueSpartanFont text-xl font-bold text-neutral-100">
+								{team?.TeamName}
+							</p>
 						</div>
 						<div>
 							<span class="text-sm font-medium text-neutral-400">Team Leader</span>
-							<p class="text-xl text-neutral-100">
+							<p class="font-LeagueSpartanFont text-xl font-bold text-neutral-100">
 								{team.Members.find((m: { sub: string; name: string }) => m.sub === team?.CreatedBy)
 									?.name}
 							</p>
 						</div>
 						<div>
 							<span class="text-sm font-medium text-neutral-400">Team Members</span>
-							<div class="space-y-2">
+							<div
+								class="flex flex-col gap-5 space-y-2 font-LeagueSpartanFont font-bold md:flex-row"
+							>
 								{#each team?.Members as member}
 									<p class="text-xl text-neutral-100">
 										{member.name} - {member.phone}
@@ -187,6 +198,7 @@
 				}}
 				class="group relative w-full overflow-hidden rounded-xl bg-neutral-950"
 				role="presentation"
+				transition:fly={{ y: 20, duration: 300 }}
 			>
 				<div
 					class="absolute right-5 top-0 h-px w-80 bg-gradient-to-l from-transparent via-white/30 via-10% to-transparent"
@@ -219,7 +231,7 @@
 							</div>
 							<button
 								formaction="?/register"
-								class="w-full rounded-lg bg-indigo-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-700"
+								class="w-full rounded-lg bg-indigo-600/15 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-800/55"
 							>
 								Create Team
 							</button>
@@ -238,7 +250,7 @@
 							</div>
 							<button
 								formaction="?/join"
-								class="w-full rounded-lg bg-indigo-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-700"
+								class="w-full rounded-lg bg-indigo-600/15 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-800/55"
 							>
 								Join Team
 							</button>
@@ -252,6 +264,7 @@
 	<div
 		class="my-4 flex w-full items-center rounded-lg border border-blue-300 bg-blue-50 p-4 text-sm text-blue-800 dark:border-blue-800 dark:bg-gray-800 dark:text-blue-400"
 		role="alert"
+		transition:fade
 	>
 		<svg
 			class="me-3 inline h-4 w-4 shrink-0"
