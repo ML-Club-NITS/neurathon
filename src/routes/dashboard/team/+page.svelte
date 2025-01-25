@@ -1,10 +1,18 @@
 <script lang="ts">
 	import { GradientAnimation } from '$lib/components/ui';
 	import { cn } from '$lib/utils';
+	import { Motion, useMotionValue, useMotionTemplate } from 'svelte-motion';
 
 	let { data } = $props();
 	let { user, TeamID, team } = $derived(data);
 	let profileCompleted = true;
+
+	// Mouse hover effects
+	let mouseX = useMotionValue(0);
+	let mouseY = useMotionValue(0);
+	let background = useMotionTemplate`
+		radial-gradient(200px circle at ${mouseX}px ${mouseY}px, rgba(38, 38, 38, 0.4), transparent 80%)
+	`;
 </script>
 
 <nav class="mt-2 flex w-full" aria-label="Breadcrumb">
@@ -99,93 +107,140 @@
 
 	<div class="register-page w-full overflow-hidden rounded-lg text-red-400">
 		{#if TeamID}
-			<div class="rounded-xl bg-neutral-800 p-6 shadow-lg">
-				<h2 class="mb-4 text-2xl font-bold">Team Information</h2>
-				<div class="space-y-4">
-					<div>
-						<span class="text-sm font-medium text-neutral-400">Team ID</span>
-						<p class="text-neutral-100">{TeamID}</p>
-					</div>
-					<div>
-						<span class="text-sm font-medium text-neutral-400">Team Name</span>
-						<p class="text-neutral-100">{team?.TeamName}</p>
-					</div>
-					<div>
-						<span class="text-sm font-medium text-neutral-400">Team Leader</span>
-						<p class="text-neutral-100">
-							{team.Members.find((m: { sub: string; name: string }) => m.sub === team?.CreatedBy)
-								?.name}
-						</p>
-					</div>
-					<div>
-						<span class="text-sm font-medium text-neutral-400">Team Members</span>
-						<div class="space-y-2">
-							{#each team?.Members as member}
-								<p class="text-neutral-100">
-									{member.name} - {member.phone}
-								</p>
-							{/each}
+			<div
+				onmousemove={(e) => {
+					const { left, top } = e.currentTarget.getBoundingClientRect();
+					mouseX.set(e.clientX - left);
+					mouseY.set(e.clientY - top);
+				}}
+				class="group relative w-full overflow-hidden rounded-xl bg-neutral-950" role="presentation"
+			>
+				<div
+					class="absolute right-5 top-0 h-px w-80 bg-gradient-to-l from-transparent via-white/30 via-10% to-transparent"
+				></div>
+				<Motion
+					style={{
+						background,
+					}}
+					let:motion
+				>
+					<div
+						use:motion
+						class="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
+					></div>
+				</Motion>
+				<div class="relative flex flex-col gap-3 rounded-xl border border-white/10 px-4 py-5">
+					<h2 class="mb-4 text-2xl md:text-4xl font-LeagueSpartanFont font-bold text-neutral-200">Team Information</h2>
+					<div class="space-y-4">
+						<div>
+							<span class="text-sm font-medium text-neutral-400">Team ID</span>
+							<p class="text-neutral-100 text-xl">{TeamID}</p>
 						</div>
+						<div>
+							<span class="text-sm font-medium text-neutral-400">Team Name</span>
+							<p class="text-neutral-100 text-xl">{team?.TeamName}</p>
+						</div>
+						<div>
+							<span class="text-sm font-medium text-neutral-400">Team Leader</span>
+							<p class="text-neutral-100 text-xl">
+								{team.Members.find((m: { sub: string; name: string }) => m.sub === team?.CreatedBy)
+									?.name}
+							</p>
+						</div>
+						<div>
+							<span class="text-sm font-medium text-neutral-400">Team Members</span>
+							<div class="space-y-2">
+								{#each team?.Members as member}
+									<p class="text-neutral-100 text-xl">
+										{member.name} - {member.phone}
+									</p>
+								{/each}
+							</div>
+						</div>
+						<form method="POST" class="flex gap-4">
+							{#if team?.CreatedBy === user?.id}
+								<button
+									formaction="?/delete"
+									class="rounded-lg bg-red-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-red-700"
+								>
+									Delete Team
+								</button>
+							{:else}
+								<button
+									formaction="?/leave"
+									class="rounded-lg bg-red-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-red-700"
+								>
+									Leave Team
+								</button>
+							{/if}
+						</form>
 					</div>
-					<form method="POST" class="flex gap-4">
-						{#if team?.CreatedBy === user?.id}
-							<button
-								formaction="?/delete"
-								class="rounded-lg bg-red-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-red-700"
-							>
-								Delete Team
-							</button>
-						{:else}
-							<button
-								formaction="?/leave"
-								class="rounded-lg bg-red-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-red-700"
-							>
-								Leave Team
-							</button>
-						{/if}
-					</form>
 				</div>
 			</div>
 		{:else}
-			<div class="rounded-xl bg-neutral-800 p-6 shadow-lg">
-				<h2 class="mb-4 text-2xl font-bold">Join or Create a Team</h2>
-				<div class="space-y-6">
-					<form method="POST" class="space-y-4">
-						<div>
-							<label for="teamname" class="block text-sm font-medium text-neutral-400"
-								>Team Name</label
+			<div
+				onmousemove={(e) => {
+					const { left, top } = e.currentTarget.getBoundingClientRect();
+					mouseX.set(e.clientX - left);
+					mouseY.set(e.clientY - top);
+				}}
+				class="group relative w-full overflow-hidden rounded-xl bg-neutral-950"
+				role="presentation"
+			>
+				<div
+					class="absolute right-5 top-0 h-px w-80 bg-gradient-to-l from-transparent via-white/30 via-10% to-transparent"
+				></div>
+				<Motion
+					style={{
+						background,
+					}}
+					let:motion
+				>
+					<div
+						use:motion
+						class="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
+					></div>
+				</Motion>
+				<div class="relative flex flex-col gap-3 rounded-xl border border-white/10 px-4 py-5">
+					<h2 class="mb-4 text-2xl font-bold text-neutral-200">Join or Create a Team</h2>
+					<div class="space-y-6">
+						<form method="POST" class="space-y-4">
+							<div>
+								<label for="teamname" class="block text-sm font-medium text-neutral-400"
+									>Team Name</label
+								>
+								<input
+									type="text"
+									id="teamname"
+									name="teamname"
+									class="w-full rounded-lg border border-neutral-600 bg-neutral-700 px-4 py-2 text-neutral-100 focus:border-indigo-500 focus:ring-indigo-500"
+								/>
+							</div>
+							<button
+								formaction="?/register"
+								class="w-full rounded-lg bg-indigo-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-700"
 							>
-							<input
-								type="text"
-								id="teamname"
-								name="teamname"
-								class="w-full rounded-lg border border-neutral-600 bg-neutral-700 px-4 py-2 text-neutral-100 focus:border-indigo-500 focus:ring-indigo-500"
-							/>
-						</div>
-						<button
-							formaction="?/register"
-							class="w-full rounded-lg bg-indigo-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-700"
-						>
-							Create Team
-						</button>
-					</form>
-					<form method="POST" class="space-y-4">
-						<div>
-							<label for="teamid" class="block text-sm font-medium text-neutral-400">Team ID</label>
-							<input
-								type="text"
-								id="teamid"
-								name="teamid"
-								class="w-full rounded-lg border border-neutral-600 bg-neutral-700 px-4 py-2 text-neutral-100 focus:border-indigo-500 focus:ring-indigo-500"
-							/>
-						</div>
-						<button
-							formaction="?/join"
-							class="w-full rounded-lg bg-indigo-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-700"
-						>
-							Join Team
-						</button>
-					</form>
+								Create Team
+							</button>
+						</form>
+						<form method="POST" class="space-y-4">
+							<div>
+								<label for="teamid" class="block text-sm font-medium text-neutral-400">Team ID</label>
+								<input
+									type="text"
+									id="teamid"
+									name="teamid"
+									class="w-full rounded-lg border border-neutral-600 bg-neutral-700 px-4 py-2 text-neutral-100 focus:border-indigo-500 focus:ring-indigo-500"
+								/>
+							</div>
+							<button
+								formaction="?/join"
+								class="w-full rounded-lg bg-indigo-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-700"
+							>
+								Join Team
+							</button>
+						</form>
+					</div>
 				</div>
 			</div>
 		{/if}

@@ -132,22 +132,7 @@
 			{'<'}
 		</button>
 
-		{#each paginationButtons as button}
-			{#if button === '...'}
-				<span class="px-4 py-2 text-gray-400">...</span>
-			{:else}
-				<button
-					class={`rounded-md px-4 py-2 text-sm font-medium transition-all duration-300 ${
-						currentPage === button
-							? 'bg-orange-600/70 text-white'
-							: 'bg-gray-800/50 text-white hover:bg-gray-800/70'
-					}`}
-					onclick={() => (currentPage = typeof button === 'number' ? button : currentPage)}
-				>
-					{button}
-				</button>
-			{/if}
-		{/each}
+		
 
 		<button
 			class="rounded-md bg-gray-800/50 px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-gray-800/70 disabled:opacity-50 disabled:hover:bg-gray-800/50"
