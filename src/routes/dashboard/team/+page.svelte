@@ -1,17 +1,35 @@
 <script lang="ts">
-	import { Motion, useMotionValue, useMotionTemplate } from 'svelte-motion';
+	import { enhance } from '$app/forms';
 	import { fade, fly } from 'svelte/transition';
+	import { Tabs, TabItem } from 'flowbite-svelte';
+	import { Motion, useMotionValue, useMotionTemplate } from 'svelte-motion';
+	import { toast } from '@zerodevx/svelte-toast';
 
-	let { data } = $props();
-	let { user, TeamID, team } = $derived(data);
-	let profileCompleted = true;
+	let teamName = $state('');
+	let teamNameError = $state('');
+	let teamid = $state('');
+	let teamidError = $state('');
+
+	let { data, form } = $props();
+	let { user, TeamID, team, profileCompleted } = $derived(data);
 
 	// Mouse hover effects
 	let mouseX = useMotionValue(0);
 	let mouseY = useMotionValue(0);
-	let background = useMotionTemplate`
-		radial-gradient(200px circle at ${mouseX}px ${mouseY}px, rgba(38, 38, 38, 0.4), transparent 80%)
-	`;
+	let background = useMotionTemplate`radial-gradient(200px circle at ${mouseX}px ${mouseY}px, rgba(38, 38, 38, 0.4), transparent 80%)`;
+
+	$effect(() => {
+		if (form?.error) {
+			toast.push(form?.error, {
+				theme: {
+					'--toastColor': '#fff',
+					'--toastBackground': 'rgba(220, 38, 38, 0.9)',
+					'--toastBarBackground': '#DC2626'
+				},
+				duration: 1500
+			});
+		}
+	});
 </script>
 
 <nav class="mt-2 flex w-full" aria-label="Breadcrumb">
@@ -164,7 +182,7 @@
 							>
 								{#each team?.Members as member}
 									<p class="text-xl text-neutral-100">
-										{member.name} - {member.phone}
+										{member.name} ({member.phone})
 									</p>
 								{/each}
 							</div>
@@ -215,46 +233,102 @@
 					></div>
 				</Motion>
 				<div class="relative flex flex-col gap-3 rounded-xl border border-white/10 px-4 py-5">
-					<h2 class="mb-4 text-2xl font-bold text-neutral-200">Join or Create a Team</h2>
-					<div class="space-y-6">
-						<form method="POST" class="space-y-4">
-							<div>
-								<label for="teamname" class="block text-sm font-medium text-neutral-400"
-									>Team Name</label
-								>
-								<input
-									type="text"
-									id="teamname"
-									name="teamname"
-									class="w-full rounded-lg border border-neutral-600 bg-neutral-700 px-4 py-2 text-neutral-100 focus:border-indigo-500 focus:ring-indigo-500"
-								/>
-							</div>
-							<button
-								formaction="?/register"
-								class="w-full rounded-lg bg-indigo-600/15 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-800/55"
+					<div class="m-2 flex flex-col items-center space-y-6">
+						<Tabs
+							tabStyle="pill"
+							defaultClass="bg-slate-800 flex gap-2 p-1 items-center rounded-lg w-fit mx-auto"
+							contentClass="w-80 md:w-96 p-2 m-2 rounded-lg"
+						>
+							<TabItem
+								open
+								inactiveClasses="text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-slate-500"
+								activeClasses="text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-white bg-gray-700"
 							>
-								Create Team
-							</button>
-						</form>
-						<form method="POST" class="space-y-4">
-							<div>
-								<label for="teamid" class="block text-sm font-medium text-neutral-400"
-									>Team ID</label
+								<div slot="title">Create Team</div>
+								<form
+									method="POST"
+									class="m-2 space-y-4"
+									autocomplete="off"
+									use:enhance={({ cancel }) => {
+										if (teamName === '') {
+											teamNameError = 'Team Name is required';
+											return cancel();
+										}
+
+										return async ({ update }) => update();
+									}}
+									novalidate
 								>
-								<input
-									type="text"
-									id="teamid"
-									name="teamid"
-									class="w-full rounded-lg border border-neutral-600 bg-neutral-700 px-4 py-2 text-neutral-100 focus:border-indigo-500 focus:ring-indigo-500"
-								/>
-							</div>
-							<button
-								formaction="?/join"
-								class="w-full rounded-lg bg-indigo-600/15 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-800/55"
+									<div>
+										<label for="teamname" class="block text-sm font-medium text-neutral-400"
+											>Team Name</label
+										>
+										<input
+											type="text"
+											id="teamname"
+											name="teamname"
+											class="w-full rounded-lg border border-neutral-600 bg-neutral-700 px-4 py-2 text-neutral-100 focus:border-indigo-500 focus:ring-indigo-500"
+											class:!border-red-500={teamNameError}
+											bind:value={teamName}
+											aria-invalid={teamNameError ? 'true' : 'false'}
+										/>
+										{#if teamNameError}
+											<p class="pt-1 text-right text-xs text-red-500">{teamNameError}</p>
+										{/if}
+									</div>
+									<button
+										formaction="?/register"
+										class="w-full rounded-lg bg-indigo-600/15 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-800/55"
+									>
+										Create Team
+									</button>
+								</form>
+							</TabItem>
+							<TabItem
+								inactiveClasses="text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-slate-500"
+								activeClasses="text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-white bg-gray-700"
 							>
-								Join Team
-							</button>
-						</form>
+								<div slot="title">Join Team</div>
+								<form
+									method="POST"
+									class="m-2 space-y-4"
+									autocomplete="off"
+									use:enhance={({ cancel }) => {
+										if (teamid === '') {
+											teamidError = 'Team ID is required';
+											return cancel();
+										}
+
+										return async ({ update }) => update();
+									}}
+									novalidate
+								>
+									<div>
+										<label for="teamid" class="block text-sm font-medium text-neutral-400"
+											>Team ID</label
+										>
+										<input
+											type="text"
+											id="teamid"
+											name="teamid"
+											class="w-full rounded-lg border border-neutral-600 bg-neutral-700 px-4 py-2 text-neutral-100 focus:border-indigo-500 focus:ring-indigo-500"
+											class:!border-red-500={teamidError}
+											bind:value={teamid}
+											aria-invalid={teamidError ? 'true' : 'false'}
+										/>
+										{#if teamidError}
+											<p class="pt-1 text-right text-xs text-red-500">{teamidError}</p>
+										{/if}
+									</div>
+									<button
+										formaction="?/join"
+										class="w-full rounded-lg bg-indigo-600/15 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-800/55"
+									>
+										Join Team
+									</button>
+								</form>
+							</TabItem>
+						</Tabs>
 					</div>
 				</div>
 			</div>
