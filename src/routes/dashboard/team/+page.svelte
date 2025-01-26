@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 	import { fade, fly } from 'svelte/transition';
 	import { Tabs, TabItem } from 'flowbite-svelte';
 	import { Motion, useMotionValue, useMotionTemplate } from 'svelte-motion';
@@ -20,6 +22,19 @@
 	let mouseY = useMotionValue(0);
 	let background = useMotionTemplate`radial-gradient(200px circle at ${mouseX}px ${mouseY}px, rgba(38, 38, 38, 0.4), transparent 80%)`;
 
+	function shareLink() {
+		const link = `${window.location.origin}/dashboard/team/join?id=${TeamID}`;
+		navigator.clipboard.writeText(link);
+		toast.push('Link copied to clipboard', {
+			theme: {
+				'--toastColor': '#fff',
+				'--toastBackground': 'rgba(72, 187, 120, 0.9)',
+				'--toastBarBackground': '#48BB78'
+			},
+			duration: 1500
+		});
+	}
+
 	$effect(() => {
 		if (form?.error) {
 			toast.push(form?.error, {
@@ -31,6 +46,37 @@
 				duration: 5000
 			});
 		}
+	});
+
+	let message = '';
+
+	onMount(() => {
+		const urlParams = new URLSearchParams(window.location.search);
+		message = urlParams.get('message') || '';
+
+		if (message.includes('Successfully')) {
+			toast.push(message, {
+				theme: {
+					'--toastColor': '#fff',
+					'--toastBackground': 'rgba(72, 187, 120, 0.9)',
+					'--toastBarBackground': '#48BB78'
+				},
+				duration: 3500
+			});
+		} else if (message) {
+			toast.push(message, {
+				theme: {
+					'--toastColor': '#fff',
+					'--toastBackground': 'rgba(220, 38, 38, 0.9)',
+					'--toastBarBackground': '#DC2626'
+				},
+				duration: 3500
+			});
+		}
+
+		urlParams.delete('message');
+		const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
+		goto(newUrl.endsWith('?') ? newUrl.slice(0, -1) : newUrl, { replaceState: true });
 	});
 </script>
 
@@ -168,7 +214,9 @@
 						</div>
 						<div>
 							<span class="text-sm font-medium text-neutral-400">Team ID</span>
-							<p class="font-LeagueSpartanFont text-xl font-bold text-neutral-100">{TeamID}</p>
+							<p class="select-text font-LeagueSpartanFont text-xl font-bold text-neutral-100">
+								{TeamID}
+							</p>
 						</div>
 						<div>
 							<span class="text-sm font-medium text-neutral-400">Team Leader</span>
@@ -193,46 +241,31 @@
 								</div>
 							</div>
 						{/if}
-						<form
-							method="POST"
-							class="flex gap-4 pt-4"
-							use:enhance={() => {
-								submitting = true;
-
-								return async ({ update }) => {
-									await update();
-									setTimeout(() => (submitting = false), 1500);
-								};
-							}}
+						<button
+							class="rounded-lg bg-indigo-600/35 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-600/15"
+							onclick={shareLink}
 						>
-							{#if team?.CreatedBy === user?.id}
-								<button
-									formaction="?/delete"
-									class="rounded-lg bg-green-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-red-700"
-									class:!cursor-not-allowed={submitting}
-									disabled={submitting}
-								>
-									Share Team
-								</button>
-								<button
-									formaction="?/delete"
-									class="rounded-lg bg-red-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-red-700"
-									class:!cursor-not-allowed={submitting}
-									disabled={submitting}
-								>
-									Delete Team
-								</button>
-							{:else}
-								<button
-									formaction="?/leave"
-									class="rounded-lg bg-red-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-red-700"
-									class:!cursor-not-allowed={submitting}
-									disabled={submitting}
-								>
-									Leave Team
-								</button>
-							{/if}
-						</form>
+							Share Team Link
+						</button>
+						<div class="button_container">
+							<form method="POST" class="flex gap-4">
+								{#if team?.CreatedBy === user?.id}
+									<button
+										formaction="?/delete"
+										class="glass-button 0 cursor-pointer rounded-lg border border-white/55 bg-red-600/80 px-4 py-2 font-medium text-neutral-100 shadow-md backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-600/5 hover:shadow-lg active:translate-y-0"
+									>
+										Delete Team
+									</button>
+								{:else}
+									<button
+										formaction="?/leave"
+										class="glass-button 0 cursor-pointer rounded-lg border border-white/55 bg-red-600/80 px-4 py-2 font-medium text-neutral-100 shadow-md backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-600/5 hover:shadow-lg active:translate-y-0"
+									>
+										Leave Team
+									</button>
+								{/if}
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
