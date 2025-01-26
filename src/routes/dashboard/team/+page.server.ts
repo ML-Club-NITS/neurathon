@@ -13,7 +13,7 @@ export const actions: Actions = {
 		});
 
 		if (error) {
-			console.error(error);
+			return { error: error.message };
 		}
 		redirect(303, '/dashboard/team');
 	},
@@ -24,7 +24,7 @@ export const actions: Actions = {
 		const { data, error } = await supabase.from('teams').select().eq('TeamID', TeamID);
 
 		if (error) {
-			console.error(error);
+			return { error: error.message };
 		} else if (data && data.length > 0) {
 			if (data[0].Members.length < 4) {
 				const { error } = await supabase.rpc('append_member_to_team', {
@@ -33,13 +33,13 @@ export const actions: Actions = {
 				});
 
 				if (error) {
-					console.error(error);
+					return { error: error.message };
 				}
 			} else {
-				console.log('Team is full');
+				return { error: 'Team is full' };
 			}
 		} else {
-			console.error('Team not found');
+			return { error: 'Team not found' };
 		}
 
 		redirect(303, '/dashboard/team');
@@ -48,18 +48,18 @@ export const actions: Actions = {
 		const { data, error } = await supabase.rpc('remove_member_from_teams', { member_id: user?.id });
 
 		if (data) {
-			redirect(303, '/dashboard');
+			redirect(303, '/dashboard/team');
 		} else {
-			console.error(error);
+			return { error: error?.message };
 		}
 	},
 	delete: async ({ locals: { supabase, user } }) => {
 		const { data, error } = await supabase.rpc('delete_team_by_creator', { member_id: user?.id });
 
 		if (data) {
-			redirect(303, '/dashboard');
+			redirect(303, '/dashboard/team');
 		} else {
-			console.error(error);
+			return { error: error?.message };
 		}
 	}
 };

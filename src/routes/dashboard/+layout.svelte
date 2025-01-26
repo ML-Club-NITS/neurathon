@@ -1,23 +1,22 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
+	import { toast } from '@zerodevx/svelte-toast';
+
 	// import neurathon_logo from '$lib/assets/nurathon_logo.svg';
 	// import logo2 from '$lib/assets/logo2.png';
-	import log4 from '$lib/assets/log4.png';
-	import { onMount } from 'svelte';
 	import GradientAnimation from '$lib/components/ui/GradientAnimation.svelte';
+	import log4 from '$lib/assets/log4.png';
 
-	let { children } = $props();
+	let { children, data } = $props();
+	let { supabase, user } = $derived(data);
+
 	let r1Qulified = true;
 	let registered = false;
 
-	function toggleUserMenu() {
-		const dropdown = document.getElementById('dropdown-user');
-		if (dropdown) {
-			dropdown.classList.toggle('hidden');
-		}
-	}
-
+	let isMenubarOpen = $state(false);
+	let MenuBar = $state<Node | null>(null);
 	let isSidebarOpen = $state(false);
 	let SideBar = $state<Node | null>(null);
 	let active = $state('');
@@ -26,6 +25,14 @@
 		if (isSidebarOpen && SideBar && !SideBar.contains(event.target as Node)) {
 			isSidebarOpen = false;
 		}
+		if (isMenubarOpen && MenuBar && !MenuBar.contains(event.target as Node)) {
+			isMenubarOpen = false;
+		}
+	}
+
+	function toggleMenuBar(event: MouseEvent) {
+		event.stopPropagation();
+		isMenubarOpen = !isMenubarOpen;
 	}
 
 	function toggleSideBar(event: MouseEvent) {
@@ -35,6 +42,17 @@
 
 	function handleLinkClick() {
 		isSidebarOpen = false;
+		isMenubarOpen = false;
+	}
+
+	async function signOut() {
+		const { error } = await supabase.auth.signOut();
+
+		if (error) {
+			toast.push('Error signing out');
+		} else {
+			goto('/participate');
+		}
 	}
 
 	$effect(() => {
@@ -96,7 +114,7 @@
 				<!-- User Profile -->
 				<div class="relative ml-3">
 					<button
-						onclick={() => toggleUserMenu()}
+						onclick={toggleMenuBar}
 						class="flex rounded-full bg-gray-800 text-sm transition-all duration-200 ease-in-out hover:ring-4 hover:ring-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:hover:ring-gray-600 dark:focus:ring-gray-600"
 						aria-expanded="false"
 					>
@@ -108,19 +126,21 @@
 						/>
 					</button>
 					<div
+						bind:this={MenuBar}
 						id="dropdown-user"
-						class="absolute right-0 z-50 mt-2 hidden w-48 divide-y divide-gray-100 rounded-lg bg-white shadow-lg transition-all duration-200 ease-in-out dark:divide-gray-600 dark:bg-gray-700"
+						class={`absolute ${isMenubarOpen ? '' : 'hidden'} right-0 z-50 mt-2 w-48 divide-y divide-gray-100 rounded-lg bg-white shadow-lg transition-all duration-200 ease-in-out dark:divide-gray-600 dark:bg-gray-700`}
 					>
 						<div class="px-4 py-3">
-							<p class="text-sm text-gray-900 dark:text-white">Neil Sims</p>
+							<p class="text-sm text-gray-900 dark:text-white">{user?.user_metadata.name}</p>
 							<p class="truncate text-sm font-medium text-gray-500 dark:text-gray-300">
-								neil.sims@flowbite.com
+								{user?.user_metadata.email}
 							</p>
 						</div>
 						<ul class="py-1">
 							<li>
 								<a
 									href="/dashboard"
+									onclick={handleLinkClick}
 									class="block px-4 py-2 text-sm text-gray-700 transition-all duration-200 ease-in-out hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
 									>Dashboard</a
 								>
@@ -128,15 +148,16 @@
 							<li>
 								<a
 									href="/dashboard/profile"
+									onclick={handleLinkClick}
 									class="block px-4 py-2 text-sm text-gray-700 transition-all duration-200 ease-in-out hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
 									>Profile</a
 								>
 							</li>
 							<li>
-								<a
-									href="/"
-									class="block px-4 py-2 text-sm text-gray-700 transition-all duration-200 ease-in-out hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
-									>Sign out</a
+								<button
+									onclick={signOut}
+									class="block w-full px-4 py-2 text-left text-sm text-gray-700 transition-all duration-200 ease-in-out hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600"
+									>Sign out</button
 								>
 							</li>
 						</ul>
@@ -221,23 +242,23 @@
 
 	<!-- Main Content -->
 	<GradientAnimation
-	gradientBackgroundStart="rgb(0, 0, 0)"
-	gradientBackgroundEnd="rgb(0, 0, 0)"
-	firstColor="18, 113, 255"
-	secondColor="221, 74, 255"
-	thirdColor="0, 0, 0"
-	fourthColor="200, 50, 50"
-	fifthColor="0, 0, 0"
-	pointerColor="76, 103, 235"
-	size="80%"
-	blendingValue="hard-light"
-	interactive={true}
-	containerClassName="min-h-screen"
->
-	<main
-		class="max-h-auto mt-14 flex flex-col flex-wrap items-center gap-4 overflow-scroll p-4 lg:ml-64 lg:flex-row lg:items-start lg:justify-center"
+		gradientBackgroundStart="rgb(0, 0, 0)"
+		gradientBackgroundEnd="rgb(0, 0, 0)"
+		firstColor="18, 113, 255"
+		secondColor="221, 74, 255"
+		thirdColor="0, 0, 0"
+		fourthColor="200, 50, 50"
+		fifthColor="0, 0, 0"
+		pointerColor="76, 103, 235"
+		size="80%"
+		blendingValue="hard-light"
+		interactive={true}
+		containerClassName="min-h-screen"
 	>
-		{@render children()}
-	</main>
+		<main
+			class="max-h-auto mt-14 flex flex-col flex-wrap items-center gap-4 overflow-hidden p-4 lg:ml-64 lg:flex-row lg:items-start lg:justify-center"
+		>
+			{@render children()}
+		</main>
 	</GradientAnimation>
 </div>

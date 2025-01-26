@@ -39,14 +39,14 @@
 	<div class="relative flex flex-col">
 		<div class="mb-4 text-center">
 			<span
-				class="inline-flex pb-6 font-LeagueSpartanFont animate-text-gradient bg-gradient-to-r from-[#FFFFFF] via-[#BE87FF] to-[#FFFFFF] bg-[200%_auto] bg-clip-text text-center text-3xl md:text-4xl lg:text-5xl font-bold text-transparent"
+				class="inline-flex animate-text-gradient bg-gradient-to-r from-[#FFFFFF] via-[#BE87FF] to-[#FFFFFF] bg-[200%_auto] bg-clip-text pb-6 text-center font-LeagueSpartanFont text-3xl font-bold text-transparent md:text-4xl lg:text-5xl"
 			>
 				Congratulations
 			</span>
 
-			
-
-			<p class="mt-2 text-xl font-semibold bg-gradient-to-b from-white to-neutral-500 text-transparent bg-clip-text">
+			<p
+				class="mt-2 bg-gradient-to-b from-white to-neutral-500 bg-clip-text text-xl font-semibold text-transparent"
+			>
 				{qulifiedR1
 					? teamLead
 						? 'Your team has qualified for the Kaggle round. To continue to the second round, you need to add your GitHub repository.'

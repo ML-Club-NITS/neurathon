@@ -11,7 +11,7 @@
 
 	let currentPage = 1;
 	const itemsPerPage = 5;
-	let searchQuery = ''; 
+	let searchQuery = '';
 
 	$: filteredCommits = commits.filter(
 		(commit: { committerName: string; commitMessage: string }) =>
@@ -73,7 +73,7 @@
 	</Motion>
 
 	<!-- Title -->
-	<h1 class="mb-6 text-center  text-2xl font-bold text-white/90">Latest Changes</h1>
+	<h1 class="mb-6 text-center text-2xl font-bold text-white/90">Latest Changes</h1>
 
 	<!-- Search Input -->
 	<div class="mb-6">
@@ -92,7 +92,7 @@
 				<div
 					class="transform rounded-md border border-gray-800 bg-gray-900/50 p-4 transition-all duration-300 hover:scale-[1.02] hover:bg-gray-800/50 hover:shadow-lg"
 				>
-					<div class="flex flex-col pb-2 gap-4 md:flex-row items-center justify-between">
+					<div class="flex flex-col items-center justify-between gap-4 pb-2 md:flex-row">
 						<div class="flex items-center space-x-4">
 							<img
 								src={commit.committerAvatar}
@@ -131,8 +131,6 @@
 		>
 			{'<'}
 		</button>
-
-		
 
 		<button
 			class="rounded-md bg-gray-800/50 px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-gray-800/70 disabled:opacity-50 disabled:hover:bg-gray-800/50"

@@ -29,9 +29,9 @@
 					'--toastBarBackground': '#2F855A'
 				},
 				onpop: () => {
-					goto('/participate');
+					goto('/dashboard');
 				},
-				duration: 1000
+				duration: 1200
 			});
 		} else if (form?.signup) {
 			toast.push('Registeration Successful', {
@@ -46,7 +46,7 @@
 					});
 					goto('/participate');
 				},
-				duration: 1000
+				duration: 1200
 			});
 		} else if (form?.resetPassword) {
 			toast.push('Check your inbox', {

@@ -2,21 +2,16 @@
 	import data from '$lib/data/participateTimeline.json';
 
 	let timelineContainer: HTMLDivElement;
-
-
 </script>
 
-
-<div class="bg-transparent relative h-screen overflow-hidden">
-	<div class="relative h-full flex align-middle justify-center">
-
-
-
+<div class="relative h-screen overflow-hidden bg-transparent">
+	<div class="relative flex h-full justify-center align-middle">
 		<div class="max-h-screen overflow-y-auto" bind:this={timelineContainer}>
-			<div class="mx-auto ml-0 p-8 pl-7 flex flex-col align-middle">
+			<div class="mx-auto ml-0 flex flex-col p-8 pl-7 align-middle">
 				{#each data as item (item.version)}
 					<div class="relative pb-8">
-						<span class="absolute left-5 top-5 -ml-px h-full w-0.5 bg-gray-800" aria-hidden="true"></span>
+						<span class="absolute left-5 top-5 -ml-px h-full w-0.5 bg-gray-800" aria-hidden="true"
+						></span>
 						<div class="relative flex items-start space-x-3">
 							<div>
 								<div class="relative px-1">

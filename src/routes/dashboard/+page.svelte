@@ -56,7 +56,7 @@
 	<div class="w-full text-left text-2xl font-semibold text-white">
 		<TextGenerateEffect words={`Welcome, ${data.user?.user_metadata.name || 'user'}`} />
 	</div>
-	<div class="rounded-lg text-white z-0"><Notification /></div>
+	<div class="z-0 rounded-lg text-white"><Notification /></div>
 	<div class="flex w-full flex-row flex-wrap justify-evenly gap-4 lg:flex-row lg:flex-nowrap">
 		<!-- <div class="rounded-lg md:w-full lg:min-w-[300px] lg:max-w-full">
 			<GitHistory {commits} />

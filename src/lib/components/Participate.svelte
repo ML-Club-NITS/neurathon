@@ -3,11 +3,13 @@
 	import eligibilityData from '$lib/data/eligibilityData.json';
 	import { ParticipateTimeline, Button, GradientAnimation } from './ui';
 
+	let { data } = $props();
+
 	let neurathonDate = '--/--/2025';
 	let eligData2 = [
 		{
 			title: 'Registrations',
-			des: '--',
+			des: data?.data[0].count ?? '-',
 			icon: 'fi fi-ss-team-check-alt'
 		},
 		{
@@ -24,10 +26,8 @@
 </script>
 
 <GradientAnimation>
-	<div class="text-white mt-[4.3rem] flex flex-col gap-5 md:flex-row">
-		<div
-			class="reg g-1 h-fit text-white md:w-[40%] lg:w-[40%] xl:w-[40%]"
-		>
+	<div class="mt-[4.3rem] flex flex-col gap-5 text-white md:flex-row">
+		<div class="reg g-1 text-white md:w-[40%] lg:w-[40%] xl:w-[40%]">
 			<div
 				class="reg-container m-3 flex flex-col justify-center overflow-hidden rounded border border-gray-600 bg-gray-700/[0.7]"
 			>
@@ -95,7 +95,7 @@
 		</div>
 
 		<div class="neurathon-info-container g-1 overflow-hidden md:w-[60%] lg:w-[60%] xl:w-[60%]">
-			<div class="event-timeline m-3  rounded border border-gray-600 bg-gray-700/[0.5] pb-5 ">
+			<div class="event-timeline m-3 rounded border border-gray-600 bg-gray-700/[0.5] pb-5">
 				<ParticipateTimeline />
 			</div>
 		</div>

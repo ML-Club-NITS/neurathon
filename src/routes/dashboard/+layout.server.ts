@@ -8,11 +8,21 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 	const r1TimeEnd = new Date('16 Feb 2025');
 	const r2Time = new Date('21 March 2025');
 	const r2TimeEnd = new Date('23 March 2025');
+
+	const { data: profile, error: err } = await supabase.from('profiles').select().eq('id', user?.id);
+
+	if (err) {
+		return { error: err.message };
+	}
+
+	const profileCompleted = profile && profile.length > 0;
+
 	const { data, error } = await supabase.rpc('get_team', { member_id: user?.id });
 
 	if (error) {
 		console.error(error);
 	}
+
 	if (data) {
 		const { data: team, error } = await supabase.from('teams').select().eq('TeamID', data);
 
@@ -27,7 +37,8 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 				round: 0,
 				timer: (timer.getTime() - timer.getTime()) / 1000,
 				TeamID: data,
-				team: team ? (team[0] ?? []) : []
+				team: team ? (team[0] ?? []) : [],
+				profileCompleted
 			};
 		} else if (timer > r1Time && timer < r1TimeEnd) {
 			return {
@@ -36,7 +47,8 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 				round: 1,
 				timer: (timer.getTime() - r1Time.getTime()) / 1000,
 				TeamID: data,
-				team: team ? (team[0] ?? []) : []
+				team: team ? (team[0] ?? []) : [],
+				profileCompleted
 			};
 		} else if (timer > r1TimeEnd && timer < r2Time) {
 			return {
@@ -45,7 +57,8 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 				round: 1.5,
 				timer: (timer.getTime() - r1TimeEnd.getTime()) / 1000,
 				TeamID: data,
-				team: team ? (team[0] ?? []) : []
+				team: team ? (team[0] ?? []) : [],
+				profileCompleted
 			};
 		} else if (timer > r2Time && timer < r2TimeEnd) {
 			const msg = await fetch(
@@ -69,21 +82,23 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 				round: 2,
 				timer: (timer.getTime() - r2Time.getTime()) / 1000,
 				TeamID: data,
-				team: team ? (team[0] ?? []) : []
+				team: team ? (team[0] ?? []) : [],
+				profileCompleted
 			};
 		} else {
 			return {
 				commits: ['2'],
 				TeamID: data,
-				team: team ? (team[0] ?? []) : []
+				team: team ? (team[0] ?? []) : [],
+				profileCompleted
 			};
 		}
 	} else {
 		return {
 			commits: ['1'],
 			TeamID: null,
-			team: null
+			team: null,
+			profileCompleted
 		};
-		console.log('UUID does not exist in any team.');
 	}
 };
