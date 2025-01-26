@@ -11,3 +11,5 @@ export { default as LeaderBoard } from './LeaderBoard.svelte';
 export { default as Banner } from './Banner.svelte';
 export { default as GitHistory } from './GitHistory.svelte';
 export { default as Round1Select } from './Notification.svelte';
+export { default as SubmissionCard } from './SubmissionCard.svelte';
+export { default as Notification } from './Notification.svelte'; 

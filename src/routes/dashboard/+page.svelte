@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { GitHistory, LeaderBoard } from '$lib/components';
-	import Notification from '$lib/components/Notification.svelte';
-	import TextGenerateEffect from '$lib/components/ui/TextGenerateEffect.svelte';
+	import { GitHistory, LeaderBoard, Notification, SubmissionCard } from '$lib/components';
+	import { TextGenerateEffect } from '$lib/components/ui';
+
 	let { data } = $props();
 	let { commits, round } = $derived(data);
-	// console.log(commits);
+	
 </script>
 
 <section class="flex h-auto w-full flex-col items-center justify-center gap-4">
@@ -61,6 +61,7 @@
 		<!-- <div class="rounded-lg md:w-full lg:min-w-[300px] lg:max-w-full">
 			<GitHistory {commits} />
 		</div> -->
+		<SubmissionCard/>
 		{#if round === 1.5}
 			<div class="w-full rounded-lg lg:max-w-[50%]">
 				<LeaderBoard />
