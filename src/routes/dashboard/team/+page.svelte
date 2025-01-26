@@ -207,24 +207,20 @@
 					</h2>
 					<div class="space-y-4 lg:mb-11 lg:ml-16">
 						<div>
-							<span class="text-sm font-medium text-neutral-400">Team ID</span>
-							<p class="font-LeagueSpartanFont text-base md:text-xl font-bold text-neutral-100">{TeamID}</p>
-						</div>
-						<div>
 							<span class="text-sm font-medium text-neutral-400">Team Name</span>
-							<p class="font-LeagueSpartanFont text-base md:text-2xl lg:text-4xl font-bold bg-gradient-to-r from-white via-indigo-600/75 to-white bg-[length:200%_auto] animate-text-gradient bg-clip-text text-transparent">
+							<p class="font-LeagueSpartanFont text-xl md:text-2xl lg:text-4xl font-bold bg-gradient-to-r from-white via-indigo-200/55 to-white bg-[length:200%_auto] animate-text-gradient bg-clip-text text-transparent w-fit rounded-lg border border-slate-800 px-3 py-2 my-1 shadow-md transition-all hover:border-white">
 								{team?.TeamName}
 							</p>
 						</div>
 						<div>
 							<span class="text-sm font-medium text-neutral-400">Team ID</span>
-							<p class="select-text font-LeagueSpartanFont text-xl font-bold text-neutral-100">
+							<p class="select-text font-LeagueSpartanFont text-base font-bold text-neutral-100 w-fit rounded-lg border border-slate-800 px-3 py-2 my-1 shadow-md transition-all hover:border-white">
 								{TeamID}
 							</p>
 						</div>
 						<div>
 							<span class="text-sm font-medium text-neutral-400">Team Leader</span>
-							<p class="font-LeagueSpartanFont text-xl font-bold text-neutral-100">
+							<p class="font-LeagueSpartanFont text-xl font-bold text-neutral-100 w-fit rounded-lg border border-slate-800 px-3 py-2 my-1 shadow-md transition-all hover:border-white">
 								{team?.Members.find((m: { sub: string; name: string }) => m.sub === team?.CreatedBy)
 									?.name}
 							</p>
