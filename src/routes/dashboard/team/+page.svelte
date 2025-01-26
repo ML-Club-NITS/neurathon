@@ -177,20 +177,22 @@
 									?.name}
 							</p>
 						</div>
-						<div>
-							<span class="text-sm font-medium text-neutral-400">Team Members</span>
-							<div class="my-2 flex flex-col gap-2 font-LeagueSpartanFont font-bold">
-								{#each team?.Members.filter((m: { sub: string }) => m.sub !== team?.CreatedBy) as member}
-									<div
-										class="w-fit rounded-lg border border-slate-800 px-3 py-2 shadow-md transition-all hover:scale-105 hover:border-orange-500 hover:bg-slate-700"
-									>
-										<p class="text-md leading-4 text-neutral-100">
-											{member.name} <span class="text-sm text-slate-400">({member.email})</span>
-										</p>
-									</div>
-								{/each}
+						{#if team?.Members.length > 1}
+							<div>
+								<span class="text-sm font-medium text-neutral-400">Team Members</span>
+								<div class="my-2 flex flex-col gap-2 font-LeagueSpartanFont font-bold">
+									{#each team?.Members.filter((m: { sub: string }) => m.sub !== team?.CreatedBy) as member}
+										<div
+											class="w-fit rounded-lg border border-slate-800 px-3 py-2 shadow-md transition-all hover:scale-105 hover:border-orange-500 hover:bg-slate-700"
+										>
+											<p class="text-md leading-4 text-neutral-100">
+												{member.name} <span class="text-sm text-slate-400">({member.email})</span>
+											</p>
+										</div>
+									{/each}
+								</div>
 							</div>
-						</div>
+						{/if}
 						<form
 							method="POST"
 							class="flex gap-4 pt-4"

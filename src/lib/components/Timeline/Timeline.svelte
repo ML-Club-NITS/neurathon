@@ -24,6 +24,30 @@
 			content: Conclusion
 		}
 	];
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+	gsap.registerPlugin(ScrollTrigger);
+
+	$effect(() => {
+		let tl = gsap.timeline();
+		tl.from('#timeline', {
+			opacity: 0,
+			y: 60,
+			stagger: 1,
+
+			scrollTrigger: {
+				trigger: '#timeline',
+				scrub: 0.5,
+				start: 'top top',
+				end: '+=50',
+				once: true,
+				snap: {
+					ease: 'power1.inOut'
+				},
+				markers: true
+			}
+		});
+	});
 </script>
 
 <section

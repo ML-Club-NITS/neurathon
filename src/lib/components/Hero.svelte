@@ -1,5 +1,39 @@
 <script>
 	import bubbleGif from '$lib/assets/bubble.gif';
+	import { gsap } from 'gsap';
+
+	// GSAP Animation
+	$effect(() => {
+		gsap.set('*', { visibility: 'visible' });
+
+		let tl = gsap.timeline();
+		tl.from('.gif', {
+			opacity: 0,
+			y: 60,
+			duration: 1
+		})
+			.from(
+				'#Neurathontext',
+				{
+					opacity: 0,
+					y: 30,
+					stagger: 0.4,
+					ease: 'back',
+					duration: 1.2
+				},
+				'-=0.1'
+			)
+			.from(
+				'#TagLine',
+				{
+					opacity: 0,
+					x: -40,
+					duration: 1,
+					ease: 'back'
+				},
+				'-=0.1'
+			);
+	});
 </script>
 
 <div
@@ -11,25 +45,18 @@
 	>
 		<!-- Title -->
 		<div class="neurathon">
-			<span
+			<div
+				id="Neurathontext"
 				class="inline-block animate-text-gradient bg-gradient-to-r from-white via-gray-400 to-white bg-[200%_auto] bg-clip-text font-LeagueSpartanFont text-4xl font-bold text-transparent md:text-6xl lg:text-8xl"
 			>
-				Neurathon
-			</span>
+				<span>N</span><span>e</span><span>u</span><span>r</span><span>a</span><span>t</span><span
+					>h</span
+				><span>o</span><span>n</span>
+			</div>
 		</div>
 		<!-- Subtitle -->
-		<div class="group relative overflow-hidden text-2xl md:text-3xl lg:text-4xl">
-			<span class="invisible">AI For Good</span>
-			<span
-				class="absolute left-0 top-0 text-neutral-400 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full"
-			>
-				AI For Good
-			</span>
-			<span
-				class="absolute left-0 top-0 translate-y-full text-neutral-400 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0"
-			>
-				Get Started
-			</span>
+		<div class=" group relative overflow-hidden text-2xl md:text-3xl lg:text-4xl">
+			<span id="TagLine" class="invisible text-neutral-400">AI For Good</span>
 		</div>
 	</div>
 

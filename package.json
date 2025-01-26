@@ -44,6 +44,7 @@
 		"@sveltejs/adapter-vercel": "^5.5.3",
 		"cloudinary": "^2.5.1",
 		"clsx": "^2.1.1",
+		"gsap": "^3.12.7",
 		"svelte-motion": "^0.12.2",
 		"tailwind-merge": "^2.6.0",
 		"vitest": "^2.1.8"
