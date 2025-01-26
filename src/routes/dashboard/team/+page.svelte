@@ -201,26 +201,32 @@
 					class="relative flex w-full flex-col gap-3 rounded-xl border border-white/10 px-4 py-5"
 				>
 					<h2
-						class="mdlg:text-6xl mb-4 animate-text-gradient bg-gradient-to-r from-[#FFFFFF] via-[#CBCBCB] to-[#FFFFFF] bg-[200%_auto] bg-clip-text text-center font-LeagueSpartanFont text-5xl font-bold text-neutral-200 text-transparent md:text-4xl lg:text-5xl"
+						class=" mb-4 animate-text-gradient break-words bg-gradient-to-r from-[#FFFFFF] via-[#CBCBCB] to-[#FFFFFF] bg-[200%_auto] bg-clip-text text-center font-LeagueSpartanFont text-3xl font-bold text-neutral-200 text-transparent md:text-4xl lg:text-5xl"
 					>
 						Team Information
 					</h2>
 					<div class="space-y-4 lg:mb-11 lg:ml-16">
 						<div>
 							<span class="text-sm font-medium text-neutral-400">Team Name</span>
-							<p class="font-LeagueSpartanFont text-xl font-bold text-neutral-100">
+							<p
+								class="my-1 w-fit animate-text-gradient rounded-lg border border-slate-800 bg-gradient-to-r from-white via-indigo-200/55 to-white bg-[length:200%_auto] bg-clip-text px-3 py-2 font-LeagueSpartanFont text-xl font-bold text-transparent shadow-md transition-all hover:border-white md:text-2xl lg:text-4xl"
+							>
 								{team?.TeamName}
 							</p>
 						</div>
 						<div>
 							<span class="text-sm font-medium text-neutral-400">Team ID</span>
-							<p class="select-text font-LeagueSpartanFont text-xl font-bold text-neutral-100">
+							<p
+								class="my-1 w-fit select-text rounded-lg border border-slate-800 px-3 py-2 font-LeagueSpartanFont text-base font-bold text-neutral-100 shadow-md transition-all hover:border-white"
+							>
 								{TeamID}
 							</p>
 						</div>
 						<div>
 							<span class="text-sm font-medium text-neutral-400">Team Leader</span>
-							<p class="font-LeagueSpartanFont text-xl font-bold text-neutral-100">
+							<p
+								class="my-1 w-fit rounded-lg border border-slate-800 px-3 py-2 font-LeagueSpartanFont text-xl font-bold text-neutral-100 shadow-md transition-all hover:border-white"
+							>
 								{team?.Members.find((m: { sub: string; name: string }) => m.sub === team?.CreatedBy)
 									?.name}
 							</p>
@@ -231,7 +237,7 @@
 								<div class="my-2 flex flex-col gap-2 font-LeagueSpartanFont font-bold">
 									{#each team?.Members.filter((m: { sub: string }) => m.sub !== team?.CreatedBy) as member}
 										<div
-											class="w-fit rounded-lg border border-slate-800 px-3 py-2 shadow-md transition-all hover:scale-105 hover:border-orange-500 hover:bg-slate-700"
+											class="w-fit rounded-lg border border-slate-800 px-3 py-2 shadow-md transition-all hover:scale-105 hover:border-white hover:bg-slate-700/55"
 										>
 											<p class="text-md leading-4 text-neutral-100">
 												{member.name} <span class="text-sm text-slate-400">({member.email})</span>
@@ -241,31 +247,46 @@
 								</div>
 							</div>
 						{/if}
-						<button
-							class="rounded-lg bg-indigo-600/35 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-600/15"
-							onclick={shareLink}
+						<form
+							method="POST"
+							class="flex gap-4 pt-4"
+							use:enhance={() => {
+								submitting = true;
+
+								return async ({ update }) => {
+									await update();
+									setTimeout(() => (submitting = false), 1500);
+								};
+							}}
 						>
-							Share Team Link
-						</button>
-						<div class="button_container">
-							<form method="POST" class="flex gap-4">
-								{#if team?.CreatedBy === user?.id}
-									<button
-										formaction="?/delete"
-										class="glass-button 0 cursor-pointer rounded-lg border border-white/55 bg-red-600/80 px-4 py-2 font-medium text-neutral-100 shadow-md backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-600/5 hover:shadow-lg active:translate-y-0"
-									>
-										Delete Team
-									</button>
-								{:else}
-									<button
-										formaction="?/leave"
-										class="glass-button 0 cursor-pointer rounded-lg border border-white/55 bg-red-600/80 px-4 py-2 font-medium text-neutral-100 shadow-md backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-600/5 hover:shadow-lg active:translate-y-0"
-									>
-										Leave Team
-									</button>
-								{/if}
-							</form>
-						</div>
+							{#if team?.CreatedBy === user?.id}
+								<button
+									formaction="?/delete"
+									class="transform rounded-md border border-neutral-300 bg-slate-700/15 px-4 py-2 text-sm text-neutral-100 backdrop-blur-md transition duration-200 hover:-translate-y-1 hover:bg-green-500 hover:shadow-md"
+									class:!cursor-not-allowed={submitting}
+									disabled={submitting}
+								>
+									Share Team
+								</button>
+								<button
+									formaction="?/delete"
+									class="transform rounded-md border border-neutral-300 bg-slate-700/15 px-4 py-2 text-sm text-neutral-100 backdrop-blur-md transition duration-200 hover:-translate-y-1 hover:bg-red-500 hover:shadow-md"
+									class:!cursor-not-allowed={submitting}
+									disabled={submitting}
+								>
+									Delete Team
+								</button>
+							{:else}
+								<button
+									formaction="?/leave"
+									class="transform rounded-md border border-neutral-300 bg-slate-700/15 px-4 py-2 text-sm text-neutral-100 backdrop-blur-md transition duration-200 hover:-translate-y-1 hover:bg-red-500 hover:shadow-md"
+									class:!cursor-not-allowed={submitting}
+									disabled={submitting}
+								>
+									Leave Team
+								</button>
+							{/if}
+						</form>
 					</div>
 				</div>
 			</div>

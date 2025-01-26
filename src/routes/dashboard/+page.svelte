@@ -9,6 +9,7 @@
 	// import EventTimer from '$lib/components/EventTimer.svelte';
 	import ProblemStatementCard from '$lib/components/ProblemStatementCard.svelte';
 	import { TextGenerateEffect } from '$lib/components/ui';
+	import NotificationCard from '$lib/components/ui/NotificationCard.svelte';
 
 	let { data } = $props();
 	let { commits, round } = $derived(data);
@@ -82,22 +83,50 @@
 		<!-- <GitHistory {commits}/> -->
 		<!-- <ProblemStatementCard /> -->
 		{#if round === 0}
-			<EventTimer {eventTime} {currentTime} {EventName} {EventDescription} />
+			<div class="flex w-full flex-row rounded-lg lg:max-w-[50%]">
+				<EventTimer {eventTime} {currentTime} {EventName} {EventDescription} />
+				<!-- show time till round 1 start -->
+				<!-- event start poster / photo gallery / anything interactive -->
+			</div>
 		{:else if round === 1}
-			<!-- Event starting card, welcome card etc -->
-			<EventTimer {eventTime} {currentTime} {EventName} {EventDescription} />
-			<ProblemStatementCard />
-			<SubmissionCard />
+			<div class="flex w-full flex-row rounded-lg lg:max-w-[50%]">
+				<!-- Event starting card, welcome card etc -->
+				<EventTimer {eventTime} {currentTime} {EventName} {EventDescription} />
+				<!-- show timer for the ending of the round -->
+				<ProblemStatementCard />
+				<SubmissionCard />
+			</div>
 		{:else if round === 2}
-			<div class="w-full rounded-lg lg:max-w-[50%]">
-				<LeaderBoard />
+			<!--END OF ONLINE ROUND-->
+			<div class="flex w-full flex-row rounded-lg lg:max-w-[50%]">
+				<!-- show a card till the result is declares, "...till result , brouse throug teh problems" -->
+				<ProblemStatementCard />
+				<!-- for those who want to go through the problems even after the round 1 -->
 			</div>
 		{:else if round === 3}
-			<div class="rounded-lg md:w-full lg:min-w-[300px] lg:max-w-full">
+			<div class="flex w-full flex-row rounded-lg lg:max-w-[50%]">
+				<!-- Online Round result -->
+				<Notification />
+				<!--result greetings-->
+				<EventTimer {eventTime} {currentTime} {EventName} {EventDescription} />
+				<!-- show timer till start of  round 2 -->
+				<LeaderBoard />
 				<GitHistory {commits} />
 			</div>
-			<div class="w-full rounded-lg lg:max-w-[50%]">
-				<LeaderBoard />
+		{:else if round === 4}
+			<div class="flex w-full flex-row rounded-lg lg:max-w-[50%]">
+				<Notification />
+				<!--result greetings-->
+				<EventTimer {eventTime} {currentTime} {EventName} {EventDescription} />
+				<!--   OPEN INNOVATION CARD  -->
+				<SubmissionCard />
+				<!-- proj submission -->
+			</div>
+		{:else if round === 5}
+			<div class="flex w-full flex-row rounded-lg lg:max-w-[50%]">
+				<!-- Result Card, WITH TEAM THAT WON WITH  THEIR DEPLOYMENT LINKS -->
+				<!--  eVENT pHOTO gALLARY -->
+				<!-- bYE byE CARD -->
 			</div>
 		{/if}
 	</div>

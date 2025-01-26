@@ -41,7 +41,7 @@
 			<span
 				class="inline-flex animate-text-gradient bg-gradient-to-r from-[#FFFFFF] via-[#BE87FF] to-[#FFFFFF] bg-[200%_auto] bg-clip-text pb-6 text-center font-LeagueSpartanFont text-3xl font-bold text-transparent md:text-4xl lg:text-5xl"
 			>
-				Congratulations
+				{qulifiedR1 ? (teamLead ? 'Congratulations' : 'We are Sorry') : 'We are Sorry'}
 			</span>
 
 			<p

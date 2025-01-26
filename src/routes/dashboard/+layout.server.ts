@@ -72,8 +72,8 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 					banner: {
 						message: 'Submit before the deadline.',
 						route: '/dashboard'
-					},
-				}
+					}
+				};
 			} else {
 				return {
 					banner: {
@@ -111,7 +111,7 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 			} else {
 				return {
 					finalStatements,
-					githubLink: team[0]?.github,
+					githubLink: team[0]?.github
 				};
 			}
 		} else if (current.phase === 5) {
