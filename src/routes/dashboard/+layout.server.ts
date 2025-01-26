@@ -3,7 +3,7 @@ import type { LayoutServerLoad } from './$types';
 export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user } }) => {
 	depends('supabase:db:teams');
 
-	const timer = new Date('22 March 2025');
+	const timer = new Date('15 Feb 2025');
 	const r1Time = new Date('13 Feb 2025');
 	const r1TimeEnd = new Date('16 Feb 2025');
 	const r2Time = new Date('21 March 2025');
@@ -40,7 +40,7 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 				team: team ? (team[0] ?? []) : [],
 				profileCompleted
 			};
-		} else if (timer > r1Time && timer < r1TimeEnd) {
+		} else if (timer >= r1Time && timer < r1TimeEnd) {
 			return {
 				commits: ['4'],
 				alart: 'Complete your profile details',
@@ -50,7 +50,7 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 				team: team ? (team[0] ?? []) : [],
 				profileCompleted
 			};
-		} else if (timer > r1TimeEnd && timer < r2Time) {
+		} else if (timer >= r1TimeEnd && timer < r2Time) {
 			return {
 				commits: ['3'],
 				alart: 'Complete your profile details',
@@ -60,7 +60,7 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 				team: team ? (team[0] ?? []) : [],
 				profileCompleted
 			};
-		} else if (timer > r2Time && timer < r2TimeEnd) {
+		} else if (timer >= r2Time && timer < r2TimeEnd) {
 			const msg = await fetch(
 				'https://api.github.com/repos/tech-hunter-mainak/neurathon-24/commits'
 			);
