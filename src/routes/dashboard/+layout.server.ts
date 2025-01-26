@@ -1,104 +1,144 @@
+import result1 from '$lib/data/round1Results.json';
+import result2 from '$lib/data/round2Results.json';
+import timeline from '$lib/data/timeline.json';
+import finalStatements from '$lib/data/finalStatements.json';
+import problemStatements from '$lib/data/problemstatements.json';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user } }) => {
 	depends('supabase:db:teams');
+	depends('supabase:db:profiles');
 
-	const timer = new Date('22 March 2025');
-	const r1Time = new Date('13 Feb 2025');
-	const r1TimeEnd = new Date('16 Feb 2025');
-	const r2Time = new Date('21 March 2025');
-	const r2TimeEnd = new Date('23 March 2025');
+	const now = Date.now();
 
+	const current = timeline.timeline.find(
+		(phase) =>
+			new Date(phase.startTime).getTime() <= now && now <= new Date(phase.endTime).getTime()
+	) || { phase: 4 }; // phase 4 is final
+
+	// Supabase queries
 	const { data: profile, error: err } = await supabase.from('profiles').select().eq('id', user?.id);
-
-	if (err) {
-		return { error: err.message };
-	}
 
 	const profileCompleted = profile && profile.length > 0;
 
-	const { data, error } = await supabase.rpc('get_team', { member_id: user?.id });
-
-	if (error) {
-		console.error(error);
-	}
-
-	if (data) {
-		const { data: team, error } = await supabase.from('teams').select().eq('TeamID', data);
-
-		if (error) {
-			console.error(error);
-		}
-
-		if (timer < r1Time) {
-			return {
-				commits: ['5'],
-				alart: 'Complete your profile details',
-				round: 0,
-				timer: (timer.getTime() - timer.getTime()) / 1000,
-				TeamID: data,
-				team: team ? (team[0] ?? []) : [],
-				profileCompleted
-			};
-		} else if (timer > r1Time && timer < r1TimeEnd) {
-			return {
-				commits: ['4'],
-				alart: 'Complete your profile details',
-				round: 1,
-				timer: (timer.getTime() - r1Time.getTime()) / 1000,
-				TeamID: data,
-				team: team ? (team[0] ?? []) : [],
-				profileCompleted
-			};
-		} else if (timer > r1TimeEnd && timer < r2Time) {
-			return {
-				commits: ['3'],
-				alart: 'Complete your profile details',
-				round: 2,
-				timer: (timer.getTime() - r1TimeEnd.getTime()) / 1000,
-				TeamID: data,
-				team: team ? (team[0] ?? []) : [],
-				profileCompleted
-			};
-		} else if (timer > r2Time && timer < r2TimeEnd) {
-			const msg = await fetch(
-				'https://api.github.com/repos/tech-hunter-mainak/neurathon-24/commits'
-			);
-			const userData = await msg.json();
-			const dataSize = userData.length;
-			const commitData = [];
-			for (let i = 0; i < dataSize; i++) {
-				commitData.push({
-					committerName: userData[i].commit.committer.name,
-					commitMessage: userData[i].commit.message,
-					commitDate: userData[i].commit.committer.date,
-					committerAvatar: userData[i].author.avatar_url,
-					commitUrl: userData[i].html_url,
-					committerUrl: userData[i].author.html_url
-				});
-			}
-			return {
-				commits: commitData,
-				round: 3,
-				timer: (timer.getTime() - r2Time.getTime()) / 1000,
-				TeamID: data,
-				team: team ? (team[0] ?? []) : [],
-				profileCompleted
-			};
+	if (!profileCompleted) {
+		if (current.phase === 1) {
+			return { banner: { message: 'Complete your profile details', route: '/dashboard/profile' } };
 		} else {
-			return {
-				commits: ['2'],
-				TeamID: data,
-				team: team ? (team[0] ?? []) : [],
-				profileCompleted
-			};
+			return { banner: { message: 'Hackathon is already started.', route: null } };
 		}
 	} else {
-		return {
-			commits: ['1'],
-			TeamID: null,
-			team: null,
-			profileCompleted
-		};
+		const { data: teamID, error: teamError } = await supabase.rpc('get_team', {
+			member_id: user?.id
+		});
+
+		if (teamError || !teamID) {
+			console.error(teamError);
+			if (current.phase === 1) {
+				return {
+					banner: {
+						message: 'Create or Join Team before Hackathon Starts.',
+						route: '/dashboard/team'
+					}
+				};
+			} else {
+				return {
+					toast: { message: 'Hackathon is already started.', route: null }
+				};
+			}
+		}
+
+		const { data: team, error: teamDataError } = await supabase
+			.from('teams')
+			.select()
+			.eq('TeamID', teamID);
+
+		if (teamDataError) {
+			console.error(teamDataError);
+			return { toast: { message: 'Error fetching team data.', route: '/dashboard/team' } };
+		}
+
+		if (current.phase === 1) {
+			return {
+				banner: {
+					message: 'Registeration completed successfully.',
+					route: '/dashboard'
+				}
+			};
+		} else if (current.phase === 2) {
+			if (!team[0]?.Round1) {
+				return {
+					problemStatements,
+					banner: {
+						message: 'Submit before the deadline.',
+						route: '/dashboard'
+					},
+				}
+			} else {
+				return {
+					banner: {
+						message: 'Completed Round 1 Submission.',
+						route: '/dashboard'
+					}
+				};
+			}
+		} else if (current.phase === 3) {
+			if (result1.declared) {
+				return {
+					result1,
+					banner: {
+						message: 'Round 1 results declared. You are eligible for final round.',
+						route: '/dashboard'
+					}
+				};
+			} else {
+				return {
+					banner: {
+						message: 'Round 1 results will be declared soon.',
+						route: '/dashboard'
+					}
+				};
+			}
+		} else if (current.phase === 4) {
+			if (!team[0]?.github) {
+				return {
+					finalStatements,
+					banner: {
+						message: 'Add your Github Repo.',
+						route: '/dashboard'
+					}
+				};
+			} else {
+				return {
+					finalStatements,
+					githubLink: team[0]?.github,
+				};
+			}
+		} else if (current.phase === 5) {
+			if (result2.declared) {
+				return {
+					result: result2,
+					banner: {
+						message: 'Final results declared.',
+						route: null
+					}
+				};
+			} else {
+				return {
+					banner: {
+						message: 'Final results will be declared soon.',
+						route: null
+					}
+				};
+			}
+		} else {
+			return {
+				result: result2,
+				banner: {
+					message: 'Bye Bye! Neurathon is over.',
+					route: null
+				}
+			};
+		}
 	}
 };
