@@ -210,7 +210,7 @@
 								<div class="my-2 flex flex-col gap-2 font-LeagueSpartanFont font-bold">
 									{#each team?.Members.filter((m: { sub: string }) => m.sub !== team?.CreatedBy) as member}
 										<div
-											class="w-fit rounded-lg border border-slate-800 px-3 py-2 shadow-md transition-all hover:scale-105 hover:border-orange-500 hover:bg-slate-700"
+											class="w-fit rounded-lg border border-slate-800 px-3 py-2 shadow-md transition-all hover:scale-105 hover:border-white hover:bg-slate-700/55"
 										>
 											<p class="text-md leading-4 text-neutral-100">
 												{member.name} <span class="text-sm text-slate-400">({member.email})</span>
@@ -235,7 +235,7 @@
 							{#if team?.CreatedBy === user?.id}
 								<button
 									formaction="?/delete"
-									class="rounded-lg bg-green-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-red-700"
+									class="px-4 py-2 rounded-md border border-neutral-300 bg-slate-700/15 backdrop-blur-md text-neutral-100 text-sm hover:-translate-y-1 transform transition duration-200 hover:shadow-md hover:bg-green-500"
 									class:!cursor-not-allowed={submitting}
 									disabled={submitting}
 								>
@@ -243,7 +243,7 @@
 								</button>
 								<button
 									formaction="?/delete"
-									class="rounded-lg bg-red-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-red-700"
+									class="px-4 py-2 rounded-md border border-neutral-300 bg-slate-700/15 backdrop-blur-md text-neutral-100 text-sm hover:-translate-y-1 transform transition duration-200 hover:shadow-md hover:bg-red-500"
 									class:!cursor-not-allowed={submitting}
 									disabled={submitting}
 								>
@@ -252,7 +252,7 @@
 							{:else}
 								<button
 									formaction="?/leave"
-									class="rounded-lg bg-red-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-red-700"
+									class="px-4 py-2 rounded-md border border-neutral-300 bg-slate-700/15 backdrop-blur-md text-neutral-100 text-sm hover:-translate-y-1 transform transition duration-200 hover:shadow-md hover:bg-red-500"
 									class:!cursor-not-allowed={submitting}
 									disabled={submitting}
 								>
