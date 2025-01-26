@@ -8,18 +8,13 @@
 
 		let tl = gsap.timeline();
 		tl.from(
-			'#logo-ani',
+			'#logo-ani,#navbar-sticky',
 			{
 				opacity: 0,
 				y: -15,
 				duration: 1
 			},
-			'-=0.1'
-		).from('#navbar-sticky', {
-			opacity: 0,
-			y: -15,
-			duration: 1
-		});
+		)
 	});
 
 	let { isRegistered } = $props();

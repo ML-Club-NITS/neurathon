@@ -16,10 +16,10 @@
 			scrollTrigger: {
 				trigger: '#about',
 				scrub: 1,
-				start: 'top top',
+				start: '-=200',
 				end: '+=10',
 				once: true,
-				markers: true
+				// markers: true
 			}
 		});
 	});
