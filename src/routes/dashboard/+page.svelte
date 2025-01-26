@@ -9,11 +9,12 @@
 	// import EventTimer from '$lib/components/EventTimer.svelte';
 	import ProblemStatementCard from '$lib/components/ProblemStatementCard.svelte';
 	import { TextGenerateEffect } from '$lib/components/ui';
+	import Error from '../+error.svelte';
 
 	let { data } = $props();
 	let { commits, round } = $derived(data);
 
-	let 
+	
 
 	let eventTime = new Date('27 JAN 2025');
 	let currentTime = new Date();
