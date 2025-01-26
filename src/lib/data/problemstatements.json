@@ -1,301 +1,285 @@
 [
-    {
-      "id": 1,
-      "title": "Autonomous Resource Identification and Mapping",
-      "overview": "Efficient exploration of extraterrestrial bodies like the Moon, Mars, or asteroids is essential for future space missions and in-situ resource utilization (ISRU). Identifying and mapping valuable resources such as water ice, metals, and rare minerals from remotely sensed data is a critical step. This project focuses on developing a machine learning model to analyze remotely sensed data, particularly hyperspectral images, to autonomously identify and map the spatial distribution of these resources. The model should be robust against challenges like noise, incomplete data, and varying environmental conditions. Leveraging publicly available datasets, including those from Indian space missions, this solution aims to support sustainable extraterrestrial exploration.",
-      "keyObjectives": [
-        "Classify extraterrestrial materials (e.g., water ice, metals, silicates) from hyperspectral or multispectral imagery using spectral signatures.",
-        "Create accurate spatial maps of identified resources, including confidence levels for each classification.",
-        "Ensure the model performs consistently across varying terrains and surface compositions of celestial bodies.",
-        "Handle noisy or incomplete data to maintain high reliability and accuracy.",
-        "Design lightweight and efficient models suitable for resource-constrained environments, such as onboard rovers or orbiters."
-      ],
-      "environment": {
-        "datasets": [
-          "Data from the Chandrayaan-1 Moon Mineralogy Mapper (M3), developed by NASA and ISRO.",
-          "Hyperspectral datasets from HySI (Hyper Spectral Imager) onboard Cartosat-2 series of satellites.",
-          "NASA’s CRISM (Mars Reconnaissance Orbiter) for Martian surface composition.",
-          "Simulated datasets using tools like EnMAP-Box or SPECLib for pre-training."
-        ],
-        "inputs": [
-          "Spectral imaging data (hyperspectral or multispectral).",
-          "Auxiliary data such as digital elevation models, surface reflectance, or thermal images."
-        ],
-        "outputs": [
-          "Labeled maps of resource-rich regions with details on resource type and spatial distribution.",
-          "Confidence levels associated with each classification to indicate reliability."
-        ]
-      }
-    },
-    {
-      "id": 2,
-      "title": "Predicting Traffic Using Satellite Street Maps",
-      "overview": "Urban traffic congestion is a critical challenge affecting transportation efficiency, economic productivity, and environmental sustainability. This project focuses on developing a machine learning model to predict traffic patterns using satellite street maps and real-time traffic data. By analyzing congestion points, vehicle density, and historical traffic data, the solution aims to identify bottlenecks and potential problem areas in the road system. Furthermore, the model can highlight regions requiring engineering interventions to optimize traffic flow and reduce congestion.",
-      "keyObjectives": [
-        "Use satellite street maps and real-time traffic data to forecast vehicle density and traffic flow patterns dynamically.",
-        "Identify recurring congestion points and evaluate their severity.",
-        "Analyze vehicle density and traffic delays during peak and off-peak hours.",
-        "Leverage historical traffic datasets to identify long-term patterns and trends.",
-        "Highlight areas that consistently experience traffic issues, requiring redesign or engineering improvements.",
-        "Provide actionable insights for urban planners to improve road systems and traffic management strategies."
-      ],
-      "environment": {
-        "datasets": [
-          "Real-time traffic data from platforms like Google Maps Traffic API or MapmyIndia API.",
-          "Historical traffic data from Indian urban development or transport departments.",
-          "Satellite street maps from ISRO’s Cartosat series and Bhuvan GIS platform.",
-          "Open-source datasets like OpenStreetMap, HERE Traffic, or TomTom Traffic Index.",
-          "Historical traffic data from Kaggle Traffic Flow Datasets."
-        ],
-        "inputs": [
-          "Satellite street maps with road layouts and geographical data.",
-          "Real-time traffic metrics, including vehicle density, speed, and congestion levels.",
-          "Historical traffic data to capture long-term trends."
-        ],
-        "outputs": [
-          "Real-time traffic flow predictions with vehicle density and congestion points.",
-          "Heatmaps highlighting traffic bottlenecks and their severity.",
-          "Identification of road sections requiring engineering interventions or redesigns."
-        ]
-      }
-    },
-    {
-      "id": 3,
-      "title": "Advancing Optical Coherence Tomography (OCT) Image Analysis",
-      "overview": "Optical Coherence Tomography (OCT) is a vital imaging modality in ophthalmology, used to visualize retinal structures and diagnose eye-related diseases. The competition aims to address key challenges in OCT analysis, including noisy scans, low-resolution imaging, and effective disease classification. The focus is on enhancing image quality through de-noising and super-resolution techniques, as well as improving classification accuracy for identifying healthy individuals, diabetic patients with Diabetic Macular Edema (DME), and non-diabetic patients with other ocular diseases.",
-      "keyObjectives": [
-        "Remove noise artifacts from OCT B-scans to enhance image clarity and diagnostic reliability.",
-        "Maintain the structural integrity of retinal layers during the de-noising process.",
-        "Generate high-resolution OCT B-scans from low-resolution images to combat motion artifacts and improve diagnostic utility.",
-        "Preserve fine details critical for early disease detection.",
-        "Classify 3D OCT volumes into the following categories: Healthy individuals, Diabetic patients with Diabetic Macular Edema (DME), and non-diabetic patients with other ocular diseases.",
-        "Focus on achieving high classification accuracy with interpretable results.",
-        "Develop an end-to-end pipeline for automated OCT image enhancement and disease classification to assist ophthalmologists."
-      ],
-      "environment": {
-        "datasets": [
-          "OCT datasets from collaborations with ophthalmology research centers in India like AIIMS or LV Prasad Eye Institute.",
-          "Open-source datasets such as the Duke OCT Dataset or Kermany’s OCT Dataset available on platforms like Kaggle.",
-          "Publicly available datasets focused on DME and other ocular diseases."
-        ],
-        "inputs": [
-          "Raw OCT B-scans with noise and low resolution.",
-          "3D OCT volume datasets with diagnostic labels."
-        ],
-        "outputs": [
-          "De-noised and high-resolution OCT B-scans for enhanced visualization.",
-          "Accurate classification results for 3D OCT volumes, categorized into healthy, DME, and other ocular diseases, with confidence scores."
-        ]
-      }
-    },
-    {
-      "id": 4,
-      "title": "Developing a Generative NLP-Powered Document Summarizer",
-      "overview": "Understanding and processing lengthy, complex documents, such as legal contracts, research papers, and corporate policies, is time-consuming and challenging. This project aims to create a generative natural language processing (NLP) model that simplifies such documents into concise, actionable summaries tailored to specific audiences (e.g., lawyers, researchers, executives, or students). The solution will empower users to quickly grasp the essential points of documents while maintaining relevance and accuracy for their specific needs.",
-      "keyObjectives": [
-        "Develop NLP models that generate summaries customized for different target audiences based on their needs, technical expertise, and focus areas.",
-        "Support personalized keyword-based or context-specific summaries (e.g., legal risks for lawyers or experimental results for researchers).",
-        "Ensure that the summarizer retains the critical information and nuances of the original document while eliminating redundant or irrelevant details.",
-        "Preserve technical terms and contextual accuracy for domain-specific documents.",
-        "Provide references or highlights from the original document to explain how specific summary points were derived.",
-        "Enable users to trace key insights back to the original text for validation.",
-        "Enable rapid and automated summarization of large volumes of documents to save time and enhance productivity.",
-        "Allow batch processing of multiple documents with consistent quality and relevance."
-      ],
-      "environment": {
-        "datasets": [
-          "Legal texts and contracts sourced from Indian law databases, such as SCC Online or Indian Kanoon.",
-          "Academic papers from Indian research repositories like Shodhganga.",
-          "Corporate and regulatory policy documents from Indian governmental organizations.",
-          "Open-access datasets such as PubMed articles, ArXiv research papers, and OpenGov datasets for policy documents.",
-          "Legal datasets such as the CaseHOLD dataset and Legal-BERT dataset for contracts and court case summaries.",
-          "Corporate datasets from publicly available reports, such as those by the World Bank or OECD."
-        ],
-        "inputs": [
-          "Complex documents in various formats (e.g., PDFs, DOCX, TXT) with associated metadata such as document type, intended audience, or keywords."
-        ],
-        "outputs": [
-          "Personalized, concise summaries tailored to specific audiences or use cases.",
-          "Highlighted sections from the original text supporting summary points.",
-          "Confidence scores for each summary to indicate reliability and completeness."
-        ]
-      }
-    },
-    {
-      "id": 5,
-      "title": "Developing an AI-Driven Debate Partner",
-      "overview": "Debating is a critical skill for fostering critical thinking, improving reasoning, and understanding diverse perspectives. This project aims to create a conversational AI capable of engaging in debates by taking opposing sides on various topics. The AI will dynamically learn from user arguments, refine its stance, and provide insightful counterarguments. By challenging users with logical, evidence-backed points, the solution will help individuals improve their argumentation skills, broaden their perspectives, and explore complex topics in depth.",
-      "keyObjectives": [
-        "Develop a conversational AI capable of taking opposing sides on any given topic, adapting its arguments in real-time based on user input.",
-        "Ensure debates are logical, respectful, and engaging, regardless of the topic's complexity.",
-        "Integrate machine learning techniques to allow the AI to learn from user arguments and dynamically refine its stance over the course of the debate.",
-        "Incorporate feedback loops to improve the quality and relevance of counterarguments.",
-        "Provide references, evidence, or logical reasoning behind each counterargument to enhance credibility and educational value.",
-        "Highlight key points to teach users the structure of strong arguments.",
-        "Allow customization based on user preferences (e.g., debate tone, complexity level, or focus areas like ethics, science, or politics).",
-        "Adapt the conversational style to match the user's debating experience (e.g., beginner, intermediate, or advanced)."
-      ],
-      "environment": {
-        "datasets": [
-          "Opinions and perspectives sourced from Indian debate forums, parliamentary debates, or media platforms like Rajya Sabha TV and All India Radio.",
-          "Educational content from Indian universities, debate competitions, and public speaking initiatives.",
-          "Open-source debate datasets such as DebateSum and IBM Debater Corpus.",
-          "Social media platforms, public forums, or debate transcripts from international bodies like the United Nations or World Economic Forum.",
-          "Academic resources covering philosophical, ethical, and scientific debates."
-        ],
-        "inputs": [
-          "User-provided debate topics, arguments, and rebuttals in text format.",
-          "Optional user preferences like tone, difficulty level, and topic area."
-        ],
-        "outputs": [
-          "Dynamic counterarguments tailored to the user's inputs and debate topic.",
-          "Evidence or logical reasoning to back up each counterargument.",
-          "A summary of the debate, highlighting the strongest points from both sides."
-        ]
-      }
-    },
-    {
-      "id": 6,
-      "title": "Fake News Detection in Indian Languages",
-      "overview": "The proliferation of fake news poses a significant challenge in today's digital landscape, especially in a multilingual country like India. This project aims to develop AI-powered models to detect and classify fake news across regional Indian languages. The solution will combat misinformation and promote the dissemination of accurate information to diverse audiences.",
-      "keyObjectives": [
-        "Build models to identify fake news in Indian languages, including Hindi, Tamil, Bengali, Telugu, and code-mixed content (e.g., Hinglish).",
-        "Enable rapid analysis of social media content, news articles, and videos for real-time fake news identification.",
-        "Provide clear justifications for classifying content as fake to improve user trust and awareness.",
-        "Handle high-volume content analysis across multiple platforms with minimal latency."
-      ],
-      "environment": {
-        "datasets": [
-          "Regional language content from Indian fact-checking platforms like Alt News and Factly.",
-          "Misinformation datasets from Indian media studies or government initiatives.",
-          "Open-source datasets like LIAR, FakeNewsNet, and multilingual datasets for fake news detection."
-        ],
-        "inputs": [
-          "Text, images, or videos in regional languages, often mixed with English or other languages."
-        ],
-        "outputs": [
-          "Classification of news content as real or fake with confidence scores and explanation."
-        ]
-      }
-    },
-    {
-      "id": 7,
-      "title": "Accidental Fall Detection for the Elderly",
-      "overview": "Falls among elderly individuals are a leading cause of injuries, requiring timely detection and intervention. This project aims to develop a fall detection system using wearable devices, sensors, or cameras to monitor and alert caregivers in real time.",
-      "keyObjectives": [
-        "Use sensor or video data to detect falls with high sensitivity and specificity.",
-        "Notify caregivers or emergency contacts immediately through mobile applications or other communication channels.",
-        "Distinguish between genuine falls and normal activities like sitting or bending to reduce false alarms.",
-        "Ensure the system is non-intrusive and easy to use, especially for elderly individuals."
-      ],
-      "environment": {
-        "datasets": [
-          "Fall-related data from hospitals or rehabilitation centers in India.",
-          "Studies on elderly care conducted by Indian institutions.",
-          "Public datasets like SisFall and UR Fall Detection for sensor-based fall detection."
-        ],
-        "inputs": [
-          "Sensor data from wearable devices or video footage of elderly individuals."
-        ],
-        "outputs": [
-          "Real-time alerts with contextual information about the detected fall event."
-        ]
-      }
-    },
-    {
-      "id": 8,
-      "title": "Human Activity Detection Using Sensor Data",
-      "overview": "Understanding human activities using wearable sensor data has applications in fitness, healthcare, and workplace safety. This project aims to classify various activities such as walking, running, or climbing stairs to support activity tracking and abnormal behavior detection.",
-      "keyObjectives": [
-        "Build machine learning models to classify activities using data from accelerometers, gyroscopes, or other sensors.",
-        "Identify unusual activity patterns, such as sudden immobility or irregular movement.",
-        "Enable real-time activity monitoring and reporting through wearable devices.",
-        "Adapt the models to individual activity patterns for improved accuracy."
-      ],
-      "environment": {
-        "datasets": [
-          "Sensor data from fitness or healthcare studies conducted on Indian demographics.",
-          "Open datasets like UCI HAR Dataset and Opportunity Dataset."
-        ],
-        "inputs": [
-          "Time-series sensor data collected from wearable devices."
-        ],
-        "outputs": [
-          "Classified activity labels with real-time reporting and alerts."
-        ]
-      }
-    },
-    {
-      "id": 9,
-      "title": "AI for Music Composition",
-      "overview": "Creating original music requires expertise and time, which limits accessibility for many. This project aims to develop an AI composer that generates music tracks based on user preferences such as mood, genre, or lyrics. The solution will democratize music creation and enhance creativity.",
-      "keyObjectives": [
-        "Generate music tailored to specific moods (e.g., happy, calm) and genres (e.g., jazz, classical).",
-        "Compose melodies aligned with user-provided lyrics.",
-        "Ensure the generated tracks are harmonious, original, and professional-grade.",
-        "Provide an intuitive interface for users to customize and refine compositions."
-      ],
-      "environment": {
-        "datasets": [
-          "Indian classical music datasets and Bollywood song repositories.",
-          "Open datasets like MAESTRO, Lakh MIDI Dataset, and GTZAN."
-        ],
-        "inputs": [
-          "User-provided preferences such as mood, genre, or lyrics."
-        ],
-        "outputs": [
-          "High-quality music tracks tailored to the user’s specifications."
-        ]
-      }
-    },
-    {
-      "id": 10,
-      "title": "Image Generator",
-      "overview": "Generating meaningful images by blending features from multiple input images and prompts is a creative yet technically challenging task. This project aims to develop an AI-powered image generator that combines elements from input images and incorporates user-provided prompts to create cohesive, visually appealing outputs.",
-      "keyObjectives": [
-        "Combine elements from multiple input images into a single meaningful output.",
-        "Use user-provided prompts to guide the generation process and ensure relevance.",
-        "Retain critical details and visual features from input images while generating a cohesive output.",
-        "Enable applications in design, education, and content creation."
-      ],
-      "environment": {
-        "datasets": [
-          "Indian art, cultural, and landscape image collections.",
-          "Open datasets like COCO, ImageNet, and Flickr30k."
-        ],
-        "inputs": [
-          "Multiple input images and optional descriptive prompts."
-        ],
-        "outputs": [
-          "A single, meaningful image that blends elements from input images and adheres to the prompt."
-        ]
-      }
-    },
-    {
-      "id": 11,
-      "title": "Crowd Control in Public Events",
-      "overview": "Managing large crowds at public events (e.g., concerts, sports games, festivals) is a critical challenge to ensure safety, minimize congestion, and improve the overall experience. The task is to develop a reinforcement learning (RL) agent to dynamically manage crowd flow by controlling entry/exit gates, pathways, and routing signage in real time. The agent should respond to changing crowd densities and adapt to emergency situations, such as blockages or sudden evacuations.",
-      "keyObjectives": [
-        "Reduce bottlenecks by controlling the opening/closing of gates or pathways.",
-        "Direct crowds to less congested areas using dynamic signage or routing.",
-        "Respond to emergencies (e.g., overcrowding, blocked exits) by rerouting people to safe zones.",
-        "Prevent stampedes by maintaining safe crowd densities.",
-        "Balance crowd distribution across available pathways to reduce waiting times.",
-        "Maintain smooth flow while considering convenience (e.g., proximity to event areas, food stalls, or restrooms)."
-      ],
-      "environment": {
-        "datasets": [
-          "Simulated crowd data using tools like FlowKit, Unity ML-Agents, or MATSim."
-        ],
-        "inputs": [
-          "Multiple entry/exit gates and pathways.",
-          "Dynamic crowd densities (e.g., people arriving or leaving at different times).",
-          "Event layouts with obstacles (e.g., seating areas, barriers, vendors)."
-        ],
-        "outputs": [
-          "Optimized crowd flow with reduced bottlenecks and delays.",
-          "Real-time rerouting in case of emergencies."
-        ]
-      }
-    }
-  ]
+	{
+		"id": 1,
+		"title": "Autonomous Resource Identification and Mapping",
+		"overview": "Efficient exploration of extraterrestrial bodies like the Moon, Mars, or asteroids is essential for future space missions and in-situ resource utilization (ISRU). Identifying and mapping valuable resources such as water ice, metals, and rare minerals from remotely sensed data is a critical step. This project focuses on developing a machine learning model to analyze remotely sensed data, particularly hyperspectral images, to autonomously identify and map the spatial distribution of these resources. The model should be robust against challenges like noise, incomplete data, and varying environmental conditions. Leveraging publicly available datasets, including those from Indian space missions, this solution aims to support sustainable extraterrestrial exploration.",
+		"keyObjectives": [
+			"Classify extraterrestrial materials (e.g., water ice, metals, silicates) from hyperspectral or multispectral imagery using spectral signatures.",
+			"Create accurate spatial maps of identified resources, including confidence levels for each classification.",
+			"Ensure the model performs consistently across varying terrains and surface compositions of celestial bodies.",
+			"Handle noisy or incomplete data to maintain high reliability and accuracy.",
+			"Design lightweight and efficient models suitable for resource-constrained environments, such as onboard rovers or orbiters."
+		],
+		"environment": {
+			"datasets": [
+				"Data from the Chandrayaan-1 Moon Mineralogy Mapper (M3), developed by NASA and ISRO.",
+				"Hyperspectral datasets from HySI (Hyper Spectral Imager) onboard Cartosat-2 series of satellites.",
+				"NASA’s CRISM (Mars Reconnaissance Orbiter) for Martian surface composition.",
+				"Simulated datasets using tools like EnMAP-Box or SPECLib for pre-training."
+			],
+			"inputs": [
+				"Spectral imaging data (hyperspectral or multispectral).",
+				"Auxiliary data such as digital elevation models, surface reflectance, or thermal images."
+			],
+			"outputs": [
+				"Labeled maps of resource-rich regions with details on resource type and spatial distribution.",
+				"Confidence levels associated with each classification to indicate reliability."
+			]
+		}
+	},
+	{
+		"id": 2,
+		"title": "Predicting Traffic Using Satellite Street Maps",
+		"overview": "Urban traffic congestion is a critical challenge affecting transportation efficiency, economic productivity, and environmental sustainability. This project focuses on developing a machine learning model to predict traffic patterns using satellite street maps and real-time traffic data. By analyzing congestion points, vehicle density, and historical traffic data, the solution aims to identify bottlenecks and potential problem areas in the road system. Furthermore, the model can highlight regions requiring engineering interventions to optimize traffic flow and reduce congestion.",
+		"keyObjectives": [
+			"Use satellite street maps and real-time traffic data to forecast vehicle density and traffic flow patterns dynamically.",
+			"Identify recurring congestion points and evaluate their severity.",
+			"Analyze vehicle density and traffic delays during peak and off-peak hours.",
+			"Leverage historical traffic datasets to identify long-term patterns and trends.",
+			"Highlight areas that consistently experience traffic issues, requiring redesign or engineering improvements.",
+			"Provide actionable insights for urban planners to improve road systems and traffic management strategies."
+		],
+		"environment": {
+			"datasets": [
+				"Real-time traffic data from platforms like Google Maps Traffic API or MapmyIndia API.",
+				"Historical traffic data from Indian urban development or transport departments.",
+				"Satellite street maps from ISRO’s Cartosat series and Bhuvan GIS platform.",
+				"Open-source datasets like OpenStreetMap, HERE Traffic, or TomTom Traffic Index.",
+				"Historical traffic data from Kaggle Traffic Flow Datasets."
+			],
+			"inputs": [
+				"Satellite street maps with road layouts and geographical data.",
+				"Real-time traffic metrics, including vehicle density, speed, and congestion levels.",
+				"Historical traffic data to capture long-term trends."
+			],
+			"outputs": [
+				"Real-time traffic flow predictions with vehicle density and congestion points.",
+				"Heatmaps highlighting traffic bottlenecks and their severity.",
+				"Identification of road sections requiring engineering interventions or redesigns."
+			]
+		}
+	},
+	{
+		"id": 3,
+		"title": "Advancing Optical Coherence Tomography (OCT) Image Analysis",
+		"overview": "Optical Coherence Tomography (OCT) is a vital imaging modality in ophthalmology, used to visualize retinal structures and diagnose eye-related diseases. The competition aims to address key challenges in OCT analysis, including noisy scans, low-resolution imaging, and effective disease classification. The focus is on enhancing image quality through de-noising and super-resolution techniques, as well as improving classification accuracy for identifying healthy individuals, diabetic patients with Diabetic Macular Edema (DME), and non-diabetic patients with other ocular diseases.",
+		"keyObjectives": [
+			"Remove noise artifacts from OCT B-scans to enhance image clarity and diagnostic reliability.",
+			"Maintain the structural integrity of retinal layers during the de-noising process.",
+			"Generate high-resolution OCT B-scans from low-resolution images to combat motion artifacts and improve diagnostic utility.",
+			"Preserve fine details critical for early disease detection.",
+			"Classify 3D OCT volumes into the following categories: Healthy individuals, Diabetic patients with Diabetic Macular Edema (DME), and non-diabetic patients with other ocular diseases.",
+			"Focus on achieving high classification accuracy with interpretable results.",
+			"Develop an end-to-end pipeline for automated OCT image enhancement and disease classification to assist ophthalmologists."
+		],
+		"environment": {
+			"datasets": [
+				"OCT datasets from collaborations with ophthalmology research centers in India like AIIMS or LV Prasad Eye Institute.",
+				"Open-source datasets such as the Duke OCT Dataset or Kermany’s OCT Dataset available on platforms like Kaggle.",
+				"Publicly available datasets focused on DME and other ocular diseases."
+			],
+			"inputs": [
+				"Raw OCT B-scans with noise and low resolution.",
+				"3D OCT volume datasets with diagnostic labels."
+			],
+			"outputs": [
+				"De-noised and high-resolution OCT B-scans for enhanced visualization.",
+				"Accurate classification results for 3D OCT volumes, categorized into healthy, DME, and other ocular diseases, with confidence scores."
+			]
+		}
+	},
+	{
+		"id": 4,
+		"title": "Developing a Generative NLP-Powered Document Summarizer",
+		"overview": "Understanding and processing lengthy, complex documents, such as legal contracts, research papers, and corporate policies, is time-consuming and challenging. This project aims to create a generative natural language processing (NLP) model that simplifies such documents into concise, actionable summaries tailored to specific audiences (e.g., lawyers, researchers, executives, or students). The solution will empower users to quickly grasp the essential points of documents while maintaining relevance and accuracy for their specific needs.",
+		"keyObjectives": [
+			"Develop NLP models that generate summaries customized for different target audiences based on their needs, technical expertise, and focus areas.",
+			"Support personalized keyword-based or context-specific summaries (e.g., legal risks for lawyers or experimental results for researchers).",
+			"Ensure that the summarizer retains the critical information and nuances of the original document while eliminating redundant or irrelevant details.",
+			"Preserve technical terms and contextual accuracy for domain-specific documents.",
+			"Provide references or highlights from the original document to explain how specific summary points were derived.",
+			"Enable users to trace key insights back to the original text for validation.",
+			"Enable rapid and automated summarization of large volumes of documents to save time and enhance productivity.",
+			"Allow batch processing of multiple documents with consistent quality and relevance."
+		],
+		"environment": {
+			"datasets": [
+				"Legal texts and contracts sourced from Indian law databases, such as SCC Online or Indian Kanoon.",
+				"Academic papers from Indian research repositories like Shodhganga.",
+				"Corporate and regulatory policy documents from Indian governmental organizations.",
+				"Open-access datasets such as PubMed articles, ArXiv research papers, and OpenGov datasets for policy documents.",
+				"Legal datasets such as the CaseHOLD dataset and Legal-BERT dataset for contracts and court case summaries.",
+				"Corporate datasets from publicly available reports, such as those by the World Bank or OECD."
+			],
+			"inputs": [
+				"Complex documents in various formats (e.g., PDFs, DOCX, TXT) with associated metadata such as document type, intended audience, or keywords."
+			],
+			"outputs": [
+				"Personalized, concise summaries tailored to specific audiences or use cases.",
+				"Highlighted sections from the original text supporting summary points.",
+				"Confidence scores for each summary to indicate reliability and completeness."
+			]
+		}
+	},
+	{
+		"id": 5,
+		"title": "Developing an AI-Driven Debate Partner",
+		"overview": "Debating is a critical skill for fostering critical thinking, improving reasoning, and understanding diverse perspectives. This project aims to create a conversational AI capable of engaging in debates by taking opposing sides on various topics. The AI will dynamically learn from user arguments, refine its stance, and provide insightful counterarguments. By challenging users with logical, evidence-backed points, the solution will help individuals improve their argumentation skills, broaden their perspectives, and explore complex topics in depth.",
+		"keyObjectives": [
+			"Develop a conversational AI capable of taking opposing sides on any given topic, adapting its arguments in real-time based on user input.",
+			"Ensure debates are logical, respectful, and engaging, regardless of the topic's complexity.",
+			"Integrate machine learning techniques to allow the AI to learn from user arguments and dynamically refine its stance over the course of the debate.",
+			"Incorporate feedback loops to improve the quality and relevance of counterarguments.",
+			"Provide references, evidence, or logical reasoning behind each counterargument to enhance credibility and educational value.",
+			"Highlight key points to teach users the structure of strong arguments.",
+			"Allow customization based on user preferences (e.g., debate tone, complexity level, or focus areas like ethics, science, or politics).",
+			"Adapt the conversational style to match the user's debating experience (e.g., beginner, intermediate, or advanced)."
+		],
+		"environment": {
+			"datasets": [
+				"Opinions and perspectives sourced from Indian debate forums, parliamentary debates, or media platforms like Rajya Sabha TV and All India Radio.",
+				"Educational content from Indian universities, debate competitions, and public speaking initiatives.",
+				"Open-source debate datasets such as DebateSum and IBM Debater Corpus.",
+				"Social media platforms, public forums, or debate transcripts from international bodies like the United Nations or World Economic Forum.",
+				"Academic resources covering philosophical, ethical, and scientific debates."
+			],
+			"inputs": [
+				"User-provided debate topics, arguments, and rebuttals in text format.",
+				"Optional user preferences like tone, difficulty level, and topic area."
+			],
+			"outputs": [
+				"Dynamic counterarguments tailored to the user's inputs and debate topic.",
+				"Evidence or logical reasoning to back up each counterargument.",
+				"A summary of the debate, highlighting the strongest points from both sides."
+			]
+		}
+	},
+	{
+		"id": 6,
+		"title": "Fake News Detection in Indian Languages",
+		"overview": "The proliferation of fake news poses a significant challenge in today's digital landscape, especially in a multilingual country like India. This project aims to develop AI-powered models to detect and classify fake news across regional Indian languages. The solution will combat misinformation and promote the dissemination of accurate information to diverse audiences.",
+		"keyObjectives": [
+			"Build models to identify fake news in Indian languages, including Hindi, Tamil, Bengali, Telugu, and code-mixed content (e.g., Hinglish).",
+			"Enable rapid analysis of social media content, news articles, and videos for real-time fake news identification.",
+			"Provide clear justifications for classifying content as fake to improve user trust and awareness.",
+			"Handle high-volume content analysis across multiple platforms with minimal latency."
+		],
+		"environment": {
+			"datasets": [
+				"Regional language content from Indian fact-checking platforms like Alt News and Factly.",
+				"Misinformation datasets from Indian media studies or government initiatives.",
+				"Open-source datasets like LIAR, FakeNewsNet, and multilingual datasets for fake news detection."
+			],
+			"inputs": [
+				"Text, images, or videos in regional languages, often mixed with English or other languages."
+			],
+			"outputs": [
+				"Classification of news content as real or fake with confidence scores and explanation."
+			]
+		}
+	},
+	{
+		"id": 7,
+		"title": "Accidental Fall Detection for the Elderly",
+		"overview": "Falls among elderly individuals are a leading cause of injuries, requiring timely detection and intervention. This project aims to develop a fall detection system using wearable devices, sensors, or cameras to monitor and alert caregivers in real time.",
+		"keyObjectives": [
+			"Use sensor or video data to detect falls with high sensitivity and specificity.",
+			"Notify caregivers or emergency contacts immediately through mobile applications or other communication channels.",
+			"Distinguish between genuine falls and normal activities like sitting or bending to reduce false alarms.",
+			"Ensure the system is non-intrusive and easy to use, especially for elderly individuals."
+		],
+		"environment": {
+			"datasets": [
+				"Fall-related data from hospitals or rehabilitation centers in India.",
+				"Studies on elderly care conducted by Indian institutions.",
+				"Public datasets like SisFall and UR Fall Detection for sensor-based fall detection."
+			],
+			"inputs": ["Sensor data from wearable devices or video footage of elderly individuals."],
+			"outputs": ["Real-time alerts with contextual information about the detected fall event."]
+		}
+	},
+	{
+		"id": 8,
+		"title": "Human Activity Detection Using Sensor Data",
+		"overview": "Understanding human activities using wearable sensor data has applications in fitness, healthcare, and workplace safety. This project aims to classify various activities such as walking, running, or climbing stairs to support activity tracking and abnormal behavior detection.",
+		"keyObjectives": [
+			"Build machine learning models to classify activities using data from accelerometers, gyroscopes, or other sensors.",
+			"Identify unusual activity patterns, such as sudden immobility or irregular movement.",
+			"Enable real-time activity monitoring and reporting through wearable devices.",
+			"Adapt the models to individual activity patterns for improved accuracy."
+		],
+		"environment": {
+			"datasets": [
+				"Sensor data from fitness or healthcare studies conducted on Indian demographics.",
+				"Open datasets like UCI HAR Dataset and Opportunity Dataset."
+			],
+			"inputs": ["Time-series sensor data collected from wearable devices."],
+			"outputs": ["Classified activity labels with real-time reporting and alerts."]
+		}
+	},
+	{
+		"id": 9,
+		"title": "AI for Music Composition",
+		"overview": "Creating original music requires expertise and time, which limits accessibility for many. This project aims to develop an AI composer that generates music tracks based on user preferences such as mood, genre, or lyrics. The solution will democratize music creation and enhance creativity.",
+		"keyObjectives": [
+			"Generate music tailored to specific moods (e.g., happy, calm) and genres (e.g., jazz, classical).",
+			"Compose melodies aligned with user-provided lyrics.",
+			"Ensure the generated tracks are harmonious, original, and professional-grade.",
+			"Provide an intuitive interface for users to customize and refine compositions."
+		],
+		"environment": {
+			"datasets": [
+				"Indian classical music datasets and Bollywood song repositories.",
+				"Open datasets like MAESTRO, Lakh MIDI Dataset, and GTZAN."
+			],
+			"inputs": ["User-provided preferences such as mood, genre, or lyrics."],
+			"outputs": ["High-quality music tracks tailored to the user’s specifications."]
+		}
+	},
+	{
+		"id": 10,
+		"title": "Image Generator",
+		"overview": "Generating meaningful images by blending features from multiple input images and prompts is a creative yet technically challenging task. This project aims to develop an AI-powered image generator that combines elements from input images and incorporates user-provided prompts to create cohesive, visually appealing outputs.",
+		"keyObjectives": [
+			"Combine elements from multiple input images into a single meaningful output.",
+			"Use user-provided prompts to guide the generation process and ensure relevance.",
+			"Retain critical details and visual features from input images while generating a cohesive output.",
+			"Enable applications in design, education, and content creation."
+		],
+		"environment": {
+			"datasets": [
+				"Indian art, cultural, and landscape image collections.",
+				"Open datasets like COCO, ImageNet, and Flickr30k."
+			],
+			"inputs": ["Multiple input images and optional descriptive prompts."],
+			"outputs": [
+				"A single, meaningful image that blends elements from input images and adheres to the prompt."
+			]
+		}
+	},
+	{
+		"id": 11,
+		"title": "Crowd Control in Public Events",
+		"overview": "Managing large crowds at public events (e.g., concerts, sports games, festivals) is a critical challenge to ensure safety, minimize congestion, and improve the overall experience. The task is to develop a reinforcement learning (RL) agent to dynamically manage crowd flow by controlling entry/exit gates, pathways, and routing signage in real time. The agent should respond to changing crowd densities and adapt to emergency situations, such as blockages or sudden evacuations.",
+		"keyObjectives": [
+			"Reduce bottlenecks by controlling the opening/closing of gates or pathways.",
+			"Direct crowds to less congested areas using dynamic signage or routing.",
+			"Respond to emergencies (e.g., overcrowding, blocked exits) by rerouting people to safe zones.",
+			"Prevent stampedes by maintaining safe crowd densities.",
+			"Balance crowd distribution across available pathways to reduce waiting times.",
+			"Maintain smooth flow while considering convenience (e.g., proximity to event areas, food stalls, or restrooms)."
+		],
+		"environment": {
+			"datasets": ["Simulated crowd data using tools like FlowKit, Unity ML-Agents, or MATSim."],
+			"inputs": [
+				"Multiple entry/exit gates and pathways.",
+				"Dynamic crowd densities (e.g., people arriving or leaving at different times).",
+				"Event layouts with obstacles (e.g., seating areas, barriers, vendors)."
+			],
+			"outputs": [
+				"Optimized crowd flow with reduced bottlenecks and delays.",
+				"Real-time rerouting in case of emergencies."
+			]
+		}
+	}
+]

@@ -1,17 +1,16 @@
 <script lang="ts">
 	import { GitHistory, LeaderBoard, Notification, SubmissionCard } from '$lib/components';
-	import EventTimer from '$lib/components/EventTimer.svelte';
+	// import EventTimer from '$lib/components/EventTimer.svelte';
 	import ProblemStatementCard from '$lib/components/ProblemStatementCard.svelte';
 	import { TextGenerateEffect } from '$lib/components/ui';
 
 	let { data } = $props();
 	let { commits, round } = $derived(data);
 
-	let eventTime = new Date("27 JAN 2025");
-	let currentTime = new Date();
-	let EventName = "Round 1";
-	let EventDescription = "Online SUbmission Round";
-
+	// let eventTime = new Date('27 JAN 2025');
+	// let currentTime = new Date();
+	// let EventName = 'Round 1';
+	// let EventDescription = 'Online SUbmission Round';
 </script>
 
 <section class="flex h-auto w-full flex-col items-center justify-center gap-4">
@@ -68,10 +67,10 @@
 		<!-- <div class="rounded-lg md:w-full lg:min-w-[300px] lg:max-w-full">
 			<GitHistory {commits} />
 		</div> -->
-		<SubmissionCard/>
+		<SubmissionCard />
 		<!-- <EventTimer {eventTime} {currentTime} {EventName} {EventDescription}/> -->
 		<!-- <GitHistory {commits}/> -->
-		<ProblemStatementCard/>
+		<ProblemStatementCard />
 		{#if round === 1.5}
 			<div class="w-full rounded-lg lg:max-w-[50%]">
 				<LeaderBoard />
