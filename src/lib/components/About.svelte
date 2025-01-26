@@ -18,7 +18,7 @@
 				scrub: 1,
 				start: '-=200',
 				end: '+=10',
-				once: true,
+				once: true
 				// markers: true
 			}
 		});

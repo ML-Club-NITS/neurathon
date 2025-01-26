@@ -18,7 +18,7 @@
 				scrub: 1,
 				start: '-=300px',
 				end: '-=0',
-				once: true,
+				once: true
 				// markers: true
 			}
 		}).from(

@@ -7,14 +7,11 @@
 		gsap.set('*', { visibility: 'invisible' });
 
 		let tl = gsap.timeline();
-		tl.from(
-			'#logo-ani,#navbar-sticky',
-			{
-				opacity: 0,
-				y: -15,
-				duration: 1
-			},
-		)
+		tl.from('#logo-ani,#navbar-sticky', {
+			opacity: 0,
+			y: -15,
+			duration: 1
+		});
 	});
 
 	let { isRegistered } = $props();

@@ -32,7 +32,7 @@
 		<div class="neurathon">
 			<div
 				id="Neurathontext"
-				class="animate-text-gradient font-LeagueSpartanFont inline-block bg-gradient-to-r from-white via-gray-400 to-white bg-[200%_auto] bg-clip-text text-4xl font-bold text-transparent md:text-6xl lg:text-8xl"
+				class="inline-block animate-text-gradient bg-gradient-to-r from-white via-gray-400 to-white bg-[200%_auto] bg-clip-text font-LeagueSpartanFont text-4xl font-bold text-transparent md:text-6xl lg:text-8xl"
 			>
 				Neurathon
 			</div>
