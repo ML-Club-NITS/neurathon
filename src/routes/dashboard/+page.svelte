@@ -14,7 +14,9 @@
 	let { data } = $props();
 	let { commits, round } = $derived(data);
 
-	
+	$effect(() => {
+		console.log(round);
+	});
 
 	let eventTime = new Date('27 JAN 2025');
 	let currentTime = new Date();
@@ -87,11 +89,11 @@
 			<EventTimer {eventTime} {currentTime} {EventName} {EventDescription} />
 			<ProblemStatementCard/>
 			<SubmissionCard/>
-		{:else if round === 1.5}
+		{:else if round === 2}
 			<div class="w-full rounded-lg lg:max-w-[50%]">
 				<LeaderBoard />
 			</div>
-		{:else if round === 2}
+		{:else if round === 3}
 			<div class="rounded-lg md:w-full lg:min-w-[300px] lg:max-w-full">
 				<GitHistory {commits} />
 			</div>

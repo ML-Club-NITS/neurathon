@@ -54,7 +54,7 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 			return {
 				commits: ['3'],
 				alart: 'Complete your profile details',
-				round: 1.5,
+				round: 2,
 				timer: (timer.getTime() - r1TimeEnd.getTime()) / 1000,
 				TeamID: data,
 				team: team ? (team[0] ?? []) : [],
@@ -79,7 +79,7 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 			}
 			return {
 				commits: commitData,
-				round: 2,
+				round: 3,
 				timer: (timer.getTime() - r2Time.getTime()) / 1000,
 				TeamID: data,
 				team: team ? (team[0] ?? []) : [],
