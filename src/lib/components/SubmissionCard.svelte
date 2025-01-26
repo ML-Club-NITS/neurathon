@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import { Motion, useMotionValue, useMotionTemplate } from 'svelte-motion';
 
 	let githubRepoLink = '';

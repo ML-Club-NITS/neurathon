@@ -3,8 +3,8 @@
 
 	export let eventTime: Date;
 	export let currentTime: Date;
-	export let EventName: String | undefined;
-	export let EventDescription: String | undefined;
+	export let EventName: string | undefined;
+	export let EventDescription: string | undefined;
 
 	let timeLeft = {
 		days: 0,
