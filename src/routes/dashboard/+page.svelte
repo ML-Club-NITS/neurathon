@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { GitHistory, LeaderBoard, Notification, SubmissionCard } from '$lib/components';
 	import EventTimer from '$lib/components/EventTimer.svelte';
+	import ProblemStatementCard from '$lib/components/ProblemStatementCard.svelte';
 	import { TextGenerateEffect } from '$lib/components/ui';
 
 	let { data } = $props();
@@ -68,7 +69,9 @@
 			<GitHistory {commits} />
 		</div> -->
 		<SubmissionCard/>
-		<EventTimer {eventTime} {currentTime} {EventName} {EventDescription}/>
+		<!-- <EventTimer {eventTime} {currentTime} {EventName} {EventDescription}/> -->
+		<!-- <GitHistory {commits}/> -->
+		<ProblemStatementCard/>
 		{#if round === 1.5}
 			<div class="w-full rounded-lg lg:max-w-[50%]">
 				<LeaderBoard />
