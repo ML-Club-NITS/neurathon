@@ -11,6 +11,8 @@
 		passwordError: ''
 	});
 
+	let submitting = $state(false);
+
 	const validate = () => {
 		formErrors = { emailError: '', passwordError: '' };
 
@@ -19,12 +21,8 @@
 			formErrors.emailError = 'Enter a valid email address';
 
 		if (!form.password) formErrors.passwordError = 'Password is required';
-		else if (
-			!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,20}$/.test(
-				form.password
-			)
-		)
-			formErrors.passwordError = 'Password is not valid';
+		else if (!/^.{8,20}$/.test(form.password))
+			formErrors.passwordError = 'Password length must be 8-20 characters';
 
 		return !Object.values(formErrors).some((error) => error !== '');
 	};
@@ -45,17 +43,23 @@
 		method="POST"
 		action="?/login"
 		use:enhance={({ cancel, action }) => {
+			submitting = true;
 			if (action.toString().includes('/resetPassword')) {
 				if (!validateEmail()) {
+					submitting = false;
 					return cancel();
 				}
 			} else {
 				if (!validate()) {
+					submitting = false;
 					return cancel();
 				}
 			}
 
-			return async ({ update }) => update();
+			return async ({ update }) => {
+				await update();
+				setTimeout(() => (submitting = false), 1500);
+			};
 		}}
 		novalidate
 	>
@@ -94,12 +98,16 @@
 		<div class="mt-8 flex items-center justify-between">
 			<button
 				class="focus:shadow-outline rounded bg-orange-500 px-8 py-2 font-bold text-white hover:bg-orange-600 focus:outline-none"
+				class:!cursor-not-allowed={submitting}
+				disabled={submitting}
 			>
 				Log In
 			</button>
 			<button
 				class="inline-block w-fit align-baseline text-sm font-bold text-orange-500 hover:text-orange-600"
 				formAction="?/resetPassword"
+				class:!cursor-not-allowed={submitting}
+				disabled={submitting}
 			>
 				Forgot Password?
 			</button>

@@ -14,6 +14,8 @@
 		passwordError: ''
 	});
 
+	let submitting = $state(false);
+
 	const validate = () => {
 		formErrors = { nameError: '', emailError: '', phoneError: '', passwordError: '' };
 
@@ -30,13 +32,8 @@
 		else if (!/^\d{10}$/.test(form.phone)) formErrors.phoneError = 'Enter a valid phone number';
 
 		if (!form.password) formErrors.passwordError = 'Field is required';
-		else if (
-			!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,20}$/.test(
-				form.password
-			)
-		)
-			formErrors.passwordError =
-				'Password must be 8-20 characters long and include uppercase, lowercase, a number, and a special character';
+		else if (!/^.{8,20}$/.test(form.password))
+			formErrors.passwordError = 'Password length must be 8-20 characters';
 
 		return !Object.values(formErrors).some((error) => error !== '');
 	};
@@ -47,11 +44,16 @@
 		method="POST"
 		action="?/register"
 		use:enhance={({ cancel }) => {
+			submitting = true;
 			if (!validate()) {
+				submitting = false;
 				return cancel();
 			}
 
-			return async ({ update }) => update();
+			return async ({ update }) => {
+				await update();
+				setTimeout(() => (submitting = false), 1500);
+			};
 		}}
 		novalidate
 	>
@@ -122,6 +124,8 @@
 		<div class="mt-8 flex items-center justify-center">
 			<button
 				class="focus:shadow-outline w-full rounded bg-orange-500 px-4 py-2 font-bold text-white hover:bg-orange-600 focus:outline-none"
+				class:!cursor-not-allowed={submitting}
+				disabled={submitting}
 			>
 				Sign Up
 			</button>

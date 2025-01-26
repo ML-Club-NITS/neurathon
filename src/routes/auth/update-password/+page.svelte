@@ -14,6 +14,8 @@
 		confirmationError: ''
 	});
 
+	let submitting = $state(false);
+
 	let { form } = $props();
 
 	$effect(() => {
@@ -49,14 +51,8 @@
 
 		if (!formData.password) {
 			formErrors.passwordError = 'Password is required';
-		} else if (
-			!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,20}$/.test(
-				formData.password
-			)
-		) {
-			formErrors.passwordError =
-				'Password must be 8-20 characters long and include uppercase, lowercase, a number, and a special character';
-		}
+		} else if (!/^.{8,20}$/.test(formData.password))
+			formErrors.passwordError = 'Password length must be 8-20 characters';
 
 		if (!formData.confirm_password) {
 			formErrors.confirmationError = 'Please confirm your password';
@@ -72,11 +68,16 @@
 		method="POST"
 		action="?/updatePassword"
 		use:enhance={({ cancel }) => {
+			submitting = true;
 			if (!validate()) {
+				submitting = false;
 				return cancel();
 			}
 
-			return async ({ update }) => update();
+			return async ({ update }) => {
+				await update();
+				setTimeout(() => (submitting = false), 1500);
+			};
 		}}
 		novalidate
 	>
@@ -118,6 +119,7 @@
 		<div class="mt-8 flex items-center justify-center">
 			<button
 				class="focus:shadow-outline w-full rounded bg-orange-500 px-8 py-2 font-bold text-white hover:bg-orange-600 focus:outline-none"
+				disabled={submitting}
 			>
 				Update password
 			</button>
