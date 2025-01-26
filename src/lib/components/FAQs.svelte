@@ -15,10 +15,11 @@
 
 			scrollTrigger: {
 				trigger: '#faqs',
-				scrub: 1.5,
-				start: 'top 70%',
-				end: 'bottom 80%',
+				scrub: 1,
+				start: '-=300px',
+				end: '-=0',
 				once: true
+				// markers: true
 			}
 		}).from(
 			'#faq_inside',
@@ -29,8 +30,8 @@
 				scrollTrigger: {
 					trigger: '#faqs',
 					scrub: 1.5,
-					start: 'top 70%',
-					end: 'bottom 80%',
+					start: '-=300',
+					end: '-=0',
 					once: true
 				}
 			},

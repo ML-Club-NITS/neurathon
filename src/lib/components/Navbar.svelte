@@ -7,15 +7,7 @@
 		gsap.set('*', { visibility: 'invisible' });
 
 		let tl = gsap.timeline();
-		tl.from(
-			'#logo-ani',
-			{
-				opacity: 0,
-				y: -15,
-				duration: 1
-			},
-			'-=0.1'
-		).from('#navbar-sticky', {
+		tl.from('#logo-ani,#navbar-sticky', {
 			opacity: 0,
 			y: -15,
 			duration: 1

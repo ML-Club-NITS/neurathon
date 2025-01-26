@@ -37,14 +37,14 @@
 
 			scrollTrigger: {
 				trigger: '#timeline',
-				scrub: 0.5,
-				start: 'top top',
+				scrub: 0.3,
+				start: '-=200',
 				end: '+=50',
 				once: true,
 				snap: {
 					ease: 'power1.inOut'
-				},
-				markers: true
+				}
+				// markers: true
 			}
 		});
 	});

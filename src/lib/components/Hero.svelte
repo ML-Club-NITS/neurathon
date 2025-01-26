@@ -11,28 +11,13 @@
 			opacity: 0,
 			y: 60,
 			duration: 1
-		})
-			.from(
-				'#Neurathontext',
-				{
-					opacity: 0,
-					y: 30,
-					stagger: 0.4,
-					ease: 'back',
-					duration: 1.2
-				},
-				'-=0.1'
-			)
-			.from(
-				'#TagLine',
-				{
-					opacity: 0,
-					x: -40,
-					duration: 1,
-					ease: 'back'
-				},
-				'-=0.1'
-			);
+		}).from('#Neurathontext,#TagLine', {
+			opacity: 0,
+			y: 30,
+			stagger: 0.4,
+			ease: 'back',
+			duration: 1
+		});
 	});
 </script>
 
@@ -49,9 +34,7 @@
 				id="Neurathontext"
 				class="inline-block animate-text-gradient bg-gradient-to-r from-white via-gray-400 to-white bg-[200%_auto] bg-clip-text font-LeagueSpartanFont text-4xl font-bold text-transparent md:text-6xl lg:text-8xl"
 			>
-				<span>N</span><span>e</span><span>u</span><span>r</span><span>a</span><span>t</span><span
-					>h</span
-				><span>o</span><span>n</span>
+				Neurathon
 			</div>
 		</div>
 		<!-- Subtitle -->
