@@ -59,6 +59,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Neurathon - AI for Good</title>
+</svelte:head>
+
 <div
 	class="main-body m-w-[1200px] flex min-h-screen flex-col items-center justify-center bg-black text-white"
 >

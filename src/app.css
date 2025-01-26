@@ -1,7 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-/* @import '@flaticon/flaticon-uicons/css/all/all'; */
+@import '@flaticon/flaticon-uicons/css/all/all';
 
 @layer base {
 	@font-face {
@@ -15,12 +15,6 @@
 		font-style: normal;
 		src: url(/static/fonts/rp1font.ttf) format('ttf');
 	}
-
-	/* @font-face {
-		font-family: 'FontName';
-		font-style: normal;
-		src: url('/fonts/local_file_name') format('type');
-	} */
 }
 
 @layer utilities {

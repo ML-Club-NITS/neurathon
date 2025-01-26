@@ -1,8 +1,9 @@
 <script lang="ts">
+	export let message: string = 'Change a few things up and try submitting again.';
 </script>
 
 <div
-	class="my-2 w-full rounded-lg border border-blue-300 bg-blue-50 p-4 text-sm text-blue-800 dark:border-blue-800 dark:bg-gray-800 dark:text-blue-400"
+	class="my-2 flex w-full items-center justify-start gap-2 rounded-lg border border-blue-300 bg-blue-50 p-4 text-sm text-blue-800 dark:border-blue-800 dark:bg-gray-800 dark:text-blue-400"
 	role="alert"
 >
 	<svg
@@ -18,6 +19,7 @@
 	</svg>
 	<span class="sr-only">Info</span>
 	<div>
-		<span class="font-medium">Info alert!</span> Change a few things up and try submitting again.
+		<span class="font-medium">Info alert!</span>
+		{message}
 	</div>
 </div>

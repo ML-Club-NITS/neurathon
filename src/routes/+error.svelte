@@ -6,9 +6,13 @@
 
 	onMount(() => {
 		url = new URL(window.location.href.replace(/%2B/g, '+')).pathname;
-		document.title = 'Error | Page Not Found';
 	});
 </script>
+
+<svelte:head>
+	<title>Page Not Found - Neurathon</title>
+	<meta name="robots" content="noindex" />
+</svelte:head>
 
 <div
 	class="font-mono container mx-auto flex h-screen w-auto flex-col items-center justify-center px-4 py-8 text-center text-white"

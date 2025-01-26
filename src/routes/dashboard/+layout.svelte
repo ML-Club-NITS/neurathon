@@ -10,10 +10,7 @@
 	import log4 from '$lib/assets/log4.png';
 
 	let { children, data } = $props();
-	let { supabase, user } = $derived(data);
-
-	let r1Qulified = true;
-	let registered = false;
+	let { supabase, user, TeamID, profileCompleted } = $derived(data);
 
 	let isMenubarOpen = $state(false);
 	let MenuBar = $state<Node | null>(null);
@@ -68,8 +65,8 @@
 </script>
 
 <svelte:head>
+	<title>Dashboard - Neurathon</title>
 	<meta name="reset" content="true" />
-	<title>Dashboard</title>
 </svelte:head>
 
 <div>
@@ -196,7 +193,7 @@
 					><i class="fi fi-rr-dashboard"></i>Dashboard</button
 				>
 			</li>
-			{#if registered}
+			{#if !!TeamID}
 				<li>
 					<button
 						onclick={() => {
@@ -210,7 +207,7 @@
 						<i class="fi fi-sr-team-check"></i>Team
 					</button>
 				</li>
-			{:else if r1Qulified}
+			{:else if profileCompleted}
 				<li>
 					<button
 						onclick={() => {

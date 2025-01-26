@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 
-	export let eventTime: Date;
-	export let currentTime: Date;
-	export let EventName: string | undefined;
-	export let EventDescription: string | undefined;
+	export let eventTime: number | undefined;
+	export let currentTime: number;
+	export let eventName: string | undefined;
+	export let eventDescription: string | undefined;
 
 	let timeLeft = {
 		days: 0,
@@ -12,10 +12,11 @@
 		minutes: 0,
 		seconds: 0
 	};
+
 	let intervalId: ReturnType<typeof setInterval>;
 
 	function calculateTimeLeft() {
-		const difference = eventTime.getTime() - currentTime.getTime();
+		const difference = (eventTime ?? 0) - (currentTime ?? 0);
 
 		if (difference > 0) {
 			timeLeft = {
@@ -32,8 +33,9 @@
 
 	onMount(() => {
 		calculateTimeLeft();
+
 		intervalId = setInterval(() => {
-			currentTime = new Date();
+			currentTime += 1000;
 			calculateTimeLeft();
 		}, 1000);
 	});
@@ -49,12 +51,12 @@
 	<div class="relative flex flex-col">
 		<div class="mb-4 text-center">
 			<p
-				class=" bg-gradient-to-b from-white to-neutral-500 bg-clip-text text-2xl font-semibold text-transparent"
+				class="bg-gradient-to-b from-white to-neutral-500 bg-clip-text text-2xl font-semibold text-transparent"
 			>
-				Time remaining until {EventName}
+				Time remaining until {eventName}
 			</p>
 			<p class="mt-3 text-sm font-thin text-gray-300 md:text-xl">
-				{EventDescription}
+				{eventDescription}
 			</p>
 		</div>
 

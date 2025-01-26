@@ -1,6 +1,7 @@
-<head>
-	<title>Auth Error</title>
-</head>
+<svelte:head>
+	<title>Auth Error - Neurathon</title>
+	<meta name="robots" content="noindex" />
+</svelte:head>
 
 <div
 	class="font-mono container mx-auto flex h-screen w-auto flex-col items-center justify-center px-4 py-8 text-center text-white"

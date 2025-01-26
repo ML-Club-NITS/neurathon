@@ -63,6 +63,11 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Reset password - Neurathon</title>
+	<meta name="robots" content="noindex" />
+</svelte:head>
+
 <div class="flex h-screen w-screen flex-col items-center justify-center">
 	<form
 		method="POST"

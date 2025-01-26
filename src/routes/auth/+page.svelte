@@ -62,7 +62,18 @@
 			});
 		}
 	});
+
+	const seo = {
+		title: 'Auth - Neurathon',
+		description: 'Log in or sign up to Neurathon, the premier AI and Machine Learning hackathon.'
+	};
 </script>
+
+<svelte:head>
+	<title>{seo.title}</title>
+	<meta name="description" content={seo.description} />
+	<meta name="robots" content="noindex" />
+</svelte:head>
 
 <div class="mt-36 flex flex-col items-center md:mt-44">
 	<Tabs

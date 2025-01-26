@@ -80,6 +80,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>{TeamID ? 'Team' : 'Register Team'} - Neurathon</title>
+</svelte:head>
+
 <nav class="mt-2 flex w-full" aria-label="Breadcrumb">
 	<ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
 		<li class="inline-flex items-center">
@@ -261,10 +265,8 @@
 						>
 							{#if team?.CreatedBy === user?.id}
 								<button
-									formaction="?/delete"
 									class="transform rounded-md border border-neutral-300 bg-slate-700/15 px-4 py-2 text-sm text-neutral-100 backdrop-blur-md transition duration-200 hover:-translate-y-1 hover:bg-green-500 hover:shadow-md"
-									class:!cursor-not-allowed={submitting}
-									disabled={submitting}
+									onclick={shareLink}
 								>
 									Share Team
 								</button>

@@ -25,7 +25,30 @@
 
 		return () => data.subscription.unsubscribe();
 	});
+
+	const seo = {
+		title: 'Neurathon - AI for good',
+		description:
+			'Join Neurathon, the premier AI and Machine Learning hackathon! Collaborate, innovate, and build cutting-edge solutions with a global community of developers and data scientists.',
+		keywords:
+			'Neurathon, AI hackathon, Machine Learning hackathon, ML competition, AI innovation, data science hackathon, coding competition, AI challenges, ML projects, hackathon 2025, Neurathon registration, AI developers, ML enthusiasts, Neurathon prizes, Neurathon winners',
+		ogImage:
+			'https://res.cloudinary.com/db7rduqjv/image/upload/v1737929627/neurathon/fvy4voyecxfotlr61ts3.png'
+	};
 </script>
+
+<svelte:head>
+	<meta name="description" content={seo.description} />
+	<meta name="keywords" content={seo.keywords} />
+	<meta property="og:title" content={seo.title} />
+	<meta property="og:description" content={seo.description} />
+	<meta property="og:image" content={seo.ogImage} />
+	<meta property="og:type" content="website" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={seo.title} />
+	<meta name="twitter:description" content={seo.description} />
+	<meta name="twitter:image" content={seo.ogImage} />
+</svelte:head>
 
 <SvelteToast options={{ reversed: true, intro: { y: 192 } }} />
 

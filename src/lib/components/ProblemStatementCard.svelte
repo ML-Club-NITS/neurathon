@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { Motion, useMotionValue, useMotionTemplate } from 'svelte-motion';
-	import problemStatements from '$lib/data/problemstatements.json';
+	// import problemStatements from '$lib/data/problemstatements.json';
+
+	export let problemStatements;
 
 	let mouseX = useMotionValue(0);
 	let mouseY = useMotionValue(0);

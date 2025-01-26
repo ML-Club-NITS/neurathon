@@ -74,6 +74,8 @@
 
 		<form
 			class="space-y-4"
+			method="POST"
+			action="?/submmision"
 			use:enhance={({ cancel }) => {
 				isSubmitting = true;
 				if (!validate()) {
@@ -86,6 +88,7 @@
 					setTimeout(() => (isSubmitting = false), 1500);
 				};
 			}}
+			autocomplete="off"
 			novalidate
 		>
 			<div>
@@ -95,6 +98,7 @@
 				<input
 					type="url"
 					id="github-repo"
+					name="github-repo"
 					bind:value={githubRepoLink}
 					class="w-full rounded-md border {errors.githubRepoLink
 						? 'border-red-500'
@@ -113,6 +117,7 @@
 				<input
 					type="url"
 					id="deployment-link"
+					name="deployment-link"
 					bind:value={deploymentLink}
 					class="w-full rounded-md border border-gray-700 bg-gray-900 px-4 py-2 text-white focus:border-indigo-500 focus:ring-indigo-500"
 					placeholder="https://your-app.com"
@@ -126,6 +131,7 @@
 				<input
 					type="url"
 					id="uml-design"
+					name="uml-design"
 					bind:value={umlDesignLink}
 					class="w-full rounded-md border {errors.umlDesignLink
 						? 'border-red-500'

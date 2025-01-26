@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { Motion, useMotionValue, useMotionTemplate } from 'svelte-motion';
 	// Mouse-following effect
 	let mouseX = useMotionValue(0);
@@ -7,14 +8,61 @@
 		radial-gradient(300px circle at ${mouseX}px ${mouseY}px, rgba(255, 255, 255, 0.15), transparent 80%)
 	`;
 
-	export let commits;
+	export let url: string;
+
+	interface Commit {
+		committerName: string;
+		commitMessage: string;
+		commitDate: string;
+		committerAvatar: string;
+		commitUrl: string;
+		committerUrl: string;
+	}
+
+	let commits: Commit[] = [];
 
 	let currentPage = 1;
 	const itemsPerPage = 5;
 	let searchQuery = '';
 
+	async function fetchCommitData(repoUrl: string): Promise<{ commits: Commit[] }> {
+		try {
+			// Fetch commit data from the GitHub API
+			const response = await fetch(repoUrl);
+			if (!response.ok) {
+				throw new Error(`Failed to fetch data: ${response.status} ${response.statusText}`);
+			}
+
+			const userData = await response.json(); // Parse the JSON response
+
+			// Map the GitHub API response to the Commit interface
+			const commitData: Commit[] = userData.map((commit: any) => ({
+				committerName: commit.commit.committer.name,
+				commitMessage: commit.commit.message,
+				commitDate: commit.commit.committer.date,
+				committerAvatar: commit.author?.avatar_url || '', // Handle cases where author is null
+				commitUrl: commit.html_url,
+				committerUrl: commit.author?.html_url || '' // Handle cases where author is null
+			}));
+
+			return { commits: commitData }; // Return the formatted commit data
+		} catch (error) {
+			console.error('Error fetching commit data:', error);
+			throw error; // Re-throw the error for handling elsewhere
+		}
+	}
+
+	onMount(async () => {
+		try {
+			const response = await fetchCommitData(url);
+			commits = response.commits;
+		} catch (error) {
+			console.error('Failed to fetch commit data:', error);
+		}
+	});
+
 	$: filteredCommits = commits.filter(
-		(commit: { committerName: string; commitMessage: string }) =>
+		(commit) =>
 			commit.committerName.toLowerCase().includes(searchQuery.toLowerCase()) ||
 			commit.commitMessage.toLowerCase().includes(searchQuery.toLowerCase())
 	);
@@ -101,7 +149,7 @@
 							/>
 							<div>
 								<p class="text-sm font-medium text-gray-300">{commit.committerName}</p>
-								<p class="text-xs text-gray-500">{commit.date}</p>
+								<p class="text-xs text-gray-500">{commit.commitDate}</p>
 							</div>
 						</div>
 						<a

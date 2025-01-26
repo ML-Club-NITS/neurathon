@@ -1,6 +1,5 @@
 import { v2 as cloudinary } from 'cloudinary';
 
-import type { PageServerLoad } from './$types';
 import type { Actions } from './$types';
 
 import {
@@ -14,22 +13,6 @@ cloudinary.config({
 	api_key: CLOUDINARY_API_KEY,
 	api_secret: CLOUDINARY_API_SECRET
 });
-
-export const load: PageServerLoad = async ({ depends, locals: { supabase, user } }) => {
-	depends('supabase:db:profiles');
-
-	const { data, error } = await supabase.from('profiles').select().eq('id', user?.id);
-
-	if (error) {
-		return { error: error.message };
-	}
-
-	if (data) {
-		return { profile: data[0] };
-	}
-
-	return { profile: null };
-};
 
 export const actions: Actions = {
 	completeProfile: async ({ request, locals: { supabase, user } }) => {

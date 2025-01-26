@@ -3,7 +3,7 @@
 	import { toast } from '@zerodevx/svelte-toast';
 
 	let { data, form: formData } = $props();
-	let { user, profile } = $derived(data);
+	let { user, profileCompleted, profile } = $derived(data);
 
 	let selectedFile = $state<File | null>(null);
 	let filePreviewUrl = $state<string | null>(null);
@@ -91,6 +91,10 @@
 		}
 	});
 </script>
+
+<svelte:head>
+	<title>{profileCompleted ? 'Profile' : 'Update Profile'} - Neurathon</title>
+</svelte:head>
 
 <section class="flex min-h-screen w-full flex-col items-center justify-center p-4">
 	<nav class="my-2 w-full" aria-label="Breadcrumb">
@@ -181,7 +185,9 @@
 
 			<!-- Form Content -->
 			<div class="relative z-0 space-y-6">
-				<h2 class="text-3xl font-bold text-neutral-200">Update Profile</h2>
+				<h2 class="text-3xl font-bold text-neutral-200">
+					{profileCompleted ? 'Profile' : 'Update Profile'}
+				</h2>
 
 				<form
 					id="profileForm"
@@ -234,7 +240,7 @@
 						</div>
 					</div>
 
-					{#if !!profile}
+					{#if profileCompleted}
 						<!-- Institute Field -->
 						<div>
 							<span class="mb-2 block text-sm font-medium text-neutral-400">Institute Name</span>
