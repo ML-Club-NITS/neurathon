@@ -88,7 +88,7 @@
 				`left-[calc(50%-var(--size)/2)] top-[calc(50%-var(--size)/2)] h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
 				`[transform-origin:center_center]`,
 				`animate-first`,
-				`opacity-30`
+				`opacity-15`
 			)}
 		></div>
 		<div
@@ -97,7 +97,7 @@
 				`left-[calc(50%-var(--size)/2)] top-[calc(50%-var(--size)/2)] h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
 				`[transform-origin:calc(50%-400px)]`,
 				`animate-second`,
-				`opacity-30`
+				`opacity-15`
 			)}
 		></div>
 		<div
@@ -106,7 +106,7 @@
 				`left-[calc(50%-var(--size)/2)] top-[calc(50%-var(--size)/2)] h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
 				`[transform-origin:calc(50%+400px)]`,
 				`animate-third`,
-				`opacity-30`
+				`opacity-15`
 			)}
 		></div>
 		<div
@@ -115,7 +115,7 @@
 				`left-[calc(50%-var(--size)/2)] top-[calc(50%-var(--size)/2)] h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
 				`[transform-origin:calc(50%-200px)]`,
 				`animate-fourth`,
-				`opacity-25`
+				`opacity-15`
 			)}
 		></div>
 		<div
@@ -124,7 +124,7 @@
 				`left-[calc(50%-var(--size)/2)] top-[calc(50%-var(--size)/2)] h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
 				`[transform-origin:calc(50%-800px)_calc(50%+800px)]`,
 				`animate-fifth`,
-				`opacity-30`
+				`opacity-25`
 			)}
 		></div>
 

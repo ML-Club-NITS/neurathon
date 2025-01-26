@@ -251,7 +251,7 @@
 		fifthColor="0, 0, 0"
 		pointerColor="76, 103, 235"
 		size="80%"
-		blendingValue="hard-light"
+		blendingValue="soft-light"
 		interactive={true}
 		containerClassName="min-h-screen"
 	>
