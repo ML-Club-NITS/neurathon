@@ -1,14 +1,16 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
 	import { Motion, useMotionValue, useMotionTemplate } from 'svelte-motion';
 
-	let githubRepoLink = '';
-	let deploymentLink = '';
-	let umlDesignLink = '';
-	let errors = {
+	let githubRepoLink = $state('');
+	let deploymentLink = $state('');
+	let umlDesignLink = $state('');
+	let errors = $state({
 		githubRepoLink: '',
 		umlDesignLink: ''
-	};
-	let isSubmitting = false;
+	});
+
+	let isSubmitting = $state(false);
 
 	let mouseX = useMotionValue(0);
 	let mouseY = useMotionValue(0);
@@ -16,7 +18,7 @@
       radial-gradient(200px circle at ${mouseX}px ${mouseY}px, rgba(255, 255, 255, 0.1), transparent 80%)
     `;
 
-	async function handleSubmit() {
+	function validate() {
 		errors = { githubRepoLink: '', umlDesignLink: '' };
 
 		if (!githubRepoLink) {
@@ -26,11 +28,11 @@
 			errors.umlDesignLink = 'UML Design Link is required.';
 		}
 
-		if (errors.githubRepoLink || errors.umlDesignLink) {
-			return;
+		if (!!errors.githubRepoLink || !!errors.umlDesignLink) {
+			return false;
 		}
 
-		isSubmitting = true;
+		return true;
 	}
 </script>
 
@@ -70,7 +72,22 @@
 			</p>
 		</div>
 
-		<form onsubmit={handleSubmit} class="space-y-4">
+		<form
+			class="space-y-4"
+			use:enhance={({ cancel }) => {
+				isSubmitting = true;
+				if (!validate()) {
+					isSubmitting = false;
+					return cancel();
+				}
+
+				return async ({ update }) => {
+					await update();
+					setTimeout(() => (isSubmitting = false), 1500);
+				};
+			}}
+			novalidate
+		>
 			<div>
 				<label for="github-repo" class="block text-sm font-medium text-neutral-400">
 					GitHub Repository Link <span class="text-red-500">*</span>
@@ -123,6 +140,7 @@
 			<button
 				type="submit"
 				class="mt-4 w-full rounded-md bg-indigo-600/25 px-6 py-3 text-lg font-semibold text-white transition-all duration-200 ease-in-out hover:bg-indigo-600/55 focus:outline-none focus:ring-2 focus:ring-indigo-800/25 focus:ring-offset-2"
+				class:!cursor-not-allowed={isSubmitting}
 				disabled={isSubmitting}
 			>
 				{isSubmitting ? 'Submitting...' : 'Submit'}

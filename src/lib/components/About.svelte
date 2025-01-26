@@ -1,14 +1,36 @@
 <script>
 	import { AnimatedShinyText, ShineBorder } from './ui';
 	// for bg-grid : please scroll to the bottom of the page to see the bg-grid :  tailwind.config.ts file.
+
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+	gsap.registerPlugin(ScrollTrigger);
+
+	$effect(() => {
+		let tl = gsap.timeline();
+		tl.from('#about, #inside_about', {
+			opacity: 0,
+			scale: 0.97,
+			stagger: 1,
+
+			scrollTrigger: {
+				trigger: '#about',
+				scrub: 1,
+				start: 'top top',
+				end: '+=10',
+				once: true,
+				markers: true
+			}
+		});
+	});
 </script>
 
 <section
-	class="flex w-full items-center justify-center border-slate-500 bg-black px-5 py-24 md:px-28 md:py-32"
+	class="bg-trans flex w-full items-center justify-center border-slate-500 px-5 py-24 md:px-28 md:py-32"
 	id="about"
 >
 	<ShineBorder class="text-center capitalize" color={['#FF5722', '#0883FF']}>
-		<div class="my-auto h-fit w-full flex-col">
+		<div class="my-auto h-fit w-full flex-col" id="inside_about">
 			<AnimatedShinyText
 				class="inline-flex w-full items-center justify-center transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400"
 			>

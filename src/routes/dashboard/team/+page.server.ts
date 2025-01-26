@@ -13,7 +13,10 @@ export const actions: Actions = {
 		});
 
 		if (error) {
-			return { error: error.message };
+			if (error.message.includes('duplicate key value violates unique constraint')) {
+				return { error: 'Team name already exists' };
+			}
+			return { error: 'Something went wrong' };
 		}
 		redirect(303, '/dashboard/team');
 	},
@@ -26,14 +29,15 @@ export const actions: Actions = {
 		if (error) {
 			return { error: error.message };
 		} else if (data && data.length > 0) {
-			if (data[0].Members.length < 4) {
+			if (data[0].Members?.length < 4) {
 				const { error } = await supabase.rpc('append_member_to_team', {
 					member_data: user?.user_metadata,
-					team_id: parseInt(TeamID, 10) ?? 0
+					team_id: TeamID
 				});
 
 				if (error) {
-					return { error: error.message };
+					console.log(error);
+					return { error: 'Team ID not valid' };
 				}
 			} else {
 				return { error: 'Team is full' };

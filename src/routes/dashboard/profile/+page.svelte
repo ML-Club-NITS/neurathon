@@ -17,6 +17,8 @@
 		fileError: ''
 	});
 
+	let submitting = $state(false);
+
 	const validate = () => {
 		formErrors.instituteError = '';
 
@@ -189,11 +191,16 @@
 					enctype="multipart/form-data"
 					autocomplete="off"
 					use:enhance={({ cancel }) => {
+						submitting = true;
 						if (!validate()) {
+							submitting = false;
 							return cancel();
 						}
 
-						return async ({ update }) => update();
+						return async ({ update }) => {
+							await update();
+							setTimeout(() => (submitting = false), 1500);
+						};
 					}}
 					novalidate
 				>
@@ -364,12 +371,17 @@
 							<button
 								type="reset"
 								class="rounded-lg bg-neutral-700 px-6 py-2 text-neutral-200 transition-colors duration-200 hover:bg-neutral-600"
+								class:!cursor-not-allowed={submitting}
+								onclick={clearFile}
+								disabled={submitting}
 							>
 								Cancel
 							</button>
 							<button
 								type="submit"
 								class="rounded-lg bg-indigo-600 px-6 py-2 text-white transition-colors duration-200 hover:bg-indigo-700"
+								class:!cursor-not-allowed={submitting}
+								disabled={submitting}
 							>
 								Save Changes
 							</button>

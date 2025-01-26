@@ -11,6 +11,8 @@
 	let teamid = $state('');
 	let teamidError = $state('');
 
+	let submitting = $state(false);
+
 	let { data, form } = $props();
 	let { user, TeamID, team, profileCompleted } = $derived(data);
 
@@ -40,7 +42,7 @@
 					'--toastBackground': 'rgba(220, 38, 38, 0.9)',
 					'--toastBarBackground': '#DC2626'
 				},
-				duration: 1500
+				duration: 5000
 			});
 		}
 	});
@@ -192,47 +194,72 @@
 							</p>
 						</div>
 						<div>
+							<span class="text-sm font-medium text-neutral-400">Team ID</span>
+							<p class="font-LeagueSpartanFont text-xl font-bold text-neutral-100">{TeamID}</p>
+						</div>
+						<div>
 							<span class="text-sm font-medium text-neutral-400">Team Leader</span>
-							<p class="font-LeagueSpartanFont text-base md:text-xl font-bold text-neutral-100">
-								{team.Members.find((m: { sub: string; name: string }) => m.sub === team?.CreatedBy)
+							<p class="font-LeagueSpartanFont text-xl font-bold text-neutral-100">
+								{team?.Members.find((m: { sub: string; name: string }) => m.sub === team?.CreatedBy)
 									?.name}
 							</p>
 						</div>
-						<div>
-							<span class="py-4 text-sm font-medium text-neutral-400">Team Members</span>
-							<div class="flex flex-col font-LeagueSpartanFont font-bold">
-								{#each team?.Members as member}
-									<p class="break-words text-sm md:text-base text-neutral-100">
-										{member.name} ({member.phone})
-									</p>
-								{/each}
+						{#if team?.Members.length > 1}
+							<div>
+								<span class="text-sm font-medium text-neutral-400">Team Members</span>
+								<div class="my-2 flex flex-col gap-2 font-LeagueSpartanFont font-bold">
+									{#each team?.Members.filter((m: { sub: string }) => m.sub !== team?.CreatedBy) as member}
+										<div
+											class="w-fit rounded-lg border border-slate-800 px-3 py-2 shadow-md transition-all hover:scale-105 hover:border-orange-500 hover:bg-slate-700"
+										>
+											<p class="text-md leading-4 text-neutral-100">
+												{member.name} <span class="text-sm text-slate-400">({member.email})</span>
+											</p>
+										</div>
+									{/each}
+								</div>
 							</div>
-						</div>
-						<button
-							class="rounded-lg bg-indigo-600/35 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-600/15"
-							onclick={shareLink}
+						{/if}
+						<form
+							method="POST"
+							class="flex gap-4 pt-4"
+							use:enhance={() => {
+								submitting = true;
+
+								return async ({ update }) => {
+									await update();
+									setTimeout(() => (submitting = false), 1500);
+								};
+							}}
 						>
-							Share Team Link
-						</button>
-						<div class="button_container">
-							<form method="POST" class="flex gap-4">
-								{#if team?.CreatedBy === user?.id}
-									<button
-										formaction="?/delete"
-										class="glass-button 0 cursor-pointer rounded-lg border border-white/55 bg-red-600/80 px-4 py-2 font-medium text-neutral-100 shadow-md backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-600/5 hover:shadow-lg active:translate-y-0"
-									>
-										Delete Team
-									</button>
-								{:else}
-									<button
-										formaction="?/leave"
-										class="glass-button 0 cursor-pointer rounded-lg border border-white/55 bg-red-600/80 px-4 py-2 font-medium text-neutral-100 shadow-md backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-600/5 hover:shadow-lg active:translate-y-0"
-									>
-										Leave Team
-									</button>
-								{/if}
-							</form>
-						</div>
+							{#if team?.CreatedBy === user?.id}
+								<button
+									formaction="?/delete"
+									class="rounded-lg bg-green-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-red-700"
+									class:!cursor-not-allowed={submitting}
+									disabled={submitting}
+								>
+									Share Team
+								</button>
+								<button
+									formaction="?/delete"
+									class="rounded-lg bg-red-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-red-700"
+									class:!cursor-not-allowed={submitting}
+									disabled={submitting}
+								>
+									Delete Team
+								</button>
+							{:else}
+								<button
+									formaction="?/leave"
+									class="rounded-lg bg-red-600 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-red-700"
+									class:!cursor-not-allowed={submitting}
+									disabled={submitting}
+								>
+									Leave Team
+								</button>
+							{/if}
+						</form>
 					</div>
 				</div>
 			</div>
@@ -270,8 +297,8 @@
 						>
 							<TabItem
 								open
-								inactiveClasses="text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-slate-500"
-								activeClasses="text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-white bg-gray-700"
+								inactiveClasses="text-md sm:text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-slate-500"
+								activeClasses="text-md sm:text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-white bg-gray-700"
 							>
 								<div slot="title">Create Team</div>
 								<form
@@ -279,12 +306,21 @@
 									class="m-2 space-y-4"
 									autocomplete="off"
 									use:enhance={({ cancel }) => {
+										submitting = true;
 										if (teamName === '') {
 											teamNameError = 'Team Name is required';
+											submitting = false;
+											return cancel();
+										} else if (teamName.length > 30) {
+											teamNameError = 'Team Name is too long';
+											submitting = false;
 											return cancel();
 										}
 
-										return async ({ update }) => update();
+										return async ({ update }) => {
+											await update();
+											setTimeout(() => (submitting = false), 1500);
+										};
 									}}
 									novalidate
 								>
@@ -308,6 +344,8 @@
 									<button
 										formaction="?/register"
 										class="w-full rounded-lg bg-indigo-600/15 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-800/55"
+										class:!cursor-not-allowed={submitting}
+										disabled={submitting}
 									>
 										Create Team
 									</button>
@@ -323,12 +361,17 @@
 									class="m-2 space-y-4"
 									autocomplete="off"
 									use:enhance={({ cancel }) => {
+										submitting = true;
 										if (teamid === '') {
 											teamidError = 'Team ID is required';
+											submitting = false;
 											return cancel();
 										}
 
-										return async ({ update }) => update();
+										return async ({ update }) => {
+											await update();
+											setTimeout(() => (submitting = false), 1500);
+										};
 									}}
 									novalidate
 								>
@@ -352,6 +395,8 @@
 									<button
 										formaction="?/join"
 										class="w-full rounded-lg bg-indigo-600/15 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-800/55"
+										class:!cursor-not-allowed={submitting}
+										disabled={submitting}
 									>
 										Join Team
 									</button>
