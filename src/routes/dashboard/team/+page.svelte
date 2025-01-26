@@ -176,35 +176,33 @@
 					class="relative flex w-full flex-col gap-3 rounded-xl border border-white/10 px-4 py-5"
 				>
 					<h2
-						class="mdlg:text-6xl mb-4 animate-text-gradient bg-gradient-to-r from-[#FFFFFF] via-[#CBCBCB] to-[#FFFFFF] bg-[200%_auto] bg-clip-text text-center font-LeagueSpartanFont text-5xl font-bold text-neutral-200 text-transparent md:text-4xl lg:text-5xl"
+						class=" mb-4 animate-text-gradient break-words bg-gradient-to-r from-[#FFFFFF] via-[#CBCBCB] to-[#FFFFFF] bg-[200%_auto] bg-clip-text text-center font-LeagueSpartanFont text-3xl font-bold text-neutral-200 text-transparent md:text-4xl lg:text-5xl"
 					>
 						Team Information
 					</h2>
 					<div class="space-y-4 lg:mb-11 lg:ml-16">
 						<div>
 							<span class="text-sm font-medium text-neutral-400">Team ID</span>
-							<p class="font-LeagueSpartanFont text-xl font-bold text-neutral-100">{TeamID}</p>
+							<p class="font-LeagueSpartanFont text-base md:text-xl font-bold text-neutral-100">{TeamID}</p>
 						</div>
 						<div>
 							<span class="text-sm font-medium text-neutral-400">Team Name</span>
-							<p class="font-LeagueSpartanFont text-xl font-bold text-neutral-100">
+							<p class="font-LeagueSpartanFont text-base md:text-2xl lg:text-4xl font-bold bg-gradient-to-r from-white via-indigo-600/75 to-white bg-[length:200%_auto] animate-text-gradient bg-clip-text text-transparent">
 								{team?.TeamName}
 							</p>
 						</div>
 						<div>
 							<span class="text-sm font-medium text-neutral-400">Team Leader</span>
-							<p class="font-LeagueSpartanFont text-xl font-bold text-neutral-100">
+							<p class="font-LeagueSpartanFont text-base md:text-xl font-bold text-neutral-100">
 								{team.Members.find((m: { sub: string; name: string }) => m.sub === team?.CreatedBy)
 									?.name}
 							</p>
 						</div>
 						<div>
-							<span class="text-sm font-medium text-neutral-400">Team Members</span>
-							<div
-								class="flex flex-col gap-5 space-y-2 font-LeagueSpartanFont font-bold md:flex-row"
-							>
+							<span class="py-4 text-sm font-medium text-neutral-400">Team Members</span>
+							<div class="flex flex-col font-LeagueSpartanFont font-bold">
 								{#each team?.Members as member}
-									<p class="text-xl text-neutral-100">
+									<p class="break-words text-sm md:text-base text-neutral-100">
 										{member.name} ({member.phone})
 									</p>
 								{/each}
