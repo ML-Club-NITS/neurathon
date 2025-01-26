@@ -1,0 +1,24 @@
+{
+	"sponsers": [
+		{
+			"name": "Solana",
+			"img": "../src/lib/assets/solana.png"
+		},
+		{
+			"name": "Devfolio",
+			"img": "../src/lib/assets/devfolio.png"
+		},
+		{
+			"name": "Replit",
+			"img": "../src/lib/assets/replit.png"
+		},
+		{
+			"name": "Polygon",
+			"img": "../src/lib/assets/Polygon.png"
+		},
+		{
+			"name": "Filecoin",
+			"img": "../src/lib/assets/filecoin.png"
+		}
+	]
+}

@@ -1,7 +1,26 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import logo from '$lib/assets/MLClub_vector_logo_large.svg';
+	import logo from '$lib/assets/NNlogo.svg';
+	import { gsap } from 'gsap';
+	$effect(() => {
+		gsap.set('*', { visibility: 'invisible' });
+
+		let tl = gsap.timeline();
+		tl.from(
+			'#logo-ani',
+			{
+				opacity: 0,
+				y: -15,
+				duration: 1
+			},
+			'-=0.1'
+		).from('#navbar-sticky', {
+			opacity: 0,
+			y: -15,
+			duration: 1
+		});
+	});
 
 	let { isRegistered } = $props();
 
@@ -73,7 +92,10 @@
 <nav
 	class="fixed start-0 top-0 z-[10000] w-full rounded-sm border-b border-gray-200 bg-white bg-opacity-30 backdrop-blur-md backdrop-filter sm:rounded-none dark:border-gray-600 dark:bg-gray-900 dark:bg-opacity-30"
 >
-	<div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-4 p-4">
+	<div
+		class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-4 p-4"
+		id="logo-ani"
+	>
 		<a
 			href="/"
 			class="flex cursor-pointer items-center space-x-3 rtl:space-x-reverse"
@@ -83,19 +105,26 @@
 				scrollToSection(event, 'home');
 			}}
 		>
-			<img src={logo} class="h-8" alt="ML CLUB NITS" />
+			<img src={logo} class="mx-2 h-8 scale-150" alt="ML CLUB NITS" />
 		</a>
 
 		<div class="flex space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
 			<button
-				class="relative rounded-xl bg-orange-700 px-4 py-2 text-center text-sm font-medium text-white hover:bg-orange-800 focus:outline-none focus:ring-4 focus:ring-orange-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+				class="button bg-grey-600 w-full cursor-pointer select-none rounded-lg border-[1px] border-orange-900 px-2
+    			py-1 transition-all
+    duration-300
+    [box-shadow:-2px_5px_0_0_#d20003,-2px_5px_0_0_#d2000341] hover:border-[0px] hover:bg-orange-600
+    active:translate-y-2 active:border-[0px] active:[box-shadow:0_0px_0_0_#540002,0_0px_0_0_#54000241]
+  "
 				type="button"
 				onclick={() => {
 					isNavbarOpen = false;
 					goto(navButton.link);
 				}}
 			>
-				{navButton.title}
+				<span class="flex h-full flex-col items-center justify-center text-lg font-bold text-white"
+					>{navButton.title}</span
+				>
 			</button>
 			<button
 				class="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { Hero, About, Prizes, Timeline, Sponsors, FAQs, Footer } from '$lib/components';
 
 	import bubble from '$lib/assets/bubble.gif';
@@ -52,7 +51,7 @@
 		}
 	};
 
-	onMount(() => {
+	$effect(() => {
 		window.addEventListener('scroll', handleScroll);
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
