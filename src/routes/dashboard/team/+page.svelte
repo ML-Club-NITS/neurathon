@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 	import { fade, fly } from 'svelte/transition';
 	import { Tabs, TabItem } from 'flowbite-svelte';
 	import { Motion, useMotionValue, useMotionTemplate } from 'svelte-motion';
@@ -52,9 +53,31 @@
 	onMount(() => {
 		const urlParams = new URLSearchParams(window.location.search);
 		message = urlParams.get('message') || '';
-	});
 
-	console.log(message);
+		if (message.includes('Successfully')) {
+			toast.push(message, {
+				theme: {
+					'--toastColor': '#fff',
+					'--toastBackground': 'rgba(72, 187, 120, 0.9)',
+					'--toastBarBackground': '#48BB78'
+				},
+				duration: 3500
+			});
+		} else if (message) {
+			toast.push(message, {
+				theme: {
+					'--toastColor': '#fff',
+					'--toastBackground': 'rgba(220, 38, 38, 0.9)',
+					'--toastBarBackground': '#DC2626'
+				},
+				duration: 3500
+			});
+		}
+
+		urlParams.delete('message');
+		const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
+		goto(newUrl.endsWith('?') ? newUrl.slice(0, -1) : newUrl, { replaceState: true });
+	});
 </script>
 
 <nav class="mt-2 flex w-full" aria-label="Breadcrumb">
@@ -195,7 +218,9 @@
 						</div>
 						<div>
 							<span class="text-sm font-medium text-neutral-400">Team ID</span>
-							<p class="font-LeagueSpartanFont text-xl font-bold text-neutral-100">{TeamID}</p>
+							<p class="select-text font-LeagueSpartanFont text-xl font-bold text-neutral-100">
+								{TeamID}
+							</p>
 						</div>
 						<div>
 							<span class="text-sm font-medium text-neutral-400">Team Leader</span>

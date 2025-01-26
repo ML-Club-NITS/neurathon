@@ -2,44 +2,48 @@ import { redirect } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
 export const GET: RequestHandler = async ({ url, locals: { supabase, user } }) => {
-  if (!user) {
-    throw redirect(303, '/auth');
-  }
+	// Ensure the user is authenticated
+	if (!user) {
+		throw redirect(303, '/auth');
+	}
 
-  const TeamID = url.searchParams.get('id') as string;
+	// Extract TeamID from URL parameters
+	const TeamID = url.searchParams.get('id');
 
-  if (!TeamID) {
-    throw redirect(303, '/dashboard?message=Team ID is required');
-  }
+	// Validate TeamID
+	if (!TeamID) {
+		throw redirect(303, '/dashboard/team?message=Team+ID+is+required');
+	}
 
-  try {
-    const { data: team, error: teamError } = await supabase
-      .from('teams')
-      .select('*')
-      .eq('TeamID', TeamID)
-      .single();
+	// Fetch the team by TeamID
+	const { data: team, error: teamError } = await supabase
+		.from('teams')
+		.select('*')
+		.eq('TeamID', TeamID)
+		.single();
 
-    if (teamError || !team) {
-      throw redirect(303, '/dashboard?message=Team+not+found');
-    }
+	// Handle team not found
+	if (teamError || !team) {
+		throw redirect(303, '/dashboard/team?message=Team+not+found');
+	}
 
-    if (team.Members?.length >= 4) {
-      throw redirect(303, '/dashboard?message=Team+is+full');
-    }
+	// Check if the team is full
+	if (team.Members?.length >= 4) {
+		throw redirect(303, '/dashboard/team?message=Team+is+full');
+	}
 
-    const { error: joinError } = await supabase.rpc('append_member_to_team', {
-      member_data: user.user_metadata,
-      team_id: TeamID,
-    });
+	// Add the user to the team
+	const { error: joinError } = await supabase.rpc('append_member_to_team', {
+		member_data: user.user_metadata,
+		team_id: TeamID
+	});
 
-    if (joinError) {
-      console.error(joinError);
-      throw redirect(303, '/dashboard?message=Failed+to+join+team');
-    }
+	// Handle join error
+	if (joinError) {
+		console.error(joinError);
+		throw redirect(303, '/dashboard/team?message=Failed+to+join+team');
+	}
 
-    throw redirect(303, '/dashboard/team?message=Successfully+joined+team');
-  } catch (error) {
-    console.error(error);
-    throw redirect(303, '/dashboard?message=Internal+server+error');
-  }
+	// Success: Redirect with success message
+	throw redirect(303, '/dashboard/team?message=Successfully+joined+the+team');
 };

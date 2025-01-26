@@ -9,7 +9,6 @@
 	// import EventTimer from '$lib/components/EventTimer.svelte';
 	import ProblemStatementCard from '$lib/components/ProblemStatementCard.svelte';
 	import { TextGenerateEffect } from '$lib/components/ui';
-	import Error from '../+error.svelte';
 
 	let { data } = $props();
 	let { commits, round } = $derived(data);
@@ -87,8 +86,8 @@
 		{:else if round === 1}
 			<!-- Event starting card, welcome card etc -->
 			<EventTimer {eventTime} {currentTime} {EventName} {EventDescription} />
-			<ProblemStatementCard/>
-			<SubmissionCard/>
+			<ProblemStatementCard />
+			<SubmissionCard />
 		{:else if round === 2}
 			<div class="w-full rounded-lg lg:max-w-[50%]">
 				<LeaderBoard />
