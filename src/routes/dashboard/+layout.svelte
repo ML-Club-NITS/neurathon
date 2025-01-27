@@ -100,7 +100,7 @@
 						</svg>
 					</button>
 					<a href="/dashboard" class="ml-2 flex items-center">
-						<img src={log4} class="mr-0 h-16" alt="Logo" />
+						<img src="favicon.png" class="h-11 m-3" alt="Logo" />
 						<span
 							class="self-center text-xl font-semibold text-gray-800 transition-colors duration-200 ease-in-out hover:text-gray-600 dark:text-white dark:hover:text-gray-300"
 							>Neurathon</span
