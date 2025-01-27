@@ -1,11 +1,11 @@
 <script lang="ts">
-	import file from '$lib/assets/brochure.pdf';
+	// import file from '$lib/assets/brochure.pdf';
 </script>
 
 <a
 	class="group relative z-0 flex transform-gpu cursor-pointer items-center justify-center gap-4 overflow-hidden whitespace-nowrap rounded-full border border-white/10 bg-orange-600 px-6 py-2 text-white
 		transition-transform duration-300 ease-in-out active:translate-y-[0px] dark:text-white"
-	href={file}
+	href="/"
 	download="Neurathon'25  Brochure.pdf"
 >
 	<svg

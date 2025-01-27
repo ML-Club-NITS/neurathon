@@ -7,7 +7,7 @@
 	// import neurathon_logo from '$lib/assets/nurathon_logo.svg';
 	// import logo2 from '$lib/assets/logo2.png';
 	import GradientAnimation from '$lib/components/ui/GradientAnimation.svelte';
-	import log4 from '$lib/assets/log4.png';
+	import log4 from '$lib/assets/NNlogo.svg';
 
 	let { children, data } = $props();
 	let { supabase, user, TeamID, profileCompleted } = $derived(data);
