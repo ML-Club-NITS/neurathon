@@ -192,7 +192,7 @@
 				{#each NavLinks as NavLink}
 					<a
 						href="/"
-						class="block cursor-pointer rounded px-3 py-2 text-center text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-orange-600 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+						class="block cursor-pointer rounded px-3 py-2 text-center text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-orange-400 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-orange-400"
 						onclick={(event) => {
 							event.preventDefault();
 							handleLinkClick();
