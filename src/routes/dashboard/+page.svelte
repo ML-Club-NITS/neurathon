@@ -122,7 +122,6 @@
 		<!-- <EventTimer {eventTime} {currentTime} {EventName} {EventDescription}/> -->
 		<!-- <GitHistory {commits}/> -->
 		<!-- <ProblemStatementCard /> -->
-		<GetGithub {teamLead} {qualifiedR1} {TeamID} />
 		<div class="flex w-full flex-col gap-4 rounded-lg lg:max-w-[50%]">
 			{#if phase === 1}
 				{#if !profileCompleted}
@@ -175,6 +174,8 @@
 				<!-- show a card till the result is declares, "...till result , brouse throug teh problems" -->
 				<!-- <ProblemStatementCard {problemStatements}/> -->
 				<!-- for those who want to go through the problems even after the round 1 -->
+			{:else if !qualifiedR1}
+				<!-- not qualified -->
 			{:else if phase === 4}
 				<!-- Online Round result -->
 				<!--result greetings-->
