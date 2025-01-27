@@ -2,7 +2,7 @@
 	import { goto } from '$app/navigation';
 
 	export let title;
-	export let path = '/dashboard';
+	export let path = '/auth';
 
 	function toRegister() {
 		goto(path);
@@ -12,7 +12,7 @@
 <div class="flex h-auto items-center justify-center">
 	<div class="group relative">
 		<button
-			class="relative inline-block cursor-pointer rounded-xl bg-gray-800 p-px font-semibold leading-6 text-white shadow-2xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95"
+			class="relative z-10 inline-block cursor-pointer rounded-xl bg-gray-800 p-px font-semibold leading-6 text-white shadow-2xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95"
 			onclick={toRegister}
 		>
 			<span

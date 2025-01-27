@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import logo from '$lib/assets/NNlogo.svg';
 	import { gsap } from 'gsap';
+
 	$effect(() => {
 		gsap.set('*', { visibility: 'invisible' });
 
@@ -17,19 +18,19 @@
 	let { isRegistered } = $props();
 
 	let navButton = $state({
-		title: isRegistered ? 'Dashboard' : 'Participate',
-		link: isRegistered ? '/dashboard' : '/participate'
+		title: isRegistered ? 'Dashboard' : 'Login',
+		link: isRegistered ? '/dashboard' : '/auth/?type=login'
 	});
 
 	let isNavbarOpen = $state(false);
 	let NavBar = $state<Node | null>(null);
 
 	const NavLinks = [
-		{ id: 'about', title: 'About' },
 		{ id: 'timeline', title: 'Timeline' },
 		{ id: 'prizes', title: 'Prizes' },
 		{ id: 'sponsors', title: 'Sponsors' },
-		{ id: 'faqs', title: 'FAQs' }
+		{ id: 'faqs', title: 'FAQs' },
+		{ id: 'about', title: 'About' }
 	];
 
 	function scrollToSection(event: Event, id: string) {
@@ -103,14 +104,14 @@
 		<div class="flex space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
 			<button
 				type="button"
-				class="group relative inline-flex items-center justify-center overflow-hidden rounded-md bg-slate-600 px-6 py-2.5 tracking-tighter text-white"
+				class="group relative inline-flex min-w-28 items-center justify-center overflow-hidden rounded-md bg-[#fa7e12] px-6 py-2.5 tracking-tighter text-white"
 				onclick={() => {
 					isNavbarOpen = false;
 					goto(navButton.link);
 				}}
 			>
 				<span
-					class="absolute h-0 w-0 rounded-full bg-[#ff8b0f] transition-all duration-500 ease-out group-hover:h-56 group-hover:w-56"
+					class="absolute h-0 w-0 rounded-full bg-slate-600 transition-all duration-500 ease-out group-hover:h-56 group-hover:w-56"
 				></span>
 				<span class="absolute bottom-0 left-0 -ml-2 h-full">
 					<svg
@@ -143,25 +144,8 @@
 				<span
 					class="absolute inset-0 -mt-1 h-full w-full rounded-lg bg-gradient-to-b from-transparent via-transparent to-gray-200 opacity-30"
 				></span>
-				<span class="relative text-base font-semibold">{navButton.title}</span>
+				<span class="text-md relative font-semibold">{navButton.title}</span>
 			</button>
-			<!-- <button
-				class="button bg-transparent w-full cursor-pointer select-none rounded-lg border-[1px] border-[#f9b23f] px-2
-    			py-1 transition-all
-    duration-300
-    [box-shadow:-2px_2px_0_0_#f9b23f,-2px_3px_0_0_#f9b23f] hover:border-[1px] hover:bg-[#f9700a]
-    active:translate-y-2 active:border-[0px] active:[box-shadow:0_0px_0_0_#540002,0_0px_0_0_#54000241]
-  "
-				type="button"
-				onclick={() => {
-					isNavbarOpen = false;
-					goto(navButton.link);
-				}}
-			>
-				<span class="flex h-full flex-col items-center justify-center text-lg font-bold text-white"
-					>{navButton.title}</span
-				>
-			</button> -->
 			<button
 				class="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
 				type="button"
