@@ -1,11 +1,11 @@
 <script>
 	import sponserData from '$lib/data/sponsers.json';
-	import prevSponserData from '$lib/data/prevSponsers.json';
+	import sponsers from '$lib/data/prevSponsers';
 
 	import { Marquee } from './ui';
 	import SponsorCard from './SponsorCard.svelte';
 
-	let zeroRow = prevSponserData.sponsers.slice(0, sponserData.sponsers.length);
+	let zeroRow = sponsers.slice(0, sponserData.sponsers.length);
 	// let firstRow = sponserData.sponsers.slice(0, sponserData.sponsers.length / 2);
 	// let secondRow = sponserData.sponsers.slice(sponserData.sponsers.length / 2);
 
