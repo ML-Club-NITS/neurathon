@@ -5,7 +5,7 @@
 	import { cn } from '$lib/utils';
 	export let value = 100;
 	export let initial = 0;
-	export let duration = 3000;
+	export let duration = 1000;
 	let num = tweened(initial, {
 		duration: duration,
 		easing: cubicOut
