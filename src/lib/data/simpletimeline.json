@@ -1,0 +1,42 @@
+[
+	{
+		"title": "Registration",
+		"mode": "Online",
+		"dates": "27th Jan - 12th Feb, 2025",
+		"startDate": "2025-01-27",
+		"endDate": "2025-02-12"
+	},
+	{
+		"title": "Round 1",
+		"mode": "Online",
+		"dates": "13th Feb - 16th Feb, 2025",
+		"startDate": "2025-02-13",
+		"endDate": "2025-02-16",
+		"details": "Compete online to qualify for the offline round."
+	},
+	{
+		"title": "Round 2",
+		"mode": "Offline",
+		"dates": "21st March - 23rd March, 2025",
+		"startDate": "2025-03-21",
+		"endDate": "2025-03-23",
+		"venue": "NIT Silchar Campus",
+		"schedule": [
+			{
+				"day": "Day 1",
+				"date": "21st March",
+				"events": ["Problem statement release", "Hackathon begins"]
+			},
+			{
+				"day": "Day 2",
+				"date": "22nd March",
+				"events": ["Hackathon continues", "Submission deadline by EOD"]
+			},
+			{
+				"day": "Day 3",
+				"date": "23rd March",
+				"events": ["Presentations to judges", "Guest speaker session", "Prize distribution"]
+			}
+		]
+	}
+]
