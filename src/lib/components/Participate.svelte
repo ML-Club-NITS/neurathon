@@ -94,7 +94,7 @@
 			</div>
 		</div>
 
-		<div class="neurathon-info-container g-1 overflow-hidden md:w-[60%] lg:w-[60%] xl:w-[60%]">
+		<div class="neurathon-info-container g-1 mb-3 overflow-hidden md:w-[60%] lg:w-[60%] xl:w-[60%]">
 			<div class="event-timeline m-3 rounded border border-gray-600 bg-gray-700/[0.5] pb-5">
 				<ParticipateTimeline />
 			</div>

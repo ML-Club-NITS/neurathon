@@ -85,10 +85,7 @@
 <nav
 	class="fixed start-0 top-0 z-[10000] w-full rounded-sm border-b border-gray-200 bg-white bg-opacity-30 backdrop-blur-md backdrop-filter sm:rounded-none dark:border-gray-600 dark:bg-gray-900 dark:bg-opacity-30"
 >
-	<div
-		class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-4 p-4"
-		id="logo-ani"
-	>
+	<div class="mx-auto flex flex-wrap items-center justify-between gap-4 p-4" id="logo-ani">
 		<a
 			href="/"
 			class="flex cursor-pointer items-center space-x-3 rtl:space-x-reverse"

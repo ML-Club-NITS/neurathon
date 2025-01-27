@@ -86,12 +86,6 @@
 		color: rgba(255, 255, 255, 0.7);
 	}
 
-	.prize-award {
-		font-size: 1.5rem;
-		font-weight: bold;
-		color: rgba(255, 255, 255, 0.9);
-	}
-
 	@keyframes gradient-animation {
 		0% {
 			background-position: 0% 50%;

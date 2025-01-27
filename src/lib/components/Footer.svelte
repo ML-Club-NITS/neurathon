@@ -1,10 +1,12 @@
 <script>
-	import src from '$lib/assets/ClubLogo2.svg';
 </script>
 
 <section class="flex w-full flex-col bg-gray-950 sm:grid sm:grid-cols-3">
 	<div class="z-2 col-span-1 flex w-full items-center justify-center px-2 sm:py-4">
-		<img {src} alt="club logo" class="scale-50 sm:scale-100" />
+		<div
+			class="h-24 w-52 scale-50 bg-cover bg-center bg-no-repeat sm:scale-100"
+			style="background-image: url('mlclublogo.png');"
+		></div>
 	</div>
 	<div
 		class="z-3 col-span-2 mx-auto max-w-screen-xl space-y-8 overflow-hidden px-4 py-8 sm:px-6 lg:px-8"

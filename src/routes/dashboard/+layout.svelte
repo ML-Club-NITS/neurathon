@@ -7,7 +7,6 @@
 	// import neurathon_logo from '$lib/assets/nurathon_logo.svg';
 	// import logo2 from '$lib/assets/logo2.png';
 	import GradientAnimation from '$lib/components/ui/GradientAnimation.svelte';
-	import log4 from '$lib/assets/NNlogo.svg';
 
 	let { children, data } = $props();
 	let { supabase, user, TeamID, profileCompleted } = $derived(data);
@@ -100,7 +99,7 @@
 						</svg>
 					</button>
 					<a href="/dashboard" class="ml-2 flex items-center">
-						<img src={log4} class="mr-0 h-16" alt="Logo" />
+						<img src="favicon.png" class="m-3 h-11" alt="Logo" />
 						<span
 							class="self-center text-xl font-semibold text-gray-800 transition-colors duration-200 ease-in-out hover:text-gray-600 dark:text-white dark:hover:text-gray-300"
 							>Neurathon</span
@@ -109,18 +108,18 @@
 				</div>
 
 				<!-- User Profile -->
-				<div class="relative ml-3">
+				<div class="relative ml-3 mr-3">
 					<button
 						onclick={toggleMenuBar}
 						class="flex rounded-full bg-gray-800 text-sm transition-all duration-200 ease-in-out hover:ring-4 hover:ring-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:hover:ring-gray-600 dark:focus:ring-gray-600"
 						aria-expanded="false"
 					>
 						<span class="sr-only">Open user menu</span>
-						<img
-							class="h-8 w-8 rounded-full"
-							src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-							alt="User"
-						/>
+						<div
+							class="flex h-8 w-8 items-center justify-center rounded-full text-lg font-bold text-white"
+						>
+							{user?.user_metadata?.name[0]}
+						</div>
 					</button>
 					<div
 						bind:this={MenuBar}
