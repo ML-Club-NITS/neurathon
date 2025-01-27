@@ -109,18 +109,14 @@
 				</div>
 
 				<!-- User Profile -->
-				<div class="relative ml-3">
+				<div class="relative ml-3 mr-3">
 					<button
 						onclick={toggleMenuBar}
 						class="flex rounded-full bg-gray-800 text-sm transition-all duration-200 ease-in-out hover:ring-4 hover:ring-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:hover:ring-gray-600 dark:focus:ring-gray-600"
 						aria-expanded="false"
 					>
 						<span class="sr-only">Open user menu</span>
-						<img
-							class="h-8 w-8 rounded-full"
-							src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-							alt="User"
-						/>
+						<div class="h-8 w-8 rounded-full flex items-center justify-center text-white font-bold text-lg">{user?.user_metadata?.name[0]}</div>
 					</button>
 					<div
 						bind:this={MenuBar}

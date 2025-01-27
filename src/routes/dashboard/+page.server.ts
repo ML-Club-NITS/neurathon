@@ -31,10 +31,7 @@ export const actions: Actions = {
 		const teamID = formData.get('teamID') as string;
 
 		// Update the `github` column in the `teams` table
-		const { error } = await supabase
-			.from('teams')
-			.update({ github: githubLink })
-			.eq('id', teamID);
+		const { error } = await supabase.from('teams').update({ github: githubLink }).eq('id', teamID);
 
 		if (error) {
 			return {
