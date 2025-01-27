@@ -16,7 +16,7 @@
 		num.set(value);
 	});
 
-	function click(){
+	function click() {
 		num.set(initial).then(() => num.set(value));
 	}
 </script>

@@ -9,12 +9,10 @@
 			href="https://www.mlclubnits.com/"
 			aria-label="ML Club NITS website"
 		>
-	<img src={ml_vector} alt="mlclub_logo">
-	</a>
+			<img src={ml_vector} alt="mlclub_logo" />
+		</a>
 	</div>
-	<div
-		class="z-3 col-span-2 w-auto space-y-8 overflow-hidden px-0 py-8 sm:px-6 lg:px-8"
-	>
+	<div class="z-3 col-span-2 w-auto space-y-8 overflow-hidden px-0 py-8 sm:px-6 lg:px-8">
 		<div class="flex justify-center space-x-6 sm:mt-8 md:space-x-6">
 			<a href="https://www.facebook.com/mlclubNITS" class="text-gray-400 hover:text-gray-500">
 				<span class="sr-only">Facebook</span>
@@ -101,7 +99,6 @@
 				></a
 			>
 		</div>
-		
 	</div>
 	<div class="absolute z-0">
 		<!-- <FooterBG className="absolute inset-0" refresh={true}  /> -->
