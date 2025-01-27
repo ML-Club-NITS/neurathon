@@ -39,7 +39,8 @@ export const actions: Actions = {
 					uploadStream.end(buffer);
 				});
 
-				fileUrl = (result as any)?.secure_url;
+				const uploadResult = result as { secure_url: string };
+				fileUrl = uploadResult.secure_url;
 			} catch (error) {
 				return { error: (error as Error).message };
 			}

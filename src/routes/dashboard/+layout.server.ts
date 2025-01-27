@@ -17,7 +17,7 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 			new Date(phase.startTime).getTime() <= now && now <= new Date(phase.endTime).getTime()
 	) || { startTime: '2025-05-01T00:00:00Z', endTime: '2025-05-01T00:00:00Z', phase: -1 }; // default for when the hackathon is over
 
-	const { data: profile, error: err } = await supabase.from('profiles').select().eq('id', user?.id);
+	const { data: profile } = await supabase.from('profiles').select().eq('id', user?.id);
 
 	const profileCompleted = profile && profile.length > 0;
 
