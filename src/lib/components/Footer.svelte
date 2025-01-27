@@ -1,12 +1,14 @@
-<script>
+<script lang="ts">
 </script>
 
 <section class="flex w-full flex-col bg-gray-950 sm:grid sm:grid-cols-3">
-	<div class="z-2 col-span-1 flex w-full items-center justify-center px-2 sm:py-4">
-		<div
+	<div class="z-2 col-span-1 flex w-full items-center justify-center px-0 sm:py-4">
+		<a
 			class="h-24 w-52 scale-50 bg-cover bg-center bg-no-repeat sm:scale-100"
 			style="background-image: url('mlclublogo.png');"
-		></div>
+			href="https://www.mlclubnits.com/"
+			aria-label="ML Club NITS website"
+		></a>
 	</div>
 	<div
 		class="z-3 col-span-2 mx-auto max-w-screen-xl space-y-8 overflow-hidden px-4 py-8 sm:px-6 lg:px-8"
@@ -73,6 +75,22 @@
 					></path>
 				</svg>
 			</a>
+			<a
+				href="https://chat.whatsapp.com/KtcLQNl5cN8BoEgweOt5EH"
+				class="text-gray-400 hover:text-gray-500"
+			>
+				<span class="sr-only">LinkedIn</span>
+				<svg
+					class="h-5 w-5 sm:h-8 sm:w-8"
+					fill="currentColor"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M20.52 3.48A11.94 11.94 0 0012 0C5.37 0 0 5.37 0 12c0 2.12.55 4.17 1.6 6L0 24l6.26-1.64A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52zM12 22c-1.85 0-3.68-.5-5.26-1.44l-.38-.22-3.7.97.99-3.61-.24-.38A9.94 9.94 0 012 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.27-7.73c-.29-.15-1.72-.85-1.99-.95-.27-.1-.47-.15-.66.15-.19.29-.76.95-.93 1.14-.17.19-.34.22-.63.07-.29-.15-1.23-.45-2.34-1.43-.86-.77-1.44-1.72-1.61-2-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.66-1.6-.91-2.2-.24-.58-.49-.5-.66-.51h-.57c-.19 0-.48.07-.73.36-.25.29-.96.94-.96 2.29 0 1.34.99 2.64 1.13 2.83.14.19 1.95 2.98 4.73 4.18.66.29 1.18.46 1.58.59.66.21 1.26.18 1.73.11.53-.08 1.72-.7 1.96-1.38.24-.67.24-1.24.17-1.37-.07-.13-.26-.19-.55-.34z"
+					></path>
+				</svg>
+			</a>
 		</div>
 		<div class="mt-8 text-center text-base font-semibold leading-6 text-gray-400">
 			<a href="https://www.mlclubnits.com/">
@@ -81,6 +99,7 @@
 				></a
 			>
 		</div>
+		
 	</div>
 	<div class="absolute z-0">
 		<!-- <FooterBG className="absolute inset-0" refresh={true}  /> -->
