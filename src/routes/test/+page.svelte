@@ -1,5 +1,5 @@
 <script>
-	import { Notification, Timer } from '$lib/components';
+	import { Notification } from '$lib/components';
 </script>
 
 <section class="m-40">

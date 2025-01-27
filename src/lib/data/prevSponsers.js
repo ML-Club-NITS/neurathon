@@ -1,29 +1,29 @@
-import solana from "../assets/solana.png"
-import devfolio from "../assets/devfolio.png"
-import replit from "../assets/replit.png"
-import polygon from "../assets/polygon.png"
-import filecoin from "../assets/filecoin.png"
+import solana from '$lib/assets/solana.png';
+import devfolio from '$lib/assets/devfolio.png';
+import replit from '$lib/assets/replit.png';
+import polygon from '$lib/assets/Polygon.png';
+import filecoin from '$lib/assets/filecoin.png';
 
 const sponsers = [
 	{
-		"name": "Solana",
-		"img": solana
+		name: 'Solana',
+		img: solana
 	},
 	{
-		"name": "Devfolio",
-		"img": devfolio
+		name: 'Devfolio',
+		img: devfolio
 	},
 	{
-		"name": "Replit",
-		"img": replit
+		name: 'Replit',
+		img: replit
 	},
 	{
-		"name": "Polygon",
-		"img": polygon
+		name: 'Polygon',
+		img: polygon
 	},
 	{
-		"name": "Filecoin",
-		"img": filecoin
+		name: 'Filecoin',
+		img: filecoin
 	}
-]
+];
 export default sponsers;
