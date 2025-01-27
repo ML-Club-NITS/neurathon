@@ -15,14 +15,21 @@
 	onMount(() => {
 		num.set(value);
 	});
+
+	function click() {
+		num.set(initial).then(() => num.set(value));
+	}
 </script>
 
 <div
+	role="button"
+	tabindex="0"
 	class={cn(
-		'inline-block  font-LeagueSpartanFont text-3xl font-bold tracking-normal text-black md:text-4xl dark:text-white',
+		'inline-block  font-LeagueSpartanFont text-3xl font-semibold tracking-normal text-black md:text-4xl dark:text-slate-100/85',
 		className
 	)}
+	onclick={click}
 	{...$$restProps}
 >
-	{$num.toFixed(0)}+
+	₹{$num.toFixed(0)}+
 </div>

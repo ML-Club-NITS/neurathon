@@ -1,5 +1,5 @@
 <script>
-	import prizes from '$lib/data/prizes.json';
+	import prizes from '$lib/data/prizes.js';
 
 	import PrizeCard from './PrizeCard.svelte';
 	import { gsap } from 'gsap';
@@ -28,7 +28,7 @@
 </script>
 
 <section
-	class="flex h-full w-full items-center justify-center border-slate-500 px-5 py-8 md:px-28 md:py-12"
+	class="flex h-full w-full items-center justify-center border-slate-500 px-5 pb-8 pt-24 md:px-28 md:pb-12 md:pt-32"
 	id="prizes"
 >
 	<div class="prize-container flex-col items-center justify-center gap-y-7" id="prize_inside">
@@ -38,7 +38,7 @@
 			Prizes
 		</span>
 		<div class="prize-content grid w-full max-w-[90vw] grid-cols-3 gap-1">
-			{#each prizes.prizes as prize, index}
+			{#each prizes as prize, index}
 				<div
 					class={`prize-wrapper gap-2 ${index === 1 ? 'custom_800:translate-y-0' : 'custom_800:translate-y-16'} custom_800:transform`}
 				>

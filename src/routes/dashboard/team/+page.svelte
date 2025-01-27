@@ -2,7 +2,7 @@
 	import { enhance } from '$app/forms';
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
-	import { fade, fly } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 	import { Tabs, TabItem } from 'flowbite-svelte';
 	import { Motion, useMotionValue, useMotionTemplate } from 'svelte-motion';
 	import { toast } from '@zerodevx/svelte-toast';

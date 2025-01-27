@@ -4,7 +4,6 @@
 		GetGithub,
 		GitHistory,
 		LeaderBoard,
-		Notification,
 		SubmissionCard,
 		ProblemStatementCard
 	} from '$lib/components';

@@ -3,7 +3,7 @@
 	import { Motion, useMotionValue, useMotionTemplate } from 'svelte-motion';
 
 	let { data } = $props();
-	let { header = null, msg = null, route = null, routeMsg = null, color = null } = $derived(data);
+	let { header = null, msg = null, route = null, routeMsg = null } = $derived(data);
 
 	// Mouse-following effect
 	let mouseX = useMotionValue(0);

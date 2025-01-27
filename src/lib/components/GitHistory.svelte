@@ -36,14 +36,20 @@
 			const userData = await response.json(); // Parse the JSON response
 
 			// Map the GitHub API response to the Commit interface
-			const commitData: Commit[] = userData.map((commit: any) => ({
-				committerName: commit.commit.committer.name,
-				commitMessage: commit.commit.message,
-				commitDate: commit.commit.committer.date,
-				committerAvatar: commit.author?.avatar_url || '', // Handle cases where author is null
-				commitUrl: commit.html_url,
-				committerUrl: commit.author?.html_url || '' // Handle cases where author is null
-			}));
+			const commitData: Commit[] = userData.map(
+				(commit: {
+					commit: { committer: { name: string; date: string }; message: string };
+					author?: { avatar_url?: string; html_url?: string };
+					html_url: string;
+				}) => ({
+					committerName: commit.commit.committer.name,
+					commitMessage: commit.commit.message,
+					commitDate: commit.commit.committer.date,
+					committerAvatar: commit.author?.avatar_url || '', // Handle cases where author is null
+					commitUrl: commit.html_url,
+					committerUrl: commit.author?.html_url || '' // Handle cases where author is null
+				})
+			);
 
 			return { commits: commitData }; // Return the formatted commit data
 		} catch (error) {

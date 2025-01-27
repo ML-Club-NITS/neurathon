@@ -84,7 +84,7 @@
 
 		<img src={glass} class="glass" alt="glass" />
 		<img src={drop2} class="drop2" alt="drop2" />
-		<section class="container">
+		<section class="container z-10">
 			<Prizes />
 		</section>
 
