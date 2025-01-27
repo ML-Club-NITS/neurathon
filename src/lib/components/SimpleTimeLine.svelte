@@ -1,15 +1,43 @@
 <script>
 	import jsonData from '$lib/data/simpletimeline.json';
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+	gsap.registerPlugin(ScrollTrigger);
+
+	$effect(() => {
+		let tl = gsap.timeline();
+		tl.from('#simpletimeline, #inside_simpletimeline', {
+			opacity: 0,
+			scale: 0.95,
+			stagger: 1,
+			duration: 1.2,
+
+			scrollTrigger: {
+				trigger: '#simpletimeline',
+				scrub: 0.3,
+				start: '-=440',
+				end: '+=10',
+				once: true
+				// markers: true
+			}
+		});
+	});
 </script>
 
-<div class="flex h-screen flex-col items-center justify-center bg-transparent px-6 md:px-10">
+<div
+	class="flex h-screen w-full flex-col items-center justify-center bg-transparent px-6 md:px-10"
+	id="simpletimeline"
+>
 	<span
-		class="mb-6 inline-flex w-fit animate-text-gradient text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 text-center text-2xl font-bold text-transparent md:text-3xl lg:text-5xl 2xl:text-8xl"
-		id="faq_text"
+		class="mb-6 flex w-full animate-text-gradient justify-center text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 text-center text-2xl font-bold text-transparent md:text-3xl lg:text-5xl 2xl:text-8xl"
+		id="inside_simpletimeline"
 	>
 		TimeLine
 	</span>
-	<div class="space-y-6 border-l-2">
+	<div
+		class="mt-6 flex w-fit flex-col items-center space-y-6 border-l-2"
+		id="full_inside_simpletimeline"
+	>
 		{#each jsonData as event}
 			<div class="relative w-full">
 				<svg
@@ -25,17 +53,17 @@
 					/>
 				</svg>
 				<div class="mx-6">
-					<h4 class="text-xl font-bold text-orange-500">{event.title}</h4>
-					<p class="mt-2 max-w-screen-sm text-xl text-gray-500">
+					<h4 class="text-xl font-bold text-slate-200">{event.title}</h4>
+					<p class="mt-2 text-xl text-gray-500">
 						{event.mode} - {event.dates}
 					</p>
 					{#if event.details}
-						<p class="mt-2 max-w-screen-sm text-sm text-gray-400">{event.details}</p>
+						<p class="mt-2 text-sm text-gray-400">{event.details}</p>
 					{/if}
 					{#if event.schedule}
 						<div class="mt-4">
 							{#each event.schedule as schedule}
-								<h5 class="font-semibold text-orange-500">{schedule.day} ({schedule.date})</h5>
+								<h5 class="font-semibold text-slate-300">{schedule.day} ({schedule.date})</h5>
 								<ul class="ml-4 list-disc text-gray-500">
 									{#each schedule.events as item}
 										<li class="text-sm">{item}</li>

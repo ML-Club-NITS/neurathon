@@ -60,7 +60,7 @@
 					We hope you have found an answer to your question. If you need any help, please search
 					your query on our Support Center or contact us via email.
 				</p>
-				<img src="faq.jpeg" alt="" class="w-60 rounded-lg" />
+				<img src="faq.jpeg" alt="" class="w-60 rounded-full" />
 			</div>
 			<div id="faq_list">
 				<div class="space-y-0">
