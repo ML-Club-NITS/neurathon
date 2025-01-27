@@ -1,5 +1,7 @@
 <script>
-	import { Timer } from '$lib/components';
+	import { Notification, Timer } from '$lib/components';
 </script>
 
-<Timer />
+<section class="m-40">
+	<Notification />
+</section>

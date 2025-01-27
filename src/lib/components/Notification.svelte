@@ -1,9 +1,8 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { Motion, useMotionValue, useMotionTemplate } from 'svelte-motion';
-
-	let teamLead = true;
-	let qulifiedR1 = true;
+	let { data } = $props();
+	let { header = null, msg = null, route = null, routeMsg = null } = $derived(data);
 
 	// Mouse-following effect
 	let mouseX = useMotionValue(0);
@@ -13,58 +12,59 @@
 	`;
 </script>
 
-<div
-	role="presentation"
-	onmousemove={(e) => {
-		const { left, top } = e.currentTarget.getBoundingClientRect();
-		mouseX.set(e.clientX - left);
-		mouseY.set(e.clientY - top);
-	}}
-	class="group relative w-full overflow-hidden rounded-md border border-gray-800 bg-gradient-to-r from-indigo-900/[0.3] to-black/[0.5] p-6 text-white opacity-95 shadow-lg backdrop-blur-sm transition-all duration-300 hover:opacity-100"
->
-	<!-- Mouse-following gradient overlay -->
-	<Motion
-		style={{
-			background
+{#if msg != null}
+	<div
+		role="presentation"
+		onmousemove={(e) => {
+			const { left, top } = e.currentTarget.getBoundingClientRect();
+			mouseX.set(e.clientX - left);
+			mouseY.set(e.clientY - top);
 		}}
-		let:motion
+		class="group relative w-full overflow-hidden rounded-md border border-gray-800 bg-gradient-to-r from-indigo-900/[0.3] to-black/[0.5] p-6 text-white opacity-95 shadow-lg backdrop-blur-sm transition-all duration-300 hover:opacity-100"
 	>
-		<div
-			use:motion
-			class="pointer-events-none absolute -inset-px rounded-md opacity-0 transition-opacity duration-300 group-hover:opacity-50"
-		></div>
-	</Motion>
+		<!-- Mouse-following gradient overlay -->
+		<Motion
+			style={{
+				background
+			}}
+			let:motion
+		>
+			<div
+				use:motion
+				class="pointer-events-none absolute -inset-px rounded-md opacity-0 transition-opacity duration-300 group-hover:opacity-50"
+			></div>
+		</Motion>
 
-	<!-- Content -->
-	<div class="relative flex flex-col">
-		<div class="mb-4 text-center">
-			<span
-				class="inline-flex animate-text-gradient bg-gradient-to-r from-[#FFFFFF] via-[#BE87FF] to-[#FFFFFF] bg-[200%_auto] bg-clip-text pb-6 text-center font-LeagueSpartanFont text-3xl font-bold text-transparent md:text-4xl lg:text-5xl"
-			>
-				{qulifiedR1 ? (teamLead ? 'Congratulations' : 'We are Sorry') : 'We are Sorry'}
-			</span>
-
-			<p
-				class="mt-2 bg-gradient-to-b from-white to-neutral-500 bg-clip-text text-xl font-semibold text-transparent"
-			>
-				{qulifiedR1
-					? teamLead
-						? 'Your team has qualified for the Kaggle round. To continue to the second round, you need to add your GitHub repository.'
-						: 'Your team has qualified for the Kaggle round.'
-					: "We're sorry to inform you that your team did not qualify for the Kaggle round. But don't be sad—failure is the first step toward success."}
-			</p>
+		<!-- Content -->
+		<div class="relative flex flex-col">
+			<div class="mb-4 text-center">
+				{#if header}
+					<span
+						class="inline-flex animate-text-gradient bg-gradient-to-r from-[#FFFFFF] via-[#BE87FF] to-[#FFFFFF] bg-[200%_auto] bg-clip-text pb-6 text-center font-LeagueSpartanFont text-3xl font-bold text-transparent md:text-4xl lg:text-5xl"
+					>
+						{header}
+					</span>
+				{/if}
+				<p
+					class="mt-2 bg-gradient-to-b from-white to-neutral-500 bg-clip-text text-xl font-semibold text-transparent"
+				>
+					{msg}
+				</p>
+			</div>
+			<!-- <div class="git-add-button"></div> -->
+			{#if routeMsg}
+				<button
+					class="mt-4 self-center rounded-md bg-indigo-600/25 px-6 py-3 text-lg font-semibold text-white transition-all duration-200 ease-in-out hover:bg-indigo-600/55 focus:outline-none focus:ring-2 focus:ring-indigo-800/25 focus:ring-offset-2"
+					onclick={() => {
+						goto(`/${route}`);
+					}}
+					aria-label="Notification"
+				>
+					{routeMsg}
+				</button>
+			{/if}
 		</div>
-		<div class="git-add-button"></div>
-		{#if teamLead && qulifiedR1}
-			<button
-				class="mt-4 self-center rounded-md bg-indigo-600/25 px-6 py-3 text-lg font-semibold text-white transition-all duration-200 ease-in-out hover:bg-indigo-600/55 focus:outline-none focus:ring-2 focus:ring-indigo-800/25 focus:ring-offset-2"
-				onclick={() => {
-					goto('/dashboard/team');
-				}}
-				aria-label="Register your team"
-			>
-				Add GitHub Repository
-			</button>
-		{/if}
 	</div>
-</div>
+	{:else}
+	<div></div>
+{/if}

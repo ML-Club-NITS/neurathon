@@ -96,8 +96,8 @@
 	<title>{profileCompleted ? 'Profile' : 'Update Profile'} - Neurathon</title>
 </svelte:head>
 
-<section class="flex min-h-screen w-full flex-col items-center justify-center p-4">
-	<nav class="my-2 w-full" aria-label="Breadcrumb">
+<section class="flex min-h-screen w-full flex-col items-center justify-center gap-4">
+	<nav class="w-full mt-1" aria-label="Breadcrumb">
 		<ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
 			<li class="inline-flex items-center">
 				<a
