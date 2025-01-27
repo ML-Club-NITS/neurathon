@@ -1,6 +1,7 @@
 <script lang="ts">
 	import {
 		EventTimer,
+		GetGithub,
 		GitHistory,
 		LeaderBoard,
 		Notification,
@@ -14,6 +15,7 @@
 
 	let { data, form } = $props();
 	let {
+		user,
 		phase,
 		profileCompleted,
 		TeamID,
@@ -26,6 +28,9 @@
 		banner = { message: '', route: null },
 		notification = { message: '', duration: 1000 }
 	} = $derived(data);
+
+	let teamLead = $derived(team && user ? team.CreatedBy === user.id : false);
+	let qualifiedR1 = $derived(result1?.results?.includes(TeamID) || false);
 
 	$effect(() => {
 		if (form?.error) {
@@ -117,6 +122,7 @@
 		<!-- <EventTimer {eventTime} {currentTime} {EventName} {EventDescription}/> -->
 		<!-- <GitHistory {commits}/> -->
 		<!-- <ProblemStatementCard /> -->
+		<GetGithub {teamLead} {qualifiedR1} {TeamID} />
 		<div class="flex w-full flex-col gap-4 rounded-lg lg:max-w-[50%]">
 			{#if phase === 1}
 				{#if !profileCompleted}
@@ -146,7 +152,7 @@
 				/>
 				<!-- show timer for the ending of the round -->
 				{#if !team.Round1}
-					<SubmissionCard />
+					<SubmissionCard {TeamID} />
 				{/if}
 
 				{#if problemStatements}
@@ -180,7 +186,7 @@
 					eventName="Final ends"
 				/>
 				{#if !team.github}
-					<Notification />
+					<GetGithub {teamLead} {qualifiedR1} {TeamID} />
 				{:else}
 					<GitHistory url={team.github} />
 				{/if}

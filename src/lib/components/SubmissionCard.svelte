@@ -10,6 +10,8 @@
 		umlDesignLink: ''
 	});
 
+	let { TeamID } = $props();
+
 	let isSubmitting = $state(false);
 
 	let mouseX = useMotionValue(0);
@@ -91,6 +93,7 @@
 			autocomplete="off"
 			novalidate
 		>
+			<input type="hidden" name="teamID" value={TeamID} />
 			<div>
 				<label for="github-repo" class="block text-sm font-medium text-neutral-400">
 					GitHub Repository Link <span class="text-red-500">*</span>

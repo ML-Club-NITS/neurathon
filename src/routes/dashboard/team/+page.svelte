@@ -354,6 +354,7 @@
 
 									return async ({ update }) => {
 										await update();
+										teamNameError = '';
 										setTimeout(() => (submitting = false), 1500);
 									};
 								}}
@@ -405,6 +406,7 @@
 
 									return async ({ update }) => {
 										await update();
+										teamidError = '';
 										setTimeout(() => (submitting = false), 1500);
 									};
 								}}

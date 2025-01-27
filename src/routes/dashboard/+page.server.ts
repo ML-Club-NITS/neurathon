@@ -6,20 +6,13 @@ export const actions: Actions = {
 		const github = formData.get('github-repo') as string;
 		const deployment = formData.get('deployment-link') as string;
 		const uml = formData.get('uml-design') as string;
+		const teamID = formData.get('teamID') as string;
 
 		const round1Data = {
 			github,
 			deployment,
 			uml
 		};
-
-		const { data: teamID, error: teamError } = await supabase.rpc('get_team', {
-			member_id: user?.id
-		});
-
-		if (teamError) {
-			return { error: teamError?.message };
-		}
 
 		const { error } = await supabase
 			.from('teams')
@@ -31,5 +24,27 @@ export const actions: Actions = {
 		}
 
 		return { submission: true };
+	},
+	addGithub: async ({ request, locals: { supabase, user } }) => {
+		const formData = await request.formData();
+		const githubLink = formData.get('githubLink') as string;
+		const teamID = formData.get('teamID') as string;
+
+		// Update the `github` column in the `teams` table
+		const { data, error } = await supabase
+			.from('teams')
+			.update({ github: githubLink })
+			.eq('id', teamID);
+
+		if (error) {
+			return {
+				error: error.message
+			};
+		}
+
+		return {
+			success: true,
+			message: 'GitHub repository URL updated successfully!'
+		};
 	}
 };
