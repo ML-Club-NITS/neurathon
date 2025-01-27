@@ -1,17 +1,19 @@
 <script lang="ts">
+	import ml_vector from '$lib/assets/MLClub_vector_logo_large.svg';
 </script>
 
 <section class="flex w-full flex-col bg-gray-950 sm:grid sm:grid-cols-3">
 	<div class="z-2 col-span-1 flex w-full items-center justify-center px-0 sm:py-4">
 		<a
 			class="h-24 w-52 scale-50 bg-cover bg-center bg-no-repeat sm:scale-100"
-			style="background-image: url('mlclublogo.png');"
 			href="https://www.mlclubnits.com/"
 			aria-label="ML Club NITS website"
-		></a>
+		>
+	<img src={ml_vector} alt="mlclub_logo">
+	</a>
 	</div>
 	<div
-		class="z-3 col-span-2 mx-auto max-w-screen-xl space-y-8 overflow-hidden px-4 py-8 sm:px-6 lg:px-8"
+		class="z-3 col-span-2 w-auto space-y-8 overflow-hidden px-0 py-8 sm:px-6 lg:px-8"
 	>
 		<div class="flex justify-center space-x-6 sm:mt-8 md:space-x-6">
 			<a href="https://www.facebook.com/mlclubNITS" class="text-gray-400 hover:text-gray-500">

@@ -1,5 +1,5 @@
 <script>
-	import prizes from '$lib/data/prizes.json';
+	import prizes from '$lib/data/prizes.js';
 
 	import PrizeCard from './PrizeCard.svelte';
 	import { gsap } from 'gsap';
@@ -38,7 +38,7 @@
 			Prizes
 		</span>
 		<div class="prize-content grid w-full max-w-[90vw] grid-cols-3 gap-1 ">
-			{#each prizes.prizes as prize, index}
+			{#each prizes as prize, index}
 				<div
 					class={`prize-wrapper gap-2 ${index === 1 ? 'custom_800:translate-y-0' : 'custom_800:translate-y-16'} custom_800:transform`}
 				>

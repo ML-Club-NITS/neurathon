@@ -9,7 +9,7 @@
 <section id="prizes" class="font-sans h-full w-full justify-center">
 	<div class="card-container mx-auto">
 		<div class="card">
-			<div class="card-prize-container">
+			<div class="card-prize-container scale-[0.70]">
 				<img src={image} alt="Prize" />
 			</div>
 			<div class="prize-info">
