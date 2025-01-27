@@ -4,6 +4,7 @@ import replit from '$lib/assets/replit.png';
 import polygon from '$lib/assets/polygon.png';
 import filecoin from '$lib/assets/filecoin.png';
 
+
 const sponsers = [
 	{
 		name: 'Solana',
