@@ -60,7 +60,7 @@
 </script>
 
 <svelte:head>
-	<title>Neurathon - AI for Good</title>
+	<title>Neurathon - Innovate with Intelligence</title>
 </svelte:head>
 
 <div
@@ -72,10 +72,6 @@
 
 	<main class="container">
 		<img src={dgg} class="dgg" alt="dgg" />
-		<img src={bubble} class="background-image" alt="Decorative" />
-		<section class="container">
-			<About />
-		</section>
 
 		<img src={cool1} class="cool1" alt="cool1" />
 		<section class="container">
@@ -96,6 +92,11 @@
 		<img src={bubble} class="bubble2" alt="bubble2" />
 		<section class="container">
 			<FAQs />
+		</section>
+
+		<img src={bubble} class="background-image" alt="Decorative" />
+		<section class="container">
+			<About />
 		</section>
 	</main>
 </div>

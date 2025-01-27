@@ -5,8 +5,11 @@
 	import Login from './Login.svelte';
 	import Register from './Register.svelte';
 	import { goto } from '$app/navigation';
+	import { page } from '$app/state';
 
 	let { form } = $props();
+
+	const type = $derived(page.url.searchParams.get('type'));
 
 	$effect(() => {
 		if (form?.error) {
@@ -82,7 +85,7 @@
 		contentClass="w-80 md:w-96 p-2 m-2 rounded-lg"
 	>
 		<TabItem
-			open
+			open={type === 'login'}
 			inactiveClasses="text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-slate-500"
 			activeClasses="text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-white bg-gray-700"
 		>
@@ -90,6 +93,7 @@
 			<Login />
 		</TabItem>
 		<TabItem
+			open={type !== 'login'}
 			inactiveClasses="text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-slate-500"
 			activeClasses="text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-white bg-gray-700"
 		>

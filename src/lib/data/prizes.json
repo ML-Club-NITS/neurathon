@@ -2,17 +2,17 @@
 	"prizes": [
 		{
 			"title": "Best Deployment Solution",
-			"award": "Worth Rs.10K",
+			"award": 7500,
 			"image": "../src/lib/assets/gem.png"
 		},
 		{
 			"title": "Grand Neurathon Winner",
-			"award": "Worth Rs.20K",
+			"award": 10000,
 			"image": "../src/lib/assets/gal.png"
 		},
 		{
 			"title": "Sustainability Genius",
-			"award": "Worth Rs.5K",
+			"award": 5000,
 			"image": "../src/lib/assets/drop1.png"
 		}
 	]

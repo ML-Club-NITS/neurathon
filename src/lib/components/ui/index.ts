@@ -10,3 +10,4 @@ export { default as Button } from './Button.svelte';
 export { default as PersonCard } from './PersonCard.svelte';
 export { default as TextGenerateEffect } from './TextGenerateEffect.svelte';
 export { default as NotificationCard } from './NotificationCard.svelte';
+export { default as NumberTicker } from './NumberTicker.svelte';

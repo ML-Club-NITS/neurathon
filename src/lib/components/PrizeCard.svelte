@@ -1,4 +1,6 @@
 <script>
+	import { NumberTicker } from './ui';
+
 	export let title;
 	export let award;
 	export let image;
@@ -12,7 +14,7 @@
 			</div>
 			<div class="prize-info">
 				<p class="prize-title">{title}</p>
-				<p class="prize-award">{award}</p>
+				<NumberTicker value={+award} />
 			</div>
 		</div>
 	</div>
