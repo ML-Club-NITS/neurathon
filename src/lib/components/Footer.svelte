@@ -42,7 +42,7 @@
 					></path>
 				</svg>
 			</a>
-			<a href="https://mlclubnits.hashnode.dev/" class="text-gray-400 hover:text-gray-500">
+			<a href="https://ml-club-nits.hashnode.dev" class="text-gray-400 hover:text-gray-500">
 				<span class="sr-only">Blogs</span>
 				<svg
 					class="h-5 w-5 sm:h-8 sm:w-8"
