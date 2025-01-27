@@ -83,7 +83,7 @@
 </script>
 
 <nav
-	class="fixed start-0 top-0 z-[10000] w-full rounded-sm border-b border-gray-200 bg-white bg-opacity-30 backdrop-blur-md backdrop-filter sm:rounded-none dark:border-gray-600 dark:bg-gray-900 dark:bg-opacity-30"
+	class="fixed start-0 top-0 z-[10000] w-full rounded-sm border-b border-gray-200 bg-white bg-opacity-30 pl-2 backdrop-blur-md backdrop-filter sm:rounded-none sm:pl-6 sm:pr-4 dark:border-gray-600 dark:bg-gray-900 dark:bg-opacity-30"
 >
 	<div class="mx-auto flex flex-wrap items-center justify-between gap-4 p-4" id="logo-ani">
 		<a
@@ -101,7 +101,7 @@
 		<div class="flex space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
 			<button
 				type="button"
-				class="group relative inline-flex min-w-28 items-center justify-center overflow-hidden rounded-md bg-[#fa7e12] px-6 py-2.5 tracking-tighter text-white"
+				class="group relative inline-flex min-w-28 items-center justify-center overflow-hidden rounded-xl bg-[#fa7e12] px-6 py-2.5 tracking-tighter text-white"
 				onclick={() => {
 					isNavbarOpen = false;
 					goto(navButton.link);

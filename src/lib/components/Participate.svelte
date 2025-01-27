@@ -1,11 +1,11 @@
 <script lang="ts">
-	import gem from '$lib/assets/gem.png';
+	// import gem from '$lib/assets/gem.png';
 	import eligibilityData from '$lib/data/eligibilityData.json';
 	import { ParticipateTimeline, Button, GradientAnimation } from './ui';
 
 	let { data } = $props();
 
-	let neurathonDate = '--/--/2025';
+	let neurathonDate = '13th February - 23rd March, 2025';
 	let eligData2 = [
 		{
 			title: 'Registrations',
@@ -14,12 +14,12 @@
 		},
 		{
 			title: 'Team Size',
-			des: '2-4 Memberes',
+			des: '2-4 Members',
 			icon: 'fi fi-ss-users-alt'
 		},
 		{
 			title: 'Registration Deadline',
-			des: '--',
+			des: '12/02/2025',
 			icon: 'fi fi-ss-clock'
 		}
 	];
@@ -32,17 +32,17 @@
 				class="reg-container m-3 flex flex-col justify-center overflow-hidden rounded border border-gray-600 bg-gray-700/[0.7]"
 			>
 				<div class="event-info-card flex flex-row gap-5 px-5 pb-2 pt-5">
-					<div class="icon h-full w-fit rounded bg-white/[0.6]">
+					<!-- <div class="icon h-full w-fit rounded bg-white/[0.6]">
 						<img src={gem} class="max-w-16" alt="gem" />
-					</div>
+					</div> -->
 					<div class="event-name">
 						<h1 class="font-LeagueSpartanFont text-[2rem] font-semibold">Neurathon</h1>
 					</div>
 				</div>
 				<div class="event-des p-5 pt-1">
-					<div class="event-date flex gap-1">
-						<i class="fi fi-br-calendar-day"></i>
-						<i class="text-[0.7rem]">{neurathonDate}</i>
+					<div class="event-date mb-1 flex items-center gap-1">
+						<i class="fi fi-br-calendar-day text-sm"></i>
+						<i class="text-[0.8rem]">{neurathonDate}</i>
 					</div>
 					<div class="event-text text-wrap text-[0.95rem]">
 						Neurathon is a distinguished machine learning hackathon designed for the development of

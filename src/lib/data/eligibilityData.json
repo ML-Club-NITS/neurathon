@@ -1,13 +1,10 @@
 {
 	"data": [
 		{
-			"status": "undergraduate"
+			"status": "Undergraduate (UG)"
 		},
 		{
-			"status": "B.Tech"
-		},
-		{
-			"status": "M.Tech"
+			"status": "Postgraduate (PG)"
 		}
 	]
 }
