@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Hero, About, Prizes, Timeline, Sponsors, FAQs, Footer } from '$lib/components';
+	import { Hero, About, Prizes, SimpleTimeLine, Sponsors, FAQs, Footer } from '$lib/components';
 
 	import bubble from '$lib/assets/bubble.gif';
 	import cool1 from '$lib/assets/cool1.png';
@@ -79,7 +79,7 @@
 
 		<img src={cool1} class="cool1" alt="cool1" />
 		<section class="container">
-			<Timeline />
+			<SimpleTimeLine />
 		</section>
 
 		<img src={glass} class="glass" alt="glass" />
