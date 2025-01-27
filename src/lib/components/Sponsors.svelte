@@ -15,7 +15,7 @@
 
 	$effect(() => {
 		let tl = gsap.timeline();
-		tl.from('#sponsers, #inside_sponsers', {
+		tl.from('#sponsers, #inside_sponsers,#sponser_cards', {
 			opacity: 0,
 			scale: 0.6,
 			stagger: 1,
@@ -28,24 +28,7 @@
 				once: true
 				// markers: true,
 			}
-		}).from(
-			'#sponsers, #sponser_cards',
-			{
-				opacity: 0,
-				y: 50,
-				stagger: 1,
-
-				scrollTrigger: {
-					trigger: '#sponsers',
-					scrub: 1.5,
-					start: 'top 40%',
-					end: 'bottom 90%',
-					once: true
-					// markers: true,
-				}
-			},
-			'-=0.4'
-		);
+		});
 	});
 </script>
 

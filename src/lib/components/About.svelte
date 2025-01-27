@@ -16,7 +16,7 @@
 			scrollTrigger: {
 				trigger: '#about',
 				scrub: 1,
-				start: '-=200',
+				start: '-=440',
 				end: '+=10',
 				once: true
 				// markers: true
