@@ -1,5 +1,5 @@
 <script>
-	import bubbleGif from '$lib/assets/bubble.gif';
+	import bubble from '$lib/assets/bubble.gif';
 	import { gsap } from 'gsap';
 
 	// GSAP Animation
@@ -45,6 +45,6 @@
 
 	<!-- GIF Section -->
 	<div class="gif flex justify-center">
-		<img src={bubbleGif} alt="Bubble Animation" class="h-64 w-auto md:h-80 lg:h-96" />
+		<img src={bubble} alt="Bubble Animation" class="h-64 w-auto md:h-80 lg:h-96" />
 	</div>
 </div>

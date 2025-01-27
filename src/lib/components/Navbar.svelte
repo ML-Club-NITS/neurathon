@@ -102,10 +102,54 @@
 
 		<div class="flex space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
 			<button
-				class="button bg-grey-600 w-full cursor-pointer select-none rounded-lg border-[1px] border-orange-900 px-2
+				type="button"
+				class="group relative inline-flex items-center justify-center overflow-hidden rounded-md bg-slate-600 px-6 py-2.5 tracking-tighter text-white"
+				onclick={() => {
+					isNavbarOpen = false;
+					goto(navButton.link);
+				}}
+			>
+				<span
+					class="absolute h-0 w-0 rounded-full bg-[#ff8b0f] transition-all duration-500 ease-out group-hover:h-56 group-hover:w-56"
+				></span>
+				<span class="absolute bottom-0 left-0 -ml-2 h-full">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="object-stretch h-full w-auto opacity-100"
+						viewBox="0 0 487 487"
+					>
+						<path
+							fill-opacity=".1"
+							fill-rule="nonzero"
+							fill="#FFF"
+							d="M0 .3c67 2.1 134.1 4.3 186.3 37 52.2 32.7 89.6 95.8 112.8 150.6 23.2 54.8 32.3 101.4 61.2 149.9 28.9 48.4 77.7 98.8 126.4 149.2H0V.3z"
+						></path>
+					</svg>
+				</span>
+				<span class="absolute right-0 top-0 -mr-3 h-full w-12">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-full w-full object-cover"
+						viewBox="0 0 487 487"
+					>
+						<path
+							fill-opacity=".1"
+							fill-rule="nonzero"
+							fill="#FFF"
+							d="M487 486.7c-66.1-3.6-132.3-7.3-186.3-37s-95.9-85.3-126.2-137.2c-30.4-51.8-49.3-99.9-76.5-151.4C70.9 109.6 35.6 54.8.3 0H487v486.7z"
+						></path>
+					</svg>
+				</span>
+				<span
+					class="absolute inset-0 -mt-1 h-full w-full rounded-lg bg-gradient-to-b from-transparent via-transparent to-gray-200 opacity-30"
+				></span>
+				<span class="relative text-base font-semibold">{navButton.title}</span>
+			</button>
+			<!-- <button
+				class="button bg-transparent w-full cursor-pointer select-none rounded-lg border-[1px] border-[#f9b23f] px-2
     			py-1 transition-all
     duration-300
-    [box-shadow:-2px_5px_0_0_#d20003,-2px_5px_0_0_#d2000341] hover:border-[0px] hover:bg-orange-600
+    [box-shadow:-2px_2px_0_0_#f9b23f,-2px_3px_0_0_#f9b23f] hover:border-[1px] hover:bg-[#f9700a]
     active:translate-y-2 active:border-[0px] active:[box-shadow:0_0px_0_0_#540002,0_0px_0_0_#54000241]
   "
 				type="button"
@@ -117,7 +161,7 @@
 				<span class="flex h-full flex-col items-center justify-center text-lg font-bold text-white"
 					>{navButton.title}</span
 				>
-			</button>
+			</button> -->
 			<button
 				class="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
 				type="button"
