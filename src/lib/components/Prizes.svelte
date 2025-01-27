@@ -28,7 +28,7 @@
 </script>
 
 <section
-	class="flex h-full w-full items-center justify-center border-slate-500 bg-black px-5 pb-8 pt-24 md:px-28 md:pb-12 md:pt-32"
+	class="flex h-full w-full items-center justify-center border-slate-500 px-5 pb-8 pt-24 md:px-28 md:pb-12 md:pt-32"
 	id="prizes"
 >
 	<div class="prize-container flex-col items-center justify-center gap-y-7" id="prize_inside">
