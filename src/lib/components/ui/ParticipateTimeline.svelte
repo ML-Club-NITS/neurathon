@@ -21,9 +21,8 @@
 							<div class="min-w-0 flex-1 py-0">
 								<div class="text-md text-gray-500">
 									<div>
-										<a href="/" class="mr-2 text-2xl font-medium text-white">{item.version}</a>
-										<a
-											href="/"
+										<span class="mr-2 text-2xl font-medium text-white">{item.version}</span>
+										<span
 											class="relative my-0.5 inline-flex items-center rounded-full border border-gray-300 bg-white px-3 py-0.5 text-sm"
 										>
 											<div class="absolute flex flex-shrink-0 items-center justify-center">
@@ -35,7 +34,7 @@
 												></span>
 											</div>
 											<div class="ml-3.5 font-medium text-gray-900">{item.status}</div>
-										</a>
+										</span>
 									</div>
 									<span class="whitespace-nowrap text-sm">{item.duration}</span>
 								</div>
@@ -45,7 +44,7 @@
 									</p>
 									<ul class="list-disc pl-5">
 										{#each item.updates as update}
-											<li>{update}</li>
+											<li>{@html update}</li>
 										{/each}
 									</ul>
 								</div>

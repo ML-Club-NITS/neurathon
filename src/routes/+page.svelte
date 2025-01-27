@@ -66,12 +66,16 @@
 <div
 	class="main-body m-w-[1200px] flex min-h-screen flex-col items-center justify-center bg-black text-white"
 >
-	<section id="home">
+	<section id="home" class="z-[10]">
 		<Hero />
 	</section>
 
 	<main class="container">
 		<img src={dgg} class="dgg" alt="dgg" />
+		<img src={bubble} class="background-image" alt="Decorative" />
+		<section class="container">
+			<About />
+		</section>
 
 		<img src={cool1} class="cool1" alt="cool1" />
 		<section class="container">
@@ -92,11 +96,6 @@
 		<img src={bubble} class="bubble2" alt="bubble2" />
 		<section class="container">
 			<FAQs />
-		</section>
-
-		<img src={bubble} class="background-image" alt="Decorative" />
-		<section class="container">
-			<About />
 		</section>
 	</main>
 </div>

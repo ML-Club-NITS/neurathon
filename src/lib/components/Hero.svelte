@@ -48,7 +48,7 @@
 				<div class="group relative">
 					<button
 						onclick={() => {
-							goto('/auth');
+							goto('/participate');
 						}}
 						class="relative inline-block cursor-pointer rounded-xl bg-gray-800 p-px font-semibold leading-6 text-white shadow-2xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95"
 					>

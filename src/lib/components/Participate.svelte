@@ -14,7 +14,7 @@
 		},
 		{
 			title: 'Team Size',
-			des: '2-4 Members',
+			des: '1-4 Members',
 			icon: 'fi fi-ss-users-alt'
 		},
 		{
