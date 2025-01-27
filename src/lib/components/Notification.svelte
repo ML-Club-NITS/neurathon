@@ -1,8 +1,9 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { Motion, useMotionValue, useMotionTemplate } from 'svelte-motion';
+
 	let { data } = $props();
-	let { header = null, msg = null, route = null, routeMsg = null } = $derived(data);
+	let { header = null, msg = null, route = null, routeMsg = null, color = null } = $derived(data);
 
 	// Mouse-following effect
 	let mouseX = useMotionValue(0);
@@ -46,7 +47,7 @@
 					</span>
 				{/if}
 				<p
-					class="mt-2 bg-gradient-to-b from-white to-neutral-500 bg-clip-text text-xl font-semibold text-transparent"
+					class="mt-2 bg-gradient-to-b from-white to-neutral-500 bg-clip-text px-4 text-xl font-semibold text-transparent"
 				>
 					{msg}
 				</p>
@@ -54,7 +55,7 @@
 			<!-- <div class="git-add-button"></div> -->
 			{#if routeMsg}
 				<button
-					class="mt-4 self-center rounded-md bg-indigo-600/25 px-6 py-3 text-lg font-semibold text-white transition-all duration-200 ease-in-out hover:bg-indigo-600/55 focus:outline-none focus:ring-2 focus:ring-indigo-800/25 focus:ring-offset-2"
+					class="self-center rounded-md bg-indigo-600/25 px-6 py-3 text-lg font-semibold text-white transition-all duration-200 ease-in-out hover:bg-indigo-600/55 focus:outline-none focus:ring-2 focus:ring-indigo-800/25 focus:ring-offset-2"
 					onclick={() => {
 						goto(`/${route}`);
 					}}

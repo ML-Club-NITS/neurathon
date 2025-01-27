@@ -111,7 +111,7 @@
 		</ol>
 	</nav>
 	<div class="w-full text-left text-2xl font-semibold text-white">
-		<TextGenerateEffect words={`Welcome, ${data.user?.user_metadata.name || 'User'}`} />
+		<TextGenerateEffect words={`Welcome, ${data.user?.user_metadata.name || 'user'}`} />
 	</div>
 	<!-- <div class="z-0 rounded-lg text-white"><Notification /></div> -->
 	<div class="flex w-full flex-row flex-wrap justify-evenly gap-4 lg:flex-row lg:flex-nowrap">
@@ -122,21 +122,43 @@
 		<!-- <EventTimer {eventTime} {currentTime} {EventName} {EventDescription}/> -->
 		<!-- <GitHistory {commits}/> -->
 		<!-- <ProblemStatementCard /> -->
-		<div class="flex w-full flex-col gap-4 rounded-lg lg:max-w-[50%]">
+		<div class="flex w-full flex-col gap-4 rounded-lg md:max-w-[70%] lg:max-w-[60%]">
 			{#if phase === 1}
-				{#if !profileCompleted}
+				<!-- {#if !profileCompleted}
 					<NotificationCard message="Please complete your profile to participate in the event" />
 				{:else if !TeamID}
 					<NotificationCard message="Create or join a team to participate in the event" />
 				{:else}
 					<NotificationCard message="You are successfully registered for event." />
+				{/if} -->
+				{#if !profileCompleted}
+					<Notification
+						data={{
+							msg: 'Please complete your profile to participate in the event.',
+							route: 'dashboard/profile',
+							routeMsg: 'Complete your profile!'
+						}}
+					/>
+				{:else if !TeamID}
+					<Notification
+						data={{
+							msg: 'Create or join a team to participate in the event before deadline.',
+							route: 'dashboard/team',
+							routeMsg: 'Join or create a team!',
+							color: 'red-500'
+						}}
+					/>
+				{:else}
+					<Notification
+						data={{ msg: 'You are successfully registered for event !!', color: 'green-300' }}
+					/>
 				{/if}
 
 				<EventTimer
 					eventTime={endTime}
 					currentTime={startTime}
 					eventDescription="Registerations ends in"
-					eventName="Round 1 starts"
+					eventName="Online Round starts"
 				/>
 				<!-- event start poster / photo gallery / anything interactive -->
 			{:else if !profileCompleted || !TeamID}

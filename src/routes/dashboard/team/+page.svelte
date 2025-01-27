@@ -6,6 +6,7 @@
 	import { Tabs, TabItem } from 'flowbite-svelte';
 	import { Motion, useMotionValue, useMotionTemplate } from 'svelte-motion';
 	import { toast } from '@zerodevx/svelte-toast';
+	import { Notification } from '$lib/components';
 
 	let teamName = $state('');
 	let teamNameError = $state('');
@@ -276,194 +277,177 @@
 			</div>
 		</div>
 	{:else if phase !== 1}
-		<div
-			class="my-4 flex w-full items-center rounded-lg border border-blue-300 bg-blue-50 p-4 text-sm text-blue-800 dark:border-blue-800 dark:bg-gray-800 dark:text-blue-400"
-			role="alert"
-			transition:fade
-		>
-			<svg
-				class="me-3 inline h-4 w-4 shrink-0"
-				aria-hidden="true"
-				xmlns="http://www.w3.org/2000/svg"
-				fill="currentColor"
-				viewBox="0 0 20 20"
-			>
-				<path
-					d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
-				/>
-			</svg>
-			<span class="sr-only">Info</span>
-			<div>
-				<span class="font-medium">Alert!</span>
-				{banner?.message ?? 'Team registration is closed.'}
-			</div>
+		<span class="sr-only">Info</span>
+		<div>
+			<Notification
+				data={{ msg: banner?.message ?? 'Team registration is closed.', color: 'red-500' }}
+			/>
 		</div>
 	{:else}
-		<div
-			onmousemove={(e) => {
-				const { left, top } = e.currentTarget.getBoundingClientRect();
-				mouseX.set(e.clientX - left);
-				mouseY.set(e.clientY - top);
-			}}
-			class="group relative w-full overflow-hidden rounded-xl bg-neutral-950"
-			role="presentation"
-			transition:fly={{ y: 20, duration: 300 }}
-		>
+		<div class="flex flex-col items-center gap-4">
+			<div>
+				<Notification
+					data={{
+						msg: 'Create or join a team to participate in the event before deadline.',
+						color: 'red-500'
+					}}
+				/>
+			</div>
 			<div
-				class="absolute right-5 top-0 h-px w-80 bg-gradient-to-l from-transparent via-white/30 via-10% to-transparent"
-			></div>
-			<Motion
-				style={{
-					background
+				onmousemove={(e) => {
+					const { left, top } = e.currentTarget.getBoundingClientRect();
+					mouseX.set(e.clientX - left);
+					mouseY.set(e.clientY - top);
 				}}
-				let:motion
+				class="group relative w-full overflow-hidden rounded-xl bg-neutral-950"
+				role="presentation"
+				transition:fly={{ y: 20, duration: 300 }}
 			>
 				<div
-					use:motion
-					class="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
+					class="absolute right-5 top-0 h-px w-80 bg-gradient-to-l from-transparent via-white/30 via-10% to-transparent"
 				></div>
-			</Motion>
-			<div class="relative flex flex-col gap-3 rounded-xl border border-white/10 px-4 py-5">
-				<div class="m-2 flex flex-col items-center space-y-6">
-					<Tabs
-						tabStyle="pill"
-						defaultClass="bg-slate-800 flex gap-2 p-1 items-center rounded-lg w-fit mx-auto"
-						contentClass="w-80 md:w-96 p-2 m-2 rounded-lg"
-					>
-						<TabItem
-							open
-							inactiveClasses="text-md sm:text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-slate-500"
-							activeClasses="text-md sm:text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-white bg-gray-700"
+				<Motion
+					style={{
+						background
+					}}
+					let:motion
+				>
+					<div
+						use:motion
+						class="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
+					></div>
+				</Motion>
+				<div class="relative flex flex-col gap-3 rounded-xl border border-white/10 px-4 py-5">
+					<div class="m-2 flex flex-col items-center space-y-6">
+						<Tabs
+							tabStyle="pill"
+							defaultClass="bg-slate-800 flex gap-2 p-1 items-center rounded-lg w-fit mx-auto"
+							contentClass="w-80 md:w-96 p-2 m-2 rounded-lg"
 						>
-							<div slot="title">Create Team</div>
-							<form
-								method="POST"
-								class="m-2 space-y-4"
-								autocomplete="off"
-								use:enhance={({ cancel }) => {
-									submitting = true;
-									if (teamName === '') {
-										teamNameError = 'Team Name is required';
-										submitting = false;
-										return cancel();
-									} else if (teamName.length > 30) {
-										teamNameError = 'Team Name is too long';
-										submitting = false;
-										return cancel();
-									}
-
-									return async ({ update }) => {
-										await update();
-										teamNameError = '';
-										setTimeout(() => (submitting = false), 1500);
-									};
-								}}
-								novalidate
+							<TabItem
+								open
+								inactiveClasses="text-md sm:text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-slate-500"
+								activeClasses="text-md sm:text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-white bg-gray-700"
 							>
-								<div>
-									<label for="teamname" class="block text-sm font-medium text-neutral-400"
-										>Team Name</label
-									>
-									<input
-										type="text"
-										id="teamname"
-										name="teamname"
-										class="w-full rounded-lg border border-neutral-600 bg-neutral-700 px-4 py-2 text-neutral-100 focus:border-indigo-500 focus:ring-indigo-500"
-										class:!border-red-500={teamNameError}
-										bind:value={teamName}
-										aria-invalid={teamNameError ? 'true' : 'false'}
-									/>
-									{#if teamNameError}
-										<p class="pt-1 text-right text-xs text-red-500">{teamNameError}</p>
-									{/if}
-								</div>
-								<button
-									formaction="?/register"
-									class="w-full rounded-lg bg-indigo-600/15 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-800/55"
-									class:!cursor-not-allowed={submitting}
-									disabled={submitting}
-								>
-									Create Team
-								</button>
-							</form>
-						</TabItem>
-						<TabItem
-							inactiveClasses="text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-slate-500"
-							activeClasses="text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-white bg-gray-700"
-						>
-							<div slot="title">Join Team</div>
-							<form
-								method="POST"
-								class="m-2 space-y-4"
-								autocomplete="off"
-								use:enhance={({ cancel }) => {
-									submitting = true;
-									if (teamid === '') {
-										teamidError = 'Team ID is required';
-										submitting = false;
-										return cancel();
-									}
+								<div slot="title">Create Team</div>
+								<form
+									method="POST"
+									class="m-2 space-y-4"
+									autocomplete="off"
+									use:enhance={({ cancel }) => {
+										submitting = true;
+										if (teamName === '') {
+											teamNameError = 'Team Name is required';
+											submitting = false;
+											return cancel();
+										} else if (teamName.length > 30) {
+											teamNameError = 'Team Name is too long';
+											submitting = false;
+											return cancel();
+										}
 
-									return async ({ update }) => {
-										await update();
-										teamidError = '';
-										setTimeout(() => (submitting = false), 1500);
-									};
-								}}
-								novalidate
-							>
-								<div>
-									<label for="teamid" class="block text-sm font-medium text-neutral-400"
-										>Team ID</label
-									>
-									<input
-										type="text"
-										id="teamid"
-										name="teamid"
-										class="w-full rounded-lg border border-neutral-600 bg-neutral-700 px-4 py-2 text-neutral-100 focus:border-indigo-500 focus:ring-indigo-500"
-										class:!border-red-500={teamidError}
-										bind:value={teamid}
-										aria-invalid={teamidError ? 'true' : 'false'}
-									/>
-									{#if teamidError}
-										<p class="pt-1 text-right text-xs text-red-500">{teamidError}</p>
-									{/if}
-								</div>
-								<button
-									formaction="?/join"
-									class="w-full rounded-lg bg-indigo-600/15 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-800/55"
-									class:!cursor-not-allowed={submitting}
-									disabled={submitting}
+										return async ({ update }) => {
+											await update();
+											teamNameError = '';
+											setTimeout(() => (submitting = false), 1500);
+										};
+									}}
+									novalidate
 								>
-									Join Team
-								</button>
-							</form>
-						</TabItem>
-					</Tabs>
+									<div>
+										<label for="teamname" class="block text-sm font-medium text-neutral-400"
+											>Team Name</label
+										>
+										<input
+											type="text"
+											id="teamname"
+											name="teamname"
+											class="w-full rounded-lg border border-neutral-600 bg-neutral-700 px-4 py-2 text-neutral-100 focus:border-indigo-500 focus:ring-indigo-500"
+											class:!border-red-500={teamNameError}
+											bind:value={teamName}
+											aria-invalid={teamNameError ? 'true' : 'false'}
+										/>
+										{#if teamNameError}
+											<p class="pt-1 text-right text-xs text-red-500">{teamNameError}</p>
+										{/if}
+									</div>
+									<button
+										formaction="?/register"
+										class="w-full rounded-lg bg-indigo-600/15 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-800/55"
+										class:!cursor-not-allowed={submitting}
+										disabled={submitting}
+									>
+										Create Team
+									</button>
+								</form>
+							</TabItem>
+							<TabItem
+								inactiveClasses="text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-slate-500"
+								activeClasses="text-lg hover:text-lg min-w-fit px-6 py-2 rounded-lg text-white bg-gray-700"
+							>
+								<div slot="title">Join Team</div>
+								<form
+									method="POST"
+									class="m-2 space-y-4"
+									autocomplete="off"
+									use:enhance={({ cancel }) => {
+										submitting = true;
+										if (teamid === '') {
+											teamidError = 'Team ID is required';
+											submitting = false;
+											return cancel();
+										}
+
+										return async ({ update }) => {
+											await update();
+											teamidError = '';
+											setTimeout(() => (submitting = false), 1500);
+										};
+									}}
+									novalidate
+								>
+									<div>
+										<label for="teamid" class="block text-sm font-medium text-neutral-400"
+											>Team ID</label
+										>
+										<input
+											type="text"
+											id="teamid"
+											name="teamid"
+											class="w-full rounded-lg border border-neutral-600 bg-neutral-700 px-4 py-2 text-neutral-100 focus:border-indigo-500 focus:ring-indigo-500"
+											class:!border-red-500={teamidError}
+											bind:value={teamid}
+											aria-invalid={teamidError ? 'true' : 'false'}
+										/>
+										{#if teamidError}
+											<p class="pt-1 text-right text-xs text-red-500">{teamidError}</p>
+										{/if}
+									</div>
+									<button
+										formaction="?/join"
+										class="w-full rounded-lg bg-indigo-600/15 px-4 py-2 text-neutral-100 transition-colors duration-200 hover:bg-indigo-800/55"
+										class:!cursor-not-allowed={submitting}
+										disabled={submitting}
+									>
+										Join Team
+									</button>
+								</form>
+							</TabItem>
+						</Tabs>
+					</div>
 				</div>
 			</div>
 		</div>
 	{/if}
 {:else}
-	<div
-		class="my-4 flex w-full items-center rounded-lg border border-blue-300 bg-blue-50 p-4 text-sm text-blue-800 dark:border-blue-800 dark:bg-gray-800 dark:text-blue-400"
-		role="alert"
-		transition:fade
-	>
-		<svg
-			class="me-3 inline h-4 w-4 shrink-0"
-			aria-hidden="true"
-			xmlns="http://www.w3.org/2000/svg"
-			fill="currentColor"
-			viewBox="0 0 20 20"
-		>
-			<path
-				d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
-			/>
-		</svg>
-		<span class="sr-only">Info</span>
-		<div>
-			<span class="font-medium">Alert!</span> Complete your profile to register your team.
-		</div>
+	<span class="sr-only">Info</span>
+	<div>
+		<Notification
+			data={{
+				msg: 'First you need to complete your profile to participate in the event',
+				route: 'dashboard/profile',
+				routeMsg: 'Complete your profile!'
+			}}
+		/>
 	</div>
 {/if}
