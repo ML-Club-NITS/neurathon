@@ -71,7 +71,7 @@
 <div>
 	<!-- Navbar -->
 	<nav
-		class="fixed start-0 top-0 z-[10000] w-full border-b border-gray-200 bg-white bg-opacity-30 backdrop-blur-md backdrop-filter transition-all duration-300 ease-in-out hover:shadow-lg dark:border-gray-600 dark:bg-gray-900 dark:bg-opacity-30"
+		class="fixed start-0 top-0 z-[10000] w-full border-b border-gray-200 bg-white bg-opacity-30 py-1 pl-2 backdrop-blur-md backdrop-filter transition-all duration-300 ease-in-out hover:shadow-lg sm:pl-6 sm:pr-4 dark:border-gray-600 dark:bg-gray-900 dark:bg-opacity-30"
 	>
 		<div class="mx-auto w-full">
 			<div class="flex h-16 w-full items-center justify-between">
@@ -99,7 +99,7 @@
 						</svg>
 					</button>
 					<a href="/dashboard" class="ml-2 flex items-center">
-						<img src="favicon.png" class="m-3 h-11" alt="Logo" />
+						<img src="/favicon.png" class="m-3 h-11" alt="Logo" />
 						<span
 							class="self-center text-xl font-semibold text-gray-800 transition-colors duration-200 ease-in-out hover:text-gray-600 dark:text-white dark:hover:text-gray-300"
 							>Neurathon</span

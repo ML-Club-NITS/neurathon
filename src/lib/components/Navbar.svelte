@@ -26,11 +26,11 @@
 	let NavBar = $state<Node | null>(null);
 
 	const NavLinks = [
+		{ id: 'about', title: 'About' },
 		{ id: 'timeline', title: 'Timeline' },
 		{ id: 'prizes', title: 'Prizes' },
 		{ id: 'sponsors', title: 'Sponsors' },
-		{ id: 'faqs', title: 'FAQs' },
-		{ id: 'about', title: 'About' }
+		{ id: 'faqs', title: 'FAQs' }
 	];
 
 	function scrollToSection(event: Event, id: string) {
