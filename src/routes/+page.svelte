@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Hero, About, Prizes, Timeline, Sponsors, FAQs, Footer } from '$lib/components';
 
-	import bubble from '$lib/assets/bubble.gif';
+	import bubble from '$lib/assets/bubble.webm';
 	import cool1 from '$lib/assets/cool1.png';
 	import drop2 from '$lib/assets/drop2.png';
 	import dgg from '$lib/assets/dgg.png';
