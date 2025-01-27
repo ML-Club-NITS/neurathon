@@ -50,7 +50,7 @@
 </script>
 
 <div id="sponsors" class="sponser-container pt-28">
-	<div class="sponser_intro" id="inside_sponsers">
+	<div class="sponser_intro pb-8" id="inside_sponsers">
 		<span
 			class="inline-flex w-fit animate-text-gradient text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 text-center text-2xl font-bold text-transparent md:text-3xl lg:text-5xl 2xl:text-8xl"
 		>

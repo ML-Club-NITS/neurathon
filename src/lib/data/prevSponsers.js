@@ -1,8 +1,8 @@
-import solana from '$lib/assets/solana.png';
-import devfolio from '$lib/assets/devfolio.png';
-import replit from '$lib/assets/replit.png';
-import polygon from '$lib/assets/Polygon.png';
-import filecoin from '$lib/assets/filecoin.png';
+import devfolio from '$lib/assets/Devfolio.webp';
+import filecon from '$lib/assets/filecon.webp';
+import solana from '$lib/assets/Solana.webp';
+import replit from '$lib/assets/replit.webp';
+import polygon from '$lib/assets/polygon.webp';
 
 const sponsers = [
 	{
@@ -23,7 +23,7 @@ const sponsers = [
 	},
 	{
 		name: 'Filecoin',
-		img: filecoin
+		img: filecon
 	}
 ];
 export default sponsers;
