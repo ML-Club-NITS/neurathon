@@ -1,9 +1,8 @@
 import solana from '$lib/assets/solana.png';
 import devfolio from '$lib/assets/devfolio.png';
 import replit from '$lib/assets/replit.png';
-import polygon from '$lib/assets/polygon.png';
+import polygon from '$lib/assets/Polygon.png';
 import filecoin from '$lib/assets/filecoin.png';
-
 
 const sponsers = [
 	{
