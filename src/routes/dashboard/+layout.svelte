@@ -74,8 +74,8 @@
 	<nav
 		class="fixed start-0 top-0 z-[10000] w-full border-b border-gray-200 bg-white bg-opacity-30 backdrop-blur-md backdrop-filter transition-all duration-300 ease-in-out hover:shadow-lg dark:border-gray-600 dark:bg-gray-900 dark:bg-opacity-30"
 	>
-		<div class="w-full mx-auto">
-			<div class="flex h-16 items-center justify-between w-full">
+		<div class="mx-auto w-full">
+			<div class="flex h-16 w-full items-center justify-between">
 				<!-- Menu and Logo -->
 				<div class="flex items-center">
 					<button

@@ -97,7 +97,7 @@
 </svelte:head>
 
 <section class="flex min-h-screen w-full flex-col items-center justify-center gap-4">
-	<nav class="w-full mt-1" aria-label="Breadcrumb">
+	<nav class="mt-1 w-full" aria-label="Breadcrumb">
 		<ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
 			<li class="inline-flex items-center">
 				<a

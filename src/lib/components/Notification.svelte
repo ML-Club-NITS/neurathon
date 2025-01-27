@@ -65,6 +65,6 @@
 			{/if}
 		</div>
 	</div>
-	{:else}
+{:else}
 	<div></div>
 {/if}
