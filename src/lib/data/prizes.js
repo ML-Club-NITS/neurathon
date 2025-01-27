@@ -1,6 +1,6 @@
-import grandNeu from '$lib/assets/grandNeurathon.png';
-import bestDep from '$lib/assets/bestDep.png';
-import sustain from '$lib/assets/sustainability.png';
+import grandNeu from '$lib/assets/grandNeurathon.webp';
+import bestDep from '$lib/assets/bestDep.webp';
+import sustain from '$lib/assets/sustainability.webp';
 
 const prizes = [
 	{

@@ -1,5 +1,5 @@
 <script lang="ts">
-	// import gem from '$lib/assets/gem.png';
+	// import gem from '$lib/assets/gem.webp';
 	import eligibilityData from '$lib/data/eligibilityData.json';
 	import { ParticipateTimeline, Button, GradientAnimation, BrochureBtn } from './ui';
 

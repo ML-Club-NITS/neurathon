@@ -1,12 +1,11 @@
 <script lang="ts">
 	import { Hero, About, Prizes, SimpleTimeLine, Sponsors, FAQs, Footer } from '$lib/components';
 
-	import bubble from '$lib/assets/bubble.gif';
-	import cool1 from '$lib/assets/cool1.png';
-	import drop2 from '$lib/assets/drop2.png';
-	import dgg from '$lib/assets/dgg.png';
-	import modius from '$lib/assets/Mobius.jpeg';
-	import glass from '$lib/assets/Glass _Knot_.jpeg';
+	import cool1 from '$lib/assets/cool1.webp';
+	import drop2 from '$lib/assets/drop2.webp';
+	import dgg from '$lib/assets/dgg.webp';
+	import modius from '$lib/assets/Mobius.webp';
+	import glass from '$lib/assets/Glass _Knot_.webp';
 
 	let scrollPosition = 0;
 
@@ -72,7 +71,7 @@
 
 	<main class="container">
 		<img src={dgg} class="dgg" alt="dgg" />
-		<img src={bubble} class="background-image" alt="Decorative" />
+		<img src="/bubble.gif" class="background-image" alt="Decorative" />
 		<section class="container">
 			<About />
 		</section>
@@ -93,7 +92,7 @@
 			<Sponsors />
 		</section>
 
-		<img src={bubble} class="bubble2" alt="bubble2" />
+		<img src="/bubble.gif" class="bubble2" alt="bubble2" />
 		<section class="container">
 			<FAQs />
 		</section>

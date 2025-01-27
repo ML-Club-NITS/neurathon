@@ -1,7 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
-	import bubble from '$lib/assets/bubble.gif';
 	import { gsap } from 'gsap';
 
 	onMount(() => {
@@ -85,6 +84,6 @@
 
 	<!-- GIF Section -->
 	<div class="gif flex justify-center">
-		<img src={bubble} alt="Bubble Animation" class="h-64 w-auto md:h-80 lg:h-96" />
+		<img src="/bubble.gif" alt="Bubble Animation" class="h-64 w-auto md:h-80 lg:h-96" />
 	</div>
 </div>

@@ -5,7 +5,7 @@
 	import { toast } from '@zerodevx/svelte-toast';
 
 	// import neurathon_logo from '$lib/assets/nurathon_logo.svg';
-	// import logo2 from '$lib/assets/logo2.png';
+	// import logo2 from '$lib/assets/logo2.webp';
 	import GradientAnimation from '$lib/components/ui/GradientAnimation.svelte';
 
 	let { children, data } = $props();

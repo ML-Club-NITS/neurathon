@@ -1,7 +1,7 @@
 export default {
 	plugins: {
 		tailwindcss: {},
-		autoprefixer: {}
-		// cssnano: { preset: 'default' }
+		autoprefixer: {},
+		cssnano: { preset: 'default' }
 	}
 };

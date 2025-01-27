@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import errImg from '$lib/assets/mag_galss.png';
+	import errImg from '$lib/assets/mag_galss.webp';
 
 	let url: string;
 
