@@ -25,7 +25,7 @@
 </script>
 
 <section
-	class="flex h-screen w-full flex-col items-center justify-center bg-transparent px-6 md:px-10"
+	class="flex h-screen w-full flex-col items-center justify-center bg-transparent my-16 px-6 md:px-10"
 	id="timeline"
 >
 	<span

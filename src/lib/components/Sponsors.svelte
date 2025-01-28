@@ -46,7 +46,7 @@
 		>
 			<Marquee pauseOnHover class="[--duration:30s]">
 				{#each zeroRow as item}
-					<SponsorCard {...item} />
+					<SponsorCard name={item.name} img={item.img} />
 				{/each}
 			</Marquee>
 			<!-- <Marquee pauseOnHover class="[--duration:30s]">

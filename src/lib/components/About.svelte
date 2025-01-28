@@ -29,7 +29,7 @@
 	class="bg-trans flex w-full items-center justify-center border-slate-500 px-5 py-6 md:px-28 md:py-12"
 	id="about"
 >
-	<ShineBorder class="px-4 py-8 text-center capitalize" color={['#FF5722', '#0883FF']}>
+	<ShineBorder class="px-4 py-8 text-center capitalize" color={['#fde047', '#f97315']}>
 		<div class="my-auto h-fit w-full flex-col" id="inside_about">
 			<AnimatedShinyText
 				class="inline-flex w-full items-center justify-center transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400"

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
 
-	export let img: string;
 	export let name: string;
+	export let img: any;
 </script>
 
 <figure
