@@ -83,6 +83,6 @@
 	</div>
 
 	<div id="bubble" class="flex justify-center">
-		<img src="/bubble.webp" alt="Bubble Animation" class="h-64 w-auto md:h-80 lg:h-96" />
+		<enhanced:img src="/bubble.webp" alt="Bubble Animation" class="h-64 w-auto md:h-80 lg:h-96" />
 	</div>
 </div>

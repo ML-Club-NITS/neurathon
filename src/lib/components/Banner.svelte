@@ -10,7 +10,7 @@
 		href="https://flowbite-svelte.com/"
 		class="mb-2 flex items-center border-gray-200 md:mb-0 md:me-4 md:border-e md:pe-4 dark:border-gray-600"
 	>
-		<img
+		<enhanced:img
 			src="https://flowbite-svelte.com/images/flowbite-svelte-icon-logo.svg"
 			class="me-2 h-6"
 			alt="Flowbite Logo"

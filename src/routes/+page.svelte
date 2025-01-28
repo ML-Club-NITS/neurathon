@@ -70,29 +70,29 @@
 	</section>
 
 	<main class="container">
-		<img src={dgg} class="dgg -z-10" alt="dgg" />
-		<img src="/bubble.webp" class="background-image -z-10" alt="Decorative" />
+		<enhanced:img src={dgg} class="dgg -z-10" alt="dgg" />
+		<enhanced:img src="/bubble.webp" class="background-image -z-10" alt="Decorative" />
 		<section class="container z-10">
 			<About />
 		</section>
 
-		<img src={cool1} class="cool1 -z-10" alt="cool1" />
+		<enhanced:img src={cool1} class="cool1 -z-10" alt="cool1" />
 		<section class="container z-10">
 			<SimpleTimeLine />
 		</section>
 
-		<img src={glass} class="glass -z-10" alt="glass" />
-		<img src={drop2} class="drop2 -z-10" alt="drop2" />
+		<enhanced:img src={glass} class="glass -z-10" alt="glass" />
+		<enhanced:img src={drop2} class="drop2 -z-10" alt="drop2" />
 		<section class="container z-10">
 			<Prizes />
 		</section>
 
-		<img src={modius} class="modius -z-10" alt="modius" />
+		<enhanced:img src={modius} class="modius -z-10" alt="modius" />
 		<section class="container">
 			<Sponsors />
 		</section>
 
-		<img src="/bubble.webp" class="bubble2 -z-10" alt="bubble2" />
+		<enhanced:img src="/bubble.webp" class="bubble2 -z-10" alt="bubble2" />
 		<section class="container z-10">
 			<FAQs />
 		</section>

@@ -10,7 +10,7 @@
 	<div class="card-container mx-auto">
 		<div class="card">
 			<div class="card-prize-container scale-[0.70]">
-				<img src={image} alt="Prize" />
+				<enhanced:img src={image} alt="Prize" />
 			</div>
 			<div class="prize-info">
 				<p class="prize-title">{title}</p>

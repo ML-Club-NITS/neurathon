@@ -19,7 +19,7 @@
 >
 	<div class="!h-52 w-52 bg-black bg-cover bg-center shadow-md">
 		<div class="h-full w-full bg-transparent">
-			<img
+			<enhanced:img
 				src={errImg}
 				alt=""
 				class="h-full w-full scale-[0.7] md:scale-[0.8] lg:scale-[0.9] xl:scale-[1.0]"

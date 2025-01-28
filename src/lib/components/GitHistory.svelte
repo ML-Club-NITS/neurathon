@@ -148,7 +148,7 @@
 				>
 					<div class="flex flex-col items-center justify-between gap-4 pb-2 md:flex-row">
 						<div class="flex items-center space-x-4">
-							<img
+							<enhanced:img
 								src={commit.committerAvatar}
 								alt={commit.committerName}
 								class="h-10 w-10 rounded-full border-2 border-gray-700"

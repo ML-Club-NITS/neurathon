@@ -15,7 +15,7 @@
 	)}
 >
 	<div class="sponserImg">
-		<img
+		<enhanced:img
 			src={img}
 			alt={name}
 			class="w-25 h-25 grayscale transition duration-300 hover:grayscale-0"

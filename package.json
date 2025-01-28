@@ -16,6 +16,7 @@
 		"@eslint/compat": "^1.2.5",
 		"@eslint/js": "^9.18.0",
 		"@sveltejs/adapter-auto": "^3.3.1",
+		"@sveltejs/enhanced-img": "^0.4.4",
 		"@sveltejs/kit": "^2.15.3",
 		"@sveltejs/vite-plugin-svelte": "^4.0.4",
 		"@zerodevx/svelte-toast": "^0.9.6",
