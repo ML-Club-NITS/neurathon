@@ -65,7 +65,7 @@
 
 	<main class="container">
 		<enhanced:img src="/static/dgg.webp" class="dgg -z-10" alt="dgg" />
-		<enhanced:img src="/static/bubble.webp" class="background-image -z-10" alt="Decorative" />
+		<img src="/bubble.webp" class="background-image -z-10" alt="Decorative" />
 		<section class="container z-10">
 			<About />
 		</section>
@@ -86,7 +86,7 @@
 			<Sponsors />
 		</section>
 
-		<enhanced:img src="/static/bubble.webp" class="bubble2 -z-10" alt="bubble2" />
+		<img src="/bubble.webp" class="bubble2 -z-10" alt="bubble2" />
 		<section class="container z-10">
 			<FAQs />
 		</section>
