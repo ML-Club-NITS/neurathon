@@ -8,7 +8,7 @@
 		gsap.set('*', { visibility: 'visible' });
 
 		let tl = gsap.timeline();
-		tl.from('.gif', {
+		tl.from('#bubble', {
 			opacity: 0,
 			y: 60,
 			duration: 1
@@ -82,8 +82,7 @@
 		</div>
 	</div>
 
-	<!-- GIF Section -->
-	<div class="gif flex justify-center">
-		<img src="/bubble.gif" alt="Bubble Animation" class="h-64 w-auto md:h-80 lg:h-96" />
+	<div id="bubble" class="flex justify-center">
+		<img src="/bubble.webp" alt="Bubble Animation" class="h-64 w-auto md:h-80 lg:h-96" />
 	</div>
 </div>

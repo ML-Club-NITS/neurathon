@@ -27,7 +27,7 @@
 	});
 
 	const seo = {
-		title: 'Neurathon - AI for good',
+		title: 'Neurathon - Innovate with Intelligence',
 		description:
 			'Join Neurathon, the premier AI and Machine Learning hackathon! Collaborate, innovate, and build cutting-edge solutions with a global community of developers and data scientists.',
 		keywords:
@@ -44,7 +44,7 @@
 	<meta property="og:description" content={seo.description} />
 	<meta property="og:image" content={seo.ogImage} />
 	<meta property="og:type" content="website" />
-	<meta name="twitter:card" content="summary_large_image" />
+	<!-- <meta name="twitter:card" content="summary_large_image" /> -->
 	<meta name="twitter:title" content={seo.title} />
 	<meta name="twitter:description" content={seo.description} />
 	<meta name="twitter:image" content={seo.ogImage} />

@@ -6,14 +6,14 @@
 
 	$effect(() => {
 		let tl = gsap.timeline();
-		tl.from('#simpletimeline, #inside_simpletimeline', {
+		tl.from('#timeline, #inside_simpletimeline', {
 			opacity: 0,
 			scale: 0.95,
 			stagger: 1,
 			duration: 1.2,
 
 			scrollTrigger: {
-				trigger: '#simpletimeline',
+				trigger: '#timeline',
 				scrub: 0.3,
 				start: '-=440',
 				end: '+=10',
@@ -24,15 +24,15 @@
 	});
 </script>
 
-<div
+<section
 	class="flex h-screen w-full flex-col items-center justify-center bg-transparent px-6 md:px-10"
-	id="simpletimeline"
+	id="timeline"
 >
 	<span
 		class="mb-6 flex w-full animate-text-gradient justify-center text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 text-center text-2xl font-bold text-transparent md:text-3xl lg:text-5xl 2xl:text-8xl"
 		id="inside_simpletimeline"
 	>
-		TimeLine
+		Timeline
 	</span>
 	<div
 		class="mt-6 flex w-fit flex-col items-center space-y-6 border-l-2"
@@ -76,4 +76,4 @@
 			</div>
 		{/each}
 	</div>
-</div>
+</section>

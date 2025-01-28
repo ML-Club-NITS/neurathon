@@ -6,7 +6,6 @@
 
 <svelte:head>
 	<title>Participate - Neurathon</title>
-	<meta name="robots" content="noindex" />
 </svelte:head>
 
 <section class="flex max-h-screen justify-evenly">
