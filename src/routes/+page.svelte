@@ -1,12 +1,6 @@
 <script lang="ts">
 	import { Hero, About, Prizes, SimpleTimeLine, Sponsors, FAQs, Footer } from '$lib/components';
 
-	import cool1 from '$lib/assets/cool1.webp?enhanced';
-	import drop2 from '$lib/assets/drop2.webp?enhanced';
-	import dgg from '$lib/assets/dgg.webp?enhanced';
-	import modius from '$lib/assets/Mobius.webp?enhanced';
-	import glass from '$lib/assets/Glass _Knot_.webp?enhanced';
-
 	let scrollPosition = 0;
 
 	const handleScroll = () => {
@@ -70,24 +64,24 @@
 	</section>
 
 	<main class="container">
-		<enhanced:img src={dgg} class="dgg -z-10" alt="dgg" />
+		<enhanced:img src="/static/dgg.webp" class="dgg -z-10" alt="dgg" />
 		<enhanced:img src="/static/bubble.webp" class="background-image -z-10" alt="Decorative" />
 		<section class="container z-10">
 			<About />
 		</section>
 
-		<enhanced:img src={cool1} class="cool1 -z-10" alt="cool1" />
+		<enhanced:img src="/static/cool1.webp" class="cool1 -z-10" alt="cool1" />
 		<section class="container z-10">
 			<SimpleTimeLine />
 		</section>
 
-		<enhanced:img src={glass} class="glass -z-10" alt="glass" />
-		<enhanced:img src={drop2} class="drop2 -z-10" alt="drop2" />
+		<enhanced:img src="/static/Glass _Knot_.webp" class="glass -z-10" alt="glass" />
+		<enhanced:img src="/static/drop2.webp" class="drop2 -z-10" alt="drop2" />
 		<section class="container z-10">
 			<Prizes />
 		</section>
 
-		<enhanced:img src={modius} class="modius -z-10" alt="modius" />
+		<enhanced:img src="/static/Mobius.webp" class="modius -z-10" alt="modius" />
 		<section class="container">
 			<Sponsors />
 		</section>
