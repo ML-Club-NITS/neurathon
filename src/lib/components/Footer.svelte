@@ -9,7 +9,7 @@
 			href="https://www.mlclubnits.com/"
 			aria-label="ML Club NITS website"
 		>
-			<enhanced:img class="h-16" src={ml_vector} alt="mlclub_logo" />
+			<img class="h-16" src={ml_vector} alt="mlclub_logo" />
 		</a>
 	</div>
 	<div class="z-3 col-span-2 w-auto space-y-8 overflow-hidden px-0 py-8 sm:px-6 lg:px-8">

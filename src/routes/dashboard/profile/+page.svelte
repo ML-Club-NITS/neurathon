@@ -267,7 +267,7 @@
 							<div
 								class="mt-2 flex h-64 w-full items-center justify-center overflow-hidden rounded-lg bg-neutral-800"
 							>
-								<enhanced:img
+								<img
 									src={profile.college_id_url}
 									alt="Selected file preview"
 									class="h-full w-full object-cover"

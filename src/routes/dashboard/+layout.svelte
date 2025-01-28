@@ -97,7 +97,7 @@
 						</svg>
 					</button>
 					<a href="/dashboard" class="ml-2 flex items-center">
-						<enhanced:img src="/favicon.png" class="m-3 h-11" alt="Logo" />
+						<img src="/favicon.png" class="m-3 h-11" alt="Logo" />
 						<span
 							class="self-center text-xl font-semibold text-gray-800 transition-colors duration-200 ease-in-out hover:text-gray-600 dark:text-white dark:hover:text-gray-300"
 							>Neurathon</span

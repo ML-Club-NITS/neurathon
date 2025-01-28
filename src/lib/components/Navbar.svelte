@@ -96,7 +96,7 @@
 			}}
 			aria-label="Home"
 		>
-			<enhanced:img src={logo} class="mx-2 h-8 scale-150" alt="ML CLUB NITS" />
+			<img src={logo} class="mx-2 h-8 scale-150" alt="ML CLUB NITS" />
 		</a>
 
 		<div class="flex space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">

@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { Hero, About, Prizes, SimpleTimeLine, Sponsors, FAQs, Footer } from '$lib/components';
 
-	import cool1 from '$lib/assets/cool1.webp';
-	import drop2 from '$lib/assets/drop2.webp';
-	import dgg from '$lib/assets/dgg.webp';
-	import modius from '$lib/assets/Mobius.webp';
-	import glass from '$lib/assets/Glass _Knot_.webp';
+	import cool1 from '$lib/assets/cool1.webp?enhanced';
+	import drop2 from '$lib/assets/drop2.webp?enhanced';
+	import dgg from '$lib/assets/dgg.webp?enhanced';
+	import modius from '$lib/assets/Mobius.webp?enhanced';
+	import glass from '$lib/assets/Glass _Knot_.webp?enhanced';
 
 	let scrollPosition = 0;
 
@@ -71,7 +71,7 @@
 
 	<main class="container">
 		<enhanced:img src={dgg} class="dgg -z-10" alt="dgg" />
-		<enhanced:img src="/bubble.webp" class="background-image -z-10" alt="Decorative" />
+		<enhanced:img src="/static/bubble.webp" class="background-image -z-10" alt="Decorative" />
 		<section class="container z-10">
 			<About />
 		</section>
@@ -92,7 +92,7 @@
 			<Sponsors />
 		</section>
 
-		<enhanced:img src="/bubble.webp" class="bubble2 -z-10" alt="bubble2" />
+		<enhanced:img src="/static/bubble.webp" class="bubble2 -z-10" alt="bubble2" />
 		<section class="container z-10">
 			<FAQs />
 		</section>

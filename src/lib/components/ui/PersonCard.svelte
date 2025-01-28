@@ -19,7 +19,7 @@
 >
 	<div class="flex flex-col md:flex-row">
 		<div class="mb-8 text-center md:mb-0 md:w-1/3">
-			<enhanced:img
+			<img
 				src={user.image}
 				alt=""
 				class="mx-auto mb-4 h-[150px] w-auto rounded-full border-4 border-gray-700 transition-transform duration-300 hover:scale-105 md:h-auto lg:h-auto xl:h-auto"
