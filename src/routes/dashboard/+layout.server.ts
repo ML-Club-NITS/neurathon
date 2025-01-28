@@ -75,7 +75,7 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 					profileCompleted,
 					TeamID: teamID,
 					team: null,
-					banner: { message: 'Hackathon is already started.', route: null }
+					banner: { message: 'Registerations Over! Hackathon is already started.', route: null }
 				};
 			}
 		}

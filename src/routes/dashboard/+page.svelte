@@ -10,7 +10,6 @@
 	} from '$lib/components';
 
 	import { TextGenerateEffect } from '$lib/components/ui';
-	import NotificationCard from '$lib/components/ui/NotificationCard.svelte';
 	import { toast } from '@zerodevx/svelte-toast';
 
 	let { data, form } = $props();
@@ -124,13 +123,6 @@
 		<!-- <ProblemStatementCard /> -->
 		<div class="flex w-full flex-col gap-4 rounded-lg md:max-w-[70%] lg:max-w-[60%]">
 			{#if phase === 1}
-				<!-- {#if !profileCompleted}
-					<NotificationCard message="Please complete your profile to participate in the event" />
-				{:else if !TeamID}
-					<NotificationCard message="Create or join a team to participate in the event" />
-				{:else}
-					<NotificationCard message="You are successfully registered for event." />
-				{/if} -->
 				{#if !profileCompleted}
 					<Notification
 						data={{
@@ -144,32 +136,38 @@
 						data={{
 							msg: 'Create or join a team to participate in the event before deadline.',
 							route: 'dashboard/team',
-							routeMsg: 'Join or create a team!',
-							color: 'red-500'
+							routeMsg: 'Join or create a team!'
 						}}
 					/>
 				{:else}
 					<Notification
-						data={{ msg: 'You are successfully registered for event !!', color: 'green-300' }}
+						data={{
+							header: 'Registration Complete',
+							msg: 'You have successfully registered for the event. Good luck!'
+						}}
 					/>
 				{/if}
 
 				<EventTimer
 					eventTime={endTime}
 					currentTime={startTime}
-					eventDescription="Registerations ends in"
+					eventDescription="Registration ends in"
 					eventName="Online Round starts"
 				/>
 				<!-- event start poster / photo gallery / anything interactive -->
 			{:else if !profileCompleted || !TeamID}
-				<NotificationCard message={banner?.message} />
+				<Notification
+					data={{
+						header: 'Registrations are Over ‼️',
+						msg: 'You missed the deadline. The hackathon has already started.'
+					}}
+				/>
 			{:else if phase === 2}
-				<NotificationCard message={banner?.message} />
 				<EventTimer
 					eventTime={endTime}
 					currentTime={startTime}
-					eventDescription="Submissions ends in"
-					eventName="Round 1 ends"
+					eventDescription="Submissions end in"
+					eventName="Online Round ends"
 				/>
 				<!-- show timer for the ending of the round -->
 				{#if !team.Round1}
@@ -180,16 +178,37 @@
 					<ProblemStatementCard {problemStatements} />
 				{/if}
 			{:else if phase === 3}
-				<NotificationCard message={banner?.message} />
+				{#if !result1 || !result1.declared}
+					<Notification
+						data={{
+							header: 'Thank You for Participating!',
+							msg: 'Results will be announced soon. Stay tuned!'
+						}}
+					/>
+				{:else if qualifiedR1}
+					<Notification
+						data={{
+							header: 'Congratulations!',
+							msg: 'You have qualified for the offline round. Good luck!'
+						}}
+					/>
+				{:else}
+					<Notification
+						data={{
+							header: 'Better Luck Next Time!',
+							msg: 'You did not qualify for the offline round.'
+						}}
+					/>
+				{/if}
+
 				<EventTimer
 					eventTime={endTime}
 					currentTime={startTime}
-					eventDescription="offline round starts in"
-					eventName="Final starts"
+					eventDescription="Offline round starts in"
+					eventName="Finals start"
 				/>
 
 				{#if result1 && result1.declared}
-					<!-- scoreboard -->
 					<LeaderBoard items={result1.results} />
 				{/if}
 				<!--END OF ONLINE ROUND-->
@@ -198,35 +217,53 @@
 				<!-- for those who want to go through the problems even after the round 1 -->
 			{:else if !qualifiedR1}
 				<!-- not qualified -->
-			{:else if phase === 4}
-				<!-- Online Round result -->
-				<!--result greetings-->
-				<NotificationCard message={banner?.message} />
-				<EventTimer
-					eventTime={endTime}
-					currentTime={startTime}
-					eventDescription="offline round ends in"
-					eventName="Final ends"
+				<Notification
+					data={{
+						header: 'Better Luck Next Time!',
+						msg: 'You did not qualify for the offline round.'
+					}}
 				/>
+			{:else if phase === 4}
+				<!-- offline round starts -->
 				{#if !team.github}
 					<GetGithub {teamLead} {qualifiedR1} {TeamID} />
+					<EventTimer
+						eventTime={endTime}
+						currentTime={startTime}
+						eventDescription="Offline round ends in"
+						eventName="Finals end"
+					/>
 				{:else}
+					<EventTimer
+						eventTime={endTime}
+						currentTime={startTime}
+						eventDescription="Offline round ends in"
+						eventName="Finals end"
+					/>
 					<GitHistory url={team.github} />
 				{/if}
 				<!-- show timer till start of  round 2 -->
 			{:else if phase === 5}
-				<NotificationCard message={banner?.message} />
-
-				{#if result && result.declared}
-					<!-- scoreboard -->
+				{#if !result || !result.declared}
+					<Notification
+						data={{
+							header: 'Congratulations on reaching Finals!',
+							msg: 'Winner will be announced in prize distribution ceremony. Soon will be updated here too!'
+						}}
+					/>
+				{:else}
 					<LeaderBoard items={result.results} />
 				{/if}
 				<!-- Result Card, WITH TEAM THAT WON WITH  THEIR DEPLOYMENT LINKS -->
 				<!--  eVENT pHOTO gALLARY -->
 				<!-- bYE byE CARD -->
 			{:else}
-				<NotificationCard message={banner?.message} />
-
+				<Notification
+					data={{
+						header: "Neurathon'25 ends here!",
+						msg: 'Thank you for everyone for making this event a success. Stay tuned for the next edition!'
+					}}
+				/>
 				{#if result && result.declared}
 					<!-- scoreboard -->
 					<LeaderBoard items={result.results} />

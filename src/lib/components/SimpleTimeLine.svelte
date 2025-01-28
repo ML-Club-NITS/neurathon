@@ -17,15 +17,15 @@
 				scrub: 0.3,
 				start: '-=440',
 				end: '+=10',
-				once: true
-				// markers: true
+				once: true,
+				markers: true
 			}
 		});
 	});
 </script>
 
 <section
-	class="flex h-screen w-full flex-col items-center justify-center bg-transparent my-16 px-6 md:px-10"
+	class="my-16 flex h-screen w-full flex-col items-center justify-center bg-transparent px-6 md:px-10"
 	id="timeline"
 >
 	<span

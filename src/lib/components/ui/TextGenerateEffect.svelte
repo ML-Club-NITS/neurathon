@@ -18,7 +18,7 @@
 </script>
 
 <div class={cn('font-bold', className)}>
-	<div class="mt-4">
+	<div class="">
 		<div class=" text-2xl leading-snug tracking-wide text-black dark:text-white">
 			<Motion let:motion custom={0} {variants} initial="hidden" animate={'visible'}>
 				<div use:motion>
