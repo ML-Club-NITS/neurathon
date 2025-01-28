@@ -44,7 +44,6 @@
 				snap: {
 					ease: 'power1.inOut'
 				}
-				// markers: true
 			}
 		});
 	});

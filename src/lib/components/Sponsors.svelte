@@ -26,7 +26,6 @@
 				start: 'top 40%',
 				end: 'bottom 90%',
 				once: true
-				// markers: true,
 			}
 		});
 	});

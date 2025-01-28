@@ -19,7 +19,6 @@
 				start: '-=440',
 				end: '+=10',
 				once: true
-				// markers: true
 			}
 		});
 	});

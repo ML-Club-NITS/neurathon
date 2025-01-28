@@ -19,7 +19,6 @@
 				start: '-=300px',
 				end: '-=0',
 				once: true
-				// markers: true
 			}
 		}).from(
 			'#faq_inside',

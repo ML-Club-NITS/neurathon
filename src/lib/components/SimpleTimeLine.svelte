@@ -17,8 +17,7 @@
 				scrub: 0.3,
 				start: '-=440',
 				end: '+=10',
-				once: true,
-				markers: true
+				once: true
 			}
 		});
 	});
