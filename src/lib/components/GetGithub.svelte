@@ -90,6 +90,7 @@
 						return async ({ update }) => {
 							await update();
 							githubLinkError = '';
+							githubLink = '';
 							setTimeout(() => (submitting = false), 1500);
 						};
 					}}

@@ -63,6 +63,10 @@
 
 			return async ({ update }) => {
 				await update();
+				form = {
+					email: '',
+					password: ''
+				};
 				setTimeout(() => (submitting = false), 1500);
 			};
 		}}

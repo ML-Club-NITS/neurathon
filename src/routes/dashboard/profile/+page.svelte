@@ -210,6 +210,7 @@
 
 						return async ({ update }) => {
 							await update();
+							form = { institute: '' };
 							setTimeout(() => (submitting = false), 1500);
 						};
 					}}

@@ -32,6 +32,13 @@ export const GET: RequestHandler = async ({ url, locals: { supabase, user } }) =
 		throw redirect(303, '/dashboard/team?message=Team+is+full');
 	}
 
+	const isUserAlreadyMember = team.Members?.some(
+		(member: { sub: string }) => member.sub === user.id
+	);
+	if (isUserAlreadyMember) {
+		throw redirect(303, '/dashboard/team?message=You+are+already+a+member+of+this+team');
+	}
+
 	// Add the user to the team
 	const { error: joinError } = await supabase.rpc('append_member_to_team', {
 		member_data: user.user_metadata,

@@ -86,6 +86,10 @@
 
 			return async ({ update }) => {
 				await update();
+				formData = {
+					password: '',
+					confirm_password: ''
+				};
 				setTimeout(() => (submitting = false), 1500);
 			};
 		}}

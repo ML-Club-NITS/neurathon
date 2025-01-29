@@ -57,6 +57,12 @@
 
 			return async ({ update }) => {
 				await update();
+				form = {
+					name: '',
+					email: '',
+					phone: '',
+					password: ''
+				};
 				setTimeout(() => (submitting = false), 1500);
 			};
 		}}

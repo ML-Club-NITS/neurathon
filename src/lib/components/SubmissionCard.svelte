@@ -92,6 +92,9 @@
 
 				return async ({ update }) => {
 					await update();
+					githubRepoLink = '';
+					deploymentLink = '';
+					umlDesignLink = '';
 					setTimeout(() => (isSubmitting = false), 1500);
 				};
 			}}
