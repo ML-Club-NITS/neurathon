@@ -3,16 +3,15 @@
 	import { onMount } from 'svelte';
 
 	let { data } = $props();
+	let dynamicData = $state(data);
 
 	onMount(async () => {
 		try {
-			const response = await fetch('/participate');
-			if (response.ok) {
-				const result = await response.json();
-				data = result.data;
-			}
+			const response = await fetch('/api/teams');
+			const result = await response.json();
+			dynamicData = result.data;
 		} catch (error) {
-			console.error('Error during fetch:', error);
+			console.error('Failed to fetch updated data:', error);
 		}
 	});
 </script>
@@ -23,5 +22,5 @@
 
 <section class="flex max-h-screen justify-evenly">
 	<!-- mlclub -->
-	<Participate {data} />
+	<Participate data={dynamicData} />
 </section>

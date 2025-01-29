@@ -1,5 +1,5 @@
 import { redirect } from '@sveltejs/kit';
-import type { RequestHandler } from './$types';
+import type { RequestHandler } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async ({ url, locals: { supabase, user } }) => {
 	// Ensure the user is authenticated
