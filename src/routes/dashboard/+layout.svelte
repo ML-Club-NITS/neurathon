@@ -165,7 +165,7 @@
 	<aside
 		bind:this={SideBar}
 		id="logo-sidebar"
-		class={`${isSidebarOpen ? '-translate-x-0' : '-translate-x-full'} fixed top-0 z-10 h-screen w-64 border-r bg-white pt-20 transition-transform duration-300 ease-in-out lg:fixed lg:translate-x-0 border-gray-700 bg-[#141414e9]`}
+		class={`${isSidebarOpen ? '-translate-x-0' : '-translate-x-full'} fixed top-0 z-10 h-screen w-64 border-r pt-20 transition-transform duration-300 ease-in-out lg:fixed lg:translate-x-0 border-gray-700 bg-[#141414e9]`}
 	>
 		<ul class="space-y-2 px-3 font-medium">
 			<li>
