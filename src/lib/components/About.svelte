@@ -31,7 +31,7 @@
 	<ShineBorder class="px-4 py-8 text-center capitalize" color={['#fde047', '#f97315']}>
 		<div class="my-auto h-fit w-full flex-col" id="inside_about">
 			<AnimatedShinyText
-				class="inline-flex w-full items-center justify-center transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400"
+				class="inline-flex w-full items-center justify-center transition ease-out hover:duration-300 hover:text-neutral-400"
 			>
 				<div class="w-fit text-wrap text-2xl font-bold md:text-3xl lg:text-5xl 2xl:text-8xl">
 					What is Neurathon?
