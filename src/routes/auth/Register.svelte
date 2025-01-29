@@ -44,7 +44,12 @@
 		method="POST"
 		action="?/register"
 		use:enhance={({ cancel }) => {
-			submitting = true;
+			if (submitting) {
+				return cancel();
+			} else {
+				submitting = true;
+			}
+
 			if (!validate()) {
 				submitting = false;
 				return cancel();

@@ -43,7 +43,7 @@ export const actions: Actions = {
 		const email = formData.get('email') as string;
 
 		const { error } = await supabase.auth.resetPasswordForEmail(email, {
-			redirectTo: 'http://localhost:5173/auth/update-password'
+			redirectTo: 'https://neurathon.mlclubnits.com/auth/update-password'
 		});
 
 		if (error) {

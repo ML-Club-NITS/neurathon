@@ -241,8 +241,12 @@
 								</button>
 								<form
 									method="POST"
-									use:enhance={() => {
-										submitting = true;
+									use:enhance={({ cancel }) => {
+										if (submitting) {
+											return cancel();
+										} else {
+											submitting = true;
+										}
 
 										return async ({ update }) => {
 											await update();
@@ -284,7 +288,7 @@
 			/>
 		</div>
 	{:else}
-		<div class="flex flex-col items-center gap-4">
+		<div class="flex w-full flex-col items-center gap-4">
 			<div>
 				<Notification
 					data={{
@@ -335,7 +339,11 @@
 									class="m-2 space-y-4"
 									autocomplete="off"
 									use:enhance={({ cancel }) => {
-										submitting = true;
+										if (submitting) {
+											return cancel();
+										} else {
+											submitting = true;
+										}
 										if (teamName === '') {
 											teamNameError = 'Team Name is required';
 											submitting = false;
@@ -391,7 +399,11 @@
 									class="m-2 space-y-4"
 									autocomplete="off"
 									use:enhance={({ cancel }) => {
-										submitting = true;
+										if (submitting) {
+											return cancel();
+										} else {
+											submitting = true;
+										}
 										if (teamid === '') {
 											teamidError = 'Team ID is required';
 											submitting = false;

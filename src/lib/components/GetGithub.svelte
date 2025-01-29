@@ -71,7 +71,12 @@
 					class="m-2 space-y-4"
 					autocomplete="off"
 					use:enhance={({ cancel }) => {
-						submitting = true;
+						if (submitting) {
+							return cancel();
+						} else {
+							submitting = true;
+						}
+
 						if (githubLink === '') {
 							githubLinkError = 'Field is required';
 							submitting = false;

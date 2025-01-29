@@ -79,7 +79,12 @@
 			method="POST"
 			action="?/submmision"
 			use:enhance={({ cancel }) => {
-				isSubmitting = true;
+				if (isSubmitting) {
+					return cancel();
+				} else {
+					isSubmitting = true;
+				}
+
 				if (!validate()) {
 					isSubmitting = false;
 					return cancel();

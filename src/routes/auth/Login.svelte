@@ -43,7 +43,12 @@
 		method="POST"
 		action="?/login"
 		use:enhance={({ cancel, action }) => {
-			submitting = true;
+			if (submitting) {
+				return cancel();
+			} else {
+				submitting = true;
+			}
+
 			if (action.toString().includes('/resetPassword')) {
 				if (!validateEmail()) {
 					submitting = false;

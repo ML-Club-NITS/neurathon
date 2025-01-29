@@ -24,7 +24,7 @@
 		endTime,
 		result1,
 		result,
-		banner = { message: '', route: null },
+		// banner = { message: '', route: null },
 		notification = { message: '', duration: 1000 }
 	} = $derived(data);
 
