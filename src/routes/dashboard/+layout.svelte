@@ -69,7 +69,7 @@
 <div>
 	<!-- Navbar -->
 	<nav
-		class="fixed start-0 top-0 z-[10000] w-full border-b py-1 pl-2 backdrop-blur-md backdrop-filter transition-all duration-300 ease-in-out hover:shadow-lg sm:pl-6 sm:pr-4 border-gray-600 bg-gray-900 bg-opacity-30"
+		class="fixed start-0 top-0 z-[10000] w-full border-b border-gray-600 bg-gray-900 bg-opacity-30 py-1 pl-2 backdrop-blur-md backdrop-filter transition-all duration-300 ease-in-out hover:shadow-lg sm:pl-6 sm:pr-4"
 	>
 		<div class="mx-auto w-full">
 			<div class="flex h-16 w-full items-center justify-between">
@@ -79,7 +79,7 @@
 						onclick={toggleSideBar}
 						aria-controls="logo-sidebar"
 						type="button"
-						class="m-1 inline-flex items-center rounded-lg p-1 text-sm transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 lg:hidden text-gray-400 hover:bg-gray-700 focus:ring-gray-600"
+						class="m-1 inline-flex items-center rounded-lg p-1 text-sm text-gray-400 transition-all duration-200 ease-in-out hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600 lg:hidden"
 					>
 						<span class="sr-only">Open sidebar</span>
 						<svg
@@ -99,7 +99,7 @@
 					<a href="/dashboard" class="ml-2 flex items-center">
 						<img src="/favicon.png" class="m-3 h-11" alt="Logo" />
 						<span
-							class="self-center text-xl font-semibold transition-colors duration-200 ease-in-out text-white hover:text-gray-300"
+							class="self-center text-xl font-semibold text-white transition-colors duration-200 ease-in-out hover:text-gray-300"
 							>Neurathon</span
 						>
 					</a>
@@ -109,7 +109,7 @@
 				<div class="relative ml-3 mr-3">
 					<button
 						onclick={toggleMenuBar}
-						class="flex rounded-full bg-gray-800 text-sm transition-all duration-200 ease-in-out hover:ring-4 focus:outline-none focus:ring-4 hover:ring-gray-600 focus:ring-gray-600"
+						class="flex rounded-full bg-gray-800 text-sm transition-all duration-200 ease-in-out hover:ring-4 hover:ring-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-600"
 						aria-expanded="false"
 					>
 						<span class="sr-only">Open user menu</span>
@@ -122,7 +122,7 @@
 					<div
 						bind:this={MenuBar}
 						id="dropdown-user"
-						class={`absolute ${isMenubarOpen ? '' : 'hidden'} right-0 z-50 mt-2 w-48 divide-y rounded-lg shadow-lg transition-all duration-200 ease-in-out divide-gray-600 bg-gray-700`}
+						class={`absolute ${isMenubarOpen ? '' : 'hidden'} right-0 z-50 mt-2 w-48 divide-y divide-gray-600 rounded-lg bg-gray-700 shadow-lg transition-all duration-200 ease-in-out`}
 					>
 						<div class="px-4 py-3">
 							<p class="text-sm text-white">{user?.user_metadata.name}</p>
@@ -135,7 +135,7 @@
 								<a
 									href="/dashboard"
 									onclick={handleLinkClick}
-									class="block px-4 py-2 text-sm transition-all duration-200 ease-in-out text-gray-300 hover:bg-gray-600"
+									class="block px-4 py-2 text-sm text-gray-300 transition-all duration-200 ease-in-out hover:bg-gray-600"
 									>Dashboard</a
 								>
 							</li>
@@ -143,14 +143,14 @@
 								<a
 									href="/dashboard/profile"
 									onclick={handleLinkClick}
-									class="block px-4 py-2 text-sm transition-all duration-200 ease-in-out text-gray-300 hover:bg-gray-600"
+									class="block px-4 py-2 text-sm text-gray-300 transition-all duration-200 ease-in-out hover:bg-gray-600"
 									>Profile</a
 								>
 							</li>
 							<li>
 								<button
 									onclick={signOut}
-									class="block w-full px-4 py-2 text-left text-sm transition-all duration-200 ease-in-out text-gray-300 hover:bg-gray-600"
+									class="block w-full px-4 py-2 text-left text-sm text-gray-300 transition-all duration-200 ease-in-out hover:bg-gray-600"
 									>Sign out</button
 								>
 							</li>
@@ -165,7 +165,7 @@
 	<aside
 		bind:this={SideBar}
 		id="logo-sidebar"
-		class={`${isSidebarOpen ? '-translate-x-0' : '-translate-x-full'} fixed top-0 z-10 h-screen w-64 border-r pt-20 transition-transform duration-300 ease-in-out lg:fixed lg:translate-x-0 border-gray-700 bg-[#141414e9]`}
+		class={`${isSidebarOpen ? '-translate-x-0' : '-translate-x-full'} fixed top-0 z-10 h-screen w-64 border-r border-gray-700 bg-[#141414e9] pt-20 transition-transform duration-300 ease-in-out lg:fixed lg:translate-x-0`}
 	>
 		<ul class="space-y-2 px-3 font-medium">
 			<li>
@@ -174,7 +174,7 @@
 						handleLinkClick();
 						goto('/');
 					}}
-					class="inline-flex w-full gap-4 rounded p-2 pl-4 text-left transition-all duration-200 ease-in-out text-white hover:bg-gray-700"
+					class="inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-white transition-all duration-200 ease-in-out hover:bg-gray-700"
 					><i class="fi fi-rr-home"></i>Home</button
 				>
 			</li>
@@ -199,7 +199,7 @@
 						}}
 						class="{active == '/dashboard/team'
 							? 'bg-slate-800 hover:bg-slate-700'
-							: 'hover:bg-gray-700'} inline-flex w-full hover:bg-gray-700 gap-4 rounded p-2 pl-4 text-left text-white"
+							: 'hover:bg-gray-700'} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-white hover:bg-gray-700"
 					>
 						<i class="fi fi-sr-team-check"></i>Team
 					</button>
@@ -213,7 +213,7 @@
 						}}
 						class="{active == '/dashboard/team'
 							? 'bg-slate-800 hover:bg-slate-700'
-							: 'hover:bg-gray-700'} inline-flex w-full gap-4 rounded p-2 pl-4 text-left hover:bg-gray-700 text-white"
+							: 'hover:bg-gray-700'} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-white hover:bg-gray-700"
 					>
 						<i class="fi fi-sr-users-medical"></i>Register Team
 					</button>
@@ -227,7 +227,7 @@
 					}}
 					class="{active == '/dashboard/profile'
 						? 'bg-slate-800 hover:bg-slate-700'
-						: 'hover:bg-gray-700'} inline-flex w-full gap-4 rounded p-2 pl-4 text-left hover:bg-gray-700 text-white"
+						: 'hover:bg-gray-700'} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-white hover:bg-gray-700"
 					><i class="fi fi-sr-user-pen"></i>Profile</button
 				>
 			</li>

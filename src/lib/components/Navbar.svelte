@@ -83,7 +83,7 @@
 </script>
 
 <nav
-	class="fixed start-0 top-0 z-[10000] w-full rounded-sm border-b pl-2 backdrop-blur-md backdrop-filter sm:rounded-none sm:pl-6 sm:pr-4 border-gray-600 bg-gray-900 bg-opacity-30"
+	class="fixed start-0 top-0 z-[10000] w-full rounded-sm border-b border-gray-600 bg-gray-900 bg-opacity-30 pl-2 backdrop-blur-md backdrop-filter sm:rounded-none sm:pl-6 sm:pr-4"
 >
 	<div class="mx-auto flex flex-wrap items-center justify-between gap-4 p-4" id="logo-ani">
 		<a
@@ -145,7 +145,7 @@
 				<span class="text-md relative font-semibold">{navButton.title}</span>
 			</button>
 			<button
-				class="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 md:hidden text-gray-400 hover:bg-gray-700 focus:ring-gray-600"
+				class="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600 md:hidden"
 				type="button"
 				onclick={toggleNavbar}
 				aria-controls="navbar-sticky"
@@ -188,12 +188,12 @@
 			bind:this={NavBar}
 		>
 			<div
-				class="flex flex-col gap-6 rounded-lg border bg-gray-50 p-6 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 rtl:space-x-reverse border-gray-700 bg-transparent bg-opacity-30 md:bg-opacity-30"
+				class="flex flex-col gap-6 rounded-lg border border-gray-700 bg-gray-50 bg-transparent bg-opacity-30 p-6 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-opacity-30 md:p-0 rtl:space-x-reverse"
 			>
 				{#each NavLinks as NavLink}
 					<a
 						href="/"
-						class="block cursor-pointer rounded px-3 py-2 text-center md:p-0 border-gray-700 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent md:hover:text-orange-400"
+						class="block cursor-pointer rounded border-gray-700 px-3 py-2 text-center text-white hover:bg-gray-700 hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-orange-400"
 						onclick={(event) => {
 							event.preventDefault();
 							handleLinkClick();
