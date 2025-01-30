@@ -63,6 +63,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Dashboard - Neurathon</title>
+</svelte:head>
+
 <section class="flex h-auto w-full flex-col items-center justify-center gap-4">
 	<nav class="mt-2 flex w-full" aria-label="Breadcrumb">
 		<ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -110,7 +114,7 @@
 		</ol>
 	</nav>
 	<div class="w-full text-left text-2xl font-semibold text-white">
-		<TextGenerateEffect words={`Welcome, ${data.user?.user_metadata.name || 'user'}`} />
+		<TextGenerateEffect className="text-white" words={`Welcome, ${data.user?.user_metadata.name || 'user'}`} />
 	</div>
 	<!-- <div class="z-0 rounded-lg text-white"><Notification /></div> -->
 	<div class="flex w-full flex-row flex-wrap justify-evenly gap-4 lg:flex-row lg:flex-nowrap">

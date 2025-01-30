@@ -19,12 +19,12 @@
 
 <div class={cn('font-bold', className)}>
 	<div class="">
-		<div class=" text-2xl leading-snug tracking-wide text-black dark:text-white">
+		<div class="text-2xl leading-snug tracking-wide text-white">
 			<Motion let:motion custom={0} {variants} initial="hidden" animate={'visible'}>
 				<div use:motion>
 					{#each words.split(' ') as word, idx (`${word}${idx}`)}
 						<Motion let:motion {variants} custom={idx + 1} initial="hidden" animate={'visible'}>
-							<span use:motion class="text-black dark:text-white">
+							<span use:motion class="text-white">
 								{word}{' '}
 							</span>
 						</Motion>

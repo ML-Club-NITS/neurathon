@@ -231,6 +231,18 @@
 					><i class="fi fi-sr-user-pen"></i>Profile</button
 				>
 			</li>
+			<li>
+				<button
+					onclick={() => {
+						handleLinkClick();
+						goto('/dashboard/help');
+					}}
+					class="{active == '/dashboard/help'
+						? 'bg-slate-800 hover:bg-slate-700'
+						: 'hover:bg-gray-700'} inline-flex w-full gap-4 rounded p-2 pl-4 text-left text-white hover:bg-gray-700"
+					><i class="fi fi-rr-interrogation"></i>Help</button
+				>
+			</li>
 		</ul>
 	</aside>
 

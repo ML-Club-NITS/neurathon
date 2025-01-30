@@ -57,7 +57,8 @@
 				<button
 					class="self-center rounded-md bg-indigo-600/25 px-6 py-3 text-lg font-semibold text-white transition-all duration-200 ease-in-out hover:bg-indigo-600/55 focus:outline-none focus:ring-2 focus:ring-indigo-800/25 focus:ring-offset-2"
 					onclick={() => {
-						goto(`/${route}`);
+						if (String(route).includes('http')) window.open(route, '_blank');
+						else goto(`/${route}`);
 					}}
 					aria-label="Notification"
 				>
