@@ -63,7 +63,7 @@
 		<Hero />
 	</section>
 
-	<main class="container">
+	<main class="container z-10">
 		<enhanced:img src="/static/dgg.webp" class="dgg -z-10" alt="dgg" />
 		<img src="/bubble.webp" class="background-image -z-10" alt="Decorative" />
 		<section class="container z-10">
@@ -81,7 +81,7 @@
 			<Prizes />
 		</section>
 
-		<enhanced:img src="/static/Mobius.webp" class="modius -z-10" alt="modius" />
+		<enhanced:img src="/static/Mobius.webp" class="modius -z-30" alt="modius" />
 		<section class="container">
 			<Sponsors />
 		</section>
