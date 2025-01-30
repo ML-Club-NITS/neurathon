@@ -16,7 +16,7 @@
 	let submitting = $state(false);
 
 	let { data, form } = $props();
-	let { user, TeamID, team, profileCompleted, phase, banner } = $derived(data);
+	let { user, TeamID, team, profileCompleted, phase } = $derived(data);
 
 	// Mouse hover effects
 	let mouseX = useMotionValue(0);
@@ -284,7 +284,10 @@
 		<span class="sr-only">Info</span>
 		<div>
 			<Notification
-				data={{ msg: banner?.message ?? 'Team registration is closed.', color: 'red-500' }}
+				data={{
+					header: 'Registrations are Over ‼️',
+					msg: 'You missed the deadline. The hackathon has already started.'
+				}}
 			/>
 		</div>
 	{:else}
@@ -292,8 +295,7 @@
 			<div>
 				<Notification
 					data={{
-						msg: 'Create or join a team to participate in the event before deadline.',
-						color: 'red-500'
+						msg: 'Create or join a team to participate in the event before deadline.'
 					}}
 				/>
 			</div>

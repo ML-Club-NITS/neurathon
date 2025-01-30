@@ -7,7 +7,7 @@
 </svelte:head>
 
 <div>
-    <nav class="mt-1 mb-3 w-full" aria-label="Breadcrumb">
+	<nav class="mb-3 mt-1 w-full" aria-label="Breadcrumb">
 		<ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
 			<li class="inline-flex items-center">
 				<a
@@ -69,8 +69,7 @@
 							d="m1 9 4-4-4-4"
 						/>
 					</svg>
-					<span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400"
-						>Help</span
+					<span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">Help</span
 					>
 				</div>
 			</li>

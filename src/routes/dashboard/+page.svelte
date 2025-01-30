@@ -114,7 +114,10 @@
 		</ol>
 	</nav>
 	<div class="w-full text-left text-2xl font-semibold text-white">
-		<TextGenerateEffect className="text-white" words={`Welcome, ${data.user?.user_metadata.name || 'user'}`} />
+		<TextGenerateEffect
+			className="text-white"
+			words={`Welcome, ${data.user?.user_metadata.name || 'user'}`}
+		/>
 	</div>
 	<!-- <div class="z-0 rounded-lg text-white"><Notification /></div> -->
 	<div class="flex w-full flex-row flex-wrap justify-evenly gap-4 lg:flex-row lg:flex-nowrap">
