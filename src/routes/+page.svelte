@@ -81,8 +81,8 @@
 			<Prizes />
 		</section>
 
-		<enhanced:img src="/static/Mobius.webp" class="modius -z-30" alt="modius" />
-		<section class="container">
+		<enhanced:img src="/static/Mobius.webp" class="modius -z-[100]" alt="modius" />
+		<section class="container z-10">
 			<Sponsors />
 		</section>
 
