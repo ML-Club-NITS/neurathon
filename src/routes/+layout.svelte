@@ -44,6 +44,8 @@
 	<meta property="og:description" content={seo.description} />
 	<meta property="og:image" content={seo.ogImage} />
 	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="Neurathon - Innovate with Intelligence" />
+	<meta property="og:url" content="https://neurathon.mlclubnits.com/">
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content={seo.title} />
 	<meta name="twitter:description" content={seo.description} />
