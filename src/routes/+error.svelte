@@ -11,7 +11,6 @@
 
 <svelte:head>
 	<title>Page Not Found - Neurathon</title>
-	<meta name="robots" content="noindex" />
 </svelte:head>
 
 <div
