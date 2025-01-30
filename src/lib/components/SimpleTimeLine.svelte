@@ -53,7 +53,7 @@
 </script>
 
 <section
-	class="mb-[200px] ml-4 flex h-screen w-full flex-col items-center justify-center bg-transparent px-2 pt-20 md:my-36 md:mb-[250px] md:px-10"
+	class="mb-[200px] ml-4 flex h-screen w-full flex-col items-center justify-center bg-transparent px-2 pt-16 md:my-36 md:mb-[250px] md:px-10"
 	id="timeline"
 >
 	<span

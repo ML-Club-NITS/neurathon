@@ -63,31 +63,31 @@
 		<Hero />
 	</section>
 
-	<main class="container z-10">
+	<main class="container">
 		<enhanced:img src="/static/dgg.webp" class="dgg -z-10" alt="dgg" />
 		<img src="/bubble.webp" class="background-image -z-10" alt="Decorative" />
-		<section class="container z-10">
+		<section class="container z-[100]">
 			<About />
 		</section>
 
 		<enhanced:img src="/static/cool1.webp" class="cool1 -z-10" alt="cool1" />
-		<section class="container z-10">
+		<section class="container z-[100]">
 			<SimpleTimeLine />
 		</section>
 
 		<enhanced:img src="/static/Glass _Knot_.webp" class="glass -z-10" alt="glass" />
 		<enhanced:img src="/static/drop2.webp" class="drop2 -z-10" alt="drop2" />
-		<section class="container z-10">
+		<section class="container z-[100]">
 			<Prizes />
 		</section>
 
 		<enhanced:img src="/static/Mobius.webp" class="modius -z-[100]" alt="modius" />
-		<section class="container z-10">
+		<section class="container z-[100]">
 			<Sponsors />
 		</section>
 
 		<img src="/bubble.webp" class="bubble2 -z-10" alt="bubble2" />
-		<section class="container z-10">
+		<section class="container z-[100]">
 			<FAQs />
 		</section>
 	</main>

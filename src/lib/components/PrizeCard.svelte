@@ -6,7 +6,7 @@
 	export let image;
 </script>
 
-<section id="prizes" class="font-sans h-full w-full justify-center z-[30]">
+<section id="prizes" class="font-sans z-[30] h-full w-full justify-center">
 	<div class="card-container mx-auto">
 		<div class="card">
 			<div class="card-prize-container scale-[0.70]">
