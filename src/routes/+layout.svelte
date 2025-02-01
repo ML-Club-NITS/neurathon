@@ -33,7 +33,7 @@
 		keywords:
 			'Neurathon, AI hackathon, Machine Learning hackathon, ML competition, AI innovation, data science hackathon, coding competition, AI challenges, ML projects, hackathon 2025, Neurathon registration, AI developers, ML enthusiasts, Neurathon prizes, Neurathon winners',
 		ogImage:
-			'https://res.cloudinary.com/db7rduqjv/image/upload/v1737929627/neurathon/fvy4voyecxfotlr61ts3.png'
+			'https://res.cloudinary.com/db7rduqjv/image/upload/v1738400707/favicon_nc0ekn.png'
 	};
 </script>
 
