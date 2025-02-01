@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Hero, About, Prizes, SimpleTimeLine, Sponsors, FAQs, Footer } from '$lib/components';
+	import { Hero, About, Prizes, SimpleTimeLine, Sponsors, FAQs, Footer, SpeakerCard } from '$lib/components';
 
 	let scrollPosition = 0;
 
@@ -75,13 +75,17 @@
 			<SimpleTimeLine />
 		</section>
 
-		<enhanced:img src="/static/Glass _Knot_.webp" class="glass -z-10" alt="glass" />
+		<section class="z-[1000] mx-10">
+			<SpeakerCard />
+		</section>
+
+		<enhanced:img src="/static/Glass _Knot_.webp" class="glass !-z-10" alt="glass" />
 		<enhanced:img src="/static/drop2.webp" class="drop2 -z-10" alt="drop2" />
 		<section class="container z-[100]">
 			<Prizes />
 		</section>
 
-		<enhanced:img src="/static/Mobius.webp" class="modius -z-[100]" alt="modius" />
+		<enhanced:img src="/static/Mobius.webp" class="modius !-z-[100]" alt="modius" />
 		<section class="container z-[100]">
 			<Sponsors />
 		</section>

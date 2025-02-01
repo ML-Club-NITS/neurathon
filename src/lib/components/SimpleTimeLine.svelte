@@ -53,7 +53,7 @@
 </script>
 
 <section
-	class="mb-[200px] ml-4 flex h-screen w-full flex-col items-center justify-center bg-transparent px-2 pt-16 md:my-36 md:mb-[250px] md:px-10"
+	class="mb-[200px] ml-4 flex h-auto w-full flex-col items-center justify-center bg-transparent px-2 pt-16 md:my-14 md:mb-[150px] md:px-10"
 	id="timeline"
 >
 	<span
@@ -89,7 +89,7 @@
 					{/if}
 				</svg>
 
-				<div class="mx-6 -mt-9 rounded-xl border-2 border-gray-600 px-2 pb-2">
+				<div class="mx-6 -mt-9 !p-4 rounded-xl border-2 border-gray-600 px-2 pb-2">
 					<h4 class="text-xl font-bold text-slate-200 sm:text-3xl">{event.title}</h4>
 					<div class="mt-2 flex flex-col text-xl text-gray-500 sm:text-2xl">
 						<span class={getModeClass(event.mode)}>{event.mode}</span>
