@@ -128,7 +128,7 @@
 		<!-- <EventTimer {eventTime} {currentTime} {EventName} {EventDescription}/> -->
 		<!-- <GitHistory {commits}/> -->
 		<!-- <ProblemStatementCard /> -->
-		<div class="flex w-full flex-col gap-4 rounded-lg md:max-w-[70%] lg:max-w-[60%]">
+		<div class="flex w-full flex-col gap-4 rounded-lg md:max-w-[70%] lg:max-w-[80%]">
 			{#if phase === 1}
 				{#if !profileCompleted}
 					<Notification

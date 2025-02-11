@@ -17,3 +17,5 @@ export { default as SubmissionCard } from './SubmissionCard.svelte';
 export { default as Notification } from './Notification.svelte';
 export { default as EventTimer } from './EventTimer.svelte';
 export { default as ProblemStatementCard } from './ProblemStatementCard.svelte';
+export { default as ProblemCard } from './ProblemCard.svelte';
+export { default as ProblemDetails } from './ProblemDetails.svelte';
