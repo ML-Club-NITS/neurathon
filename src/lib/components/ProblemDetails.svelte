@@ -7,14 +7,14 @@
 
 {#if isOpen}
 	<div
-		class="group absolute px-4 md:px-12 lg:px-48 xl:px-24 inset-0 flex items-center lg:translate-x-32 justify-center bg-slate-800/55 p-2 "
+		class="group absolute inset-0 flex items-center justify-center bg-slate-800/55 p-2 px-4 md:px-12 lg:translate-x-32 lg:px-48 xl:px-24"
 		on:click={closePopup}
 		role="button"
 		tabindex="0"
 		on:keydown={(e) => e.key === 'Enter' && closePopup()}
 	>
 		<div
-			class="xl:max-w-[850px] rounded-lg border border-slate-600 bg-slate-700/15 p-6 shadow-xl backdrop-blur-md transition-all duration-300 "
+			class="rounded-lg border border-slate-600 bg-slate-700/15 p-6 shadow-xl backdrop-blur-md transition-all duration-300 xl:max-w-[850px]"
 			on:click|stopPropagation
 			role="button"
 			tabindex="0"
@@ -34,7 +34,7 @@
 					</span>
 
 					<p
-						class="lg:text:-xl mt-2 bg-gradient-to-b from-white to-neutral-500 bg-clip-text font-semibold text-transparent text-center text-[0.7rem] md:text-[0.85rem]"
+						class="lg:text:-xl mt-2 bg-gradient-to-b from-white to-neutral-500 bg-clip-text text-center text-[0.7rem] font-semibold text-transparent md:text-[0.85rem]"
 					>
 						{statement.overview}
 					</p>
@@ -52,7 +52,7 @@
 
 					<div>
 						<h3 class="text-lg font-semibold text-neutral-200">Environment</h3>
-						<div class="text-neutral-400 text-[0.7rem] md:text-[0.85rem]">
+						<div class="text-[0.7rem] text-neutral-400 md:text-[0.85rem]">
 							<p class="pt-1">
 								<strong>Datasets:</strong>
 								{statement.environment.datasets.join(', ')}
@@ -65,7 +65,7 @@
 						</div>
 					</div>
 				</div>
-                </div>
+			</div>
 			<button
 				class="mt-4 rounded bg-slate-700 px-4 py-2 text-white transition-colors duration-300 hover:bg-slate-300 hover:text-black"
 				on:click={closePopup}

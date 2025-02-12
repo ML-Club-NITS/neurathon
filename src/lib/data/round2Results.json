@@ -4,10 +4,7 @@
 		{
 			"rank": 1,
 			"teamName": "Team Alpha",
-			"id": "team-id",
-			"points": 1500,
-			"gitRepoLink": "https://github.com/team-alpha",
-			"deploymentLink": "https://team-alpha.com"
+			"collegeName": "National Institute of Technology, Silchar"
 		}
 	]
 }

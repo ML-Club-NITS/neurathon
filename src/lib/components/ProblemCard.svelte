@@ -30,7 +30,7 @@
 		mouseX.set(e.clientX - left);
 		mouseY.set(e.clientY - top);
 	}}
-	class="group relative w-full overflow-hidden rounded-lg border border-gray-700 bg-gradient-to-r from-indigo-900/[0.3] to-black/[0.5] p-8 text-white opacity-95 shadow-xl backdrop-blur-sm transition-all duration-300 hover:opacity-100 flex flex-col items-start justify-start cursor-pointer"
+	class="group relative flex w-full cursor-pointer flex-col items-start justify-start overflow-hidden rounded-lg border border-gray-700 bg-gradient-to-r from-indigo-900/[0.3] to-black/[0.5] p-8 text-white opacity-95 shadow-xl backdrop-blur-sm transition-all duration-300 hover:opacity-100"
 	onclick={handleClick}
 	onkeydown={(e) => e.key === 'Enter' && handleClick()}
 	aria-label={`statement: ${statement.title}`}
@@ -49,16 +49,16 @@
 
 	<div class="flex flex-col justify-start space-y-4">
 		<span
-			class="inline-flex animate-text-gradient bg-gradient-to-r from-[#FFFFFF] via-[#CBCBCB] to-[#FFFFFF] bg-[200%_auto] bg-clip-text text-center font-Inter text-[0.95rem] md:text-[1.05rem] font-bold text-transparent"
+			class="font-Inter inline-flex animate-text-gradient bg-gradient-to-r from-[#FFFFFF] via-[#CBCBCB] to-[#FFFFFF] bg-[200%_auto] bg-clip-text text-center text-[0.95rem] font-bold text-transparent md:text-[1.05rem]"
 		>
 			{statement.title}
 		</span>
-		<p class="text-center text-gray-300 text-[0.65rem] md:text-[0.85rem]">
+		<p class="text-center text-[0.65rem] text-gray-300 md:text-[0.85rem]">
 			{statement.overview}
 		</p>
-		<span class="text-slate-600 text-center text-[0.85rem] md:text-[0.95rem">Tap for more info</span>
+		<span class="md:text-[0.95rem text-center text-[0.85rem] text-slate-600">Tap for more info</span
+		>
 	</div>
-
 </div>
 
 <style>

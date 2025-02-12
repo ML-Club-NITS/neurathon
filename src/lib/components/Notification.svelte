@@ -49,7 +49,7 @@
 				<p
 					class="mt-2 bg-gradient-to-b from-white to-neutral-500 bg-clip-text px-4 text-xl font-semibold text-transparent"
 				>
-					{msg}
+					{@html msg}
 				</p>
 			</div>
 			<!-- <div class="git-add-button"></div> -->

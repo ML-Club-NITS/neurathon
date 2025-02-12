@@ -37,18 +37,17 @@
 
 <div class="prob-container relative flex flex-col justify-center pt-6">
 	<span
-		class="animate-text-gradient bg-gradient-to-r from-[#FFFFFF] via-[#7e7e7e] to-[#FFFFFF] bg-[200%_auto] bg-clip-text text-center font-LeagueSpartanFont text-3xl font-bold text-transparent md:text-4xl lg:text-5xl mb-4 mt-10"
+		class="mb-4 mt-10 animate-text-gradient bg-gradient-to-r from-[#FFFFFF] via-[#7e7e7e] to-[#FFFFFF] bg-[200%_auto] bg-clip-text text-center font-LeagueSpartanFont text-3xl font-bold text-transparent md:text-4xl lg:text-5xl"
 	>
 		Problem Statements
 	</span>
 
 	<div class="grid grid-cols-1 justify-center gap-6 md:grid-cols-2 lg:grid-cols-3">
 		{#each problemStatements as statement}
-			<ProblemCard statement={statement} on:select={() => handleEventSelect(statement)} />
+			<ProblemCard {statement} on:select={() => handleEventSelect(statement)} />
 		{/each}
 	</div>
 </div>
 {#if selectedEvent}
 	<ProblemDetails statement={selectedEvent} isOpen={isPopupOpen} {closePopup} />
 {/if}
-
