@@ -42,7 +42,7 @@
 		Problem Statements
 	</span>
 
-	<div class="grid grid-cols-1 justify-center gap-6 md:grid-cols-2 lg:grid-cols-3">
+	<div class="flex flex-col gap-4">
 		{#each problemStatements as statement}
 			<ProblemCard {statement} on:select={() => handleEventSelect(statement)} />
 		{/each}
