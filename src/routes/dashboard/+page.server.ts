@@ -12,7 +12,8 @@ export const actions: Actions = {
 		const round1Data = {
 			github,
 			deployment,
-			uml
+			uml,
+			statementID
 		};
 
 		const { error } = await supabase
