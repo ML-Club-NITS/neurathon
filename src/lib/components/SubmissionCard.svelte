@@ -117,12 +117,12 @@
 			novalidate
 		>
 			<div>
-				<label for="problem-statement" class="block text-sm font-medium text-neutral-400">
+				<label for="statementID" class="block text-sm font-medium text-neutral-400">
 					Problem Statement <span class="text-red-500">*</span>
 				</label>
 				<select
-					id="problem-statement"
-					name="problem-statement"
+					id="statementID"
+					name="statementID"
 					bind:value={selectedProblemStatement}
 					class="w-full rounded-md border {errors.problemStatement
 						? 'border-red-500'

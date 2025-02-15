@@ -6,6 +6,7 @@ export const actions: Actions = {
 		const github = formData.get('github-repo') as string;
 		const deployment = formData.get('deployment-link') as string;
 		const uml = formData.get('uml-design') as string;
+		const statementID = formData.get('statementID') as string;
 		const teamID = formData.get('teamID') as string;
 
 		const round1Data = {
