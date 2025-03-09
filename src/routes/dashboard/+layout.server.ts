@@ -152,7 +152,6 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 					TeamID: teamID,
 					team: team[0],
 					result1,
-					Q
 				};
 			} else {
 				return {
@@ -166,7 +165,7 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 					banner: {
 						message: 'Round 1 results will be declared soon.',
 						route: '/dashboard'
-					}
+					},
 				};
 			}
 		} else if (current.phase === 4) {

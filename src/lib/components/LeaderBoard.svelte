@@ -93,7 +93,7 @@
 	</Motion>
 
 	<!-- Title -->
-	<h1 class="mb-6 text-center text-2xl font-bold text-white/90">Leaderboard</h1>
+	<h1 class="mb-6 text-center text-2xl font-bold text-white/90">Qualified Teams</h1>
 
 	<!-- Search Input -->
 	<div class="mb-6">
@@ -168,4 +168,6 @@
 			{'>'}
 		</button>
 	</div>
+
+	<span class="text-sm text-red-600">* Order does not indicate rank</span>
 </div>
