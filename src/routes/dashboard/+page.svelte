@@ -28,7 +28,7 @@
 	} = $derived(data);
 
 	let teamLead = $derived(team && user ? team.CreatedBy === user.id : false);
-	let qualifiedR1 = $derived(result1?.results?.includes(TeamID) || false);
+	let qualifiedR1 = $derived(result1?.results.find((id) => id.TeamID === TeamID) ? true : false);
 
 	$effect(() => {
 		if (form?.error) {
