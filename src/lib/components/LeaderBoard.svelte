@@ -111,7 +111,7 @@
 			<TableHead theadClass="rounded-md text-white bg-gray-800">
 				<TableHeadCell
 					class="border border-b-0 border-r-0 border-gray-950 bg-black px-4 py-3 shadow-lg backdrop-blur-sm"
-					>Rank</TableHeadCell
+					>ID</TableHeadCell
 				>
 				<TableHeadCell
 					class="border-t border-gray-950 bg-black px-4 py-3 shadow-lg backdrop-blur-sm"

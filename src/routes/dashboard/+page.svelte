@@ -24,6 +24,7 @@
 		endTime,
 		result1,
 		result,
+		Q,
 		notification = { message: '', duration: 1000 }
 	} = $derived(data);
 
@@ -189,7 +190,7 @@
 							msg: 'Results will be announced soon. Stay tuned!'
 						}}
 					/>
-				{:else if qualifiedR1}
+				{:else if Q}
 					<!-- Notification for qualifying for the offline round -->
 					<Notification
 						data={{
@@ -223,7 +224,7 @@
 				{#if result1 && result1.declared}
 					<LeaderBoard items={result1.results} />
 				{/if}
-			{:else if !qualifiedR1}
+			{:else if !Q}
 				<!-- Notification for not qualifying for the offline round -->
 				<Notification
 					data={{

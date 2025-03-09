@@ -1,10 +1,65 @@
 {
-	"declared": false,
+	"declared": true,
 	"results": [
 		{
 			"rank": 1,
-			"teamName": "Team Alpha",
+			"teamName": "Bilahi Gang",
+			"TeamID": "25497405-364c-4fac-ac1f-aede9eb8986d",
 			"collegeName": "National Institute of Technology, Silchar"
+		},
+		{
+			"rank": 2,
+			"teamName": "Chaos",
+			"TeamID": "13a4b014-728b-45bc-91a9-9083a5c7bbc1",
+			"collegeName": "National Institute of Technology, Silchar"
+		},
+		{
+			"rank": 3,
+			"teamName": "DeepThinker",
+			"TeamID": "67996da2-e180-43b6-b814-3458208e88c2",
+			"collegeName": "National Institute of Technology, Silchar"
+		},
+		{
+			"rank": 4,
+			"teamName": "Enigma",
+			"TeamID": "0b0ad23f-fcd7-42d6-91e1-06117192579f",
+			"collegeName": "The Assam Kaziranga University"
+		},
+		{
+			"rank": 5,
+			"teamName": "Regressors ",
+			"TeamID": "86dcc375-0489-4992-a580-52eea471777a",
+			"collegeName": "National Institute of Technology, Silchar"
+		},
+		{
+			"rank": 6,
+			"teamName": "Semicolon;",
+			"TeamID": "a923db48-26d1-4268-a156-af6221e0d41c",
+			"collegeName": "National Institute of Technology, Manipur"
+		},
+		{
+			"rank": 7,
+			"teamName": "Team 0101",
+			"TeamID": "75238108-ff9f-489e-82b7-e96d2e5f44a4",
+			"collegeName": "National Institute of Technology, Silchar"
+		},
+		{
+			"rank": 8,
+			"teamName": "Team Avanish",
+			"TeamID": "2bad26f0-3f2b-4ae6-b19f-f713dfdeb4fa",
+			"collegeName": "National Institute of Technology, Silchar"
+		},
+		{
+			"rank": 9,
+			"teamName": "The beginners ",
+			"TeamID": "42561136-5627-4b62-9697-7d9b295fae7f",
+			"collegeName": "National Institute of Technology, Silchar"
+		},
+		{
+			"rank": 10,
+			"teamName": "Think ML",
+			"TeamID": "b4537054-7106-43f1-8d9a-f562ee7d4921",
+			"collegeName": "VIT Bhopal University"
 		}
 	]
 }

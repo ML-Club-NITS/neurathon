@@ -142,9 +142,7 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 			}
 		} else if (current.phase === 3) {
 			if (result1.declared) {
-				const message = result1.results.find((id) => id === teamID)
-					? "You're eligible for final round. Our team will contact you soon."
-					: "Thank you for participating in Neuarthon. We'll see you next time.";
+				const Q = result1.results.find((id) => id.TeamID === teamID) ? 1 : 0;
 				return {
 					phase: current.phase,
 					profile: profile[0],
@@ -154,10 +152,7 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 					TeamID: teamID,
 					team: team[0],
 					result1,
-					banner: {
-						message: 'Round 1 results declared. ' + message,
-						route: '/dashboard'
-					}
+					Q
 				};
 			} else {
 				return {
