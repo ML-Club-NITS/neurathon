@@ -33,30 +33,24 @@
 		},
 		{
 			"rank": 6,
-			"teamName": "Semicolon;",
-			"TeamID": "a923db48-26d1-4268-a156-af6221e0d41c",
-			"collegeName": "National Institute of Technology, Manipur"
-		},
-		{
-			"rank": 7,
 			"teamName": "Team 0101",
 			"TeamID": "75238108-ff9f-489e-82b7-e96d2e5f44a4",
 			"collegeName": "National Institute of Technology, Silchar"
 		},
 		{
-			"rank": 8,
+			"rank": 7,
 			"teamName": "Team Avanish",
 			"TeamID": "2bad26f0-3f2b-4ae6-b19f-f713dfdeb4fa",
 			"collegeName": "National Institute of Technology, Silchar"
 		},
 		{
-			"rank": 9,
+			"rank": 8,
 			"teamName": "The beginners ",
 			"TeamID": "42561136-5627-4b62-9697-7d9b295fae7f",
 			"collegeName": "National Institute of Technology, Silchar"
 		},
 		{
-			"rank": 10,
+			"rank": 9,
 			"teamName": "Think ML",
 			"TeamID": "b4537054-7106-43f1-8d9a-f562ee7d4921",
 			"collegeName": "VIT Bhopal University"
