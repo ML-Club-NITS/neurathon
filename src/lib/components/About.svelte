@@ -25,7 +25,7 @@
 </script>
 
 <section
-	class="flex w-full items-center justify-center border-slate-500 px-5 py-6 md:px-28 md:py-12"
+	class="flex h-fit w-full items-center justify-center border-slate-500 px-5 py-6 md:px-28 md:py-0"
 	id="about"
 >
 	<ShineBorder class="bg-trans px-4 py-8 text-center capitalize" color={['#fde047', '#f97315']}>

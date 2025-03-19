@@ -1,5 +1,14 @@
 <script lang="ts">
-	import { Hero, About, Prizes, SimpleTimeLine, Sponsors, FAQs, Footer } from '$lib/components';
+	import {
+		Hero,
+		About,
+		Prizes,
+		SimpleTimeLine,
+		Sponsors,
+		SpeakerCard,
+		FAQs,
+		Footer
+	} from '$lib/components';
 
 	let scrollPosition = 0;
 
@@ -74,9 +83,13 @@
 		<section class="container z-[100]">
 			<SimpleTimeLine />
 		</section>
+		<section class="z-[1000] mx-10">
+			<SpeakerCard />
+		</section>
 
 		<enhanced:img src="/static/Glass _Knot_.webp" class="glass -z-10" alt="glass" />
 		<enhanced:img src="/static/drop2.webp" class="drop2 -z-10" alt="drop2" />
+
 		<section class="container z-[100]">
 			<Prizes />
 		</section>
