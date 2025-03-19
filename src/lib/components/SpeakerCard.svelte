@@ -1,5 +1,41 @@
 <script>
 	import { goto } from '$app/navigation';
+    import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+	gsap.registerPlugin(ScrollTrigger);
+
+	// $effect(() => {
+
+	// 	// Find the index of the active event
+	// 	let tl = gsap.timeline({
+	// 		scrollTrigger: {
+	// 			trigger: '#timeline',
+	// 			start: 'top center',
+	// 			end: '-=10',
+	// 			scrub: 1,
+	// 			once: true
+	// 			// markers:true
+	// 		}
+	// 	});
+
+	// 	// Animate the timeline border growing from 0% to 100%
+	// 	tl.fromTo(
+	// 		'#full_inside_simpletimeline',
+	// 		{ height: '0%' },
+	// 		{ height: '80%', duration: 3, ease: 'power2.out' }
+	// 	);
+
+	// 	// Fade-in and scale animation for the title and timeline
+	// 	tl.from(
+	// 		'#timeline, #inside_simpletimeline',
+	// 		{
+	// 			opacity: 0,
+	// 			scale: 0.95,
+	// 			duration: 1.2
+	// 		},
+	// 		'-=0.5'
+	// 	); // Overlap this animation slightly
+	// });
 </script>
 
 <span
@@ -8,7 +44,7 @@
 >
 	Speakers
 </span>
-<section class="!z-[1000] rounded-md text-white">
+<section class="!z-[1000] rounded-md text-white" id="timeline">
 	<div class="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
 		<div class="flex flex-col items-center gap-8 sm:flex-row">
 			<div class="order-2 sm:order-1">
