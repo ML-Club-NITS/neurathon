@@ -84,7 +84,7 @@
 			<SimpleTimeLine />
 		</section>
 		<br><br>
-		<section class="z-[1000] mx-10">
+		<section class="z-[1000]">
 			<SpeakerCard />
 		</section>
 

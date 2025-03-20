@@ -1,5 +1,4 @@
 <script>
-	import { goto } from '$app/navigation';
 	import InteractiveHover from '$lib/components/InteractiveHover.svelte';
 </script>
 
@@ -11,7 +10,7 @@
 </span>
 <section class="!z-[1000] rounded-md text-white">
 	<div class="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
-		<div class="flex flex-col-reverse items-center gap-8 md:grid md:grid-cols-3">
+		<div class="flex flex-col-reverse items-center gap-4 sm:gap-8 md:grid md:grid-cols-3">
 			<!-- Text section (2/3 width, appears below image on small screens) -->
 			<div class="text-center md:col-span-2 md:text-left">
 				<span
@@ -19,7 +18,7 @@
 						Swaroop Mishra
 					</h2></span
 				>
-				<p class="mt-4 text-balance text-justify text-lg">
+				<p class="mt-4 text-balance text-justify text-lg px-[5px]">
 					Swaroop Mishra is a Research Scientist at Google DeepMind, contributing to cutting-edge
 					reasoning systems like Gemini. His work has been instrumental in winning a Silver Medal at
 					the 2024 International Mathematical Olympiad and advancing state-of-the-art models like
@@ -51,7 +50,7 @@
 					</button>
 				</div>
 				<span class="flex justify-center mt-8">
-					<InteractiveHover text="RSVP" />
+					<InteractiveHover text="RSVP" href="https://meet.google.com/cxr-ahuq-kgq"/>
 				</span>
 			</div>
 
@@ -69,7 +68,7 @@
 
 <section class="!z-[1000] rounded-md text-white">
 	<div class="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
-		<div class="flex flex-col-reverse items-center gap-8 md:grid md:grid-cols-3">
+		<div class="flex flex-col-reverse items-center gap-4 sm:gap-8 md:grid md:grid-cols-3">
 			<!-- Text section (2/3 width, appears below image on small screens) -->
 			<div class="order-1 text-center md:order-2 md:col-span-2 md:text-left">
 				<span
@@ -77,7 +76,7 @@
 						Stefan Lattner
 					</h2></span
 				>
-				<p class="mt-4 text-balance text-justify text-lg">
+				<p class="mt-4 text-balance text-justify text-lg px-[5px]">
 					Stefan Lattner is a Research Leader at Sony Computer Science Laboratories (CSL) in Paris,
 					specializing in generative AI for music production, music information retrieval, and
 					representation learning. His work focuses on advancing audio synthesis, self-supervised
