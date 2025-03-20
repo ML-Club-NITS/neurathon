@@ -20,3 +20,4 @@ export { default as ProblemStatementCard } from './ProblemStatementCard.svelte';
 export { default as ProblemCard } from './ProblemCard.svelte';
 export { default as ProblemDetails } from './ProblemDetails.svelte';
 export { default as SpeakerCard } from './SpeakerCard.svelte';
+export { default as InteractiveHover } from './InteractiveHover.svelte';

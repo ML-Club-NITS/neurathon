@@ -83,6 +83,7 @@
 		<section class="container z-[100]">
 			<SimpleTimeLine />
 		</section>
+		<br><br>
 		<section class="z-[1000] mx-10">
 			<SpeakerCard />
 		</section>
