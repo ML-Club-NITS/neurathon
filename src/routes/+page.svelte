@@ -79,16 +79,16 @@
 			<About />
 		</section>
 
-		<enhanced:img src="/static/cool1.webp" class="cool1 -z-10" alt="cool1" />
+		<enhanced:img src="/static/cool1.webp" class="cool1 -z-100" alt="cool1" />
 		<section class="container z-[100]">
 			<SimpleTimeLine />
 		</section>
-		<br><br>
-		<section class="z-[1000]">
+		<br /><br />
+		<section class="z-[10000]">
 			<SpeakerCard />
 		</section>
 
-		<enhanced:img src="/static/Glass _Knot_.webp" class="glass -z-10" alt="glass" />
+		<enhanced:img src="/static/Glass _Knot_.webp" class="glass -z-1000" alt="glass" />
 		<enhanced:img src="/static/drop2.webp" class="drop2 -z-10" alt="drop2" />
 
 		<section class="container z-[100]">

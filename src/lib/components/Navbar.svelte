@@ -27,8 +27,8 @@
 
 	const NavLinks = [
 		{ id: 'about', title: 'About' },
-		{ id: 'timeline', title: 'Timeline' },
 		{ id: 'prizes', title: 'Prizes' },
+		{ id: 'speakers', title: 'Speakers' },
 		{ id: 'sponsors', title: 'Sponsors' },
 		{ id: 'faqs', title: 'FAQs' }
 	];
