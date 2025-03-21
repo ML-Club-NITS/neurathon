@@ -26,7 +26,7 @@
 	<!-- Sponsor Info -->
 	<div class="flex w-full flex-col justify-between md:w-3/4 lg:w-3/4">
 		<!-- <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{name}</h3> -->
-		<p class="mt-1 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+		<p class="mt-1 text-sm leading-relaxed text-gray-700 dark:text-slate-300">
 			{description}
 		</p>
 		<a
