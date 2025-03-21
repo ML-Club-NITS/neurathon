@@ -182,7 +182,8 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 					banner: {
 						message: 'Add your Github Repo.',
 						route: '/dashboard'
-					}
+					},
+					result1
 				};
 			} else {
 				return {
@@ -194,7 +195,8 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 					profileCompleted,
 					TeamID: teamID,
 					team: team[0],
-					githubLink: team[0]?.github
+					githubLink: team[0]?.github,
+					result1
 				};
 			}
 		} else if (current.phase === 5) {
@@ -211,7 +213,8 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 					banner: {
 						message: 'Final results declared.',
 						route: null
-					}
+					},
+					result1
 				};
 			} else {
 				return {
@@ -225,7 +228,8 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 					banner: {
 						message: 'Final results will be declared soon.',
 						route: null
-					}
+					},
+					result1
 				};
 			}
 		} else {
@@ -241,7 +245,8 @@ export const load: LayoutServerLoad = async ({ depends, locals: { supabase, user
 				banner: {
 					message: 'Bye Bye! Neurathon is over.',
 					route: null
-				}
+				},
+				result1
 			};
 		}
 	}
