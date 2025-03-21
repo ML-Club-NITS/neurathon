@@ -1,13 +1,16 @@
 <script>
-	import sponserData from '$lib/data/sponsers.json';
-	import sponsers from '$lib/data/prevSponsers';
+	import sponsersnew from '$lib/data/sponsers';
+	import sponsersold from '$lib/data/prevSponsers';
 
 	import { Marquee } from './ui';
 	import SponsorCard from './SponsorCard.svelte';
+	import NewSponsorCard from './NewSponsorCard.svelte';
 
-	let zeroRow = sponsers.slice(0, sponserData.sponsers.length);
-	// let firstRow = sponserData.sponsers.slice(0, sponserData.sponsers.length / 2);
-	// let secondRow = sponserData.sponsers.slice(sponserData.sponsers.length / 2);
+	// Extract past sponsors from sponsersold
+	let zeroRow = sponsersold.slice(0, sponsersold.length);
+
+	// Extract new sponsors from sponsersnew
+	let firstRow = sponsersnew.slice(0, sponsersnew.length);
 
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -36,6 +39,27 @@
 		<span
 			class="inline-flex w-fit animate-text-gradient text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 text-center text-2xl font-bold text-transparent md:text-3xl lg:text-5xl 2xl:text-8xl"
 		>
+			Our Sponsors
+		</span>
+	</div>
+	<div class="sponser_cards">
+		<div
+			class="bg-background relative flex w-full flex-col items-center justify-center gap-4 overflow-x-auto rounded-lg py-1 md:flex-row md:shadow-xl"
+		>
+			{#each firstRow as item}
+				<NewSponsorCard
+					name={item.name}
+					img={item.img}
+					description={item.description}
+					link={item.link}
+				/>
+			{/each}
+		</div>
+	</div>
+	<div class="sponser_intro pb-8" id="inside_sponsers">
+		<span
+			class="inline-flex w-fit animate-text-gradient text-wrap bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] bg-clip-text p-2 text-center text-2xl font-bold text-transparent md:text-3xl lg:text-5xl 2xl:text-8xl"
+		>
 			Past Sponsors
 		</span>
 	</div>
@@ -48,16 +72,6 @@
 					<SponsorCard name={item.name} img={item.img} />
 				{/each}
 			</Marquee>
-			<!-- <Marquee pauseOnHover class="[--duration:30s]">
-				{#each firstRow as item}
-					<SponsorCard {...item} />
-				{/each}
-			</Marquee>
-			<Marquee reverse pauseOnHover class="[--duration:30s]">
-				{#each secondRow as item}
-					<SponsorCard {...item} />
-				{/each}
-			</Marquee> -->
 			<div
 				class="dark:from-background pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black"
 			></div>

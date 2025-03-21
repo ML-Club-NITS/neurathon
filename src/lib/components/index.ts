@@ -21,3 +21,4 @@ export { default as ProblemCard } from './ProblemCard.svelte';
 export { default as ProblemDetails } from './ProblemDetails.svelte';
 export { default as SpeakerCard } from './SpeakerCard.svelte';
 export { default as InteractiveHover } from './InteractiveHover.svelte';
+export { default as NewSponsorCard } from './NewSponsorCard.svelte';
